@@ -7,7 +7,13 @@ use std::{
     sync::LazyLock,
 };
 
-const KNOWN_HWMONS: &[&str] = &["zenpower", "coretemp", "k10temp"];
+const KNOWN_HWMONS: &[&str] = &["zenpower", "coretemp", "k10temp", "cpu_hwmon", "loongson3"];
+
+/// Hwmons that belong to GPUs or other non-CPU devices. We must not mistake
+/// them for the CPU temperature sensor when falling back to a generic scan.
+const GPU_HWMON_NAMES: &[&str] = &[
+    "amdgpu", "radeon", "nouveau", "nvidia", "iwlwifi", "ath", "mt76", "nvme", "rtl",
+];
 
 const KNOWN_THERMAL_ZONES: &[&str] = &["x86_pkg_temp", "acpitz"];
 
@@ -31,13 +37,16 @@ static RE_LSCPU_VIRTUALIZATION: LazyLock<Regex> =
 static RE_LSCPU_MAX_MHZ: LazyLock<Regex> =
     LazyLock::new(|| Regex::new(r"CPU max MHz:\s*(.*)").unwrap());
 
+static RE_LSCPU_FLAGS: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"Flags:\s*(.*)").unwrap());
+
 static RE_PROC_STAT: LazyLock<Regex> = LazyLock::new(|| {
     Regex::new(r"cpu[0-9]* *(?P<user>[0-9]*) *(?P<nice>[0-9]*) *(?P<system>[0-9]*) *(?P<idle>[0-9]*) *(?P<iowait>[0-9]*) *(?P<irq>[0-9]*) *(?P<softirq>[0-9]*) *(?P<steal>[0-9]*) *(?P<guest>[0-9]*) *(?P<guest_nice>[0-9]*)").unwrap()
 });
 
 static CPU_TEMPERATURE_PATH: LazyLock<Option<PathBuf>> = LazyLock::new(|| {
-    let cpu_temperature_path =
-        search_for_hwmons(KNOWN_HWMONS).or_else(|| search_for_thermal_zones(KNOWN_THERMAL_ZONES));
+    let cpu_temperature_path = search_for_hwmons(KNOWN_HWMONS)
+        .or_else(|| search_for_thermal_zones(KNOWN_THERMAL_ZONES))
+        .or_else(|| search_for_any_cpu_hwmon());
 
     if let Some((sensor, path)) = &cpu_temperature_path {
         debug!(
@@ -76,6 +85,25 @@ fn search_for_thermal_zones(types: &[&'static str]) -> Option<(&'static str, Pat
                 if &read_type.trim_end() == temp_type {
                     return Some((temp_type, path.join("temp")));
                 }
+            }
+        }
+    }
+
+    None
+}
+
+/// Last-resort fallback: pick the first hwmon that exposes a `temp1_input` and
+/// is not obviously a GPU/peripheral sensor. Needed on platforms (e.g. LoongArch
+/// / Loongson) whose CPU temperature hwmon name isn't in `KNOWN_HWMONS`.
+fn search_for_any_cpu_hwmon() -> Option<(&'static str, PathBuf)> {
+    for path in (glob("/sys/class/hwmon/hwmon*").unwrap()).flatten() {
+        if let Ok(read_name) = std::fs::read_to_string(path.join("name")) {
+            let name = read_name.leak().trim_end();
+            if GPU_HWMON_NAMES.iter().any(|g| name.starts_with(g)) {
+                continue;
+            }
+            if path.join("temp1_input").exists() {
+                return Some((name, path.join("temp1_input")));
             }
         }
     }
@@ -187,6 +215,28 @@ pub fn cpu_info() -> Result<CpuInfo> {
         .captures(&lscpu_output)
         .and_then(|captures| captures.get(1).map(|capture| capture.as_str().into()));
 
+    // Fallback for platforms where lscpu does not emit a `Virtualization:`
+    // field. LoongArch / Loongson expose hardware virtualization through the
+    // `lvz` cpu flag instead; Intel/AMD do so through `vmx` / `svm`.
+    let virtualization = virtualization.or_else(|| {
+        RE_LSCPU_FLAGS
+            .captures(&lscpu_output)
+            .and_then(|captures| captures.get(1))
+            .map(|flags| {
+                let set: Vec<&str> = flags.as_str().split_whitespace().collect();
+                if set.contains(&"lvz") {
+                    "Loongson Virtualization (LVZ)".to_string()
+                } else if set.contains(&"vmx") {
+                    "VT-x".to_string()
+                } else if set.contains(&"svm") {
+                    "AMD-V".to_string()
+                } else {
+                    String::new()
+                }
+            })
+            .filter(|s| !s.is_empty())
+    });
+
     let max_speed = RE_LSCPU_MAX_MHZ
         .captures(&lscpu_output)
         .and_then(|captures| {
@@ -198,6 +248,11 @@ pub fn cpu_info() -> Result<CpuInfo> {
                     .map(|float| float * 1_000_000.0)
             })
         });
+
+    // Fallback for the maximum frequency: some platforms (e.g. LoongArch /
+    // Loongson) don't report `CPU max MHz` via lscpu and expose no cpufreq
+    // sysfs. Use the nominal per-core frequency from /proc/cpuinfo.
+    let max_speed = max_speed.or_else(|| get_cpu_freq_from_proc(0).ok().map(|hz| hz as f64));
 
     Ok(CpuInfo {
         model_name,
@@ -220,11 +275,47 @@ pub fn get_cpu_freq(core: usize) -> Result<u64> {
     std::fs::read_to_string(format!(
         "/sys/devices/system/cpu/cpu{core}/cpufreq/scaling_cur_freq"
     ))
-    .with_context(|| format!("unable to read scaling_cur_freq for core {core}"))?
-    .replace('\n', "")
-    .parse::<u64>()
-    .context("can't parse scaling_cur_freq to usize")
-    .map(|x| x * 1000)
+    .with_context(|| format!("unable to read scaling_cur_freq for core {core}"))
+    .and_then(|s| {
+        s.replace('\n', "")
+            .parse::<u64>()
+            .context("can't parse scaling_cur_freq to usize")
+            .map(|x| x * 1000)
+    })
+    .or_else(|_| get_cpu_freq_from_proc(core))
+}
+
+/// Fallback for platforms without a `cpufreq` sysfs interface (e.g. LoongArch /
+/// Loongson, where the `loongson3_cpufreq` driver is loaded but doesn't expose
+/// `scaling_cur_freq`). Reads the per-core frequency from `/proc/cpuinfo`'s
+/// `CPU MHz` field.
+fn get_cpu_freq_from_proc(core: usize) -> Result<u64> {
+    let cpuinfo =
+        std::fs::read_to_string("/proc/cpuinfo").context("unable to read /proc/cpuinfo")?;
+
+    for block in cpuinfo.split("\n\n") {
+        let mut proc_id: Option<usize> = None;
+        let mut mhz: Option<f64> = None;
+        for line in block.lines() {
+            let line = line.trim_start();
+            if let Some(rest) = line.strip_prefix("processor") {
+                if let Some(value) = rest.split(':').nth(1) {
+                    proc_id = value.trim().parse::<usize>().ok();
+                }
+            } else if let Some(rest) = line.strip_prefix("CPU MHz") {
+                if let Some(value) = rest.split(':').nth(1) {
+                    mhz = value.trim().parse::<f64>().ok();
+                }
+            }
+        }
+        if proc_id == Some(core) {
+            if let Some(mhz) = mhz {
+                return Ok((mhz * 1_000_000.0).round() as u64);
+            }
+        }
+    }
+
+    bail!("no frequency information for core {core}")
 }
 
 fn parse_proc_stat_line<S: AsRef<str>>(line: S) -> Result<(u64, u64)> {

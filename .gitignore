@@ -11,3 +11,8 @@ src/config.rs
 .flatpak-builder/
 .vscode/
 vendor
+
+# loong64 packaging artifacts
+pkgroot/
+*.deb
+.cargo/
