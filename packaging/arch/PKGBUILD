@@ -1,0 +1,29 @@
+# Maintainer: Yuri <yuri@localhost>
+# LoongArch port build. Upstream project is not packaged in the Arch repos.
+# Builds fetch crates from crates.io; set CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
+# and a mirror in ~/.cargo/config.toml if crates.io is unreachable.
+pkgname=resources
+pkgver=51.0+loong64
+pkgrel=1
+pkgdesc="Keep an eye on system resources (LoongArch port)"
+arch=('loong64')
+url="https://gitlab.gnome.org/GNOME/Incubator/resources"
+license=('GPL-3.0-or-later')
+depends=('glib2' 'gtk4' 'libadwaita' 'libsoup3' 'cairo' 'graphene' 'pango' 'gdk-pixbuf2' 'dconf')
+optdepends=('dmidecode: read DIMM information')
+makedepends=('rust' 'meson' 'ninja' 'pkgconf' 'gettext' 'desktop-file-utils' 'appstream')
+options=('!lto')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/acdcGGE/resources/archive/1dcebeb327c901bb7423f751f830551d088c511a.tar.gz")
+sha256sums=('ebcc90b08eb3c889e2f8d67e777ed3cbcf69f1b89f1402a5d45402caed4b9b19')
+
+build() {
+  cd "resources-1dcebeb327c901bb7423f751f830551d088c511a"
+  meson setup build --prefix=/usr --buildtype=release \
+    -Dprofile=release -Ddevelopment_build=false
+  meson compile -C build
+}
+
+package() {
+  cd "resources-1dcebeb327c901bb7423f751f830551d088c511a"
+  meson install -C build --destdir "$pkgdir"
+}
