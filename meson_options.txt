@@ -2,9 +2,15 @@ option(
   'profile',
   type: 'combo',
   choices: [
-    'default',
-    'development'
+    'release',
+    'dev'
   ],
-  value: 'development',
-  description: 'The build profile for Resources. One of "default" or "development".'
+  value: 'release',
+  description: 'The build profile for Resources. One of "dev" or "release".'
+)
+option(
+  'development_build',
+  type: 'boolean',
+  value: false,
+  description: 'Enables visual development build hints and git version information.'
 )

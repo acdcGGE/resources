@@ -1,0 +1,1966 @@
+# Swahili translation for resources.
+# Copyright (C) 2026 resources's COPYRIGHT HOLDER
+# This file is distributed under the same license as the resources package.
+# Malika Asman <asmanodeny@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resources main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/Incubator/resources/"
+"issues/\n"
+"POT-Creation-Date: 2026-07-30 17:38+0000\n"
+"PO-Revision-Date: 2026-08-01 18:47+0300\n"
+"Last-Translator: Malika Asman <asmanodeny@gmail.com>\n"
+"Language-Team: Swahili <Swahili>\n"
+"Language: sw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/org.gnome.Resources.desktop.in.in:2
+#: data/org.gnome.Resources.metainfo.xml.in.in:4 data/resources/ui/window.ui:22
+#: src/application.rs:284
+msgid "Resources"
+msgstr "Rasilimali"
+
+#. Translators: The summary should be 35 characters or less according to Flathub appstream guidelines
+#: data/org.gnome.Resources.desktop.in.in:3
+#: data/org.gnome.Resources.metainfo.xml.in.in:5
+msgid "Keep an eye on system resources"
+msgstr "Fuatilia rasilimali za mfumo wako"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Resources.desktop.in.in:9
+msgid "System;Resources;Monitor;Processes;Usage;Task;Manager;CPU;RAM;Memory;GPU;Performance;Power;Battery;"
+msgstr "Mfumo;Rasilimali;Kifuatiliaji;Michakato;Matumizi;Kazi;Msimamizi;CPU;RAM;Kumbukumbu;GPU;Utendaji;Nguvu;Betri;"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:17
+msgid ""
+"Resources allows you to check the utilization of your system resources and "
+"control your running processes and apps. It’s designed to be user-friendly "
+"and feel right at home on a modern desktop by using GNOME’s libadwaita."
+msgstr ""
+"Rasilimali hukuruhusu kuangalia matumizi ya rasilimali za mfumo wako na "
+"kudhibiti michakato na programu zinazoendesha. Imeundwa iwe rahisi kutumia "
+"na kuendana na hali ya kompyuta ya kisasa kwa kutumia libadwaita ya GNOME."
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:20
+msgid "Resources supports monitoring the following components:"
+msgstr "Rasilimali inaweza kufuatilia vipengele vifuatavyo:"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:24
+msgid "CPU"
+msgstr "CPU"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:25
+#: data/resources/ui/dialogs/app_dialog.ui:82
+#: data/resources/ui/dialogs/process_dialog.ui:64
+#: data/resources/ui/dialogs/settings_dialog.ui:118
+#: data/resources/ui/dialogs/settings_dialog.ui:210
+#: data/resources/ui/window.ui:175 data/resources/ui/window.ui:182
+#: src/ui/pages/applications/mod.rs:427 src/ui/pages/memory.rs:106
+#: src/ui/pages/memory.rs:192 src/ui/pages/processes/mod.rs:532
+msgid "Memory"
+msgstr "Kumbukumbu"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:26
+#: data/resources/ui/dialogs/app_dialog.ui:140
+#: data/resources/ui/dialogs/process_dialog.ui:118
+#: data/resources/ui/dialogs/settings_dialog.ui:148
+#: data/resources/ui/dialogs/settings_dialog.ui:240
+#: src/ui/pages/applications/mod.rs:517 src/ui/pages/gpu.rs:124
+#: src/ui/pages/processes/mod.rs:628 src/ui/window.rs:473
+msgid "GPU"
+msgstr "GPU"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:27
+#: data/resources/ui/dialogs/settings_dialog.ui:314
+msgid "Network Interfaces"
+msgstr "Miunganisho ya Mtandao"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:28
+msgid "Storage Devices"
+msgstr "Vifaa vya Hifadhi"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:29
+msgid "Batteries"
+msgstr "Betri"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:53
+msgid "Apps page in light theme"
+msgstr "Ukurasa wa Programu katika mandhari nyepesi"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:57
+msgid "Processes page in dark theme"
+msgstr "Ukurasa wa Michakato katika mandhari nyeusi"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:61
+msgid "Processor page in light theme"
+msgstr "Ukurasa wa Kichakataji katika mandhari nyepesi"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:65
+msgid "Memory page in dark theme"
+msgstr "Ukurasa wa Kumbukumbu katika mandhari nyeusi"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:69
+msgid "GPU page in light theme"
+msgstr "Ukurasa wa GPU katika mandhari nyepesi"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:73
+msgid "Drive page in dark theme"
+msgstr "Ukurasa wa Anatoa katika mandhari nyeusi"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:77
+msgid "Network Interface page in light theme"
+msgstr "Ukurasa wa Muunganisho wa Mtandao katika mandhari nyepesi"
+
+#: data/org.gnome.Resources.metainfo.xml.in.in:81
+msgid "Battery page in dark theme"
+msgstr "Ukurasa wa Betri katika mandhari nyeusi"
+
+#: data/org.gnome.Resources.policy.in.in:9
+msgid "Control Process"
+msgstr "Dhibiti Mchakato"
+
+#: data/org.gnome.Resources.policy.in.in:10
+msgid ""
+"Authentication is required to control superuser’s or other users’ processes"
+msgstr ""
+"Uthibitishaji unahitajika ili kudhibiti michakato ya msimamizi mkuu au "
+"watumiaji wengine"
+
+#: data/resources/ui/dialogs/app_dialog.ui:7
+#: data/resources/ui/pages/applications.ui:90
+#: data/resources/ui/pages/applications.ui:92
+msgid "App Information"
+msgstr "Taarifa za Programu"
+
+#: data/resources/ui/dialogs/app_dialog.ui:70
+#: data/resources/ui/dialogs/process_dialog.ui:48
+#: data/resources/ui/pages/battery.ui:22 data/resources/ui/pages/cpu.ui:37
+#: data/resources/ui/pages/cpu.ui:50 data/resources/ui/pages/drive.ui:22
+#: data/resources/ui/pages/gpu.ui:22 data/resources/ui/pages/memory.ui:31
+#: data/resources/ui/pages/network.ui:22 data/resources/ui/pages/npu.ui:22
+msgid "Usage"
+msgstr "Matumizi"
+
+#: data/resources/ui/dialogs/app_dialog.ui:73
+#: data/resources/ui/dialogs/process_dialog.ui:55
+#: data/resources/ui/dialogs/settings_dialog.ui:123
+#: data/resources/ui/dialogs/settings_dialog.ui:215
+#: data/resources/ui/window.ui:144 data/resources/ui/window.ui:151
+#: src/ui/pages/applications/mod.rs:441 src/ui/pages/cpu.rs:131
+#: src/ui/pages/processes/mod.rs:547 src/ui/window.rs:286
+msgid "Processor"
+msgstr "Kichakataji"
+
+#: data/resources/ui/dialogs/app_dialog.ui:91
+#: data/resources/ui/dialogs/process_dialog.ui:73
+#: data/resources/ui/dialogs/settings_dialog.ui:168
+#: data/resources/ui/dialogs/settings_dialog.ui:280
+#: src/ui/pages/applications/mod.rs:573 src/ui/pages/memory.rs:198
+#: src/ui/pages/processes/mod.rs:756
+msgid "Swap"
+msgstr "Swap"
+
+#: data/resources/ui/dialogs/app_dialog.ui:100
+#: data/resources/ui/dialogs/process_dialog.ui:78
+#: data/resources/ui/dialogs/settings_dialog.ui:128
+#: data/resources/ui/dialogs/settings_dialog.ui:220
+#: src/ui/pages/applications/mod.rs:461 src/ui/pages/processes/mod.rs:568
+msgid "Drive Read"
+msgstr "Usomaji wa Anatoa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:109
+#: data/resources/ui/dialogs/process_dialog.ui:87
+#: data/resources/ui/dialogs/settings_dialog.ui:133
+#: data/resources/ui/dialogs/settings_dialog.ui:225
+#: src/ui/pages/applications/mod.rs:475 src/ui/pages/processes/mod.rs:583
+msgid "Drive Read Total"
+msgstr "Jumla ya Usomaji wa Anatoa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:118
+#: data/resources/ui/dialogs/process_dialog.ui:96
+#: data/resources/ui/dialogs/settings_dialog.ui:138
+#: data/resources/ui/dialogs/settings_dialog.ui:230
+#: src/ui/pages/applications/mod.rs:489 src/ui/pages/processes/mod.rs:598
+msgid "Drive Write"
+msgstr "Uandishi wa Anatoa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:127
+#: data/resources/ui/dialogs/process_dialog.ui:105
+#: data/resources/ui/dialogs/settings_dialog.ui:143
+#: data/resources/ui/dialogs/settings_dialog.ui:235
+#: src/ui/pages/applications/mod.rs:503 src/ui/pages/processes/mod.rs:613
+msgid "Drive Write Total"
+msgstr "Jumla ya Uandishi wa Anatoa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:149
+#: data/resources/ui/dialogs/process_dialog.ui:127
+#: data/resources/ui/dialogs/settings_dialog.ui:153
+#: data/resources/ui/dialogs/settings_dialog.ui:245
+#: src/ui/pages/applications/mod.rs:531 src/ui/pages/processes/mod.rs:643
+msgid "Video Memory"
+msgstr "Kumbukumbu ya Video"
+
+#: data/resources/ui/dialogs/app_dialog.ui:158
+#: data/resources/ui/dialogs/process_dialog.ui:136
+#: data/resources/ui/dialogs/settings_dialog.ui:158
+#: data/resources/ui/dialogs/settings_dialog.ui:250
+#: src/ui/pages/applications/mod.rs:545 src/ui/pages/processes/mod.rs:658
+msgid "Video Encoder"
+msgstr "Kisimbaji cha Video"
+
+#: data/resources/ui/dialogs/app_dialog.ui:167
+#: data/resources/ui/dialogs/process_dialog.ui:145
+#: data/resources/ui/dialogs/settings_dialog.ui:163
+#: data/resources/ui/dialogs/settings_dialog.ui:255
+#: src/ui/pages/applications/mod.rs:559 src/ui/pages/processes/mod.rs:673
+msgid "Video Decoder"
+msgstr "Kisimbuaji cha Video"
+
+#: data/resources/ui/dialogs/app_dialog.ui:174
+#: data/resources/ui/dialogs/process_dialog.ui:179
+#: data/resources/ui/pages/battery.ui:33 data/resources/ui/pages/cpu.ui:83
+#: data/resources/ui/pages/drive.ui:54 data/resources/ui/pages/gpu.ui:74
+#: data/resources/ui/pages/memory.ui:42 data/resources/ui/pages/network.ui:51
+#: data/resources/ui/pages/npu.ui:77
+msgid "Properties"
+msgstr "Sifa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:180
+msgid "ID"
+msgstr "Kitambulisho"
+
+#: data/resources/ui/dialogs/app_dialog.ui:190
+#: data/resources/ui/dialogs/process_dialog.ui:195
+msgid "Running Since"
+msgstr "Inaendesha Tangu"
+
+#: data/resources/ui/dialogs/app_dialog.ui:198
+msgid "Running Processes"
+msgstr "Michakato Inayoendesha"
+
+#: data/resources/ui/dialogs/app_dialog.ui:207
+#: data/resources/ui/dialogs/process_dialog.ui:231
+msgid "Containerized"
+msgstr "Kimewekwa kwenye Kontena"
+
+#: data/resources/ui/dialogs/process_dialog.ui:7
+#: data/resources/ui/pages/processes.ui:151
+#: data/resources/ui/pages/processes.ui:153
+msgid "Process Information"
+msgstr "Taarifa za Mchakato"
+
+#: data/resources/ui/dialogs/process_dialog.ui:154
+#: data/resources/ui/dialogs/settings_dialog.ui:260
+#: src/ui/pages/processes/mod.rs:688
+msgid "Total CPU Time"
+msgstr "Jumla ya Muda wa CPU"
+
+#: data/resources/ui/dialogs/process_dialog.ui:163
+#: data/resources/ui/dialogs/settings_dialog.ui:265
+#: src/ui/pages/processes/mod.rs:702
+msgid "User CPU Time"
+msgstr "Muda wa CPU wa Mtumiaji"
+
+#: data/resources/ui/dialogs/process_dialog.ui:172
+#: data/resources/ui/dialogs/settings_dialog.ui:270
+#: src/ui/pages/processes/mod.rs:716
+msgid "System CPU Time"
+msgstr "Muda wa CPU wa Mfumo"
+
+#: data/resources/ui/dialogs/process_dialog.ui:186
+#: data/resources/ui/dialogs/settings_dialog.ui:200
+#: src/ui/pages/processes/mod.rs:504
+msgid "Process ID"
+msgstr "Kitambulisho cha Mchakato"
+
+#: data/resources/ui/dialogs/process_dialog.ui:204
+#: data/resources/ui/dialogs/settings_dialog.ui:290
+#: src/ui/pages/processes/mod.rs:786
+msgid "Commandline"
+msgstr "Mstari wa Amri"
+
+#: data/resources/ui/dialogs/process_dialog.ui:213
+#: data/resources/ui/dialogs/settings_dialog.ui:205
+#: src/ui/pages/processes/mod.rs:518
+msgid "User"
+msgstr "Mtumiaji"
+
+#: data/resources/ui/dialogs/process_dialog.ui:222
+msgid "Control Group"
+msgstr "Kikundi cha Udhibiti"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:7
+#: data/resources/ui/pages/processes.ui:138
+#: data/resources/ui/pages/processes.ui:140
+msgid "Process Options"
+msgstr "Chaguzi za Mchakato"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:29
+msgid "Apply"
+msgstr "Tumia"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:71
+msgid "Niceness"
+msgstr "Uzuri"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:72
+msgid ""
+"The priority of a process is given by its niceness. A lower niceness value "
+"correspond to a higher priority."
+msgstr ""
+"Kipaumbele cha mchakato hutolewa na kiwango chake cha nice. Thamani ya chini "
+"ya niceness huashiria kipaumbele cha juu zaidi."
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:86
+#: data/resources/ui/dialogs/settings_dialog.ui:275
+#: src/ui/pages/processes/mod.rs:730
+msgid "Priority"
+msgstr "Kipaumbele"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:90
+msgctxt "process priority"
+msgid "Very High"
+msgstr "Juu Sana"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:91
+msgctxt "process priority"
+msgid "High"
+msgstr "Juu"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:92
+msgctxt "process priority"
+msgid "Normal"
+msgstr "Kawaida"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:93
+msgctxt "process priority"
+msgid "Low"
+msgstr "Chini"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:94
+msgctxt "process priority"
+msgid "Very Low"
+msgstr "Chini Sana"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:104
+msgid "Processor Affinity"
+msgstr "Ufungamanifu wa Kichakataji"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:110
+msgid "Toggle All"
+msgstr "Geuza Zote"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:7
+msgid "General"
+msgstr "Jumla"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:10
+msgid "Units"
+msgstr "Vipimo"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:13
+msgid "Data Unit Prefix"
+msgstr "Kiambishi cha Kipimo cha Data"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:17
+msgid "Decimal"
+msgstr "Desimali"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:18
+msgid "Binary"
+msgstr "Bineri"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:26
+msgid "Show Network Speeds in Bits per Second"
+msgstr "Onyesha Kasi za Mtandao kwa Bits kwa Sekunde"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:31
+msgid "Temperature Unit"
+msgstr "Kipimo cha Joto"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:35
+msgid "Celsius"
+msgstr "Selsiasi"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:36
+msgid "Kelvin"
+msgstr "Kelvin"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:37
+msgid "Fahrenheit"
+msgstr "Farenhaiti"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:47
+msgid "User Interface"
+msgstr "Kiolesura cha Mtumiaji"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:50
+msgid "Refresh Speed"
+msgstr "Kasi ya Kuhuisha"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:51
+msgid "Higher refresh speeds can lead to higher processor usage"
+msgstr ""
+"Kasi ya juu ya kuhuisha inaweza kusababisha matumizi makubwa zaidi ya "
+"kichakataji"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:55
+msgctxt "UI refresh speed"
+msgid "Very Slow"
+msgstr "Polepole Sana"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:56
+msgctxt "UI refresh speed"
+msgid "Slow"
+msgstr "Polepole"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:57
+msgctxt "UI refresh speed"
+msgid "Normal"
+msgstr "Kawaida"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:58
+msgctxt "UI refresh speed"
+msgid "Fast"
+msgstr "Haraka"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:59
+msgctxt "UI refresh speed"
+msgid "Very Fast"
+msgstr "Haraka Sana"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:67
+msgid "Show Graph Grids"
+msgstr "Onyesha Gridi za Grafu"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:72
+msgid "Graph Data Points"
+msgstr "Vidokezo vya Data ya Grafu"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:88
+msgid "Sidebar Meter Type"
+msgstr "Aina ya Kipimo cha Upau wa Pembeni"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:92
+msgid "Bar"
+msgstr "Upau"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:93
+msgid "Graph"
+msgstr "Grafu"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:101
+msgid "Normalize Processor Usage"
+msgstr "Sawazisha Matumizi ya Kichakataji"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:102
+msgid ""
+"If enabled, the total usage of all cores will be divided by the amount of "
+"cores"
+msgstr ""
+"Ikiwashwa, jumla ya matumizi ya viini vyote itagawanywa kwa idadi ya viini"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:112
+#: data/resources/ui/window.ui:64 data/resources/ui/window.ui:71
+#: src/ui/pages/applications/mod.rs:140
+msgid "Apps"
+msgstr "Programu"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:115
+#: data/resources/ui/dialogs/settings_dialog.ui:197
+msgid "Information Columns"
+msgstr "Safu za Taarifa"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:173
+#: data/resources/ui/dialogs/settings_dialog.ui:285
+#: src/ui/pages/applications/mod.rs:587 src/ui/pages/processes/mod.rs:771
+msgid "Combined Memory"
+msgstr "Kumbukumbu Iliyounganishwa"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:183
+#: data/resources/ui/window.ui:104 data/resources/ui/window.ui:111
+#: src/ui/pages/processes/mod.rs:182
+msgid "Processes"
+msgstr "Michakato"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:186
+#: data/resources/ui/pages/cpu.ui:22 data/resources/ui/pages/processes.ui:56
+msgid "Options"
+msgstr "Chaguzi"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:189
+msgid "Show Niceness Values"
+msgstr "Onyesha Thamani za Nice"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:190
+msgid ""
+"Display priorities as niceness to allow for more fine-grained adjustments"
+msgstr ""
+"Onyesha vipaumbele kama niceness ili kuruhusu marekebisho ya kina zaidi"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:300
+msgid "Devices"
+msgstr "Vifaa"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:303
+msgid "Drives"
+msgstr "Anatoa"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:306
+msgid "Show Virtual Drives"
+msgstr "Onyesha Anatoa Pepe"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:307
+msgid "Virtual drives are for example ZFS volumes or mapped devices"
+msgstr "Anatoa pepe ni kwa mfano volumu za ZFS au vifaa vilivyopangwa"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:317
+msgid "Show Virtual Network Interfaces"
+msgstr "Onesha Violesura Pepe vya Mtandao"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:318
+msgid "Virtual network interfaces are for example bridges or VPN tunnels"
+msgstr "Violesura Pepe vya Mtanda ni kwa mfano madaraja au mahandaki ya VPN"
+
+#: data/resources/ui/pages/applications.ui:6
+#: data/resources/ui/pages/applications.ui:26
+#: src/ui/pages/applications/mod.rs:1014
+msgid "Kill App"
+msgstr "Ua Programu"
+
+#: data/resources/ui/pages/applications.ui:10
+#: data/resources/ui/pages/applications.ui:30
+#: src/ui/pages/applications/mod.rs:1013
+msgid "Halt App"
+msgstr "Simamisha Programu"
+
+#: data/resources/ui/pages/applications.ui:14
+#: data/resources/ui/pages/applications.ui:34
+#: src/ui/pages/applications/mod.rs:1015
+msgid "Continue App"
+msgstr "Endelea na Programu"
+
+#: data/resources/ui/pages/applications.ui:22
+#: data/resources/ui/pages/applications.ui:101
+#: src/ui/pages/applications/mod.rs:1012
+msgid "End App"
+msgstr "Maliza Programu"
+
+#: data/resources/ui/pages/applications.ui:40
+#: data/resources/ui/pages/processes.ui:62
+msgid "Information"
+msgstr "Taarifa"
+
+#: data/resources/ui/pages/applications.ui:59
+msgid "Search applications"
+msgstr "Tafuta programu"
+
+#: data/resources/ui/pages/battery.ui:36
+msgid "Battery Health"
+msgstr "Afya ya Betri"
+
+#: data/resources/ui/pages/battery.ui:45
+msgid "Design Capacity"
+msgstr "Uwezo wa Muundo"
+
+#: data/resources/ui/pages/battery.ui:54
+msgid "Charge Cycles"
+msgstr "Mizunguko ya Kuchaji"
+
+#: data/resources/ui/pages/battery.ui:63
+msgid "Technology"
+msgstr "Teknolojia"
+
+#: data/resources/ui/pages/battery.ui:72 data/resources/ui/pages/gpu.ui:81
+#: data/resources/ui/pages/network.ui:58 data/resources/ui/pages/npu.ui:84
+msgid "Manufacturer"
+msgstr "Mtengenezaji"
+
+#: data/resources/ui/pages/battery.ui:81
+msgid "Model Name"
+msgstr "Jina la Muundo"
+
+#: data/resources/ui/pages/battery.ui:90 data/resources/ui/pages/drive.ui:66
+msgid "Device"
+msgstr "Kifaa"
+
+#: data/resources/ui/pages/cpu.ui:26
+msgid "Show Usages of Logical CPUs"
+msgstr "Onyesha Matumizi ya CPU za Kimantiki"
+
+#: data/resources/ui/pages/cpu.ui:75 data/resources/ui/pages/gpu.ui:66
+#: data/resources/ui/pages/npu.ui:69
+msgid "Sensors"
+msgstr "Vitambuzi"
+
+#: data/resources/ui/pages/cpu.ui:90
+msgid "Max Frequency"
+msgstr "Masafa ya Juu Zaidi"
+
+#: data/resources/ui/pages/cpu.ui:99
+msgid "Logical Cores"
+msgstr "Viini za Kimantiki"
+
+#: data/resources/ui/pages/cpu.ui:108
+msgid "Physical Cores"
+msgstr "Viini Halisi"
+
+#: data/resources/ui/pages/cpu.ui:117
+msgid "Sockets"
+msgstr "Soketi"
+
+#: data/resources/ui/pages/cpu.ui:126
+msgid "Uptime"
+msgstr "Muda wa Uendeshaji"
+
+#: data/resources/ui/pages/cpu.ui:135
+msgid "Virtualization"
+msgstr "Uundaji wa Mazingira Pepe"
+
+#: data/resources/ui/pages/cpu.ui:144
+msgid "Architecture"
+msgstr "Muundo wa Mfumo"
+
+#: data/resources/ui/pages/drive.ui:38
+msgid "Total Read"
+msgstr "Jumla ya Usomaji"
+
+#: data/resources/ui/pages/drive.ui:47
+msgid "Total Written"
+msgstr "Jumla ya Uandishi"
+
+#: data/resources/ui/pages/drive.ui:57 data/resources/ui/pages/memory.ui:72
+msgid "Type"
+msgstr "Aina"
+
+#: data/resources/ui/pages/drive.ui:75
+msgid "Capacity"
+msgstr "Uwezo"
+
+#: data/resources/ui/pages/drive.ui:84
+msgid "Writable"
+msgstr "Inayoweza Kuandikwa"
+
+#: data/resources/ui/pages/drive.ui:93
+msgid "Removable"
+msgstr "Inayoweza Kuondolewa"
+
+#. Translators: "Link" refers to something like "PCIe 4.0 ×16"
+#: data/resources/ui/pages/drive.ui:102 data/resources/ui/pages/gpu.ui:113
+#: data/resources/ui/pages/network.ui:103 data/resources/ui/pages/npu.ui:116
+msgid "Link"
+msgstr "Kiungo"
+
+#: data/resources/ui/pages/gpu.ui:37
+msgid "GPU Frequency"
+msgstr "Masafa ya GPU"
+
+#: data/resources/ui/pages/gpu.ui:50
+msgid "Video Memory Frequency"
+msgstr "Masafa ya Kumbukumbu ya Video"
+
+#: data/resources/ui/pages/gpu.ui:55 data/resources/ui/pages/npu.ui:58
+#: src/ui/pages/battery.rs:220 src/ui/pages/battery.rs:279
+msgid "Power Usage"
+msgstr "Matumizi ya Nguvu"
+
+#: data/resources/ui/pages/gpu.ui:90 data/resources/ui/pages/npu.ui:93
+msgid "PCI Slot"
+msgstr "Nafasi ya PCI"
+
+#: data/resources/ui/pages/gpu.ui:99 data/resources/ui/pages/network.ui:67
+#: data/resources/ui/pages/npu.ui:102
+msgid "Driver Used"
+msgstr "Kiendeshi Kinachotumika"
+
+#: data/resources/ui/pages/gpu.ui:108 data/resources/ui/pages/npu.ui:111
+msgid "Max Power Cap"
+msgstr "Kikomo cha Juu cha Nguvu"
+
+#: data/resources/ui/pages/memory.ui:9
+msgid "You need to authenticate to see memory properties"
+msgstr "Unahitaji kuthibitisha ili kuona sifa za kumbukumbu"
+
+#: data/resources/ui/pages/memory.ui:10
+msgid "Authenticate"
+msgstr "Thibitisha"
+
+#: data/resources/ui/pages/memory.ui:45
+msgid "Slots Used"
+msgstr "Nafasi Zinazotumika"
+
+#: data/resources/ui/pages/memory.ui:54
+msgid "Speed"
+msgstr "Kasi"
+
+#: data/resources/ui/pages/memory.ui:63
+msgid "Form Factor"
+msgstr "Umbo la Kifaa"
+
+#: data/resources/ui/pages/memory.ui:81
+msgid "Type Detail"
+msgstr "Maelezo ya Aina"
+
+#: data/resources/ui/pages/network.ui:35
+msgid "Total Received"
+msgstr "Jumla Iliyopokelewa"
+
+#: data/resources/ui/pages/network.ui:44
+msgid "Total Sent"
+msgstr "Jumla Iliyotumwa"
+
+#: data/resources/ui/pages/network.ui:76
+msgid "Interface"
+msgstr "Kiolesura"
+
+#: data/resources/ui/pages/network.ui:85
+msgid "Hardware Address"
+msgstr "Anwani ya Maunzi"
+
+#: data/resources/ui/pages/network.ui:94
+msgid "Network Name"
+msgstr "Jina la Mtandao"
+
+#: data/resources/ui/pages/network.ui:112
+msgid "Link Speed"
+msgstr "Kasi ya Kiungo"
+
+#: data/resources/ui/pages/npu.ui:31
+msgid "NPU Frequency"
+msgstr "Masafa ya NPU"
+
+#: data/resources/ui/pages/npu.ui:40
+msgid "Performance"
+msgstr "Utendaji"
+
+#: data/resources/ui/pages/npu.ui:53
+msgid "Memory Frequency"
+msgstr "Masafa ya Kumbukumbu"
+
+#: data/resources/ui/pages/processes.ui:6
+#: data/resources/ui/pages/processes.ui:42 src/ui/pages/processes/mod.rs:1334
+msgid "Kill Process"
+msgstr "Ua Mchakato"
+
+#: data/resources/ui/pages/processes.ui:10
+#: data/resources/ui/pages/processes.ui:46 src/ui/pages/processes/mod.rs:1333
+msgid "Halt Process"
+msgstr "Simamisha Mchakato"
+
+#: data/resources/ui/pages/processes.ui:14
+#: data/resources/ui/pages/processes.ui:50 src/ui/pages/processes/mod.rs:1335
+msgid "Continue Process"
+msgstr "Endelea na Mchakato"
+
+#: data/resources/ui/pages/processes.ui:22
+#: data/resources/ui/pages/processes.ui:74
+msgid "Kill Processes"
+msgstr "Ua Michakato"
+
+#: data/resources/ui/pages/processes.ui:26
+#: data/resources/ui/pages/processes.ui:78
+msgid "Halt Processes"
+msgstr "Simamisha Michakato"
+
+#: data/resources/ui/pages/processes.ui:30
+#: data/resources/ui/pages/processes.ui:82
+msgid "Continue Processes"
+msgstr "Endelea na Michakato"
+
+#: data/resources/ui/pages/processes.ui:38
+#: data/resources/ui/pages/processes.ui:162 src/ui/pages/processes/mod.rs:821
+#: src/ui/pages/processes/mod.rs:1332
+msgid "End Process"
+msgstr "Maliza Mchakato"
+
+#: data/resources/ui/pages/processes.ui:70 src/ui/pages/processes/mod.rs:825
+msgid "End Processes"
+msgstr "Maliza Michakato"
+
+#: data/resources/ui/pages/processes.ui:107
+msgid "Search processes"
+msgstr "Tafuta michakato"
+
+#: data/resources/ui/shortcuts.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Jumla"
+
+#: data/resources/ui/shortcuts.ui:9
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr "Mapendeleo"
+
+#: data/resources/ui/shortcuts.ui:15
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Onyesha Njia za Mkato"
+
+#: data/resources/ui/shortcuts.ui:21
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Toka"
+
+#: data/resources/ui/shortcuts.ui:27
+msgctxt "shortcut window"
+msgid "Toggle Sidebar"
+msgstr "Geuza Upau wa Pembeni"
+
+#: data/resources/ui/shortcuts.ui:35
+msgctxt "shortcut window"
+msgid "Apps/Processes"
+msgstr "Programu/Michakato"
+
+#: data/resources/ui/shortcuts.ui:38
+msgctxt "shortcut window"
+msgid "Toggle Search Field"
+msgstr "Geuza Uga wa Utafutaji"
+
+#: data/resources/ui/shortcuts.ui:44
+msgctxt "shortcut window"
+msgid "End App/Process"
+msgstr "Maliza Programu/Mchakato"
+
+#: data/resources/ui/shortcuts.ui:50
+msgctxt "shortcut window"
+msgid "Kill App/Process"
+msgstr "Ua Programu/Mchakato"
+
+#: data/resources/ui/shortcuts.ui:56
+msgctxt "shortcut window"
+msgid "Halt App/Process"
+msgstr "Simamisha Programu/Mchakato"
+
+#: data/resources/ui/shortcuts.ui:62
+msgctxt "shortcut window"
+msgid "Continue App/Process"
+msgstr "Endeleza Programu/Mchakato"
+
+#: data/resources/ui/shortcuts.ui:68
+msgctxt "shortcut window"
+msgid "Show Information for App/Process"
+msgstr "Onyesha Taarifa za Programu/Mchakato"
+
+#: data/resources/ui/shortcuts.ui:74
+msgctxt "shortcut window"
+msgid "Show Process Options"
+msgstr "Onyesha Chaguzi za Mchakato"
+
+#: data/resources/ui/window.ui:6
+msgid "_Preferences"
+msgstr "_Mapendeleo"
+
+#: data/resources/ui/window.ui:10
+msgid "_Keyboard Shortcuts"
+msgstr "Njia za Mkato za _Kibodi"
+
+#: data/resources/ui/window.ui:14
+msgid "_About Resources"
+msgstr "Kuhusu _Rasilimali"
+
+#: data/resources/ui/window.ui:44
+msgid "Main Menu"
+msgstr "Menyu Kuu"
+
+#: data/resources/ui/window.ui:87 data/resources/ui/window.ui:127
+msgid "Search"
+msgstr "Tafuta"
+
+#: data/resources/ui/window.ui:89 data/resources/ui/window.ui:129
+msgid "Toggle search field"
+msgstr "Geuza uga wa utafutaji"
+
+#. Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
+#. One name per line, please do not remove previous names.
+#: src/application.rs:297
+msgid "translator-credits"
+msgstr "Malika Asman"
+
+#: src/devices/app.rs:247
+msgid "System Processes"
+msgstr "Michakato ya Mfumo"
+
+#: src/devices/battery.rs:92
+msgid "Charging"
+msgstr "Inachaji"
+
+#: src/devices/battery.rs:93
+msgid "Discharging"
+msgstr "Inatoa Chaji"
+
+#: src/devices/battery.rs:94
+msgid "Empty"
+msgstr "Tupu"
+
+#: src/devices/battery.rs:95
+msgid "Full"
+msgstr "Imejaa"
+
+#: src/devices/battery.rs:96
+msgid "Unknown"
+msgstr "Haijulikani"
+
+#: src/devices/battery.rs:142
+msgid "Nickel-Metal Hydride"
+msgstr "Nickel-Metal Hydride"
+
+#: src/devices/battery.rs:143
+msgid "Nickel-Cadmium"
+msgstr "Nickel-Cadmium"
+
+#: src/devices/battery.rs:144
+msgid "Nickel-Zinc"
+msgstr "Nickel-Zinc"
+
+#: src/devices/battery.rs:145
+msgid "Lead-Acid"
+msgstr "Asidi ya risasi"
+
+#: src/devices/battery.rs:146
+msgid "Lithium-Ion"
+msgstr "Lithium-Ion"
+
+#: src/devices/battery.rs:147
+msgid "Lithium Iron Phosphate"
+msgstr "Lithium Iron Phosphate"
+
+#: src/devices/battery.rs:148
+msgid "Lithium Polymer"
+msgstr "Lithium Polymer"
+
+#: src/devices/battery.rs:149
+msgid "Rechargeable Alkaline Managanese"
+msgstr "Rechargeable Alkaline Manganese"
+
+#: src/devices/battery.rs:150 src/devices/drive.rs:136
+#: src/devices/gpu/mod.rs:279 src/devices/gpu/mod.rs:289
+#: src/devices/link/mod.rs:54 src/devices/link/wifi.rs:167
+#: src/devices/npu/mod.rs:260 src/devices/npu/mod.rs:266
+#: src/ui/dialogs/app_dialog.rs:155 src/ui/dialogs/process_dialog.rs:133
+#: src/ui/dialogs/process_dialog.rs:137 src/ui/dialogs/process_dialog.rs:146
+#: src/ui/dialogs/process_dialog.rs:148 src/ui/dialogs/process_dialog.rs:171
+#: src/ui/dialogs/process_dialog.rs:178 src/ui/dialogs/process_dialog.rs:185
+#: src/ui/dialogs/process_dialog.rs:192 src/ui/pages/applications/mod.rs:466
+#: src/ui/pages/applications/mod.rs:494 src/ui/pages/battery.rs:208
+#: src/ui/pages/battery.rs:228 src/ui/pages/battery.rs:234
+#: src/ui/pages/battery.rs:237 src/ui/pages/battery.rs:272
+#: src/ui/pages/cpu.rs:246 src/ui/pages/cpu.rs:261 src/ui/pages/cpu.rs:281
+#: src/ui/pages/cpu.rs:287 src/ui/pages/cpu.rs:293 src/ui/pages/cpu.rs:299
+#: src/ui/pages/cpu.rs:303 src/ui/pages/cpu.rs:306 src/ui/pages/cpu.rs:344
+#: src/ui/pages/drive.rs:375 src/ui/pages/gpu.rs:250 src/ui/pages/gpu.rs:257
+#: src/ui/pages/gpu.rs:318 src/ui/pages/gpu.rs:321 src/ui/pages/gpu.rs:332
+#: src/ui/pages/gpu.rs:346 src/ui/pages/memory.rs:227
+#: src/ui/pages/memory.rs:228 src/ui/pages/memory.rs:232
+#: src/ui/pages/memory.rs:233 src/ui/pages/memory.rs:237
+#: src/ui/pages/memory.rs:238 src/ui/pages/memory.rs:266
+#: src/ui/pages/network.rs:253 src/ui/pages/network.rs:260
+#: src/ui/pages/network.rs:267 src/ui/pages/network.rs:273
+#: src/ui/pages/network.rs:276 src/ui/pages/network.rs:286
+#: src/ui/pages/network.rs:295 src/ui/pages/network.rs:304
+#: src/ui/pages/network.rs:383 src/ui/pages/network.rs:397
+#: src/ui/pages/processes/mod.rs:574 src/ui/pages/processes/mod.rs:589
+#: src/ui/pages/processes/mod.rs:604 src/ui/pages/processes/mod.rs:619
+#: src/ui/pages/processes/mod.rs:743 src/ui/pages/processes/mod.rs:745
+#: src/utils/units.rs:354
+msgid "N/A"
+msgstr "N/A"
+
+#: src/devices/battery.rs:252 src/ui/pages/battery.rs:105
+msgid "Battery"
+msgstr "Betri"
+
+#: src/devices/battery.rs:255
+#, rust-format
+msgid "{} Battery"
+msgstr "Betri ya {}"
+
+#: src/devices/drive.rs:128 src/devices/drive.rs:207
+msgid "CD/DVD/Blu-ray Drive"
+msgstr "Kiendeshi cha CD/DVD/Blu-ray"
+
+#: src/devices/drive.rs:129
+msgid "eMMC Storage"
+msgstr "Hifadhi ya eMMC"
+
+#: src/devices/drive.rs:130
+msgid "Flash Storage"
+msgstr "Hifadhi ya Flash"
+
+#: src/devices/drive.rs:131 src/devices/drive.rs:208
+msgid "Floppy Drive"
+msgstr "Kiendeshi cha Floppy"
+
+#: src/devices/drive.rs:132
+msgid "Hard Disk Drive"
+msgstr "Diski Ngumu"
+
+#: src/devices/drive.rs:133
+msgid "Loop Device"
+msgstr "Kifaa cha Kitanzi"
+
+#: src/devices/drive.rs:134
+msgid "Mapped Device"
+msgstr "Kifaa Kilichopangwa"
+
+#: src/devices/drive.rs:135
+msgid "NVMe Drive"
+msgstr "Kiendeshi cha NVMe"
+
+#: src/devices/drive.rs:137
+msgid "Software Raid"
+msgstr "RAID ya Programu"
+
+#: src/devices/drive.rs:138
+msgid "RAM Disk"
+msgstr "Diski ya RAM"
+
+#: src/devices/drive.rs:139
+msgid "Solid State Drive"
+msgstr "Kiendeshi cha Hali Ngumu"
+
+#: src/devices/drive.rs:140
+msgid "ZFS Volume"
+msgstr "Volumu ya ZFS"
+
+#: src/devices/drive.rs:141
+msgid "Compressed RAM Disk (zram)"
+msgstr "Diski ya RAM Iliyoshinikizwa (zram)"
+
+#: src/devices/drive.rs:209
+#, rust-format
+msgid "{} Loop Device"
+msgstr "Kifaa cha Kitanzi cha {}"
+
+#: src/devices/drive.rs:210
+#, rust-format
+msgid "{} Mapped Device"
+msgstr "Kifaa Kilichopangwa cha {}"
+
+#: src/devices/drive.rs:211
+#, rust-format
+msgid "{} RAID"
+msgstr "RAID ya {}"
+
+#: src/devices/drive.rs:212
+#, rust-format
+msgid "{} RAM Disk"
+msgstr "Diski ya RAM ya {}"
+
+#: src/devices/drive.rs:213
+#, rust-format
+msgid "{} zram Device"
+msgstr "Kifaa cha zram cha {}"
+
+#: src/devices/drive.rs:214
+#, rust-format
+msgid "{} ZFS Volume"
+msgstr "Volumu ya ZFS ya {}"
+
+#: src/devices/drive.rs:215
+#, rust-format
+msgid "{} Drive"
+msgstr "Kiendeshi cha {}"
+
+#: src/devices/link/wifi.rs:156
+#, rust-format
+msgid "Receive: {}"
+msgstr "Pokea: {}"
+
+#: src/devices/link/wifi.rs:157
+#, rust-format
+msgid "Send: {}"
+msgstr "Tuma: {}"
+
+#: src/devices/network.rs:131
+msgid "Bluetooth Tether"
+msgstr "Mtandao wa Bluetooth (Tether)"
+
+#: src/devices/network.rs:132
+msgid "Network Bridge"
+msgstr "Daraja la Mtandao"
+
+#: src/devices/network.rs:133
+msgid "Ethernet Connection"
+msgstr "Muunganisho wa Ethernet"
+
+#: src/devices/network.rs:134
+msgid "Docker Bridge"
+msgstr "Daraja la Docker"
+
+#: src/devices/network.rs:135
+msgid "InfiniBand Connection"
+msgstr "Muunganisho wa InfiniBand"
+
+#: src/devices/network.rs:136
+msgid "Incus Bridge"
+msgstr "Daraja la Incus"
+
+#: src/devices/network.rs:137
+msgid "LXC Bridge"
+msgstr "Daraja la LXC"
+
+#: src/devices/network.rs:138
+msgid "LXD Bridge"
+msgstr "Daraja la LXD"
+
+#: src/devices/network.rs:139
+msgid "Serial Line IP Connection"
+msgstr "Muunganisho wa IP wa Mstari wa Serial"
+
+#: src/devices/network.rs:140
+msgid "VM Network Interface"
+msgstr "Muunganisho wa Mtandao wa VM"
+
+#: src/devices/network.rs:141
+msgid "Virtual Ethernet Device"
+msgstr "Kifaa cha Ethernet Pepe"
+
+#: src/devices/network.rs:142
+msgid "VM Network Bridge"
+msgstr "Daraja la Mtandao la VM"
+
+#: src/devices/network.rs:143
+msgid "VPN Tunnel"
+msgstr "Handaki la VPN"
+
+#: src/devices/network.rs:144
+msgid "VPN Tunnel (WireGuard)"
+msgstr "Handaki la VPN (WireGuard)"
+
+#: src/devices/network.rs:145
+msgid "Wi-Fi Connection"
+msgstr "Muunganisho wa Wi-Fi"
+
+#: src/devices/network.rs:146
+msgid "WWAN Connection"
+msgstr "Muunganisho wa WWAN"
+
+#: src/devices/network.rs:147 src/ui/pages/network.rs:128
+msgid "Network Interface"
+msgstr "Muunganisho wa Mtandao"
+
+#: src/ui/dialogs/process_options_dialog.rs:146 src/ui/pages/cpu.rs:260
+#: src/ui/pages/cpu.rs:421 src/ui/pages/cpu.rs:425
+#, rust-format
+msgid "CPU {}"
+msgstr "CPU {}"
+
+#: src/ui/pages/applications/application_entry.rs:188
+#: src/ui/pages/processes/process_entry.rs:211
+msgid "No"
+msgstr "Hapana"
+
+#: src/ui/pages/applications/application_entry.rs:189
+#: src/ui/pages/processes/process_entry.rs:212
+msgid "Yes (AppImage)"
+msgstr "Ndiyo (AppImage)"
+
+#: src/ui/pages/applications/application_entry.rs:190
+#: src/ui/pages/processes/process_entry.rs:213
+msgid "Yes (Flatpak)"
+msgstr "Ndiyo (Flatpak)"
+
+#. Translators: "Portable" is the name of the containerization method used, please keep it as is
+#: src/ui/pages/applications/application_entry.rs:192
+#: src/ui/pages/processes/process_entry.rs:215
+msgid "Yes (Portable)"
+msgstr "Ndiyo (Portable)"
+
+#: src/ui/pages/applications/application_entry.rs:193
+#: src/ui/pages/processes/process_entry.rs:216
+msgid "Yes (Snap)"
+msgstr "Ndiyo (Snap)"
+
+#: src/ui/pages/applications/mod.rs:848
+#, rust-format
+msgid "Running Apps: {}"
+msgstr "Programu Zinazoendesha: {}"
+
+#: src/ui/pages/applications/mod.rs:888 src/ui/pages/processes/mod.rs:1172
+msgid "Cancel"
+msgstr "Ghairi"
+
+#: src/ui/pages/applications/mod.rs:934
+msgid "App"
+msgstr "Programu"
+
+#: src/ui/pages/applications/mod.rs:990 src/ui/pages/processes/mod.rs:1281
+#, rust-format
+msgid "End {}?"
+msgstr "Maliza {}?"
+
+#: src/ui/pages/applications/mod.rs:991 src/ui/pages/processes/mod.rs:1282
+#, rust-format
+msgid "Halt {}?"
+msgstr "Simamisha {}?"
+
+#: src/ui/pages/applications/mod.rs:992 src/ui/pages/processes/mod.rs:1283
+#, rust-format
+msgid "Kill {}?"
+msgstr "Ua {}?"
+
+#: src/ui/pages/applications/mod.rs:993 src/ui/pages/processes/mod.rs:1284
+#, rust-format
+msgid "Continue {}?"
+msgstr "Endelea na {}?"
+
+#: src/ui/pages/applications/mod.rs:999 src/ui/pages/processes/mod.rs:1319
+msgid "Unsaved work might be lost"
+msgstr "Kazi isiyohifadhiwa inaweza kupotea"
+
+#: src/ui/pages/applications/mod.rs:1001
+msgid ""
+"Halting an app can come with serious risks such as losing data and security "
+"implications. Use with caution."
+msgstr ""
+"Kusimamisha programu kunaweza kuja na hatari kubwa kama vile kupoteza data "
+"na madhara ya kiusalama. Tumia kwa tahadhari."
+
+#: src/ui/pages/applications/mod.rs:1004
+msgid ""
+"Killing an app can come with serious risks such as losing data and security "
+"implications. Use with caution."
+msgstr ""
+"Kuua programu kunaweza kuja na hatari kubwa kama vile kupoteza data na "
+"madhara ya kiusalama. Tumia kwa tahadhari."
+
+#: src/ui/pages/battery.rs:213 src/ui/pages/battery.rs:259
+msgid "Battery Charge"
+msgstr "Chaji ya Betri"
+
+#: src/ui/pages/cpu.rs:245 src/ui/pages/gpu.rs:217
+msgid "Total Usage"
+msgstr "Jumla ya Matumizi"
+
+#: src/ui/pages/cpu.rs:274 src/ui/pages/cpu.rs:440 src/ui/pages/gpu.rs:244
+msgid "Temperature"
+msgstr "Joto"
+
+#: src/ui/pages/drive.rs:128
+msgid "Drive"
+msgstr "Kiendeshi"
+
+#: src/ui/pages/drive.rs:238
+msgid "Drive Activity"
+msgstr "Shughuli za Kiendeshi"
+
+#: src/ui/pages/drive.rs:245 src/ui/pages/drive.rs:379
+msgid "Read Speed"
+msgstr "Kasi ya Usomaji"
+
+#: src/ui/pages/drive.rs:249 src/ui/pages/drive.rs:380
+msgid "Write Speed"
+msgstr "Kasi ya Uandishi"
+
+#: src/ui/pages/gpu.rs:225
+msgid "Video Encoder/Decoder Usage"
+msgstr "Matumizi ya Kisimbaji/Kisimbuaji cha Video"
+
+#: src/ui/pages/gpu.rs:231
+msgid "Video Encoder Usage"
+msgstr "Matumizi ya Kisimbaji cha Video"
+
+#: src/ui/pages/gpu.rs:236
+msgid "Video Decoder Usage"
+msgstr "Matumizi ya Kisimbuaji cha Video"
+
+#: src/ui/pages/gpu.rs:241
+msgid "Video Memory Usage"
+msgstr "Matumizi ya Kumbukumbu ya Video"
+
+#: src/ui/pages/memory.rs:262
+#, rust-format
+msgid "{} of {}"
+msgstr "{} kati ya {}"
+
+#: src/ui/pages/memory.rs:265
+#, rust-format
+msgid "{} MT/s"
+msgstr "{} MT/s"
+
+#: src/ui/pages/memory.rs:329
+msgid "Memory Usage"
+msgstr "Matumizi ya Kumbukumbu"
+
+#: src/ui/pages/memory.rs:336
+msgid "Swap Usage"
+msgstr "Matumizi ya Swap"
+
+#: src/ui/pages/network.rs:242 src/ui/pages/network.rs:407
+msgid "Receiving"
+msgstr "Inapokea"
+
+#: src/ui/pages/network.rs:246 src/ui/pages/network.rs:408
+msgid "Sending"
+msgstr "Inatuma"
+
+#: src/ui/pages/processes/mod.rs:1123
+#, rust-format
+msgid "Running Processes: {}"
+msgstr "Michakato Inayoendesha: {}"
+
+#: src/ui/pages/processes/mod.rs:1221
+msgid "Process"
+msgstr "Mchakato"
+
+#: src/ui/pages/processes/mod.rs:1291
+#, rust-format
+msgid "End process?"
+msgid_plural "End {} processes?"
+msgstr[0] "Maliza mchakato?"
+msgstr[1] "Maliza michakato {}?"
+
+#: src/ui/pages/processes/mod.rs:1297
+#, rust-format
+msgid "Halt process?"
+msgid_plural "Halt {} processes?"
+msgstr[0] "Simamisha mchakato?"
+msgstr[1] "Simamisha michakato {}?"
+
+#: src/ui/pages/processes/mod.rs:1303 src/ui/pages/processes/mod.rs:1309
+#, rust-format
+msgid "Kill process?"
+msgid_plural "Kill {} processes?"
+msgstr[0] "Ua mchakato?"
+msgstr[1] "Ua michakato {}?"
+
+#: src/ui/pages/processes/mod.rs:1321
+msgid ""
+"Halting a process can come with serious risks such as losing data and "
+"security implications. Use with caution."
+msgstr ""
+"Kusimamisha mchakato kunaweza kuja na hatari kubwa kama vile kupoteza data "
+"na madhara ya kiusalama. Tumia kwa tahadhari."
+
+#: src/ui/pages/processes/mod.rs:1324
+msgid ""
+"Killing a process can come with serious risks such as losing data and "
+"security implications. Use with caution."
+msgstr ""
+"Kuua mchakato kunaweza kuja na hatari kubwa kama vile kupoteza data na "
+"madhara ya kiusalama. Tumia kwa tahadhari."
+
+#: src/ui/window.rs:471
+#, rust-format
+msgid "GPU {}"
+msgstr "GPU {}"
+
+#: src/ui/window.rs:500
+#, rust-format
+msgid "NPU {}"
+msgstr "NPU {}"
+
+#: src/ui/window.rs:502
+msgid "NPU"
+msgstr "NPU"
+
+#: src/ui/window.rs:1200
+#, rust-format
+msgid "Successfully adjusted {}"
+msgstr "Imefanikiwa kurekebisha {}"
+
+#: src/ui/window.rs:1201
+#, rust-format
+msgid "There was a problem adjusting {}"
+msgstr "Kulikuwa na tatizo la kurekebisha {}"
+
+#: src/ui/window.rs:1283
+#, rust-format
+msgid "Successfully ended {}"
+msgstr "Imefanikiwa kumaliza {}"
+
+#: src/ui/window.rs:1284
+#, rust-format
+msgid "Successfully halted {}"
+msgstr "Imefanikiwa kusimamisha {}"
+
+#: src/ui/window.rs:1285
+#, rust-format
+msgid "Successfully killed {}"
+msgstr "Imefanikiwa kuua {}"
+
+#: src/ui/window.rs:1286
+#, rust-format
+msgid "Successfully continued {}"
+msgstr "Imefanikiwa kuendelea na {}"
+
+#: src/ui/window.rs:1293
+#, rust-format
+msgid "Successfully ended the process"
+msgid_plural "Successfully ended {} processes"
+msgstr[0] "Imefanikiwa kumaliza mchakato"
+msgstr[1] "Imefanikiwa kumaliza michakato {}"
+
+#: src/ui/window.rs:1299
+#, rust-format
+msgid "Successfully halted the process"
+msgid_plural "Successfully halted {} processes"
+msgstr[0] "Imefanikiwa kusimamisha mchakato"
+msgstr[1] "Imefanikiwa kusimamisha michakato {}"
+
+#: src/ui/window.rs:1305
+#, rust-format
+msgid "Successfully killed the process"
+msgid_plural "Successfully killed {} processes"
+msgstr[0] "Imefanikiwa kuua mchakato"
+msgstr[1] "Imefanikiwa kuua michakato {}"
+
+#: src/ui/window.rs:1311
+#, rust-format
+msgid "Successfully continued the process"
+msgid_plural "Successfully continued {} processes"
+msgstr[0] "Imefanikiwa kuendelea na mchakato"
+msgstr[1] "Imefanikiwa kuendelea na michakato {}"
+
+#: src/ui/window.rs:1322
+#, rust-format
+msgid "There was a problem ending a process"
+msgid_plural "There were problems ending {} processes"
+msgstr[0] "Kulikuwa na tatizo la kumaliza mchakato"
+msgstr[1] "Kulikuwa na matatizo ya kumaliza michakato {}"
+
+#: src/ui/window.rs:1328
+#, rust-format
+msgid "There was a problem halting a process"
+msgid_plural "There were problems halting {} processes"
+msgstr[0] "Kulikuwa na tatizo la kusimamisha mchakato"
+msgstr[1] "Kulikuwa na matatizo ya kusimamisha michakato {}"
+
+#: src/ui/window.rs:1334
+#, rust-format
+msgid "There was a problem killing a process"
+msgid_plural "There were problems killing {} processes"
+msgstr[0] "Kulikuwa na tatizo la kuua mchakato"
+msgstr[1] "Kulikuwa na matatizo ya kuua michakato {}"
+
+#: src/ui/window.rs:1340
+#, rust-format
+msgid "There was a problem continuing a process"
+msgid_plural "There were problems continuing {} processes"
+msgstr[0] "Kulikuwa na tatizo la kuendelea na mchakato"
+msgstr[1] "Kulikuwa na matatizo ya kuendelea na michakato {}"
+
+#: src/ui/window.rs:1350
+#, rust-format
+msgid "There was a problem ending {}"
+msgstr "Kulikuwa na tatizo la kumaliza {}"
+
+#: src/ui/window.rs:1351
+#, rust-format
+msgid "There was a problem halting {}"
+msgstr "Kulikuwa na tatizo la kusimamisha {}"
+
+#: src/ui/window.rs:1352
+#, rust-format
+msgid "There was a problem killing {}"
+msgstr "Kulikuwa na tatizo la kuua {}"
+
+#: src/ui/window.rs:1353
+#, rust-format
+msgid "There was a problem continuing {}"
+msgstr "Kulikuwa na tatizo la kuendelea na {}"
+
+#: src/utils/units.rs:91
+#, rust-format
+msgid "{} K"
+msgstr "{} K"
+
+#: src/utils/units.rs:93
+#, rust-format
+msgid "{} °C"
+msgstr "{} °C"
+
+#: src/utils/units.rs:95
+#, rust-format
+msgid "{} °F"
+msgstr "{} °F"
+
+#: src/utils/units.rs:122 src/utils/units.rs:136 src/utils/units.rs:156
+#: src/utils/units.rs:170
+#, rust-format
+msgid "{} B"
+msgstr "{} B"
+
+#: src/utils/units.rs:123 src/utils/units.rs:137
+#, rust-format
+msgid "{} kB"
+msgstr "{} kB"
+
+#: src/utils/units.rs:124 src/utils/units.rs:138
+#, rust-format
+msgid "{} MB"
+msgstr "{} MB"
+
+#: src/utils/units.rs:125 src/utils/units.rs:139
+#, rust-format
+msgid "{} GB"
+msgstr "{} GB"
+
+#: src/utils/units.rs:126 src/utils/units.rs:140
+#, rust-format
+msgid "{} TB"
+msgstr "{} TB"
+
+#: src/utils/units.rs:127 src/utils/units.rs:141
+#, rust-format
+msgid "{} PB"
+msgstr "{} PB"
+
+#: src/utils/units.rs:128 src/utils/units.rs:142
+#, rust-format
+msgid "{} EB"
+msgstr "{} EB"
+
+#: src/utils/units.rs:129 src/utils/units.rs:143
+#, rust-format
+msgid "{} ZB"
+msgstr "{} ZB"
+
+#: src/utils/units.rs:130 src/utils/units.rs:144
+#, rust-format
+msgid "{} YB"
+msgstr "{} YB"
+
+#: src/utils/units.rs:131 src/utils/units.rs:145
+#, rust-format
+msgid "{} RB"
+msgstr "{} RB"
+
+#: src/utils/units.rs:132 src/utils/units.rs:146
+#, rust-format
+msgid "{} QB"
+msgstr "{} QB"
+
+#: src/utils/units.rs:157 src/utils/units.rs:171
+#, rust-format
+msgid "{} KiB"
+msgstr "{} KiB"
+
+#: src/utils/units.rs:158 src/utils/units.rs:172
+#, rust-format
+msgid "{} MiB"
+msgstr "{} MiB"
+
+#: src/utils/units.rs:159 src/utils/units.rs:173
+#, rust-format
+msgid "{} GiB"
+msgstr "{} GiB"
+
+#: src/utils/units.rs:160 src/utils/units.rs:174
+#, rust-format
+msgid "{} TiB"
+msgstr "{} TiB"
+
+#: src/utils/units.rs:161 src/utils/units.rs:175
+#, rust-format
+msgid "{} PiB"
+msgstr "{} PiB"
+
+#: src/utils/units.rs:162 src/utils/units.rs:176
+#, rust-format
+msgid "{} EiB"
+msgstr "{} EiB"
+
+#: src/utils/units.rs:163 src/utils/units.rs:177
+#, rust-format
+msgid "{} ZiB"
+msgstr "{} ZiB"
+
+#: src/utils/units.rs:164 src/utils/units.rs:178
+#, rust-format
+msgid "{} YiB"
+msgstr "{} YiB"
+
+#: src/utils/units.rs:165 src/utils/units.rs:179
+#, rust-format
+msgid "{} RiB"
+msgstr "{} RiB"
+
+#: src/utils/units.rs:166 src/utils/units.rs:180
+#, rust-format
+msgid "{} QiB"
+msgstr "{} QiB"
+
+#: src/utils/units.rs:206 src/utils/units.rs:223
+#, rust-format
+msgid "{} B/s"
+msgstr "{} B/s"
+
+#: src/utils/units.rs:207
+#, rust-format
+msgid "{} kB/s"
+msgstr "{} kB/s"
+
+#: src/utils/units.rs:208
+#, rust-format
+msgid "{} MB/s"
+msgstr "{} MB/s"
+
+#: src/utils/units.rs:209
+#, rust-format
+msgid "{} GB/s"
+msgstr "{} GB/s"
+
+#: src/utils/units.rs:210
+#, rust-format
+msgid "{} TB/s"
+msgstr "{} TB/s"
+
+#: src/utils/units.rs:211
+#, rust-format
+msgid "{} PB/s"
+msgstr "{} PB/s"
+
+#: src/utils/units.rs:212
+#, rust-format
+msgid "{} EB/s"
+msgstr "{} EB/s"
+
+#: src/utils/units.rs:213
+#, rust-format
+msgid "{} ZB/s"
+msgstr "{} ZB/s"
+
+#: src/utils/units.rs:214
+#, rust-format
+msgid "{} YB/s"
+msgstr "{} YB/s"
+
+#: src/utils/units.rs:215
+#, rust-format
+msgid "{} RB/s"
+msgstr "{} RB/s"
+
+#: src/utils/units.rs:216
+#, rust-format
+msgid "{} QB/s"
+msgstr "{} QB/s"
+
+#: src/utils/units.rs:224
+#, rust-format
+msgid "{} KiB/s"
+msgstr "{} KiB/s"
+
+#: src/utils/units.rs:225
+#, rust-format
+msgid "{} MiB/s"
+msgstr "{} MiB/s"
+
+#: src/utils/units.rs:226
+#, rust-format
+msgid "{} GiB/s"
+msgstr "{} GiB/s"
+
+#: src/utils/units.rs:227
+#, rust-format
+msgid "{} TiB/s"
+msgstr "{} TiB/s"
+
+#: src/utils/units.rs:228
+#, rust-format
+msgid "{} PiB/s"
+msgstr "{} PiB/s"
+
+#: src/utils/units.rs:229
+#, rust-format
+msgid "{} EiB/s"
+msgstr "{} EiB/s"
+
+#: src/utils/units.rs:230
+#, rust-format
+msgid "{} ZiB/s"
+msgstr "{} ZiB/s"
+
+#: src/utils/units.rs:231
+#, rust-format
+msgid "{} YiB/s"
+msgstr "{} YiB/s"
+
+#: src/utils/units.rs:232
+#, rust-format
+msgid "{} RiB/s"
+msgstr "{} RiB/s"
+
+#: src/utils/units.rs:233
+#, rust-format
+msgid "{} QiB/s"
+msgstr "{} QiB/s"
+
+#: src/utils/units.rs:247 src/utils/units.rs:264
+#, rust-format
+msgid "{} b/s"
+msgstr "{} b/s"
+
+#: src/utils/units.rs:248
+#, rust-format
+msgid "{} kb/s"
+msgstr "{} kb/s"
+
+#: src/utils/units.rs:249
+#, rust-format
+msgid "{} Mb/s"
+msgstr "{} Mb/s"
+
+#: src/utils/units.rs:250
+#, rust-format
+msgid "{} Gb/s"
+msgstr "{} Gb/s"
+
+#: src/utils/units.rs:251
+#, rust-format
+msgid "{} Tb/s"
+msgstr "{} Tb/s"
+
+#: src/utils/units.rs:252
+#, rust-format
+msgid "{} Pb/s"
+msgstr "{} Pb/s"
+
+#: src/utils/units.rs:253
+#, rust-format
+msgid "{} Eb/s"
+msgstr "{} Eb/s"
+
+#: src/utils/units.rs:254
+#, rust-format
+msgid "{} Zb/s"
+msgstr "{} Zb/s"
+
+#: src/utils/units.rs:255
+#, rust-format
+msgid "{} Yb/s"
+msgstr "{} Yb/s"
+
+#: src/utils/units.rs:256
+#, rust-format
+msgid "{} Rb/s"
+msgstr "{} Rb/s"
+
+#: src/utils/units.rs:257
+#, rust-format
+msgid "{} Qb/s"
+msgstr "{} Qb/s"
+
+#: src/utils/units.rs:265
+#, rust-format
+msgid "{} Kib/s"
+msgstr "{} Kib/s"
+
+#: src/utils/units.rs:266
+#, rust-format
+msgid "{} Mib/s"
+msgstr "{} Mib/s"
+
+#: src/utils/units.rs:267
+#, rust-format
+msgid "{} Gib/s"
+msgstr "{} Gib/s"
+
+#: src/utils/units.rs:268
+#, rust-format
+msgid "{} Tib/s"
+msgstr "{} Tib/s"
+
+#: src/utils/units.rs:269
+#, rust-format
+msgid "{} Pib/s"
+msgstr "{} Pib/s"
+
+#: src/utils/units.rs:270
+#, rust-format
+msgid "{} Eib/s"
+msgstr "{} Eib/s"
+
+#: src/utils/units.rs:271
+#, rust-format
+msgid "{} Zib/s"
+msgstr "{} Zib/s"
+
+#: src/utils/units.rs:272
+#, rust-format
+msgid "{} Yib/s"
+msgstr "{} Yib/s"
+
+#: src/utils/units.rs:273
+#, rust-format
+msgid "{} Rib/s"
+msgstr "{} Rib/s"
+
+#: src/utils/units.rs:274
+#, rust-format
+msgid "{} Qib/s"
+msgstr "{} Qib/s"
+
+#: src/utils/units.rs:281
+#, rust-format
+msgid "{} Hz"
+msgstr "{} Hz"
+
+#: src/utils/units.rs:282
+#, rust-format
+msgid "{} kHz"
+msgstr "{} kHz"
+
+#: src/utils/units.rs:283
+#, rust-format
+msgid "{} MHz"
+msgstr "{} MHz"
+
+#: src/utils/units.rs:284
+#, rust-format
+msgid "{} GHz"
+msgstr "{} GHz"
+
+#: src/utils/units.rs:285
+#, rust-format
+msgid "{} THz"
+msgstr "{} THz"
+
+#: src/utils/units.rs:286
+#, rust-format
+msgid "{} PHz"
+msgstr "{} PHz"
+
+#: src/utils/units.rs:287
+#, rust-format
+msgid "{} EHz"
+msgstr "{} EHz"
+
+#: src/utils/units.rs:288
+#, rust-format
+msgid "{} ZHz"
+msgstr "{} ZHz"
+
+#: src/utils/units.rs:289
+#, rust-format
+msgid "{} YHz"
+msgstr "{} YHz"
+
+#: src/utils/units.rs:290
+#, rust-format
+msgid "{} RHz"
+msgstr "{} RHz"
+
+#: src/utils/units.rs:291
+#, rust-format
+msgid "{} QHz"
+msgstr "{} QHz"
+
+#: src/utils/units.rs:298
+#, rust-format
+msgid "{} W"
+msgstr "{} W"
+
+#: src/utils/units.rs:299
+#, rust-format
+msgid "{} kW"
+msgstr "{} kW"
+
+#: src/utils/units.rs:300
+#, rust-format
+msgid "{} MW"
+msgstr "{} MW"
+
+#: src/utils/units.rs:301
+#, rust-format
+msgid "{} GW"
+msgstr "{} GW"
+
+#: src/utils/units.rs:302
+#, rust-format
+msgid "{} TW"
+msgstr "{} TW"
+
+#: src/utils/units.rs:303
+#, rust-format
+msgid "{} PW"
+msgstr "{} PW"
+
+#: src/utils/units.rs:304
+#, rust-format
+msgid "{} EW"
+msgstr "{} EW"
+
+#: src/utils/units.rs:305
+#, rust-format
+msgid "{} ZW"
+msgstr "{} ZW"
+
+#: src/utils/units.rs:306
+#, rust-format
+msgid "{} YW"
+msgstr "{} YW"
+
+#: src/utils/units.rs:307
+#, rust-format
+msgid "{} RW"
+msgstr "{} RW"
+
+#: src/utils/units.rs:308
+#, rust-format
+msgid "{} QW"
+msgstr "{} QW"
+
+#: src/utils/units.rs:317 src/utils/units.rs:331
+#, rust-format
+msgid "{} Wh"
+msgstr "{} Wh"
+
+#: src/utils/units.rs:318 src/utils/units.rs:332
+#, rust-format
+msgid "{} kWh"
+msgstr "{} kWh"
+
+#: src/utils/units.rs:319 src/utils/units.rs:333
+#, rust-format
+msgid "{} MWh"
+msgstr "{} MWh"
+
+#: src/utils/units.rs:320 src/utils/units.rs:334
+#, rust-format
+msgid "{} GWh"
+msgstr "{} GWh"
+
+#: src/utils/units.rs:321 src/utils/units.rs:335
+#, rust-format
+msgid "{} TWh"
+msgstr "{} TWh"
+
+#: src/utils/units.rs:322 src/utils/units.rs:336
+#, rust-format
+msgid "{} PWh"
+msgstr "{} PWh"
+
+#: src/utils/units.rs:323 src/utils/units.rs:337
+#, rust-format
+msgid "{} EWh"
+msgstr "{} EWh"
+
+#: src/utils/units.rs:324 src/utils/units.rs:338
+#, rust-format
+msgid "{} ZWh"
+msgstr "{} ZWh"
+
+#: src/utils/units.rs:325 src/utils/units.rs:339
+#, rust-format
+msgid "{} YWh"
+msgstr "{} YWh"
+
+#: src/utils/units.rs:326 src/utils/units.rs:340
+#, rust-format
+msgid "{} RWh"
+msgstr "{} RWh"
+
+#: src/utils/units.rs:327 src/utils/units.rs:341
+#, rust-format
+msgid "{} QWh"
+msgstr "{} QWh"
+
+#: src/utils/units.rs:347
+#, rust-format
+msgid "{} TOPs"
+msgstr "{} TOPs"

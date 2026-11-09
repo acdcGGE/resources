@@ -1,0 +1,375 @@
+use std::{
+    fmt::Display,
+    path::{Path, PathBuf},
+    str::{self, FromStr},
+};
+
+use crate::utils::{
+    i18n::{i18n, i18n_f},
+    read_parsed,
+    units::convert_energy,
+};
+use anyhow::{Context, Result, bail};
+use lazy_regex::{Lazy, Regex, lazy_regex};
+use log::trace;
+
+// For (at least) Lenovo Yoga 6 13ALC7
+static HEX_ENCODED_REGEX: Lazy<Regex> = lazy_regex!(r"^(0x[0-9a-fA-F]{2}\s*)*$");
+
+#[derive(Debug)]
+pub struct BatteryData {
+    pub inner: Battery,
+    pub charge: Result<f64>,
+    pub power_usage: Result<f64>,
+    pub health: Result<f64>,
+    pub state: Result<State>,
+    pub charge_cycles: Result<usize>,
+}
+
+impl BatteryData {
+    pub fn new<P: AsRef<Path>>(path: P) -> Self {
+        let path = path.as_ref();
+
+        trace!("Gathering battery data for {path:?}…");
+
+        let inner = Battery::from_sysfs(path);
+        let charge = inner.charge();
+        let power_usage = inner.power_usage();
+        let health = inner.health();
+        let state = inner.state();
+        let charge_cycles = inner.charge_cycles();
+
+        let battery_data = Self {
+            inner,
+            charge,
+            power_usage,
+            health,
+            state,
+            charge_cycles,
+        };
+
+        trace!(
+            "Gathered battery data for {}: {battery_data:?}",
+            path.to_string_lossy()
+        );
+
+        battery_data
+    }
+}
+
+#[derive(Debug, Eq, PartialEq, Copy, Clone, Default)]
+pub enum State {
+    Charging,
+    Discharging,
+    Empty,
+    Full,
+    #[default]
+    Unknown,
+}
+
+impl str::FromStr for State {
+    type Err = anyhow::Error;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let state = match s.to_ascii_lowercase().as_str() {
+            "charging" => Self::Charging,
+            "discharging" => Self::Discharging,
+            "empty" => Self::Empty,
+            "full" => Self::Full,
+            _ => Self::Unknown,
+        };
+
+        Ok(state)
+    }
+}
+
+impl Display for State {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{}",
+            match self {
+                Self::Charging => i18n("Charging"),
+                Self::Discharging => i18n("Discharging"),
+                Self::Empty => i18n("Empty"),
+                Self::Full => i18n("Full"),
+                Self::Unknown => i18n("Unknown"),
+            }
+        )
+    }
+}
+
+#[derive(Debug, Eq, PartialEq, Copy, Clone, Default)]
+pub enum Technology {
+    NickelMetalHydride,
+    NickelCadmium,
+    NickelZinc,
+    LeadAcid,
+    LithiumIon,
+    LithiumIronPhosphate,
+    LithiumPolymer,
+    RechargeableAlkalineManganese,
+    #[default]
+    Unknown,
+}
+
+impl str::FromStr for Technology {
+    type Err = anyhow::Error;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let tech = match s.to_ascii_lowercase().as_str() {
+            "nimh" => Self::NickelMetalHydride,
+            "nicd" => Self::NickelCadmium,
+            "nizn" => Self::NickelZinc,
+            "pb" | "pbac" => Self::LeadAcid,
+            "li-i" | "li-ion" | "lion" => Self::LithiumIon,
+            "life" => Self::LithiumIronPhosphate,
+            "lip" | "lipo" | "li-poly" => Self::LithiumPolymer,
+            "ram" => Self::RechargeableAlkalineManganese,
+            _ => Self::Unknown,
+        };
+
+        Ok(tech)
+    }
+}
+
+impl Display for Technology {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "{}",
+            match self {
+                Self::NickelMetalHydride => i18n("Nickel-Metal Hydride"),
+                Self::NickelCadmium => i18n("Nickel-Cadmium"),
+                Self::NickelZinc => i18n("Nickel-Zinc"),
+                Self::LeadAcid => i18n("Lead-Acid"),
+                Self::LithiumIon => i18n("Lithium-Ion"),
+                Self::LithiumIronPhosphate => i18n("Lithium Iron Phosphate"),
+                Self::LithiumPolymer => i18n("Lithium Polymer"),
+                Self::RechargeableAlkalineManganese => i18n("Rechargeable Alkaline Managanese"),
+                Self::Unknown => i18n("N/A"),
+            }
+        )
+    }
+}
+
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct Battery {
+    pub sysfs_path: PathBuf,
+    pub manufacturer: Option<String>,
+    pub model_name: Option<String>,
+    pub design_capacity: Option<f64>,
+    pub technology: Technology,
+}
+
+impl Battery {
+    pub fn get_sysfs_paths() -> Result<Vec<PathBuf>> {
+        let mut list = Vec::new();
+        let entries = std::fs::read_dir("/sys/class/power_supply")?;
+        for entry in entries {
+            let entry = entry?;
+            let path = entry.path();
+
+            if Self::is_valid_power_supply(&path) {
+                list.push(path);
+            }
+        }
+        Ok(list)
+    }
+
+    pub fn is_valid_power_supply<P: AsRef<Path>>(path: P) -> bool {
+        let path = path.as_ref();
+
+        //type == "Battery"
+        //scope != "Device" (HID device batteries)
+
+        let power_supply_type_is_battery = read_parsed::<String>(path.join("type"))
+            .is_ok_and(|ps_type| ps_type.trim() == "Battery");
+
+        let power_supply_scope_is_not_device = read_parsed::<String>(path.join("scope"))
+            .map_or(true, |ps_scope| ps_scope.trim() != "Device");
+
+        power_supply_type_is_battery && power_supply_scope_is_not_device
+    }
+
+    pub fn from_sysfs<P: AsRef<Path>>(sysfs_path: P) -> Self {
+        let sysfs_path = sysfs_path.as_ref().to_path_buf();
+
+        trace!("Creating Battery object of {sysfs_path:?}…");
+
+        let manufacturer = read_parsed::<String>(sysfs_path.join("manufacturer"))
+            .map(|s| Self::untangle_weird_encoding(s.replace('\n', "")))
+            .ok();
+
+        let model_name = read_parsed::<String>(sysfs_path.join("model_name"))
+            .map(|s| Self::untangle_weird_encoding(s.replace('\n', "")))
+            .ok();
+
+        let technology = Technology::from_str(
+            &read_parsed(sysfs_path.join("technology"))
+                .map(|s: String| s.replace('\n', ""))
+                .unwrap_or_default(),
+        )
+        .unwrap_or_default();
+
+        let design_capacity = read_parsed::<f64>(sysfs_path.join("energy_full_design"))
+            .context("unable to find any energy_full_design")
+            .map(|capacity| capacity / 1_000_000.0)
+            .ok();
+
+        let battery = Self {
+            sysfs_path: sysfs_path.clone(),
+            manufacturer,
+            model_name,
+            design_capacity,
+            technology,
+        };
+
+        trace!("Created Battery object of {sysfs_path:?}: {battery:?}");
+
+        battery
+    }
+
+    // apparently some manufacturers like to for whatever reason reencode the manufacturer and model name in hex or
+    // similar, this function will try to untangle it
+    fn untangle_weird_encoding<S: AsRef<str>>(s: S) -> String {
+        if HEX_ENCODED_REGEX.is_match(s.as_ref()) {
+            String::from_utf8_lossy(
+                &s.as_ref()
+                    .split_whitespace()
+                    .flat_map(|hex| u8::from_str_radix(&hex.replace("0x", ""), 16))
+                    .map(|byte| if byte == 0x0 { b' ' } else { byte }) // gtk will crash when encountering NUL
+                    .collect::<Vec<u8>>(),
+            )
+            .to_string()
+        } else {
+            s.as_ref().to_string()
+        }
+    }
+
+    pub fn display_name(&self) -> String {
+        self.design_capacity.map_or_else(
+            || i18n("Battery"),
+            |design_capacity| {
+                let converted_energy = convert_energy(design_capacity, true);
+                i18n_f("{} Battery", &[&converted_energy])
+            },
+        )
+    }
+
+    pub fn charge(&self) -> Result<f64> {
+        read_parsed::<u8>(self.sysfs_path.join("capacity"))
+            .context("unable to read capacity sysfs file")
+            .map(|percent| f64::from(percent) / 100.0)
+            .or_else(|_| self.charge_from_energy())
+    }
+
+    pub fn charge_from_energy(&self) -> Result<f64> {
+        let energy_now = read_parsed::<usize>(self.sysfs_path.join("energy_now"))
+            .context("unable to read energy_now sysfs file");
+
+        let energy_full = read_parsed::<usize>(self.sysfs_path.join("energy_full"))
+            .context("unable to read energy_full sysfs file");
+
+        if let (Ok(energy_now), Ok(energy_full)) = (energy_now, energy_full) {
+            Ok(energy_now as f64 / energy_full as f64)
+        } else {
+            bail!("no charge from energy information found");
+        }
+    }
+
+    pub fn health(&self) -> Result<f64> {
+        let energy_full = read_parsed::<usize>(self.sysfs_path.join("energy_full"))
+            .context("unable to read energy_full sysfs file");
+
+        let energy_full_design = read_parsed::<usize>(self.sysfs_path.join("energy_full_design"))
+            .context("unable to read energy_full_design sysfs file");
+
+        if let (Ok(energy_full), Ok(energy_full_design)) = (energy_full, energy_full_design) {
+            Ok(energy_full as f64 / energy_full_design as f64)
+        } else {
+            let charge_full = read_parsed::<usize>(self.sysfs_path.join("charge_full"))
+                .context("unabread_parsed(ysfs file");
+
+            let charge_full_design =
+                read_parsed::<usize>(self.sysfs_path.join("charge_full_design"))
+                    .context("unable to read charge_full_design sysfs file");
+
+            if let (Ok(charge_full), Ok(charge_full_design)) = (charge_full, charge_full_design) {
+                Ok(charge_full as f64 / charge_full_design as f64)
+            } else {
+                bail!("no health information found")
+            }
+        }
+    }
+
+    pub fn power_usage(&self) -> Result<f64> {
+        read_parsed::<f64>(self.sysfs_path.join("power_now"))
+            .context("unable to read power_now file")
+            .map(|microwatts| microwatts.abs() / 1_000_000.0)
+            .or_else(|_| self.power_usage_from_voltage_and_current())
+    }
+
+    fn power_usage_from_voltage_and_current(&self) -> Result<f64> {
+        let voltage = read_parsed::<f64>(self.sysfs_path.join("voltage_now"))
+            .map(|microvolts| microvolts / 1_000_000.0)
+            .context("unable to parse voltage_now sysfs file")?;
+
+        let current = read_parsed::<f64>(self.sysfs_path.join("current_now"))
+            .map(|microamps| microamps / 1_000_000.0)
+            .context("unable to parse current_now sysfs file")?;
+
+        Ok(f64::abs(voltage * current))
+    }
+
+    pub fn state(&self) -> Result<State> {
+        State::from_str(&read_parsed::<String>(self.sysfs_path.join("status"))?)
+    }
+
+    pub fn charge_cycles(&self) -> Result<usize> {
+        read_parsed(self.sysfs_path.join("cycle_count"))
+            .context("unable to parse cycle_count sysfs file")
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use super::Battery;
+    use pretty_assertions::assert_eq;
+
+    #[test]
+    fn dont_untangle_untangled_string() {
+        let untangled_string = String::from("This is a normal string");
+        assert_eq!(
+            Battery::untangle_weird_encoding(untangled_string),
+            String::from("This is a normal string")
+        )
+    }
+
+    #[test]
+    fn dont_untangle_non_hex_bytes() {
+        let non_hex_bytes = String::from("0xxy 0x4g");
+        assert_eq!(
+            Battery::untangle_weird_encoding(non_hex_bytes),
+            String::from("0xxy 0x4g")
+        )
+    }
+
+    #[test]
+    fn untangle_tangled_string() {
+        let tangled_string = String::from("0x41 0x42 0x43  0x58 0x59 0x5A");
+        assert_eq!(
+            Battery::untangle_weird_encoding(tangled_string),
+            String::from("ABCXYZ")
+        );
+    }
+
+    #[test]
+    fn untangle_tangled_string_with_nul() {
+        let tangled_string = String::from("0x41 0x42  0x43  0x00  0x44");
+        assert_eq!(
+            Battery::untangle_weird_encoding(tangled_string),
+            String::from("ABC D")
+        );
+    }
+}

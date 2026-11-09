@@ -10,22 +10,22 @@ use gtk::{Widget, gdk, gio, glib};
 use log::{debug, info, trace, warn};
 
 use crate::application::Application;
-use crate::config::PROFILE;
+use crate::config::DEVLOPMENT_BUILD;
+use crate::devices::app::AppsContext;
+use crate::devices::battery::{Battery, BatteryData};
+use crate::devices::cpu::{self, CpuData};
+use crate::devices::drive::{Drive, DriveData};
+use crate::devices::gpu::{Gpu, GpuData};
+use crate::devices::memory::MemoryData;
+use crate::devices::network::{NetworkData, NetworkInterface};
+use crate::devices::npu::{Npu, NpuData};
+use crate::devices::process::{Process, ProcessAction};
 use crate::gui::ARGS;
-use crate::i18n::{i18n, i18n_f, ni18n_f};
 use crate::ui::pages::applications::ResApplications;
 use crate::ui::pages::battery::ResBattery;
 use crate::ui::pages::drive::ResDrive;
 use crate::ui::pages::processes::ResProcesses;
-use crate::utils::app::AppsContext;
-use crate::utils::battery::{Battery, BatteryData};
-use crate::utils::cpu::{self, CpuData};
-use crate::utils::drive::{Drive, DriveData};
-use crate::utils::gpu::{Gpu, GpuData};
-use crate::utils::memory::MemoryData;
-use crate::utils::network::{NetworkData, NetworkInterface};
-use crate::utils::npu::{Npu, NpuData};
-use crate::utils::process::{Process, ProcessAction};
+use crate::utils::i18n::{i18n, i18n_f, ni18n_f};
 use crate::utils::settings::SETTINGS;
 
 use super::pages::applications;
@@ -47,7 +47,7 @@ mod imp {
     };
 
     use crate::{
-        config::VERSION,
+        devices::app::AppsContext,
         ui::{
             pages::{
                 applications::ResApplications, cpu::ResCPU, memory::ResMemory,
@@ -55,7 +55,6 @@ mod imp {
             },
             widgets::stack_sidebar::ResStackSidebar,
         },
-        utils::app::AppsContext,
     };
 
     use super::*;
@@ -66,7 +65,7 @@ mod imp {
     use process_data::{gpu_usage::GpuIdentifier, pci_slot::PciSlot};
 
     #[derive(Debug, CompositeTemplate)]
-    #[template(resource = "/net/nokyan/Resources/ui/window.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/window.ui")]
     pub struct MainWindow {
         #[template_child]
         pub split_view: TemplateChild<adw::OverlaySplitView>,
@@ -170,11 +169,8 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
-                obj.set_title(Some(
-                    format!("{} ({})", obj.title().unwrap_or_default(), VERSION).trim(),
-                ));
             }
 
             // Load latest window state
@@ -190,7 +186,7 @@ mod imp {
             debug!("Closing the application…");
 
             if let Err(err) = self.obj().save_window_size() {
-                warn!("Failed to save window state, {}", &err);
+                warn!("Failed to save window state, {}", err);
             }
 
             // Pass close request on to the parent
@@ -369,7 +365,7 @@ impl MainWindow {
                 if key == gdk::Key::Control_L {
                     debug!("Ctrl has been released, resuming apps and processes updates");
                     imp.pause_updates.set(false);
-                };
+                }
             }
         ));
         self.add_controller(event_controller);
@@ -458,7 +454,14 @@ impl MainWindow {
         }
     }
 
-    fn init_gpu_pages(self: &MainWindow, gpus: &[Gpu]) {
+    pub fn toggle_sidebar(&self) {
+        let imp = self.imp();
+
+        imp.split_view
+            .set_show_sidebar(!imp.split_view.shows_sidebar());
+    }
+
+    fn init_gpu_pages(&self, gpus: &[Gpu]) {
         let imp = self.imp();
 
         for (i, gpu) in gpus.iter().enumerate() {
@@ -472,11 +475,10 @@ impl MainWindow {
 
             page.set_tab_name(&*tab_name);
 
-            let added_page = if let Ok(gpu_name) = gpu.name() {
-                self.add_page(&page, &gpu_name, &tab_name)
-            } else {
-                self.add_page(&page, &tab_name, &tab_name)
-            };
+            let added_page = gpu.name().map_or_else(
+                |_| self.add_page(&page, &tab_name, &tab_name),
+                |gpu_name| self.add_page(&page, &gpu_name, &tab_name),
+            );
 
             page.init(gpu, i as u32);
 
@@ -486,7 +488,7 @@ impl MainWindow {
         }
     }
 
-    fn init_npu_pages(self: &MainWindow) -> Vec<Npu> {
+    fn init_npu_pages(&self) -> Vec<Npu> {
         let imp = self.imp();
 
         let npus = Npu::get_npus().unwrap_or_default();
@@ -502,11 +504,10 @@ impl MainWindow {
 
             page.set_tab_name(&*tab_name);
 
-            let added_page = if let Ok(npu_name) = npu.name() {
-                self.add_page(&page, &npu_name, &tab_name)
-            } else {
-                self.add_page(&page, &tab_name, &tab_name)
-            };
+            let added_page = npu.name().map_or_else(
+                |_| self.add_page(&page, &tab_name, &tab_name),
+                |npu_name| self.add_page(&page, &npu_name, &tab_name),
+            );
 
             page.init(npu, i as u32);
 
@@ -916,11 +917,11 @@ impl MainWindow {
         let imp = self.imp();
 
         // no visible child exists
-        if let Some(visible_child) = imp.content_stack.visible_child() {
-            if visible_child == *page.upcast_ref::<gtk::Widget>() {
-                imp.resources_sidebar
-                    .set_selected_list_item_by_tab_id(applications::TAB_ID);
-            }
+        if let Some(visible_child) = imp.content_stack.visible_child()
+            && visible_child == *page.upcast_ref::<gtk::Widget>()
+        {
+            imp.resources_sidebar
+                .set_selected_list_item_by_tab_id(applications::TAB_ID);
         }
 
         imp.content_stack.remove(page);
@@ -989,11 +990,10 @@ impl MainWindow {
                 let page = ResDrive::new();
                 page.init(drive, highest_secondary_ord);
 
-                if let Some(model) = &drive.inner.model {
-                    self.add_page(&page, model, &display_name)
-                } else {
-                    self.add_page(&page, &drive.inner.block_device, &display_name)
-                }
+                drive.inner.model.as_ref().map_or_else(
+                    || self.add_page(&page, &drive.inner.block_device, &display_name),
+                    |model| self.add_page(&page, model, &display_name),
+                )
             });
         }
     }
@@ -1152,24 +1152,22 @@ impl MainWindow {
 
                 let toast_message = if processes_unsuccessful > 0 {
                     if pids.len() == 1 {
-                        if let Some(display_name) =
-                            first_process.map(|process| &process.display_name)
-                        {
-                            get_named_action_failure(action, display_name)
-                        } else {
-                            // this should never happen
-                            get_action_failure(action, 1)
-                        }
+                        first_process
+                            .map(|process| &process.display_name)
+                            .map_or_else(
+                                || get_action_failure(action, 1),
+                                |display_name| get_named_action_failure(action, display_name),
+                            )
                     } else {
                         get_action_failure(action, processes_unsuccessful)
                     }
                 } else if pids.len() == 1 {
-                    if let Some(display_name) = first_process.map(|process| &process.display_name) {
-                        get_action_success(action, display_name)
-                    } else {
-                        // this should never happen
-                        get_processes_success(action, 1)
-                    }
+                    first_process
+                        .map(|process| &process.display_name)
+                        .map_or_else(
+                            || get_processes_success(action, 1),
+                            |display_name| get_action_success(action, display_name),
+                        )
                 } else {
                     get_processes_success(action, pids.len())
                 };
@@ -1178,7 +1176,7 @@ impl MainWindow {
             }
 
             Action::ManipulateApp(action, id, toast_overlay) => {
-                let app = apps_context.get_app(&Some(id.clone())).unwrap();
+                let app = apps_context.get_app(&Some(id)).unwrap();
                 let result = app.execute_process_action(&apps_context, action);
 
                 let processes_tried = result.len();

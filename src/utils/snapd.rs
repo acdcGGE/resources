@@ -22,7 +22,7 @@ thread_local! {
 /// Returns a `SnapFuture` for the given snap app's freedesktop desktop ID.
 /// On the first call, creates the future, spawns it on the GLib main context, and caches it.
 /// Subsequent calls return the same (possibly already-resolved) shared future.
-pub(super) fn get_desktop_id(snap_name: &str, snap_app_name: &str) -> SnapFuture {
+pub fn get_desktop_id(snap_name: &str, snap_app_name: &str) -> SnapFuture {
     DESKTOP_ID_CACHE.with_borrow_mut(|cache| {
         cache
             .entry((snap_name.to_string(), snap_app_name.to_string()))

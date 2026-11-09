@@ -1,13 +1,9 @@
-# ⚠️ Resources is now part of [GNOME Incubator](https://gitlab.gnome.org/GNOME/Incubator/resources)! All further development and discussion will happen on GNOME GitLab
-
----
-
 # Resources
 
-<a href='https://flathub.org/apps/net.nokyan.Resources'><img width='240' alt='Download on Flathub' src='https://flathub.org/api/badge?svg&locale=en'/></a>
+<a href='https://flathub.org/apps/org.gnome.Resources'><img width='240' alt='Download on Flathub' src='https://flathub.org/api/badge?svg&locale=en'/></a>
 
 [![GNOME Circle](https://circle.gnome.org/assets/button/badge.svg
-)](https://apps.gnome.org/app/net.nokyan.Resources/) [![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app)  
+)](https://apps.gnome.org/app/org.gnome.Resources/) [![Please do not theme this app](https://stopthemingmy.app/badge.svg)](https://stopthemingmy.app)  
 
 Resources is a simple yet powerful monitor for your system resources and processes, written in Rust and using GTK 4 and libadwaita for its GUI. It’s capable of displaying usage and details of your CPU, memory, GPUs, NPUs, network interfaces and block devices. It’s also capable of listing and terminating running graphical applications as well as processes.
 
@@ -36,7 +32,7 @@ Resources is *not* a program that will try to display every single possible piec
 
 ## Installing
 
-The **official** and **only supported** way of installing Resources is using Flatpak. Simply use your graphical software manager like GNOME Software or Discover to install Resources from Flathub or type ``flatpak install flathub net.nokyan.Resources`` in your terminal.
+The **official** and **only supported** way of installing Resources is using Flatpak. Simply use your graphical software manager like GNOME Software or Discover to install Resources from Flathub or type ``flatpak install flathub org.gnome.Resources`` in your terminal.
 Please keep in mind that you need to have Flathub set up on your device. You can find out how to set up Flathub [here](https://flathub.org/setup).
 
 ### Unofficial Packages
@@ -67,7 +63,7 @@ dnf install resources
 
 #### Nix
 
-Unofficially packaged for Nix/NixOS. The Flatpak version is [known to have issues](https://github.com/nokyan/resources/issues/76) with showing running apps and processes on NixOS, which the native package may resolve.
+Unofficially packaged for Nix/NixOS. The Flatpak version is [known to have issues](https://gitlab.gnome.org/GNOME/Incubator/resources/issues/76) with showing running apps and processes on NixOS, which the native package may resolve.
 
 In `configuration.nix`:
 ```
@@ -102,7 +98,7 @@ These dependencies are not needed to build Resources but Resources may lack cert
 
 ```sh
 flatpak install org.gnome.Sdk//49 org.freedesktop.Sdk.Extension.rust-stable//25.08 org.gnome.Platform//49 org.freedesktop.Sdk.Extension.llvm21//25.08
-flatpak-builder --user flatpak_app build-aux/net.nokyan.Resources.Devel.json
+flatpak-builder --user flatpak_app build-aux/org.gnome.Resources.Devel.json
 ```
 
 If you use [GNOME Builder](https://apps.gnome.org/app/org.gnome.Builder/) or Visual Studio Code with the [Flatpak extension](https://marketplace.visualstudio.com/items?itemName=bilelmoussaoui.flatpak-vscode), Resources can be built and run automatically.
@@ -116,15 +112,15 @@ ninja -C build install
 
 ## Running
 
-Running Resources is as simple as typing `flatpak run net.nokyan.Resources` into a terminal or running it from your app launcher.
+Running Resources is as simple as typing `flatpak run org.gnome.Resources` into a terminal or running it from your app launcher.
 If you’ve built Resources natively or installed it from a traditional package manager such as `apt` or `dnf`, or if you’ve built Resources yourself, typing `resources` in a terminal will start Resources.
-If you’ve built Resources as a Flatpak, type `flatpak-builder --run flatpak_app build-aux/net.nokyan.Resources.Devel.json resources` into your terminal or use one of the aforementioned IDEs to do that automatically.
+If you’ve built Resources as a Flatpak, type `flatpak-builder --run flatpak_app build-aux/org.gnome.Resources.Devel.json resources` into your terminal or use one of the aforementioned IDEs to do that automatically.
 
 ## Contributing
 
-If you have an idea, bug report, question or something else, don’t hesitate to [open an issue](https://github.com/nokyan/resources/issues)! Translations are always welcome but need to go through [GNOME Damned Lies](https://l10n.gnome.org/module/resources/), ordinary pull requests for translation changes cannot be accepted anymore.
+If you have an idea, bug report, question or something else, don’t hesitate to [open an issue](https://gitlab.gnome.org/GNOME/Incubator/resources/issues)! Translations are always welcome but need to go through [GNOME Damned Lies](https://l10n.gnome.org/module/resources/), ordinary pull requests for translation changes cannot be accepted anymore.
 
 ## Code of Conduct
 
-Resources follows the [GNOME Code of Conduct](/CODE_OF_CONDUCT.md).
+Resources follows the [GNOME Code of Conduct](https://conduct.gnome.org/).
 All communications in project spaces are expected to follow it.

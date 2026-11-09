@@ -1,11 +1,10 @@
 use crate::{
-    config::PROFILE,
-    i18n::i18n_f,
+    config::DEVLOPMENT_BUILD,
     ui::{
         pages::{NICE_TO_LABEL, processes::process_entry::ProcessEntry},
         window::Action,
     },
-    utils::settings::SETTINGS,
+    utils::{i18n::i18n_f, settings::SETTINGS},
 };
 use adw::{ToastOverlay, prelude::*, subclass::prelude::*};
 use async_channel::Sender;
@@ -22,7 +21,7 @@ mod imp {
     use gtk::CompositeTemplate;
 
     #[derive(Debug, CompositeTemplate, Default)]
-    #[template(resource = "/net/nokyan/Resources/ui/dialogs/process_options_dialog.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/dialogs/process_options_dialog.ui")]
     pub struct ResProcessOptionsDialog {
         #[template_child]
         pub name: TemplateChild<gtk::Label>,
@@ -33,7 +32,7 @@ mod imp {
         #[template_child]
         pub priority_row: TemplateChild<adw::ComboRow>,
         #[template_child]
-        pub affinity_row: TemplateChild<adw::ExpanderRow>,
+        pub affinity_group: TemplateChild<adw::PreferencesGroup>,
         #[template_child]
         pub select_all_button: TemplateChild<gtk::Button>,
 
@@ -64,7 +63,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -160,7 +159,7 @@ impl ResProcessOptionsDialog {
                 }
             ));
 
-            imp.affinity_row.add_row(&switch_row);
+            imp.affinity_group.add(&switch_row);
 
             imp.cpu_rows.borrow_mut().push(switch_row);
         }

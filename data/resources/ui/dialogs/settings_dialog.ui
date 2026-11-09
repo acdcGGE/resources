@@ -82,16 +82,6 @@
               </object>
             </child>
             <child>
-              <object class="AdwSwitchRow" id="sidebar_details_row">
-                <property name="title" translatable="yes">Show Usage Details in Sidebar</property>
-                <property name="subtitle" translatable="yes">If enabled, the usage along with other information will be displayed</property>
-              </object>
-            </child>
-            <child>
-              <object class="AdwSwitchRow" id="sidebar_description_row">
-                <property name="title" translatable="yes">Show Device Descriptions in Sidebar</property>
-                <property name="subtitle" translatable="yes">If enabled, a device identifier like its name or device type will be displayed</property>
-              </object>
             </child>
             <child>
               <object class="AdwComboRow" id="sidebar_meter_type_row">

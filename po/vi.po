@@ -1,0 +1,2023 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Cas Pascal <casboi86@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: unnamed project\n"
+"Report-Msgid-Bugs-To: https://github.com/nokyan/resources/issues/\n"
+"POT-Creation-Date: 2026-02-01 19:19+0000\n"
+"PO-Revision-Date: 2026-02-03 15:26+0700\n"
+"Last-Translator: Cas Pascal <casboi86@gmail.com>\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 49.0\n"
+
+#: data/net.nokyan.Resources.desktop.in.in:2
+#: data/net.nokyan.Resources.metainfo.xml.in.in:4
+#: data/resources/ui/window.ui:22 src/application.rs:272
+msgid "Resources"
+msgstr "Resources"
+
+#. Translators: The summary should be 35 characters or less according to Flathub appstream guidelines
+#: data/net.nokyan.Resources.desktop.in.in:3
+#: data/net.nokyan.Resources.metainfo.xml.in.in:5
+msgid "Keep an eye on system resources"
+msgstr "Theo dõi tài nguyên hệ thống"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/net.nokyan.Resources.desktop.in.in:9
+msgid "System;Resources;Monitor;Processes;Usage;Task;Manager;CPU;RAM;Memory;GPU;Performance;Power;Battery;"
+msgstr ""
+"System;Resources;Monitor;Processes;Usage;Task;Manager;CPU;RAM;Memory;GPU;Hệ "
+"Thống;Tài Nguyên;Giám Sát;Tiến Trình;Sử Dụng;Tác Vụ;Quản Lý;Bộ Nhớ;"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:17
+msgid ""
+"Resources allows you to check the utilization of your system resources and "
+"control your running processes and apps. It’s designed to be user-friendly "
+"and feel right at home on a modern desktop by using GNOME’s libadwaita."
+msgstr ""
+"Resources cho phép bạn kiểm tra mức độ sử dụng tài nguyên hệ thống và kiểm "
+"soát các tiến trình cũng như ứng dụng đang chạy. Nó được thiết kế thân thiện "
+"với người dùng và tích hợp tốt trên môi trường desktop hiện đại bằng cách sử "
+"dụng libadwaita của GNOME."
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:20
+msgid "Resources supports monitoring the following components:"
+msgstr "Resources hỗ trợ giám sát các thành phần sau:"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:24
+msgid "CPU"
+msgstr "CPU"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:25
+#: data/resources/ui/dialogs/app_dialog.ui:82
+#: data/resources/ui/dialogs/process_dialog.ui:64
+#: data/resources/ui/dialogs/settings_dialog.ui:128
+#: data/resources/ui/dialogs/settings_dialog.ui:220
+#: data/resources/ui/window.ui:176 data/resources/ui/window.ui:183
+#: src/ui/pages/applications/mod.rs:806 src/ui/pages/applications/mod.rs:823
+#: src/ui/pages/memory.rs:106 src/ui/pages/memory.rs:192
+#: src/ui/pages/processes/mod.rs:1106 src/ui/pages/processes/mod.rs:1123
+msgid "Memory"
+msgstr "Bộ Nhớ"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:26
+#: data/resources/ui/dialogs/app_dialog.ui:140
+#: data/resources/ui/dialogs/process_dialog.ui:118
+#: data/resources/ui/dialogs/settings_dialog.ui:158
+#: data/resources/ui/dialogs/settings_dialog.ui:250
+#: src/ui/pages/applications/mod.rs:1232 src/ui/pages/applications/mod.rs:1249
+#: src/ui/pages/gpu.rs:119 src/ui/pages/processes/mod.rs:1544
+#: src/ui/pages/processes/mod.rs:1561 src/ui/window.rs:468
+msgid "GPU"
+msgstr "GPU"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:27
+#: data/resources/ui/dialogs/settings_dialog.ui:324
+msgid "Network Interfaces"
+msgstr "Giao Diện Mạng"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:28
+msgid "Storage Devices"
+msgstr "Thiết Bị Lưu Trữ"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:29
+msgid "Batteries"
+msgstr "Pin"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:53
+msgid "Apps page in light theme"
+msgstr "Trang ứng dụng trong chế độ sáng"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:57
+msgid "Processes page in dark theme"
+msgstr "Trang tiến trình trong chế độ tối"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:61
+msgid "Processor page in light theme"
+msgstr "Trang bộ xử lý trong chế độ sáng"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:65
+msgid "Memory page in dark theme"
+msgstr "Trang bộ nhớ trong chế độ tối"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:69
+msgid "GPU page in light theme"
+msgstr "Trang GPU trong chế độ sáng"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:73
+msgid "Drive page in dark theme"
+msgstr "Trang ổ đĩa trong chế độ tối"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:77
+msgid "Network Interface page in light theme"
+msgstr "Trang giao diện mạng trong chế độ sáng"
+
+#: data/net.nokyan.Resources.metainfo.xml.in.in:81
+msgid "Battery page in dark theme"
+msgstr "Trang pin trong chế độ tối"
+
+#: data/net.nokyan.Resources.policy.in.in:9
+msgid "Control Process"
+msgstr "Kiểm Soát Tiến Trình"
+
+#: data/net.nokyan.Resources.policy.in.in:10
+msgid ""
+"Authentication is required to control superuser’s or other users’ processes"
+msgstr ""
+"Cần xác thực để kiểm soát các tiến trình của quản trị viên hoặc người dùng "
+"khác "
+
+#: data/resources/ui/dialogs/app_dialog.ui:7
+msgid "App Information"
+msgstr "Thông Tin Ứng Dụng"
+
+#: data/resources/ui/dialogs/app_dialog.ui:70
+#: data/resources/ui/dialogs/process_dialog.ui:48
+#: data/resources/ui/pages/battery.ui:22 data/resources/ui/pages/cpu.ui:37
+#: data/resources/ui/pages/cpu.ui:50 data/resources/ui/pages/drive.ui:22
+#: data/resources/ui/pages/gpu.ui:22 data/resources/ui/pages/memory.ui:31
+#: data/resources/ui/pages/network.ui:22 data/resources/ui/pages/npu.ui:22
+msgid "Usage"
+msgstr "Sử Dụng"
+
+#: data/resources/ui/dialogs/app_dialog.ui:73
+#: data/resources/ui/dialogs/process_dialog.ui:55
+#: data/resources/ui/dialogs/settings_dialog.ui:133
+#: data/resources/ui/dialogs/settings_dialog.ui:225
+#: data/resources/ui/window.ui:145 data/resources/ui/window.ui:152
+#: src/ui/pages/applications/mod.rs:873 src/ui/pages/applications/mod.rs:890
+#: src/ui/pages/cpu.rs:128 src/ui/pages/processes/mod.rs:1173
+#: src/ui/pages/processes/mod.rs:1190 src/ui/window.rs:290
+msgid "Processor"
+msgstr "Bộ Xử Lý"
+
+#: data/resources/ui/dialogs/app_dialog.ui:91
+#: data/resources/ui/dialogs/process_dialog.ui:73
+#: data/resources/ui/dialogs/settings_dialog.ui:178
+#: data/resources/ui/dialogs/settings_dialog.ui:290
+#: src/ui/pages/applications/mod.rs:1503 src/ui/pages/applications/mod.rs:1520
+#: src/ui/pages/memory.rs:198 src/ui/pages/processes/mod.rs:2093
+#: src/ui/pages/processes/mod.rs:2110
+msgid "Swap"
+msgstr "Swap"
+
+#: data/resources/ui/dialogs/app_dialog.ui:100
+#: data/resources/ui/dialogs/process_dialog.ui:78
+#: data/resources/ui/dialogs/settings_dialog.ui:138
+#: data/resources/ui/dialogs/settings_dialog.ui:230
+#: src/ui/pages/applications/mod.rs:945 src/ui/pages/applications/mod.rs:964
+#: src/ui/pages/processes/mod.rs:1245 src/ui/pages/processes/mod.rs:1264
+msgid "Drive Read"
+msgstr "Đọc Ổ Đĩa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:109
+#: data/resources/ui/dialogs/process_dialog.ui:87
+#: data/resources/ui/dialogs/settings_dialog.ui:143
+#: data/resources/ui/dialogs/settings_dialog.ui:235
+#: src/ui/pages/applications/mod.rs:1018 src/ui/pages/applications/mod.rs:1037
+#: src/ui/pages/processes/mod.rs:1320 src/ui/pages/processes/mod.rs:1339
+msgid "Drive Read Total"
+msgstr "Tổng Đọc Ổ Đĩa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:118
+#: data/resources/ui/dialogs/process_dialog.ui:96
+#: data/resources/ui/dialogs/settings_dialog.ui:148
+#: data/resources/ui/dialogs/settings_dialog.ui:240
+#: src/ui/pages/applications/mod.rs:1087 src/ui/pages/applications/mod.rs:1106
+#: src/ui/pages/processes/mod.rs:1395 src/ui/pages/processes/mod.rs:1414
+msgid "Drive Write"
+msgstr "Ghi Ổ Đĩa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:127
+#: data/resources/ui/dialogs/process_dialog.ui:105
+#: data/resources/ui/dialogs/settings_dialog.ui:153
+#: data/resources/ui/dialogs/settings_dialog.ui:245
+#: src/ui/pages/applications/mod.rs:1162 src/ui/pages/applications/mod.rs:1181
+#: src/ui/pages/processes/mod.rs:1470 src/ui/pages/processes/mod.rs:1489
+msgid "Drive Write Total"
+msgstr "Tổng Ghi Ổ Đĩa"
+
+#: data/resources/ui/dialogs/app_dialog.ui:149
+#: data/resources/ui/dialogs/process_dialog.ui:127
+#: data/resources/ui/dialogs/settings_dialog.ui:163
+#: data/resources/ui/dialogs/settings_dialog.ui:255
+#: src/ui/pages/applications/mod.rs:1436 src/ui/pages/applications/mod.rs:1454
+#: src/ui/pages/processes/mod.rs:1749 src/ui/pages/processes/mod.rs:1768
+msgid "Video Memory"
+msgstr "Bộ Nhớ Video"
+
+#: data/resources/ui/dialogs/app_dialog.ui:158
+#: data/resources/ui/dialogs/process_dialog.ui:136
+#: data/resources/ui/dialogs/settings_dialog.ui:168
+#: data/resources/ui/dialogs/settings_dialog.ui:260
+#: src/ui/pages/applications/mod.rs:1299 src/ui/pages/applications/mod.rs:1318
+#: src/ui/pages/processes/mod.rs:1611 src/ui/pages/processes/mod.rs:1630
+msgid "Video Encoder"
+msgstr "Bộ Mã Hóa Video"
+
+#: data/resources/ui/dialogs/app_dialog.ui:167
+#: data/resources/ui/dialogs/process_dialog.ui:145
+#: data/resources/ui/dialogs/settings_dialog.ui:173
+#: data/resources/ui/dialogs/settings_dialog.ui:265
+#: src/ui/pages/applications/mod.rs:1368 src/ui/pages/applications/mod.rs:1387
+#: src/ui/pages/processes/mod.rs:1680 src/ui/pages/processes/mod.rs:1699
+msgid "Video Decoder"
+msgstr "Bộ Giải Mã Video"
+
+#: data/resources/ui/dialogs/app_dialog.ui:174
+#: data/resources/ui/dialogs/process_dialog.ui:179
+#: data/resources/ui/pages/battery.ui:33 data/resources/ui/pages/cpu.ui:83
+#: data/resources/ui/pages/drive.ui:54 data/resources/ui/pages/gpu.ui:74
+#: data/resources/ui/pages/memory.ui:42 data/resources/ui/pages/network.ui:51
+#: data/resources/ui/pages/npu.ui:68
+msgid "Properties"
+msgstr "Thuộc Tính"
+
+#: data/resources/ui/dialogs/app_dialog.ui:180
+msgid "ID"
+msgstr "ID"
+
+#: data/resources/ui/dialogs/app_dialog.ui:190
+#: data/resources/ui/dialogs/process_dialog.ui:195
+msgid "Running Since"
+msgstr "Chạy Từ"
+
+#: data/resources/ui/dialogs/app_dialog.ui:198
+msgid "Running Processes"
+msgstr "Tiến Trình Đang Chạy"
+
+#: data/resources/ui/dialogs/app_dialog.ui:207
+#: data/resources/ui/dialogs/process_dialog.ui:231
+msgid "Containerized"
+msgstr "Container Hóa"
+
+#: data/resources/ui/dialogs/process_dialog.ui:7
+msgid "Process Information"
+msgstr "Thông Tin Tiến Trình"
+
+#: data/resources/ui/dialogs/process_dialog.ui:154
+#: data/resources/ui/dialogs/settings_dialog.ui:270
+#: src/ui/pages/processes/mod.rs:1817 src/ui/pages/processes/mod.rs:1835
+msgid "Total CPU Time"
+msgstr "Tổng Thời Gian CPU"
+
+#: data/resources/ui/dialogs/process_dialog.ui:163
+#: data/resources/ui/dialogs/settings_dialog.ui:275
+#: src/ui/pages/processes/mod.rs:1884 src/ui/pages/processes/mod.rs:1902
+msgid "User CPU Time"
+msgstr "Thời Gian CPU Người Dùng"
+
+#: data/resources/ui/dialogs/process_dialog.ui:172
+#: data/resources/ui/dialogs/settings_dialog.ui:280
+#: src/ui/pages/processes/mod.rs:1951 src/ui/pages/processes/mod.rs:1969
+msgid "System CPU Time"
+msgstr "Thời Gian CPU Hệ Thống"
+
+#: data/resources/ui/dialogs/process_dialog.ui:186
+#: data/resources/ui/dialogs/settings_dialog.ui:210
+#: src/ui/pages/processes/mod.rs:983 src/ui/pages/processes/mod.rs:998
+msgid "Process ID"
+msgstr "ID Tiến Trình"
+
+#: data/resources/ui/dialogs/process_dialog.ui:204
+#: data/resources/ui/dialogs/settings_dialog.ui:300
+#: src/ui/pages/processes/mod.rs:2229 src/ui/pages/processes/mod.rs:2247
+msgid "Commandline"
+msgstr "Dòng Lệnh"
+
+#: data/resources/ui/dialogs/process_dialog.ui:213
+#: data/resources/ui/dialogs/settings_dialog.ui:215
+#: src/ui/pages/processes/mod.rs:1044 src/ui/pages/processes/mod.rs:1059
+msgid "User"
+msgstr "Người Dùng"
+
+#: data/resources/ui/dialogs/process_dialog.ui:222
+msgid "Control Group"
+msgstr "Nhóm Kiểm Soát"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:7
+#: data/resources/ui/dialogs/process_options_dialog.ui:69
+msgid "Process Options"
+msgstr "Tùy Chọn Tiến Trình"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:29
+msgid "Apply"
+msgstr "Áp Dụng"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:72
+msgid "Niceness"
+msgstr "Độ Ưu Tiên (Niceness)"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:73
+msgid ""
+"The priority of a process is given by its niceness. A lower niceness value "
+"correspond to a higher priority."
+msgstr ""
+"Độ ưu tiên của tiến trình được xác định bởi giá trị niceness. Giá trị "
+"niceness thấp hơn tương ứng với độ ưu tiên cao hơn."
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:87
+#: data/resources/ui/dialogs/settings_dialog.ui:285
+#: src/ui/pages/processes/mod.rs:2018 src/ui/pages/processes/mod.rs:2034
+msgid "Priority"
+msgstr "Độ Ưu Tiên"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:91
+msgctxt "process priority"
+msgid "Very High"
+msgstr "Rất Cao"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:92
+msgctxt "process priority"
+msgid "High"
+msgstr "Cao"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:93
+msgctxt "process priority"
+msgid "Normal"
+msgstr "Bình Thường"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:94
+msgctxt "process priority"
+msgid "Low"
+msgstr "Thấp"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:95
+msgctxt "process priority"
+msgid "Very Low"
+msgstr "Rất Thấp"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:103
+msgid "Processor Affinity"
+msgstr "Liên Kết Bộ Xử Lý"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:108
+msgid "Toggle All"
+msgstr "Bật/Tắt Tất Cả"
+
+#: data/resources/ui/dialogs/process_options_dialog.ui:111
+msgid "Select which processor cores the process is allowed to run on"
+msgstr "Chọn các nhân bộ xử lý mà tiến trình được phép chạy trên"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:7
+msgid "General"
+msgstr "Chung"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:10
+msgid "Units"
+msgstr "Đơn Vị"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:13
+msgid "Data Unit Prefix"
+msgstr "Tiền Tố Đơn Vị Dữ Liệu"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:17
+msgid "Decimal"
+msgstr "Thập Phân"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:18
+msgid "Binary"
+msgstr "Nhị Phân"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:26
+msgid "Show Network Speeds in Bits per Second"
+msgstr "Hiển Thị Tốc Độ Mạng Theo Bit Mỗi Giây"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:31
+msgid "Temperature Unit"
+msgstr "Đơn Vị Nhiệt Độ"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:35
+msgid "Celsius"
+msgstr "Celsius"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:36
+msgid "Kelvin"
+msgstr "Kelvin"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:37
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:47
+msgid "User Interface"
+msgstr "Giao Diện Người Dùng"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:50
+msgid "Refresh Speed"
+msgstr "Tốc Độ Làm Mới"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:51
+msgid "Higher refresh speeds can lead to higher processor usage"
+msgstr "Tốc độ làm mới cao hơn có thể dẫn đến việc sử dụng bộ xử lý nhiều hơn"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:55
+msgctxt "UI refresh speed"
+msgid "Very Slow"
+msgstr "Rất Chậm"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:56
+msgctxt "UI refresh speed"
+msgid "Slow"
+msgstr "Chậm"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:57
+msgctxt "UI refresh speed"
+msgid "Normal"
+msgstr "Bình Thường"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:58
+msgctxt "UI refresh speed"
+msgid "Fast"
+msgstr "Nhanh"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:59
+msgctxt "UI refresh speed"
+msgid "Very Fast"
+msgstr "Rất Nhanh"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:67
+msgid "Show Graph Grids"
+msgstr "Hiển Thị Lưới Đồ Thị"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:72
+msgid "Graph Data Points"
+msgstr "Số Điểm Dữ Liệu Đồ Thị"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:86
+msgid "Show Usage Details in Sidebar"
+msgstr "Hiển Thị Chi Tiết Sử Dụng Trong Thanh Bên"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:87
+msgid "If enabled, the usage along with other information will be displayed"
+msgstr "Nếu bật, mức sử dụng cùng với thông tin khác sẽ được hiển thị"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:92
+msgid "Show Device Descriptions in Sidebar"
+msgstr "Hiển Thị Mô Tả Thiết Bị Trong Thanh Bên"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:93
+msgid ""
+"If enabled, a device identifier like its name or device type will be "
+"displayed"
+msgstr ""
+"Nếu bật, một mã nhận diện thiết bị như tên hoặc loại thiết bị sẽ được hiển "
+"thị"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:98
+msgid "Sidebar Meter Type"
+msgstr "Kiểu Hiển Thị Thanh Bên"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:102
+msgid "Bar"
+msgstr "Thanh"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:103
+msgid "Graph"
+msgstr "Đồ Thị"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:111
+msgid "Normalize Processor Usage"
+msgstr "Chuẩn Hóa Mức Sử Dụng Bộ Xử Lý"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:112
+msgid ""
+"If enabled, the total usage of all cores will be divided by the amount of "
+"cores"
+msgstr ""
+"Nếu bật, tổng mức sử dụng của tất cả các nhân sẽ được chia cho số lượng nhân"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:122
+#: data/resources/ui/window.ui:65 data/resources/ui/window.ui:72
+#: src/ui/pages/applications/mod.rs:132
+msgid "Apps"
+msgstr "Ứng Dụng"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:125
+#: data/resources/ui/dialogs/settings_dialog.ui:207
+msgid "Information Columns"
+msgstr "Cột Thông Tin"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:183
+#: data/resources/ui/dialogs/settings_dialog.ui:295
+#: src/ui/pages/applications/mod.rs:1570 src/ui/pages/applications/mod.rs:1589
+#: src/ui/pages/processes/mod.rs:2160 src/ui/pages/processes/mod.rs:2179
+msgid "Combined Memory"
+msgstr "Bộ Nhớ Kết Hợp"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:193
+#: data/resources/ui/window.ui:105 data/resources/ui/window.ui:112
+#: src/ui/pages/processes/mod.rs:176
+msgid "Processes"
+msgstr "Tiến Trình"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:196
+#: data/resources/ui/pages/cpu.ui:22 data/resources/ui/pages/processes.ui:56
+msgid "Options"
+msgstr "Tùy Chọn"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:199
+msgid "Show Niceness Values"
+msgstr "Hiển Thị Giá Trị Niceness"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:200
+msgid ""
+"Display priorities as niceness to allow for more fine-grained adjustments"
+msgstr ""
+"Hiển thị độ ưu tiên dưới dạng niceness để cho phép điều chỉnh chi tiết hơn"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:310
+msgid "Devices"
+msgstr "Thiết Bị"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:313
+msgid "Drives"
+msgstr "Ổ Đĩa"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:316
+msgid "Show Virtual Drives"
+msgstr "Hiển Thị Ổ Đĩa Ảo"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:317
+msgid "Virtual drives are for example ZFS volumes or mapped devices"
+msgstr "Ổ đĩa ảo ví dụ như phân vùng ZFS hoặc thiết bị ánh xạ"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:327
+msgid "Show Virtual Network Interfaces"
+msgstr "Hiển Thị Giao Diện Mạng Ảo"
+
+#: data/resources/ui/dialogs/settings_dialog.ui:328
+msgid "Virtual network interfaces are for example bridges or VPN tunnels"
+msgstr "Giao diện mạng ảo ví dụ như cầu nối hoặc đường hầm VPN"
+
+#: data/resources/ui/pages/applications.ui:6
+#: data/resources/ui/pages/applications.ui:26
+#: src/ui/pages/applications/mod.rs:1662
+msgid "Kill App"
+msgstr "Buộc Kết Thúc Ứng Dụng"
+
+#: data/resources/ui/pages/applications.ui:10
+#: data/resources/ui/pages/applications.ui:30
+#: src/ui/pages/applications/mod.rs:1661
+msgid "Halt App"
+msgstr "Tạm Dừng Ứng Dụng"
+
+#: data/resources/ui/pages/applications.ui:14
+#: data/resources/ui/pages/applications.ui:34
+#: src/ui/pages/applications/mod.rs:1663
+msgid "Continue App"
+msgstr "Tiếp Tục Ứng Dụng"
+
+#: data/resources/ui/pages/applications.ui:22
+#: data/resources/ui/pages/applications.ui:98
+#: src/ui/pages/applications/mod.rs:1660
+msgid "End App"
+msgstr "Kết Thúc Ứng Dụng"
+
+#: data/resources/ui/pages/applications.ui:40
+#: data/resources/ui/pages/processes.ui:62
+msgid "Information"
+msgstr "Thông Tin"
+
+#: data/resources/ui/pages/applications.ui:57
+msgid "Search applications"
+msgstr "Tìm kiếm ứng dụng"
+
+#: data/resources/ui/pages/applications.ui:87
+#: data/resources/ui/pages/applications.ui:89
+msgid "Show App Information"
+msgstr "Hiển Thị Thông Tin Ứng Dụng"
+
+#: data/resources/ui/pages/battery.ui:36
+msgid "Battery Health"
+msgstr "Sức Khỏe Pin"
+
+#: data/resources/ui/pages/battery.ui:45
+msgid "Design Capacity"
+msgstr "Dung Lượng Thiết Kế"
+
+#: data/resources/ui/pages/battery.ui:54
+msgid "Charge Cycles"
+msgstr "Chu Kỳ Sạc"
+
+#: data/resources/ui/pages/battery.ui:63
+msgid "Technology"
+msgstr "Công Nghệ"
+
+#: data/resources/ui/pages/battery.ui:72 data/resources/ui/pages/gpu.ui:81
+#: data/resources/ui/pages/network.ui:58 data/resources/ui/pages/npu.ui:75
+msgid "Manufacturer"
+msgstr "Nhà Sản Xuất"
+
+#: data/resources/ui/pages/battery.ui:81
+msgid "Model Name"
+msgstr "Tên Mẫu"
+
+#: data/resources/ui/pages/battery.ui:90 data/resources/ui/pages/drive.ui:66
+msgid "Device"
+msgstr "Thiết Bị"
+
+#: data/resources/ui/pages/cpu.ui:26
+msgid "Show Usages of Logical CPUs"
+msgstr "Hiển Thị Mức Sử Dụng Của Các CPU Luận Lý"
+
+#: data/resources/ui/pages/cpu.ui:75 data/resources/ui/pages/gpu.ui:66
+#: data/resources/ui/pages/npu.ui:60
+msgid "Sensors"
+msgstr "Cảm Biến"
+
+#: data/resources/ui/pages/cpu.ui:90
+msgid "Max Frequency"
+msgstr "Tần Số Tối Đa"
+
+#: data/resources/ui/pages/cpu.ui:99
+msgid "Logical Cores"
+msgstr "Nhân Luận Lý"
+
+#: data/resources/ui/pages/cpu.ui:108
+msgid "Physical Cores"
+msgstr "Nhân Vật Lý"
+
+#: data/resources/ui/pages/cpu.ui:117
+msgid "Sockets"
+msgstr "Socket"
+
+#: data/resources/ui/pages/cpu.ui:126
+msgid "Uptime"
+msgstr "Thời Gian Hoạt Động"
+
+#: data/resources/ui/pages/cpu.ui:135
+msgid "Virtualization"
+msgstr "Ảo Hóa"
+
+#: data/resources/ui/pages/cpu.ui:144
+msgid "Architecture"
+msgstr "Kiến Trúc"
+
+#: data/resources/ui/pages/drive.ui:38
+msgid "Total Read"
+msgstr "Tổng Đọc"
+
+#: data/resources/ui/pages/drive.ui:47
+msgid "Total Written"
+msgstr "Tổng Ghi"
+
+#: data/resources/ui/pages/drive.ui:57 data/resources/ui/pages/memory.ui:72
+msgid "Type"
+msgstr "Loại"
+
+#: data/resources/ui/pages/drive.ui:75
+msgid "Capacity"
+msgstr "Dung Lượng"
+
+#: data/resources/ui/pages/drive.ui:84
+msgid "Writable"
+msgstr "Có Thể Ghi"
+
+#: data/resources/ui/pages/drive.ui:93
+msgid "Removable"
+msgstr "Có Thể Tháo Rời"
+
+#. Translators: "Link" refers to something like "PCIe 4.0 ×16"
+#: data/resources/ui/pages/drive.ui:102 data/resources/ui/pages/gpu.ui:113
+#: data/resources/ui/pages/network.ui:103 data/resources/ui/pages/npu.ui:107
+msgid "Link"
+msgstr "Kết Nối"
+
+#: data/resources/ui/pages/gpu.ui:37
+msgid "GPU Frequency"
+msgstr "Tần Số GPU"
+
+#: data/resources/ui/pages/gpu.ui:50
+msgid "Video Memory Frequency"
+msgstr "Tần Số Bộ Nhớ Video"
+
+#: data/resources/ui/pages/gpu.ui:55 data/resources/ui/pages/npu.ui:49
+#: src/ui/pages/battery.rs:217
+msgid "Power Usage"
+msgstr "Mức Sử Dụng Điện"
+
+#: data/resources/ui/pages/gpu.ui:90 data/resources/ui/pages/npu.ui:84
+msgid "PCI Slot"
+msgstr "Khe PCI"
+
+#: data/resources/ui/pages/gpu.ui:99 data/resources/ui/pages/network.ui:67
+#: data/resources/ui/pages/npu.ui:93
+msgid "Driver Used"
+msgstr "Trình Điều Khiển Sử Dụng"
+
+#: data/resources/ui/pages/gpu.ui:108 data/resources/ui/pages/npu.ui:102
+msgid "Max Power Cap"
+msgstr "Giới Hạn Công Suất Tối Đa"
+
+#: data/resources/ui/pages/memory.ui:9
+msgid "You need to authenticate to see memory properties"
+msgstr "Bạn cần xác thực để xem thuộc tính bộ nhớ"
+
+#: data/resources/ui/pages/memory.ui:10
+msgid "Authenticate"
+msgstr "Xác Thực"
+
+#: data/resources/ui/pages/memory.ui:45
+msgid "Slots Used"
+msgstr "Khe Đã Sử Dụng"
+
+#: data/resources/ui/pages/memory.ui:54
+msgid "Speed"
+msgstr "Tốc Độ"
+
+#: data/resources/ui/pages/memory.ui:63
+msgid "Form Factor"
+msgstr "Kích Thước"
+
+#: data/resources/ui/pages/memory.ui:81
+msgid "Type Detail"
+msgstr "Chi Tiết Loại"
+
+#: data/resources/ui/pages/network.ui:35
+msgid "Total Received"
+msgstr "Tổng Nhận"
+
+#: data/resources/ui/pages/network.ui:44
+msgid "Total Sent"
+msgstr "Tổng Gửi"
+
+#: data/resources/ui/pages/network.ui:76
+msgid "Interface"
+msgstr "Giao Diện"
+
+#: data/resources/ui/pages/network.ui:85
+msgid "Hardware Address"
+msgstr "Địa Chỉ Phần Cứng"
+
+#: data/resources/ui/pages/network.ui:94
+msgid "Network Name"
+msgstr "Tên Mạng"
+
+#: data/resources/ui/pages/network.ui:112
+msgid "Link Speed"
+msgstr "Tốc Độ Kết Nối"
+
+#: data/resources/ui/pages/npu.ui:31
+msgid "NPU Frequency"
+msgstr "Tần Số NPU"
+
+#: data/resources/ui/pages/npu.ui:44
+msgid "Memory Frequency"
+msgstr "Tần Số Bộ Nhớ"
+
+#: data/resources/ui/pages/processes.ui:6
+#: data/resources/ui/pages/processes.ui:42 src/ui/pages/processes/mod.rs:2346
+msgid "Kill Process"
+msgstr "Buộc Kết Thúc Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:10
+#: data/resources/ui/pages/processes.ui:46 src/ui/pages/processes/mod.rs:2345
+msgid "Halt Process"
+msgstr "Tạm Dừng Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:14
+#: data/resources/ui/pages/processes.ui:50 src/ui/pages/processes/mod.rs:2347
+msgid "Continue Process"
+msgstr "Tiếp Tục Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:22
+#: data/resources/ui/pages/processes.ui:74
+msgid "Kill Processes"
+msgstr "Buộc Kết Thúc Các Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:26
+#: data/resources/ui/pages/processes.ui:78
+msgid "Halt Processes"
+msgstr "Tạm Dừng Các Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:30
+#: data/resources/ui/pages/processes.ui:82
+msgid "Continue Processes"
+msgstr "Tiếp Tục Các Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:38
+#: data/resources/ui/pages/processes.ui:157 src/ui/pages/processes/mod.rs:527
+#: src/ui/pages/processes/mod.rs:2344
+msgid "End Process"
+msgstr "Kết Thúc Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:70 src/ui/pages/processes/mod.rs:531
+msgid "End Processes"
+msgstr "Kết Thúc Các Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:103
+msgid "Search processes"
+msgstr "Tìm kiếm tiến trình"
+
+#: data/resources/ui/pages/processes.ui:133
+#: data/resources/ui/pages/processes.ui:135
+msgid "Show Process Options"
+msgstr "Hiển Thị Tùy Chọn Tiến Trình"
+
+#: data/resources/ui/pages/processes.ui:146
+#: data/resources/ui/pages/processes.ui:148
+msgid "Show Process Information"
+msgstr "Hiển Thị Thông Tin Tiến Trình"
+
+#: data/resources/ui/shortcuts.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Chung"
+
+#: data/resources/ui/shortcuts.ui:9
+msgctxt "shortcut window"
+msgid "Preferences"
+msgstr "Tùy Chọn"
+
+#: data/resources/ui/shortcuts.ui:15
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Hiển Thị Phím Tắt"
+
+#: data/resources/ui/shortcuts.ui:21
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Thoát"
+
+#: data/resources/ui/shortcuts.ui:29
+msgctxt "shortcut window"
+msgid "Apps/Processes"
+msgstr "Ứng dụng/Tiến Trình"
+
+#: data/resources/ui/shortcuts.ui:32
+msgctxt "shortcut window"
+msgid "Toggle Search Field"
+msgstr "Bật/Tắt Ô Tìm Kiếm"
+
+#: data/resources/ui/shortcuts.ui:38
+msgctxt "shortcut window"
+msgid "End App/Process"
+msgstr "Kết Thúc Ứng Dụng/Tiến Trình"
+
+#: data/resources/ui/shortcuts.ui:44
+msgctxt "shortcut window"
+msgid "Kill App/Process"
+msgstr "Buộc Kết Thúc Ứng Dụng/Tiến Trình"
+
+#: data/resources/ui/shortcuts.ui:50
+msgctxt "shortcut window"
+msgid "Halt App/Process"
+msgstr "Tạm Dừng Ứng Dụng/Tiến Trình"
+
+#: data/resources/ui/shortcuts.ui:56
+msgctxt "shortcut window"
+msgid "Continue App/Process"
+msgstr "Tiếp Tục Ứng Dụng/Tiến Trình"
+
+#: data/resources/ui/shortcuts.ui:62
+msgctxt "shortcut window"
+msgid "Show Information for App/Process"
+msgstr "Hiển Thị Thông Tin Ứng Dụng/Tiến Trình"
+
+#: data/resources/ui/shortcuts.ui:68
+msgctxt "shortcut window"
+msgid "Show Process Options"
+msgstr "Hiển Thị Tùy Chọn Tiến Trình"
+
+#: data/resources/ui/window.ui:6
+msgid "Preferences"
+msgstr "Tùy Chọn"
+
+#: data/resources/ui/window.ui:10
+msgid "Keyboard Shortcuts"
+msgstr "Phím Tắt"
+
+#: data/resources/ui/window.ui:14
+msgid "About Resources"
+msgstr "Về Resources"
+
+#: data/resources/ui/window.ui:88 data/resources/ui/window.ui:128
+msgid "Search"
+msgstr "Tìm Kiếm"
+
+#: data/resources/ui/window.ui:90 data/resources/ui/window.ui:130
+msgid "Toggle search field"
+msgstr "Bật/tắt ô tìm kiếm"
+
+#. Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
+#. One name per line, please do not remove previous names.
+#: src/application.rs:285
+msgid "translator-credits"
+msgstr "Loc Huynh <huynhloc.contact@gmail.com>"
+
+#: src/ui/dialogs/app_dialog.rs:155 src/ui/dialogs/process_dialog.rs:133
+#: src/ui/dialogs/process_dialog.rs:137 src/ui/dialogs/process_dialog.rs:146
+#: src/ui/dialogs/process_dialog.rs:148 src/ui/dialogs/process_dialog.rs:171
+#: src/ui/dialogs/process_dialog.rs:178 src/ui/dialogs/process_dialog.rs:185
+#: src/ui/dialogs/process_dialog.rs:192 src/ui/pages/applications/mod.rs:975
+#: src/ui/pages/applications/mod.rs:1117 src/ui/pages/battery.rs:205
+#: src/ui/pages/battery.rs:225 src/ui/pages/battery.rs:231
+#: src/ui/pages/battery.rs:234 src/ui/pages/battery.rs:265
+#: src/ui/pages/battery.rs:289 src/ui/pages/battery.rs:291
+#: src/ui/pages/battery.rs:301 src/ui/pages/cpu.rs:243 src/ui/pages/cpu.rs:258
+#: src/ui/pages/cpu.rs:278 src/ui/pages/cpu.rs:284 src/ui/pages/cpu.rs:290
+#: src/ui/pages/cpu.rs:296 src/ui/pages/cpu.rs:300 src/ui/pages/cpu.rs:303
+#: src/ui/pages/cpu.rs:341 src/ui/pages/cpu.rs:448 src/ui/pages/drive.rs:321
+#: src/ui/pages/drive.rs:352 src/ui/pages/drive.rs:354
+#: src/ui/pages/drive.rs:383 src/ui/pages/drive.rs:385
+#: src/ui/pages/drive.rs:401 src/ui/pages/drive.rs:402
+#: src/ui/pages/drive.rs:409 src/ui/pages/drive.rs:419
+#: src/ui/pages/drive.rs:429 src/ui/pages/drive.rs:435 src/ui/pages/gpu.rs:245
+#: src/ui/pages/gpu.rs:252 src/ui/pages/gpu.rs:297 src/ui/pages/gpu.rs:322
+#: src/ui/pages/gpu.rs:325 src/ui/pages/gpu.rs:336 src/ui/pages/gpu.rs:377
+#: src/ui/pages/gpu.rs:384 src/ui/pages/gpu.rs:396 src/ui/pages/gpu.rs:403
+#: src/ui/pages/gpu.rs:407 src/ui/pages/gpu.rs:437 src/ui/pages/gpu.rs:443
+#: src/ui/pages/memory.rs:227 src/ui/pages/memory.rs:228
+#: src/ui/pages/memory.rs:232 src/ui/pages/memory.rs:233
+#: src/ui/pages/memory.rs:237 src/ui/pages/memory.rs:238
+#: src/ui/pages/memory.rs:266 src/ui/pages/memory.rs:327
+#: src/ui/pages/network.rs:252 src/ui/pages/network.rs:259
+#: src/ui/pages/network.rs:266 src/ui/pages/network.rs:272
+#: src/ui/pages/network.rs:275 src/ui/pages/network.rs:285
+#: src/ui/pages/network.rs:292 src/ui/pages/network.rs:302
+#: src/ui/pages/network.rs:370 src/ui/pages/network.rs:373
+#: src/ui/pages/network.rs:375 src/ui/pages/network.rs:404
+#: src/ui/pages/network.rs:407 src/ui/pages/network.rs:409
+#: src/ui/pages/network.rs:417 src/ui/pages/network.rs:424
+#: src/ui/pages/network.rs:434 src/ui/pages/processes/mod.rs:1275
+#: src/ui/pages/processes/mod.rs:1350 src/ui/pages/processes/mod.rs:1425
+#: src/ui/pages/processes/mod.rs:1500 src/ui/pages/processes/mod.rs:2050
+#: src/ui/pages/processes/mod.rs:2052 src/utils/battery.rs:152
+#: src/utils/drive.rs:137 src/utils/gpu/mod.rs:279 src/utils/gpu/mod.rs:291
+#: src/utils/link/mod.rs:61 src/utils/npu/mod.rs:249 src/utils/npu/mod.rs:255
+msgid "N/A"
+msgstr "N/A"
+
+#: src/ui/dialogs/process_options_dialog.rs:147 src/ui/pages/cpu.rs:257
+#: src/ui/pages/cpu.rs:417 src/ui/pages/cpu.rs:421
+#, rust-format
+msgid "CPU {}"
+msgstr "CPU {}"
+
+#: src/ui/pages/applications/application_entry.rs:188 src/ui/pages/drive.rs:416
+#: src/ui/pages/drive.rs:426 src/ui/pages/processes/process_entry.rs:211
+msgid "No"
+msgstr "Không"
+
+#: src/ui/pages/applications/application_entry.rs:189
+#: src/ui/pages/processes/process_entry.rs:212
+msgid "Yes (AppImage)"
+msgstr "Có (AppImage)"
+
+#: src/ui/pages/applications/application_entry.rs:190
+#: src/ui/pages/processes/process_entry.rs:213
+msgid "Yes (Flatpak)"
+msgstr "Có (Flatpak)"
+
+#. Translators: "Portable" is the name of the containerization method used, please keep it as is
+#: src/ui/pages/applications/application_entry.rs:192
+#: src/ui/pages/processes/process_entry.rs:215
+msgid "Yes (Portable)"
+msgstr "Có (Di động)"
+
+#: src/ui/pages/applications/application_entry.rs:193
+#: src/ui/pages/processes/process_entry.rs:216
+msgid "Yes (Snap)"
+msgstr "Có (Snap)"
+
+#: src/ui/pages/applications/mod.rs:663
+#, rust-format
+msgid "Running Apps: {}"
+msgstr "Ứng Dụng Đang Chạy: {}"
+
+#: src/ui/pages/applications/mod.rs:703 src/ui/pages/processes/mod.rs:873
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/ui/pages/applications/mod.rs:749
+msgid "App"
+msgstr "Ứng Dụng"
+
+#: src/ui/pages/applications/mod.rs:1638 src/ui/pages/processes/mod.rs:2293
+#, rust-format
+msgid "End {}?"
+msgstr "Kết thúc {}?"
+
+#: src/ui/pages/applications/mod.rs:1639 src/ui/pages/processes/mod.rs:2294
+#, rust-format
+msgid "Halt {}?"
+msgstr "Tạm dừng {}?"
+
+#: src/ui/pages/applications/mod.rs:1640 src/ui/pages/processes/mod.rs:2295
+#, rust-format
+msgid "Kill {}?"
+msgstr "Buộc kết thúc {}?"
+
+#: src/ui/pages/applications/mod.rs:1641 src/ui/pages/processes/mod.rs:2296
+#, rust-format
+msgid "Continue {}?"
+msgstr "Tiếp tục {}?"
+
+#: src/ui/pages/applications/mod.rs:1647 src/ui/pages/processes/mod.rs:2331
+msgid "Unsaved work might be lost."
+msgstr "Công việc chưa lưu có thể bị mất."
+
+#: src/ui/pages/applications/mod.rs:1649
+msgid ""
+"Halting an app can come with serious risks such as losing data and security "
+"implications. Use with caution."
+msgstr ""
+"Tạm dừng ứng dụng có thể đi kèm với rủi ro nghiêm trọng như mất dữ liệu và "
+"ảnh hưởng đến bảo mật. Sử dụng cẩn thận."
+
+#: src/ui/pages/applications/mod.rs:1652
+msgid ""
+"Killing an app can come with serious risks such as losing data and security "
+"implications. Use with caution."
+msgstr ""
+"Buộc kết thúc ứng dụng có thể đi kèm với rủi ro nghiêm trọng như mất dữ liệu "
+"và ảnh hưởng đến bảo mật. Sử dụng cẩn thận."
+
+#: src/ui/pages/battery.rs:102 src/utils/battery.rs:258
+msgid "Battery"
+msgstr "Pin"
+
+#: src/ui/pages/battery.rs:210
+msgid "Battery Charge"
+msgstr "Dung Lượng Pin"
+
+#: src/ui/pages/battery.rs:279 src/ui/pages/cpu.rs:438
+#: src/ui/pages/drive.rs:346 src/ui/pages/drive.rs:377 src/ui/pages/gpu.rs:429
+#: src/ui/pages/network.rs:362 src/ui/pages/network.rs:396
+msgid "Highest:"
+msgstr "Cao nhất:"
+
+#: src/ui/pages/cpu.rs:242 src/ui/pages/gpu.rs:212
+msgid "Total Usage"
+msgstr "Tổng Mức Sử Dụng"
+
+#: src/ui/pages/cpu.rs:271 src/ui/pages/gpu.rs:239
+msgid "Temperature"
+msgstr "Nhiệt Độ"
+
+#: src/ui/pages/drive.rs:126
+msgid "Drive"
+msgstr "Ổ Đĩa"
+
+#: src/ui/pages/drive.rs:236
+msgid "Drive Activity"
+msgstr "Hoạt Động Ổ Đĩa"
+
+#: src/ui/pages/drive.rs:243
+msgid "Read Speed"
+msgstr "Tốc Độ Đọc"
+
+#: src/ui/pages/drive.rs:247
+msgid "Write Speed"
+msgstr "Tốc Độ Ghi"
+
+#: src/ui/pages/drive.rs:414 src/ui/pages/drive.rs:424
+msgid "Yes"
+msgstr "Có"
+
+#. Translators: This is an abbreviation for "Read" and "Write". This is displayed in the sidebar so your
+#. translation should preferably be quite short or an abbreviation
+#: src/ui/pages/drive.rs:442
+#, rust-format
+msgid "R: {} · W: {}"
+msgstr "Đ: {} · G: {}"
+
+#: src/ui/pages/gpu.rs:220
+msgid "Video Encoder/Decoder Usage"
+msgstr "Mức Sử Dụng Bộ Mã Hóa/Giải Mã Video"
+
+#: src/ui/pages/gpu.rs:226
+msgid "Video Encoder Usage"
+msgstr "Mức Sử Dụng Bộ Mã Hóa Video"
+
+#: src/ui/pages/gpu.rs:231
+msgid "Video Decoder Usage"
+msgstr "Mức Sử Dụng Bộ Giải Mã Video"
+
+#: src/ui/pages/gpu.rs:236
+msgid "Video Memory Usage"
+msgstr "Mức Sử Dụng Bộ Nhớ Video"
+
+#. Translators: This will be displayed in the sidebar, please try to keep your translation as short as (or even
+#. shorter than) 'Memory'
+#: src/ui/pages/gpu.rs:415
+#, rust-format
+msgid "Memory: {}"
+msgstr "Bộ nhớ: {}"
+
+#: src/ui/pages/memory.rs:262
+#, rust-format
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: src/ui/pages/memory.rs:265
+#, rust-format
+msgid "{} MT/s"
+msgstr "{} MT/s"
+
+#. Translators: This will be displayed in the sidebar, so your translation for "Swap" should
+#. preferably be quite short or an abbreviation
+#: src/ui/pages/memory.rs:346
+#, rust-format
+msgid "{} / {} · Swap: {} %"
+msgstr "{} / {} · Swap: {} %"
+
+#: src/ui/pages/network.rs:127 src/utils/network.rs:144
+msgid "Network Interface"
+msgstr "Giao Diện Mạng"
+
+#: src/ui/pages/network.rs:241
+msgid "Receiving"
+msgstr "Nhận"
+
+#: src/ui/pages/network.rs:245
+msgid "Sending"
+msgstr "Gửi"
+
+#. Translators: This is an abbreviation for "Receive" and "Send". This is displayed in the sidebar so
+#. your translation should preferably be quite short or an abbreviation
+#: src/ui/pages/network.rs:445
+#, rust-format
+msgid "R: {} · S: {}"
+msgstr "N: {} · G: {}"
+
+#: src/ui/pages/processes/mod.rs:824
+#, rust-format
+msgid "Running Processes: {}"
+msgstr "Tiến Trình Đang Chạy: {}"
+
+#: src/ui/pages/processes/mod.rs:922
+msgid "Process"
+msgstr "Tiến Trình"
+
+#: src/ui/pages/processes/mod.rs:2303
+#, rust-format
+msgid "End process?"
+msgid_plural "End {} processes?"
+msgstr[0] "Kết thúc {} tiến trình?"
+
+#: src/ui/pages/processes/mod.rs:2309
+#, rust-format
+msgid "Halt process?"
+msgid_plural "Halt {} processes?"
+msgstr[0] "Tạm dừng {} tiến trình?"
+
+#: src/ui/pages/processes/mod.rs:2315 src/ui/pages/processes/mod.rs:2321
+#, rust-format
+msgid "Kill process?"
+msgid_plural "Kill {} processes?"
+msgstr[0] "Buộc kết thúc {} tiến trình?"
+
+#: src/ui/pages/processes/mod.rs:2333
+msgid ""
+"Halting a process can come with serious risks such as losing data and "
+"security implications. Use with caution."
+msgstr ""
+"Tạm dừng tiến trình có thể đi kèm với rủi ro nghiêm trọng như mất dữ liệu và "
+"ảnh hưởng đến bảo mật. Sử dụng cẩn thận."
+
+#: src/ui/pages/processes/mod.rs:2336
+msgid ""
+"Killing a process can come with serious risks such as losing data and "
+"security implications. Use with caution."
+msgstr ""
+"Buộc kết thúc tiến trình có thể đi kèm với rủi ro nghiêm trọng như mất dữ "
+"liệu và ảnh hưởng đến bảo mật. Sử dụng cẩn thận."
+
+#: src/ui/window.rs:466
+#, rust-format
+msgid "GPU {}"
+msgstr "GPU {}"
+
+#: src/ui/window.rs:496
+#, rust-format
+msgid "NPU {}"
+msgstr "NPU {}"
+
+#: src/ui/window.rs:498
+msgid "NPU"
+msgstr "NPU"
+
+#: src/ui/window.rs:1201
+#, rust-format
+msgid "Successfully adjusted {}"
+msgstr "Điều chỉnh {} thành công"
+
+#: src/ui/window.rs:1202
+#, rust-format
+msgid "There was a problem adjusting {}"
+msgstr "Có vấn đề khi điều chỉnh {}"
+
+#: src/ui/window.rs:1284
+#, rust-format
+msgid "Successfully ended {}"
+msgstr "Kết thúc {} thành công"
+
+#: src/ui/window.rs:1285
+#, rust-format
+msgid "Successfully halted {}"
+msgstr "Tạm dừng {} thành công"
+
+#: src/ui/window.rs:1286
+#, rust-format
+msgid "Successfully killed {}"
+msgstr "Buộc kết thúc {} thành công"
+
+#: src/ui/window.rs:1287
+#, rust-format
+msgid "Successfully continued {}"
+msgstr "Tiếp tục {} thành công"
+
+#: src/ui/window.rs:1294
+#, rust-format
+msgid "Successfully ended the process"
+msgid_plural "Successfully ended {} processes"
+msgstr[0] "Kết thúc {} tiến trình thành công"
+
+#: src/ui/window.rs:1300
+#, rust-format
+msgid "Successfully halted the process"
+msgid_plural "Successfully halted {} processes"
+msgstr[0] "Tạm dừng {} tiến trình thành công"
+
+#: src/ui/window.rs:1306
+#, rust-format
+msgid "Successfully killed the process"
+msgid_plural "Successfully killed {} processes"
+msgstr[0] "Buộc kết thúc {} tiến trình thành công"
+
+#: src/ui/window.rs:1312
+#, rust-format
+msgid "Successfully continued the process"
+msgid_plural "Successfully continued {} processes"
+msgstr[0] "Tiếp tục {} tiến trình thành công"
+
+#: src/ui/window.rs:1323
+#, rust-format
+msgid "There was a problem ending a process"
+msgid_plural "There were problems ending {} processes"
+msgstr[0] "Có vấn đề khi kết thúc {} tiến trình"
+
+#: src/ui/window.rs:1329
+#, rust-format
+msgid "There was a problem halting a process"
+msgid_plural "There were problems halting {} processes"
+msgstr[0] "Có vấn đề khi tạm dừng {} tiến trình"
+
+#: src/ui/window.rs:1335
+#, rust-format
+msgid "There was a problem killing a process"
+msgid_plural "There were problems killing {} processes"
+msgstr[0] "Có vấn đề khi buộc kết thúc {} tiến trình"
+
+#: src/ui/window.rs:1341
+#, rust-format
+msgid "There was a problem continuing a process"
+msgid_plural "There were problems continuing {} processes"
+msgstr[0] "Có vấn đề khi tiếp tục {} tiến trình"
+
+#: src/ui/window.rs:1351
+#, rust-format
+msgid "There was a problem ending {}"
+msgstr "Có vấn đề khi kết thúc {}"
+
+#: src/ui/window.rs:1352
+#, rust-format
+msgid "There was a problem halting {}"
+msgstr "Có vấn đề khi tạm dừng {}"
+
+#: src/ui/window.rs:1353
+#, rust-format
+msgid "There was a problem killing {}"
+msgstr "Có vấn đề khi buộc kết thúc {}"
+
+#: src/ui/window.rs:1354
+#, rust-format
+msgid "There was a problem continuing {}"
+msgstr "Có vấn đề khi tiếp tục {}"
+
+#: src/utils/app.rs:224
+msgid "System Processes"
+msgstr "Tiến Trình Hệ Thống"
+
+#: src/utils/battery.rs:93
+msgid "Charging"
+msgstr "Đang Sạc"
+
+#: src/utils/battery.rs:94
+msgid "Discharging"
+msgstr "Đang Xả"
+
+#: src/utils/battery.rs:95
+msgid "Empty"
+msgstr "Hết"
+
+#: src/utils/battery.rs:96
+msgid "Full"
+msgstr "Đầy"
+
+#: src/utils/battery.rs:97
+msgid "Unknown"
+msgstr "Không Xác Định"
+
+#: src/utils/battery.rs:143
+msgid "Nickel-Metal Hydride"
+msgstr "Nickel-Metal Hydride"
+
+#: src/utils/battery.rs:144
+msgid "Nickel-Cadmium"
+msgstr "Nickel-Cadmium"
+
+#: src/utils/battery.rs:145
+msgid "Nickel-Zinc"
+msgstr "Nickel-Zinc"
+
+#: src/utils/battery.rs:146
+msgid "Lead-Acid"
+msgstr "Lead-Acid"
+
+#: src/utils/battery.rs:147
+msgid "Lithium-Ion"
+msgstr "Lithium-Ion"
+
+#: src/utils/battery.rs:148
+msgid "Lithium Iron Phosphate"
+msgstr "Lithium Iron Phosphate"
+
+#: src/utils/battery.rs:149
+msgid "Lithium Polymer"
+msgstr "Lithium Polymer"
+
+#: src/utils/battery.rs:151
+msgid "Rechargeable Alkaline Managanese"
+msgstr "Rechargeable Alkaline Managanese"
+
+#: src/utils/battery.rs:256
+#, rust-format
+msgid "{} Battery"
+msgstr "Pin {}"
+
+#: src/utils/units.rs:91
+#, rust-format
+msgid "{} K"
+msgstr "{} K"
+
+#: src/utils/units.rs:93
+#, rust-format
+msgid "{} °C"
+msgstr "{} °C"
+
+#: src/utils/units.rs:95
+#, rust-format
+msgid "{} °F"
+msgstr "{} °F"
+
+#: src/utils/units.rs:113 src/utils/units.rs:127 src/utils/units.rs:147
+#: src/utils/units.rs:161
+#, rust-format
+msgid "{} B"
+msgstr "{} B"
+
+#: src/utils/units.rs:114 src/utils/units.rs:128
+#, rust-format
+msgid "{} kB"
+msgstr "{} kB"
+
+#: src/utils/units.rs:115 src/utils/units.rs:129
+#, rust-format
+msgid "{} MB"
+msgstr "{} MB"
+
+#: src/utils/units.rs:116 src/utils/units.rs:130
+#, rust-format
+msgid "{} GB"
+msgstr "{} GB"
+
+#: src/utils/units.rs:117 src/utils/units.rs:131
+#, rust-format
+msgid "{} TB"
+msgstr "{} TB"
+
+#: src/utils/units.rs:118 src/utils/units.rs:132
+#, rust-format
+msgid "{} PB"
+msgstr "{} PB"
+
+#: src/utils/units.rs:119 src/utils/units.rs:133
+#, rust-format
+msgid "{} EB"
+msgstr "{} EB"
+
+#: src/utils/units.rs:120 src/utils/units.rs:134
+#, rust-format
+msgid "{} ZB"
+msgstr "{} ZB"
+
+#: src/utils/units.rs:121 src/utils/units.rs:135
+#, rust-format
+msgid "{} YB"
+msgstr "{} YB"
+
+#: src/utils/units.rs:122 src/utils/units.rs:136
+#, rust-format
+msgid "{} RB"
+msgstr "{} RB"
+
+#: src/utils/units.rs:123 src/utils/units.rs:137
+#, rust-format
+msgid "{} QB"
+msgstr "{} QB"
+
+#: src/utils/units.rs:148 src/utils/units.rs:162
+#, rust-format
+msgid "{} KiB"
+msgstr "{} KiB"
+
+#: src/utils/units.rs:149 src/utils/units.rs:163
+#, rust-format
+msgid "{} MiB"
+msgstr "{} MiB"
+
+#: src/utils/units.rs:150 src/utils/units.rs:164
+#, rust-format
+msgid "{} GiB"
+msgstr "{} GiB"
+
+#: src/utils/units.rs:151 src/utils/units.rs:165
+#, rust-format
+msgid "{} TiB"
+msgstr "{} TiB"
+
+#: src/utils/units.rs:152 src/utils/units.rs:166
+#, rust-format
+msgid "{} PiB"
+msgstr "{} PiB"
+
+#: src/utils/units.rs:153 src/utils/units.rs:167
+#, rust-format
+msgid "{} EiB"
+msgstr "{} EiB"
+
+#: src/utils/units.rs:154 src/utils/units.rs:168
+#, rust-format
+msgid "{} ZiB"
+msgstr "{} ZiB"
+
+#: src/utils/units.rs:155 src/utils/units.rs:169
+#, rust-format
+msgid "{} YiB"
+msgstr "{} YiB"
+
+#: src/utils/units.rs:156 src/utils/units.rs:170
+#, rust-format
+msgid "{} RiB"
+msgstr "{} RiB"
+
+#: src/utils/units.rs:157 src/utils/units.rs:171
+#, rust-format
+msgid "{} QiB"
+msgstr "{} QiB"
+
+#: src/utils/units.rs:197 src/utils/units.rs:214
+#, rust-format
+msgid "{} B/s"
+msgstr "{} B/s"
+
+#: src/utils/units.rs:198
+#, rust-format
+msgid "{} kB/s"
+msgstr "{} kB/s"
+
+#: src/utils/units.rs:199
+#, rust-format
+msgid "{} MB/s"
+msgstr "{} MB/s"
+
+#: src/utils/units.rs:200
+#, rust-format
+msgid "{} GB/s"
+msgstr "{} GB/s"
+
+#: src/utils/units.rs:201
+#, rust-format
+msgid "{} TB/s"
+msgstr "{} TB/s"
+
+#: src/utils/units.rs:202
+#, rust-format
+msgid "{} PB/s"
+msgstr "{} PB/s"
+
+#: src/utils/units.rs:203
+#, rust-format
+msgid "{} EB/s"
+msgstr "{} EB/s"
+
+#: src/utils/units.rs:204
+#, rust-format
+msgid "{} ZB/s"
+msgstr "{} ZB/s"
+
+#: src/utils/units.rs:205
+#, rust-format
+msgid "{} YB/s"
+msgstr "{} YB/s"
+
+#: src/utils/units.rs:206
+#, rust-format
+msgid "{} RB/s"
+msgstr "{} RB/s"
+
+#: src/utils/units.rs:207
+#, rust-format
+msgid "{} QB/s"
+msgstr "{} QB/s"
+
+#: src/utils/units.rs:215
+#, rust-format
+msgid "{} KiB/s"
+msgstr "{} KiB/s"
+
+#: src/utils/units.rs:216
+#, rust-format
+msgid "{} MiB/s"
+msgstr "{} MiB/s"
+
+#: src/utils/units.rs:217
+#, rust-format
+msgid "{} GiB/s"
+msgstr "{} GiB/s"
+
+#: src/utils/units.rs:218
+#, rust-format
+msgid "{} TiB/s"
+msgstr "{} TiB/s"
+
+#: src/utils/units.rs:219
+#, rust-format
+msgid "{} PiB/s"
+msgstr "{} PiB/s"
+
+#: src/utils/units.rs:220
+#, rust-format
+msgid "{} EiB/s"
+msgstr "{} EiB/s"
+
+#: src/utils/units.rs:221
+#, rust-format
+msgid "{} ZiB/s"
+msgstr "{} ZiB/s"
+
+#: src/utils/units.rs:222
+#, rust-format
+msgid "{} YiB/s"
+msgstr "{} YiB/s"
+
+#: src/utils/units.rs:223
+#, rust-format
+msgid "{} RiB/s"
+msgstr "{} RiB/s"
+
+#: src/utils/units.rs:224
+#, rust-format
+msgid "{} QiB/s"
+msgstr "{} QiB/s"
+
+#: src/utils/units.rs:238 src/utils/units.rs:255
+#, rust-format
+msgid "{} b/s"
+msgstr "{} b/s"
+
+#: src/utils/units.rs:239
+#, rust-format
+msgid "{} kb/s"
+msgstr "{} kb/s"
+
+#: src/utils/units.rs:240
+#, rust-format
+msgid "{} Mb/s"
+msgstr "{} Mb/s"
+
+#: src/utils/units.rs:241
+#, rust-format
+msgid "{} Gb/s"
+msgstr "{} Gb/s"
+
+#: src/utils/units.rs:242
+#, rust-format
+msgid "{} Tb/s"
+msgstr "{} Tb/s"
+
+#: src/utils/units.rs:243
+#, rust-format
+msgid "{} Pb/s"
+msgstr "{} Pb/s"
+
+#: src/utils/units.rs:244
+#, rust-format
+msgid "{} Eb/s"
+msgstr "{} Eb/s"
+
+#: src/utils/units.rs:245
+#, rust-format
+msgid "{} Zb/s"
+msgstr "{} Zb/s"
+
+#: src/utils/units.rs:246
+#, rust-format
+msgid "{} Yb/s"
+msgstr "{} Yb/s"
+
+#: src/utils/units.rs:247
+#, rust-format
+msgid "{} Rb/s"
+msgstr "{} Rb/s"
+
+#: src/utils/units.rs:248
+#, rust-format
+msgid "{} Qb/s"
+msgstr "{} Qb/s"
+
+#: src/utils/units.rs:256
+#, rust-format
+msgid "{} Kib/s"
+msgstr "{} Kib/s"
+
+#: src/utils/units.rs:257
+#, rust-format
+msgid "{} Mib/s"
+msgstr "{} Mib/s"
+
+#: src/utils/units.rs:258
+#, rust-format
+msgid "{} Gib/s"
+msgstr "{} Gib/s"
+
+#: src/utils/units.rs:259
+#, rust-format
+msgid "{} Tib/s"
+msgstr "{} Tib/s"
+
+#: src/utils/units.rs:260
+#, rust-format
+msgid "{} Pib/s"
+msgstr "{} Pib/s"
+
+#: src/utils/units.rs:261
+#, rust-format
+msgid "{} Eib/s"
+msgstr "{} Eib/s"
+
+#: src/utils/units.rs:262
+#, rust-format
+msgid "{} Zib/s"
+msgstr "{} Zib/s"
+
+#: src/utils/units.rs:263
+#, rust-format
+msgid "{} Yib/s"
+msgstr "{} Yib/s"
+
+#: src/utils/units.rs:264
+#, rust-format
+msgid "{} Rib/s"
+msgstr "{} Rib/s"
+
+#: src/utils/units.rs:265
+#, rust-format
+msgid "{} Qib/s"
+msgstr "{} Qib/s"
+
+#: src/utils/units.rs:272
+#, rust-format
+msgid "{} Hz"
+msgstr "{} Hz"
+
+#: src/utils/units.rs:273
+#, rust-format
+msgid "{} kHz"
+msgstr "{} kHz"
+
+#: src/utils/units.rs:274
+#, rust-format
+msgid "{} MHz"
+msgstr "{} MHz"
+
+#: src/utils/units.rs:275
+#, rust-format
+msgid "{} GHz"
+msgstr "{} GHz"
+
+#: src/utils/units.rs:276
+#, rust-format
+msgid "{} THz"
+msgstr "{} THz"
+
+#: src/utils/units.rs:277
+#, rust-format
+msgid "{} PHz"
+msgstr "{} PHz"
+
+#: src/utils/units.rs:278
+#, rust-format
+msgid "{} EHz"
+msgstr "{} EHz"
+
+#: src/utils/units.rs:279
+#, rust-format
+msgid "{} ZHz"
+msgstr "{} ZHz"
+
+#: src/utils/units.rs:280
+#, rust-format
+msgid "{} YHz"
+msgstr "{} YHz"
+
+#: src/utils/units.rs:281
+#, rust-format
+msgid "{} RHz"
+msgstr "{} RHz"
+
+#: src/utils/units.rs:282
+#, rust-format
+msgid "{} QHz"
+msgstr "{} QHz"
+
+#: src/utils/units.rs:289
+#, rust-format
+msgid "{} W"
+msgstr "{} W"
+
+#: src/utils/units.rs:290
+#, rust-format
+msgid "{} kW"
+msgstr "{} kW"
+
+#: src/utils/units.rs:291
+#, rust-format
+msgid "{} MW"
+msgstr "{} MW"
+
+#: src/utils/units.rs:292
+#, rust-format
+msgid "{} GW"
+msgstr "{} GW"
+
+#: src/utils/units.rs:293
+#, rust-format
+msgid "{} TW"
+msgstr "{} TW"
+
+#: src/utils/units.rs:294
+#, rust-format
+msgid "{} PW"
+msgstr "{} PW"
+
+#: src/utils/units.rs:295
+#, rust-format
+msgid "{} EW"
+msgstr "{} EW"
+
+#: src/utils/units.rs:296
+#, rust-format
+msgid "{} ZW"
+msgstr "{} ZW"
+
+#: src/utils/units.rs:297
+#, rust-format
+msgid "{} YW"
+msgstr "{} YW"
+
+#: src/utils/units.rs:298
+#, rust-format
+msgid "{} RW"
+msgstr "{} RW"
+
+#: src/utils/units.rs:299
+#, rust-format
+msgid "{} QW"
+msgstr "{} QW"
+
+#: src/utils/units.rs:308 src/utils/units.rs:322
+#, rust-format
+msgid "{} Wh"
+msgstr "{} Wh"
+
+#: src/utils/units.rs:309 src/utils/units.rs:323
+#, rust-format
+msgid "{} kWh"
+msgstr "{} kWh"
+
+#: src/utils/units.rs:310 src/utils/units.rs:324
+#, rust-format
+msgid "{} MWh"
+msgstr "{} MWh"
+
+#: src/utils/units.rs:311 src/utils/units.rs:325
+#, rust-format
+msgid "{} GWh"
+msgstr "{} GWh"
+
+#: src/utils/units.rs:312 src/utils/units.rs:326
+#, rust-format
+msgid "{} TWh"
+msgstr "{} TWh"
+
+#: src/utils/units.rs:313 src/utils/units.rs:327
+#, rust-format
+msgid "{} PWh"
+msgstr "{} PWh"
+
+#: src/utils/units.rs:314 src/utils/units.rs:328
+#, rust-format
+msgid "{} EWh"
+msgstr "{} EWh"
+
+#: src/utils/units.rs:315 src/utils/units.rs:329
+#, rust-format
+msgid "{} ZWh"
+msgstr "{} ZWh"
+
+#: src/utils/units.rs:316 src/utils/units.rs:330
+#, rust-format
+msgid "{} YWh"
+msgstr "{} YWh"
+
+#: src/utils/units.rs:317 src/utils/units.rs:331
+#, rust-format
+msgid "{} RWh"
+msgstr "{} RWh"
+
+#: src/utils/units.rs:318 src/utils/units.rs:332
+#, rust-format
+msgid "{} QWh"
+msgstr "{} QWh"
+
+#: src/utils/drive.rs:129 src/utils/drive.rs:208
+msgid "CD/DVD/Blu-ray Drive"
+msgstr "Ổ Đĩa CD/DVD/Blu-ray"
+
+#: src/utils/drive.rs:130
+msgid "eMMC Storage"
+msgstr "Bộ Nhớ eMMC"
+
+#: src/utils/drive.rs:131
+msgid "Flash Storage"
+msgstr "Bộ Nhớ Flash"
+
+#: src/utils/drive.rs:132 src/utils/drive.rs:209
+msgid "Floppy Drive"
+msgstr "Ổ Đĩa Mềm"
+
+#: src/utils/drive.rs:133
+msgid "Hard Disk Drive"
+msgstr "Ổ Cứng HDD"
+
+#: src/utils/drive.rs:134
+msgid "Loop Device"
+msgstr "Thiết Bị Loop"
+
+#: src/utils/drive.rs:135
+msgid "Mapped Device"
+msgstr "Thiết Bị Ánh Xạ"
+
+#: src/utils/drive.rs:136
+msgid "NVMe Drive"
+msgstr "Ổ Đĩa NVMe"
+
+#: src/utils/drive.rs:138
+msgid "Software Raid"
+msgstr "Software RAID"
+
+#: src/utils/drive.rs:139
+msgid "RAM Disk"
+msgstr "Ổ Đĩa RAM"
+
+#: src/utils/drive.rs:140
+msgid "Solid State Drive"
+msgstr "Ổ Cứng SSD"
+
+#: src/utils/drive.rs:141
+msgid "ZFS Volume"
+msgstr "Phân Vùng ZFS"
+
+#: src/utils/drive.rs:142
+msgid "Compressed RAM Disk (zram)"
+msgstr "Ổ Đĩa RAM Nén (zram)"
+
+#: src/utils/drive.rs:210
+#, rust-format
+msgid "{} Loop Device"
+msgstr "Thiết Bị Loop {}"
+
+#: src/utils/drive.rs:211
+#, rust-format
+msgid "{} Mapped Device"
+msgstr "Thiết Bị Ánh Xạ {}"
+
+#: src/utils/drive.rs:212
+#, rust-format
+msgid "{} RAID"
+msgstr "RAID {}"
+
+#: src/utils/drive.rs:213
+#, rust-format
+msgid "{} RAM Disk"
+msgstr "Ổ Đĩa RAM {}"
+
+#: src/utils/drive.rs:214
+#, rust-format
+msgid "{} zram Device"
+msgstr "Thiết Bị zram {}"
+
+#: src/utils/drive.rs:215
+#, rust-format
+msgid "{} ZFS Volume"
+msgstr "Phân Vùng ZFS {}"
+
+#: src/utils/drive.rs:216
+#, rust-format
+msgid "{} Drive"
+msgstr "Ổ Đĩa {}"
+
+#: src/utils/network.rs:129
+msgid "Bluetooth Tether"
+msgstr "Chia Sẻ Kết Nối Bluetooth"
+
+#: src/utils/network.rs:130
+msgid "Network Bridge"
+msgstr "Cầu Nối Mạng"
+
+#: src/utils/network.rs:131
+msgid "Ethernet Connection"
+msgstr "Kết Nối Ethernet"
+
+#: src/utils/network.rs:132
+msgid "Docker Bridge"
+msgstr "Cầu Nối Docker"
+
+#: src/utils/network.rs:133
+msgid "InfiniBand Connection"
+msgstr "Kết Nối InfiniBand"
+
+#: src/utils/network.rs:134
+msgid "Incus Bridge"
+msgstr "Cầu Nối Incus"
+
+#: src/utils/network.rs:135
+msgid "LXC Bridge"
+msgstr "Cầu Nối LXC"
+
+#: src/utils/network.rs:136
+msgid "LXD Bridge"
+msgstr "Cầu Nối LXD"
+
+#: src/utils/network.rs:137
+msgid "Serial Line IP Connection"
+msgstr "Kết Nối IP Qua Dây Nối Tiếp"
+
+#: src/utils/network.rs:138
+msgid "Virtual Ethernet Device"
+msgstr "Thiết Bị Ethernet Ảo"
+
+#: src/utils/network.rs:139
+msgid "VM Network Bridge"
+msgstr "Cầu Nối Mạng VM"
+
+#: src/utils/network.rs:140
+msgid "VPN Tunnel"
+msgstr "Đường Hầm VPN"
+
+#: src/utils/network.rs:141
+msgid "VPN Tunnel (WireGuard)"
+msgstr "Đường Hầm VPN (WireGuard)"
+
+#: src/utils/network.rs:142
+msgid "Wi-Fi Connection"
+msgstr "Kết Nối Wi-Fi"
+
+#: src/utils/network.rs:143
+msgid "WWAN Connection"
+msgstr "Kết Nối WWAN"
+
+#~ msgid "The Nalux Team"
+#~ msgstr "Nhóm Nalux"
+
+#~ msgid "Report Issues"
+#~ msgstr "Báo Cáo Lỗi"
+
+#~ msgid "Icon by"
+#~ msgstr "Biểu tượng bởi"
+
+#~ msgid "Memory Usage"
+#~ msgstr "Mức Sử Dụng Bộ Nhớ"

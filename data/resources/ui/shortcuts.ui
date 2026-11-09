@@ -22,6 +22,12 @@
             <property name="action-name">app.quit</property>
           </object>
         </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="title" translatable="yes" context="shortcut window">Toggle Sidebar</property>
+            <property name="action-name">app.toggle-sidebar</property>
+          </object>
+        </child>
       </object>
     </child>
     <child>

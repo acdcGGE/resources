@@ -3,7 +3,7 @@ use gtk::glib;
 use log::trace;
 
 use crate::{
-    config::PROFILE,
+    config::DEVLOPMENT_BUILD,
     utils::settings::{Base, RefreshSpeed, SETTINGS, SidebarMeterType, TemperatureUnit},
 };
 
@@ -14,7 +14,7 @@ mod imp {
     use gtk::CompositeTemplate;
 
     #[derive(Debug, CompositeTemplate, Default)]
-    #[template(resource = "/net/nokyan/Resources/ui/dialogs/settings_dialog.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/dialogs/settings_dialog.ui")]
     pub struct ResSettingsDialog {
         #[template_child]
         pub prefix_combo_row: TemplateChild<adw::ComboRow>,
@@ -29,10 +29,6 @@ mod imp {
         pub show_graph_grids_row: TemplateChild<adw::SwitchRow>,
         #[template_child]
         pub graph_data_points_row: TemplateChild<adw::SpinRow>,
-        #[template_child]
-        pub sidebar_details_row: TemplateChild<adw::SwitchRow>,
-        #[template_child]
-        pub sidebar_description_row: TemplateChild<adw::SwitchRow>,
         #[template_child]
         pub sidebar_meter_type_row: TemplateChild<adw::ComboRow>,
         #[template_child]
@@ -132,7 +128,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -187,10 +183,6 @@ impl ResSettingsDialog {
             .set_active(SETTINGS.show_graph_grids());
         imp.graph_data_points_row
             .set_value(f64::from(SETTINGS.graph_data_points()));
-        imp.sidebar_details_row
-            .set_active(SETTINGS.sidebar_details());
-        imp.sidebar_description_row
-            .set_active(SETTINGS.sidebar_description());
         imp.sidebar_meter_type_row
             .set_selected(SETTINGS.sidebar_meter_type() as u32);
         imp.normalize_cpu_usage_row
@@ -305,15 +297,6 @@ impl ResSettingsDialog {
             let _ = SETTINGS.set_graph_data_points(spin_row.value() as u32);
             false
         });
-
-        imp.sidebar_details_row.connect_active_notify(|switch_row| {
-            let _ = SETTINGS.set_sidebar_details(switch_row.is_active());
-        });
-
-        imp.sidebar_description_row
-            .connect_active_notify(|switch_row| {
-                let _ = SETTINGS.set_sidebar_description(switch_row.is_active());
-            });
 
         imp.sidebar_meter_type_row
             .connect_selected_item_notify(|combo_row| {

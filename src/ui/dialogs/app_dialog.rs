@@ -1,6 +1,6 @@
-use crate::config::PROFILE;
-use crate::i18n::i18n;
+use crate::config::DEVLOPMENT_BUILD;
 use crate::ui::pages::applications::application_entry::ApplicationEntry;
+use crate::utils::i18n::i18n;
 use crate::utils::units::{convert_fraction, convert_speed, convert_storage};
 use adw::{prelude::*, subclass::prelude::*};
 use gtk::gio::ThemedIcon;
@@ -14,7 +14,7 @@ mod imp {
     use gtk::CompositeTemplate;
 
     #[derive(Debug, CompositeTemplate, Default)]
-    #[template(resource = "/net/nokyan/Resources/ui/dialogs/app_dialog.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/dialogs/app_dialog.ui")]
     pub struct ResAppDialog {
         #[template_child]
         pub icon: TemplateChild<gtk::Image>,
@@ -76,7 +76,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }

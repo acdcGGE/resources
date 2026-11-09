@@ -1,8 +1,11 @@
 use adw::{ActionRow, prelude::ActionRowExt};
 
 use crate::{
-    i18n::{i18n, i18n_f},
-    utils::units::{convert_fraction, convert_storage, convert_temperature},
+    ui::widgets::stack_sidebar_item::UsageLabels,
+    utils::{
+        i18n::i18n,
+        units::{convert_fraction, convert_storage, convert_temperature},
+    },
 };
 
 extern crate pastey;
@@ -83,37 +86,40 @@ fn gpu_npu_usage_string(
     used_memory: Option<u64>,
     total_memory: Option<u64>,
     temperature: Option<f64>,
-) -> String {
-    let mut elements = Vec::with_capacity(3);
+) -> UsageLabels {
+    let mut labels = UsageLabels::default();
 
     if let Some(usage_fraction) = usage_fraction {
-        elements.push(convert_fraction(usage_fraction, true));
+        labels.add_with_icon(
+            "speedometer-symbolic",
+            i18n("Usage"),
+            convert_fraction(usage_fraction, true),
+        );
     }
 
     if let (Some(used_memory), Some(total_memory)) = (used_memory, total_memory) {
-        elements.push(i18n_f(
-            // Translators: This will be displayed in the sidebar, please try to keep your translation as short as (or even
-            // shorter than) 'Memory'
-            "Memory: {}",
-            &[&convert_fraction(
-                used_memory as f64 / total_memory as f64,
-                true,
-            )],
-        ));
+        labels.add_with_icon(
+            "memory-symbolic",
+            i18n("Memory Usage"),
+            convert_fraction(used_memory as f64 / total_memory as f64, true),
+        );
     } else if let Some(used_memory) = used_memory {
-        elements.push(i18n_f(
-            // Translators: This will be displayed in the sidebar, please try to keep your translation as short as (or even
-            // shorter than) 'Memory'
-            "Memory: {}",
-            &[&convert_storage(used_memory as f64, true)],
-        ));
+        labels.add_with_icon(
+            "memory-symbolic",
+            i18n("Memory Usage"),
+            convert_storage(used_memory as f64, true),
+        );
     }
 
     if let Some(temperature) = temperature {
-        elements.push(convert_temperature(temperature));
+        labels.add_with_icon(
+            "thermometer-symbolic",
+            i18n("Temperature"),
+            convert_temperature(temperature),
+        );
     }
 
-    elements.join(" · ").to_string()
+    labels
 }
 
 pub mod dialogs;

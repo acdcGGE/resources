@@ -2,7 +2,7 @@ use adw::{prelude::*, subclass::prelude::*};
 use gtk::glib;
 use log::trace;
 
-use crate::config::PROFILE;
+use crate::config::DEVLOPMENT_BUILD;
 
 use super::graph::ResGraph;
 
@@ -14,7 +14,7 @@ mod imp {
     use gtk::CompositeTemplate;
 
     #[derive(Debug, CompositeTemplate, Default)]
-    #[template(resource = "/net/nokyan/Resources/ui/widgets/double_graph_box.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/widgets/double_graph_box.ui")]
     pub struct ResDoubleGraphBox {
         #[template_child]
         pub start_graph: TemplateChild<ResGraph>,
@@ -52,7 +52,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }

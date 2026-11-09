@@ -1,14 +1,14 @@
 project(
   'resources',
   'rust',
-  version: '1.10.2',
+  version: '51.0',
   meson_version: '>= 0.59',
 )
 
 i18n = import('i18n')
 gnome = import('gnome')
 
-base_id = 'net.nokyan.Resources'
+base_id = 'org.gnome.Resources'
 
 dependency('glib-2.0', version: '>= 2.66')
 dependency('gio-2.0', version: '>= 2.66')
@@ -34,8 +34,14 @@ iconsdir = datadir / 'icons'
 podir = meson.project_source_root() / 'po'
 gettext_package = meson.project_name()
 
-if get_option('profile') == 'development'
-  profile = 'Devel'
+profile = get_option('profile')
+development_build = get_option('development_build')
+application_id = base_id
+version_suffix = ''
+
+if development_build
+  application_id += '.Devel'
+
   vcs_tag = run_command('git', 'rev-parse', '--short', 'HEAD').stdout().strip()
   vcs_branch = run_command('git', 'rev-parse', '--abbrev-ref', 'HEAD').stdout().strip()
   if vcs_tag == '' or vcs_branch == ''
@@ -43,11 +49,6 @@ if get_option('profile') == 'development'
   else
     version_suffix = '-@0@@@1@'.format(vcs_branch, vcs_tag)
   endif
-  application_id = '@0@.@1@'.format(base_id, profile)
-else
-  profile = ''
-  version_suffix = ''
-  application_id = base_id
 endif
 
 meson.add_dist_script(

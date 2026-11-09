@@ -4,13 +4,14 @@ use adw::{prelude::*, subclass::prelude::*};
 use gtk::{
     Ordering,
     glib::{self, GString, clone},
+    prelude::WidgetExt,
 };
 use log::trace;
 use std::collections::HashMap;
 
 use crate::utils::settings::{SETTINGS, SidebarMeterType};
 
-use super::stack_sidebar_item::ResStackSidebarItem;
+use super::stack_sidebar_item::{MeterType, ResStackSidebarItem};
 
 mod imp {
     use std::{
@@ -24,7 +25,7 @@ mod imp {
     use gtk::{CompositeTemplate, SingleSelection, gio};
 
     #[derive(CompositeTemplate)]
-    #[template(resource = "/net/nokyan/Resources/ui/widgets/stack_sidebar.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/widgets/stack_sidebar.ui")]
     pub struct ResStackSidebar {
         #[template_child]
         pub list_box: TemplateChild<gtk::ListBox>,
@@ -124,6 +125,25 @@ impl ResStackSidebar {
         let imp = self.imp();
         imp.populating.set(true);
 
+        // count pages by type to determine which types have duplicates
+        let mut type_counts: HashMap<glib::Type, usize> = HashMap::new();
+        for page in imp
+            .stack
+            .borrow()
+            .pages()
+            .iter::<gtk::StackPage>()
+            .flatten()
+        {
+            if let Some(child) = page
+                .child()
+                .downcast::<adw::ToolbarView>()
+                .ok()
+                .and_then(|tv| tv.content())
+            {
+                *type_counts.entry(child.type_()).or_default() += 1;
+            }
+        }
+
         for page in imp
             .stack
             .borrow()
@@ -142,7 +162,6 @@ impl ResStackSidebar {
                 child.property("tab_name"),
                 child.property("icon"),
                 child.property("tab_detail_string"),
-                child.property("tab_usage_string"),
                 child.property("graph_locked_max_y"),
                 child.property("tab_id"),
                 child.property("primary_ord"),
@@ -160,66 +179,45 @@ impl ResStackSidebar {
                 .build();
 
             child
-                .bind_property("tab_usage_string", &sidebar_item, "subtitle")
-                .sync_create()
-                .build();
-
-            child
                 .bind_property("tab_detail_string", &sidebar_item, "detail")
                 .sync_create()
                 .build();
 
-            sidebar_item.set_usage_label_visible(SETTINGS.sidebar_details());
-            SETTINGS.connect_sidebar_details(clone!(
-                #[weak(rename_to = item)]
-                sidebar_item,
-                move |sidebar_details| {
-                    item.set_usage_label_visible(sidebar_details);
-                }
-            ));
-
+            let has_duplicates = type_counts.get(&child.type_()).copied().unwrap_or(0) > 1;
             sidebar_item.set_detail_label_visible(
-                SETTINGS.sidebar_description()
-                    && !child.property::<GString>("tab_detail_string").is_empty(),
+                has_duplicates && !child.property::<GString>("tab_detail_string").is_empty(),
             );
-            SETTINGS.connect_sidebar_description(clone!(
-                #[weak(rename_to = item)]
-                sidebar_item,
-                #[weak]
-                child,
-                move |sidebar_details| {
-                    // if the view doesn't provide a description, disable it regardless of the setting
-                    item.set_detail_label_visible(
-                        sidebar_details
-                            && !child.property::<GString>("tab_detail_string").is_empty(),
-                    );
-                }
-            ));
+
+            child
+                .bind_property("tab_usage_labels", &sidebar_item, "usage_labels")
+                .sync_create()
+                .build();
 
             // TODO: generalize to "uses_meter"?
-            if child.property::<bool>("uses_progress_bar") {
+            if child.property::<bool>("uses_meter") {
                 if child.has_property("main_graph_color") {
                     let b = child.property::<glib::Bytes>("main_graph_color");
                     sidebar_item.graph().set_graph_color(b[0], b[1], b[2]);
                 }
 
-                sidebar_item.set_progress_bar_visible(
-                    SETTINGS.sidebar_meter_type() == SidebarMeterType::ProgressBar,
-                );
-                sidebar_item
-                    .graph()
-                    .set_visible(SETTINGS.sidebar_meter_type() == SidebarMeterType::Graph);
+                let meter_type = match SETTINGS.sidebar_meter_type() {
+                    SidebarMeterType::Graph => MeterType::Graph,
+                    SidebarMeterType::ProgressBar => MeterType::ProgressBar,
+                };
+                sidebar_item.set_meter_type(meter_type);
+
                 SETTINGS.connect_sidebar_meter_type(clone!(
                     #[weak(rename_to = item)]
                     sidebar_item,
                     move |sidebar_meter_type| {
-                        item.set_progress_bar_visible(
-                            sidebar_meter_type == SidebarMeterType::ProgressBar,
-                        );
-                        item.graph()
-                            .set_visible(sidebar_meter_type == SidebarMeterType::Graph);
+                        let meter_type = match sidebar_meter_type {
+                            SidebarMeterType::Graph => MeterType::Graph,
+                            SidebarMeterType::ProgressBar => MeterType::ProgressBar,
+                        };
+                        item.set_meter_type(meter_type);
                     }
                 ));
+
                 child
                     .bind_property("usage", &sidebar_item, "usage")
                     .sync_create()
@@ -230,8 +228,7 @@ impl ResStackSidebar {
                     sidebar_item.graph().push_data_points(data);
                 }
             } else {
-                sidebar_item.set_progress_bar_visible(false);
-                sidebar_item.graph().set_visible(false);
+                sidebar_item.set_meter_type(MeterType::NoMeter);
             }
 
             let row = gtk::ListBoxRow::builder()
@@ -245,10 +242,10 @@ impl ResStackSidebar {
 
             row.set_focus_on_click(false);
 
-            if let Some(visible_page) = imp.stack.borrow().visible_child() {
-                if visible_page == page.child() {
-                    imp.list_box.select_row(Some(&row));
-                }
+            if let Some(visible_page) = imp.stack.borrow().visible_child()
+                && visible_page == page.child()
+            {
+                imp.list_box.select_row(Some(&row));
             }
 
             imp.rows.borrow_mut().insert(row, page);
@@ -306,19 +303,19 @@ impl ResStackSidebar {
             self,
             move |list_box| {
                 let imp = this.imp();
-                if let Some(selected) = list_box.selected_row() {
-                    if !imp.populating.get() {
-                        let child = imp.rows.borrow().get(&selected).unwrap().child();
+                if let Some(selected) = list_box.selected_row()
+                    && !imp.populating.get()
+                {
+                    let child = imp.rows.borrow().get(&selected).unwrap().child();
 
-                        imp.stack.borrow().set_visible_child(&child);
+                    imp.stack.borrow().set_visible_child(&child);
 
-                        if let Some(page) = child
-                            .downcast_ref::<adw::ToolbarView>()
-                            .and_then(adw::ToolbarView::content)
-                        {
-                            let _ = SETTINGS
-                                .set_last_viewed_page(page.property::<GString>("tab-id").as_str());
-                        }
+                    if let Some(page) = child
+                        .downcast_ref::<adw::ToolbarView>()
+                        .and_then(adw::ToolbarView::content)
+                    {
+                        let _ = SETTINGS
+                            .set_last_viewed_page(page.property::<GString>("tab-id").as_str());
                     }
                 }
             }

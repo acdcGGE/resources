@@ -2,39 +2,42 @@
 # Copyright (C) 2025 resources's COPYRIGHT HOLDER
 # This file is distributed under the same license as the resources package.
 # Efstathios Iosifidis <eiosifidis@gnome.org>,  2025.
+# Fountoukia (Hazel) Leventi <hazeltwink@gmail.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: resources main\n"
-"Report-Msgid-Bugs-To: https://github.com/nokyan/resources/issues/\n"
-"POT-Creation-Date: 2026-02-14 11:32+0000\n"
-"PO-Revision-Date: 2025-10-18 15:38+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Greek <Greek>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/Incubator/resources/"
+"issues/\n"
+"POT-Creation-Date: 2026-07-30 17:38+0000\n"
+"PO-Revision-Date: 2026-09-13 18:27+0300\n"
+"Last-Translator: Fountoukia (Hazel) Leventi <hazeltwink@gmail.com>\n"
+"Language-Team: Greek\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 50.0\n"
 
-#: data/net.nokyan.Resources.desktop.in.in:2
-#: data/net.nokyan.Resources.metainfo.xml.in.in:4
-#: data/resources/ui/window.ui:22 src/application.rs:272
+#: data/org.gnome.Resources.desktop.in.in:2
+#: data/org.gnome.Resources.metainfo.xml.in.in:4 data/resources/ui/window.ui:22
+#: src/application.rs:284
 msgid "Resources"
 msgstr "Πόροι"
 
 #. Translators: The summary should be 35 characters or less according to Flathub appstream guidelines
-#: data/net.nokyan.Resources.desktop.in.in:3
-#: data/net.nokyan.Resources.metainfo.xml.in.in:5
+#: data/org.gnome.Resources.desktop.in.in:3
+#: data/org.gnome.Resources.metainfo.xml.in.in:5
 msgid "Keep an eye on system resources"
 msgstr "Παρακολουθήστε τους πόρους του συστήματος"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/net.nokyan.Resources.desktop.in.in:9
+#: data/org.gnome.Resources.desktop.in.in:9
 msgid "System;Resources;Monitor;Processes;Usage;Task;Manager;CPU;RAM;Memory;GPU;Performance;Power;Battery;"
 msgstr "Σύστημα;Πόροι;Παρακολούθηση;Διεργασίες;Χρήση;Εργασίες;Διαχειριστής;CPU;RAM;Μνήμη;GPU;Επιδόσεις;Ισχύς;Μπαταρία;System;Resources;Monitor;Processes;Usage;Task;Manager;CPU;RAM;Memory;GPU;Performance;Power;Battery;"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:17
+#: data/org.gnome.Resources.metainfo.xml.in.in:17
 msgid ""
 "Resources allows you to check the utilization of your system resources and "
 "control your running processes and apps. It’s designed to be user-friendly "
@@ -45,87 +48,85 @@ msgstr ""
 "σχεδιασμένο να είναι φιλικό προς τον χρήστη και να εναρμονίζεται πλήρως με "
 "μια σύγχρονη επιφάνεια εργασίας, χρησιμοποιώντας το libadwaita του GNOME."
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:20
+#: data/org.gnome.Resources.metainfo.xml.in.in:20
 msgid "Resources supports monitoring the following components:"
 msgstr "Το «Πόροι» υποστηρίζει την παρακολούθηση των ακόλουθων στοιχείων:"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:24
+#: data/org.gnome.Resources.metainfo.xml.in.in:24
 msgid "CPU"
 msgstr "CPU"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:25
+#: data/org.gnome.Resources.metainfo.xml.in.in:25
 #: data/resources/ui/dialogs/app_dialog.ui:82
 #: data/resources/ui/dialogs/process_dialog.ui:64
-#: data/resources/ui/dialogs/settings_dialog.ui:128
-#: data/resources/ui/dialogs/settings_dialog.ui:220
-#: data/resources/ui/window.ui:176 data/resources/ui/window.ui:183
-#: src/ui/pages/applications/mod.rs:806 src/ui/pages/applications/mod.rs:823
-#: src/ui/pages/memory.rs:106 src/ui/pages/memory.rs:192
-#: src/ui/pages/processes/mod.rs:1106 src/ui/pages/processes/mod.rs:1123
+#: data/resources/ui/dialogs/settings_dialog.ui:118
+#: data/resources/ui/dialogs/settings_dialog.ui:210
+#: data/resources/ui/window.ui:175 data/resources/ui/window.ui:182
+#: src/ui/pages/applications/mod.rs:427 src/ui/pages/memory.rs:106
+#: src/ui/pages/memory.rs:192 src/ui/pages/processes/mod.rs:532
 msgid "Memory"
 msgstr "Μνήμη"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:26
+#: data/org.gnome.Resources.metainfo.xml.in.in:26
 #: data/resources/ui/dialogs/app_dialog.ui:140
 #: data/resources/ui/dialogs/process_dialog.ui:118
-#: data/resources/ui/dialogs/settings_dialog.ui:158
-#: data/resources/ui/dialogs/settings_dialog.ui:250
-#: src/ui/pages/applications/mod.rs:1232 src/ui/pages/applications/mod.rs:1249
-#: src/ui/pages/gpu.rs:119 src/ui/pages/processes/mod.rs:1544
-#: src/ui/pages/processes/mod.rs:1561 src/ui/window.rs:468
+#: data/resources/ui/dialogs/settings_dialog.ui:148
+#: data/resources/ui/dialogs/settings_dialog.ui:240
+#: src/ui/pages/applications/mod.rs:517 src/ui/pages/gpu.rs:124
+#: src/ui/pages/processes/mod.rs:628 src/ui/window.rs:473
 msgid "GPU"
 msgstr "GPU"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:27
-#: data/resources/ui/dialogs/settings_dialog.ui:324
+#: data/org.gnome.Resources.metainfo.xml.in.in:27
+#: data/resources/ui/dialogs/settings_dialog.ui:314
 msgid "Network Interfaces"
 msgstr "Διασυνδέσεις Δικτύου"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:28
+#: data/org.gnome.Resources.metainfo.xml.in.in:28
 msgid "Storage Devices"
 msgstr "Συσκευές Αποθήκευσης"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:29
+#: data/org.gnome.Resources.metainfo.xml.in.in:29
 msgid "Batteries"
 msgstr "Μπαταρίες"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:53
+#: data/org.gnome.Resources.metainfo.xml.in.in:53
 msgid "Apps page in light theme"
 msgstr "Σελίδα εφαρμογών σε φωτεινό θέμα"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:57
+#: data/org.gnome.Resources.metainfo.xml.in.in:57
 msgid "Processes page in dark theme"
 msgstr "Σελίδα διεργασιών σε σκούρο θέμα"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:61
+#: data/org.gnome.Resources.metainfo.xml.in.in:61
 msgid "Processor page in light theme"
 msgstr "Σελίδα επεξεργαστή σε φωτεινό θέμα"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:65
+#: data/org.gnome.Resources.metainfo.xml.in.in:65
 msgid "Memory page in dark theme"
 msgstr "Σελίδα μνήμης σε σκούρο θέμα"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:69
+#: data/org.gnome.Resources.metainfo.xml.in.in:69
 msgid "GPU page in light theme"
 msgstr "Σελίδα GPU σε φωτεινό θέμα"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:73
+#: data/org.gnome.Resources.metainfo.xml.in.in:73
 msgid "Drive page in dark theme"
 msgstr "Σελίδα δίσκου σε σκούρο θέμα"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:77
+#: data/org.gnome.Resources.metainfo.xml.in.in:77
 msgid "Network Interface page in light theme"
 msgstr "Σελίδα διασύνδεσης δικτύου σε φωτεινό θέμα"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:81
+#: data/org.gnome.Resources.metainfo.xml.in.in:81
 msgid "Battery page in dark theme"
 msgstr "Σελίδα μπαταρίας σε σκούρο θέμα"
 
-#: data/net.nokyan.Resources.policy.in.in:9
+#: data/org.gnome.Resources.policy.in.in:9
 msgid "Control Process"
 msgstr "Έλεγχος Διεργασίας"
 
-#: data/net.nokyan.Resources.policy.in.in:10
+#: data/org.gnome.Resources.policy.in.in:10
 msgid ""
 "Authentication is required to control superuser’s or other users’ processes"
 msgstr ""
@@ -133,6 +134,8 @@ msgstr ""
 "άλλων χρηστών"
 
 #: data/resources/ui/dialogs/app_dialog.ui:7
+#: data/resources/ui/pages/applications.ui:90
+#: data/resources/ui/pages/applications.ui:92
 msgid "App Information"
 msgstr "Πληροφορίες Εφαρμογής"
 
@@ -147,85 +150,76 @@ msgstr "Χρήση"
 
 #: data/resources/ui/dialogs/app_dialog.ui:73
 #: data/resources/ui/dialogs/process_dialog.ui:55
-#: data/resources/ui/dialogs/settings_dialog.ui:133
-#: data/resources/ui/dialogs/settings_dialog.ui:225
-#: data/resources/ui/window.ui:145 data/resources/ui/window.ui:152
-#: src/ui/pages/applications/mod.rs:873 src/ui/pages/applications/mod.rs:890
-#: src/ui/pages/cpu.rs:128 src/ui/pages/processes/mod.rs:1173
-#: src/ui/pages/processes/mod.rs:1190 src/ui/window.rs:290
+#: data/resources/ui/dialogs/settings_dialog.ui:123
+#: data/resources/ui/dialogs/settings_dialog.ui:215
+#: data/resources/ui/window.ui:144 data/resources/ui/window.ui:151
+#: src/ui/pages/applications/mod.rs:441 src/ui/pages/cpu.rs:131
+#: src/ui/pages/processes/mod.rs:547 src/ui/window.rs:286
 msgid "Processor"
 msgstr "Επεξεργαστής"
 
 #: data/resources/ui/dialogs/app_dialog.ui:91
 #: data/resources/ui/dialogs/process_dialog.ui:73
-#: data/resources/ui/dialogs/settings_dialog.ui:178
-#: data/resources/ui/dialogs/settings_dialog.ui:290
-#: src/ui/pages/applications/mod.rs:1503 src/ui/pages/applications/mod.rs:1520
-#: src/ui/pages/memory.rs:198 src/ui/pages/processes/mod.rs:2093
-#: src/ui/pages/processes/mod.rs:2110
+#: data/resources/ui/dialogs/settings_dialog.ui:168
+#: data/resources/ui/dialogs/settings_dialog.ui:280
+#: src/ui/pages/applications/mod.rs:573 src/ui/pages/memory.rs:198
+#: src/ui/pages/processes/mod.rs:756
 msgid "Swap"
 msgstr "Swap"
 
 #: data/resources/ui/dialogs/app_dialog.ui:100
 #: data/resources/ui/dialogs/process_dialog.ui:78
-#: data/resources/ui/dialogs/settings_dialog.ui:138
-#: data/resources/ui/dialogs/settings_dialog.ui:230
-#: src/ui/pages/applications/mod.rs:945 src/ui/pages/applications/mod.rs:964
-#: src/ui/pages/processes/mod.rs:1245 src/ui/pages/processes/mod.rs:1264
+#: data/resources/ui/dialogs/settings_dialog.ui:128
+#: data/resources/ui/dialogs/settings_dialog.ui:220
+#: src/ui/pages/applications/mod.rs:461 src/ui/pages/processes/mod.rs:568
 msgid "Drive Read"
 msgstr "Ανάγνωση Δίσκου"
 
 #: data/resources/ui/dialogs/app_dialog.ui:109
 #: data/resources/ui/dialogs/process_dialog.ui:87
-#: data/resources/ui/dialogs/settings_dialog.ui:143
-#: data/resources/ui/dialogs/settings_dialog.ui:235
-#: src/ui/pages/applications/mod.rs:1018 src/ui/pages/applications/mod.rs:1037
-#: src/ui/pages/processes/mod.rs:1320 src/ui/pages/processes/mod.rs:1339
+#: data/resources/ui/dialogs/settings_dialog.ui:133
+#: data/resources/ui/dialogs/settings_dialog.ui:225
+#: src/ui/pages/applications/mod.rs:475 src/ui/pages/processes/mod.rs:583
 msgid "Drive Read Total"
 msgstr "Συνολική Ανάγνωση Δίσκου"
 
 #: data/resources/ui/dialogs/app_dialog.ui:118
 #: data/resources/ui/dialogs/process_dialog.ui:96
-#: data/resources/ui/dialogs/settings_dialog.ui:148
-#: data/resources/ui/dialogs/settings_dialog.ui:240
-#: src/ui/pages/applications/mod.rs:1087 src/ui/pages/applications/mod.rs:1106
-#: src/ui/pages/processes/mod.rs:1395 src/ui/pages/processes/mod.rs:1414
+#: data/resources/ui/dialogs/settings_dialog.ui:138
+#: data/resources/ui/dialogs/settings_dialog.ui:230
+#: src/ui/pages/applications/mod.rs:489 src/ui/pages/processes/mod.rs:598
 msgid "Drive Write"
 msgstr "Εγγραφή Δίσκου"
 
 #: data/resources/ui/dialogs/app_dialog.ui:127
 #: data/resources/ui/dialogs/process_dialog.ui:105
-#: data/resources/ui/dialogs/settings_dialog.ui:153
-#: data/resources/ui/dialogs/settings_dialog.ui:245
-#: src/ui/pages/applications/mod.rs:1162 src/ui/pages/applications/mod.rs:1181
-#: src/ui/pages/processes/mod.rs:1470 src/ui/pages/processes/mod.rs:1489
+#: data/resources/ui/dialogs/settings_dialog.ui:143
+#: data/resources/ui/dialogs/settings_dialog.ui:235
+#: src/ui/pages/applications/mod.rs:503 src/ui/pages/processes/mod.rs:613
 msgid "Drive Write Total"
 msgstr "Συνολική Εγγραφή Δίσκου"
 
 #: data/resources/ui/dialogs/app_dialog.ui:149
 #: data/resources/ui/dialogs/process_dialog.ui:127
-#: data/resources/ui/dialogs/settings_dialog.ui:163
-#: data/resources/ui/dialogs/settings_dialog.ui:255
-#: src/ui/pages/applications/mod.rs:1436 src/ui/pages/applications/mod.rs:1454
-#: src/ui/pages/processes/mod.rs:1749 src/ui/pages/processes/mod.rs:1768
+#: data/resources/ui/dialogs/settings_dialog.ui:153
+#: data/resources/ui/dialogs/settings_dialog.ui:245
+#: src/ui/pages/applications/mod.rs:531 src/ui/pages/processes/mod.rs:643
 msgid "Video Memory"
 msgstr "Μνήμη Βίντεο"
 
 #: data/resources/ui/dialogs/app_dialog.ui:158
 #: data/resources/ui/dialogs/process_dialog.ui:136
-#: data/resources/ui/dialogs/settings_dialog.ui:168
-#: data/resources/ui/dialogs/settings_dialog.ui:260
-#: src/ui/pages/applications/mod.rs:1299 src/ui/pages/applications/mod.rs:1318
-#: src/ui/pages/processes/mod.rs:1611 src/ui/pages/processes/mod.rs:1630
+#: data/resources/ui/dialogs/settings_dialog.ui:158
+#: data/resources/ui/dialogs/settings_dialog.ui:250
+#: src/ui/pages/applications/mod.rs:545 src/ui/pages/processes/mod.rs:658
 msgid "Video Encoder"
 msgstr "Κωδικοποιητής Βίντεο"
 
 #: data/resources/ui/dialogs/app_dialog.ui:167
 #: data/resources/ui/dialogs/process_dialog.ui:145
-#: data/resources/ui/dialogs/settings_dialog.ui:173
-#: data/resources/ui/dialogs/settings_dialog.ui:265
-#: src/ui/pages/applications/mod.rs:1368 src/ui/pages/applications/mod.rs:1387
-#: src/ui/pages/processes/mod.rs:1680 src/ui/pages/processes/mod.rs:1699
+#: data/resources/ui/dialogs/settings_dialog.ui:163
+#: data/resources/ui/dialogs/settings_dialog.ui:255
+#: src/ui/pages/applications/mod.rs:559 src/ui/pages/processes/mod.rs:673
 msgid "Video Decoder"
 msgstr "Αποκωδικοποιητής Βίντεο"
 
@@ -234,7 +228,7 @@ msgstr "Αποκωδικοποιητής Βίντεο"
 #: data/resources/ui/pages/battery.ui:33 data/resources/ui/pages/cpu.ui:83
 #: data/resources/ui/pages/drive.ui:54 data/resources/ui/pages/gpu.ui:74
 #: data/resources/ui/pages/memory.ui:42 data/resources/ui/pages/network.ui:51
-#: data/resources/ui/pages/npu.ui:68
+#: data/resources/ui/pages/npu.ui:77
 msgid "Properties"
 msgstr "Ιδιότητες"
 
@@ -257,42 +251,44 @@ msgid "Containerized"
 msgstr "Σε περιέκτη"
 
 #: data/resources/ui/dialogs/process_dialog.ui:7
+#: data/resources/ui/pages/processes.ui:151
+#: data/resources/ui/pages/processes.ui:153
 msgid "Process Information"
 msgstr "Πληροφορίες Διεργασίας"
 
 #: data/resources/ui/dialogs/process_dialog.ui:154
-#: data/resources/ui/dialogs/settings_dialog.ui:270
-#: src/ui/pages/processes/mod.rs:1817 src/ui/pages/processes/mod.rs:1835
+#: data/resources/ui/dialogs/settings_dialog.ui:260
+#: src/ui/pages/processes/mod.rs:688
 msgid "Total CPU Time"
 msgstr "Συνολικός Χρόνος CPU"
 
 #: data/resources/ui/dialogs/process_dialog.ui:163
-#: data/resources/ui/dialogs/settings_dialog.ui:275
-#: src/ui/pages/processes/mod.rs:1884 src/ui/pages/processes/mod.rs:1902
+#: data/resources/ui/dialogs/settings_dialog.ui:265
+#: src/ui/pages/processes/mod.rs:702
 msgid "User CPU Time"
 msgstr "Χρόνος CPU Χρήστη"
 
 #: data/resources/ui/dialogs/process_dialog.ui:172
-#: data/resources/ui/dialogs/settings_dialog.ui:280
-#: src/ui/pages/processes/mod.rs:1951 src/ui/pages/processes/mod.rs:1969
+#: data/resources/ui/dialogs/settings_dialog.ui:270
+#: src/ui/pages/processes/mod.rs:716
 msgid "System CPU Time"
 msgstr "Χρόνος CPU Συστήματος"
 
 #: data/resources/ui/dialogs/process_dialog.ui:186
-#: data/resources/ui/dialogs/settings_dialog.ui:210
-#: src/ui/pages/processes/mod.rs:983 src/ui/pages/processes/mod.rs:998
+#: data/resources/ui/dialogs/settings_dialog.ui:200
+#: src/ui/pages/processes/mod.rs:504
 msgid "Process ID"
 msgstr "Αναγνωριστικό Διεργασίας"
 
 #: data/resources/ui/dialogs/process_dialog.ui:204
-#: data/resources/ui/dialogs/settings_dialog.ui:300
-#: src/ui/pages/processes/mod.rs:2229 src/ui/pages/processes/mod.rs:2247
+#: data/resources/ui/dialogs/settings_dialog.ui:290
+#: src/ui/pages/processes/mod.rs:786
 msgid "Commandline"
 msgstr "Γραμμή Εντολών"
 
 #: data/resources/ui/dialogs/process_dialog.ui:213
-#: data/resources/ui/dialogs/settings_dialog.ui:215
-#: src/ui/pages/processes/mod.rs:1044 src/ui/pages/processes/mod.rs:1059
+#: data/resources/ui/dialogs/settings_dialog.ui:205
+#: src/ui/pages/processes/mod.rs:518
 msgid "User"
 msgstr "Χρήστης"
 
@@ -301,7 +297,8 @@ msgid "Control Group"
 msgstr "Ομάδα Ελέγχου"
 
 #: data/resources/ui/dialogs/process_options_dialog.ui:7
-#: data/resources/ui/dialogs/process_options_dialog.ui:69
+#: data/resources/ui/pages/processes.ui:138
+#: data/resources/ui/pages/processes.ui:140
 msgid "Process Options"
 msgstr "Επιλογές Διεργασίας"
 
@@ -309,11 +306,11 @@ msgstr "Επιλογές Διεργασίας"
 msgid "Apply"
 msgstr "Εφαρμογή"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:72
+#: data/resources/ui/dialogs/process_options_dialog.ui:71
 msgid "Niceness"
 msgstr "Ευγένεια (Niceness)"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:73
+#: data/resources/ui/dialogs/process_options_dialog.ui:72
 msgid ""
 "The priority of a process is given by its niceness. A lower niceness value "
 "correspond to a higher priority."
@@ -321,50 +318,44 @@ msgstr ""
 "Η προτεραιότητα μιας διεργασίας καθορίζεται από την «ευγένειά» της. Μια "
 "χαμηλότερη τιμή «ευγένειας» αντιστοιχεί σε υψηλότερη προτεραιότητα."
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:87
-#: data/resources/ui/dialogs/settings_dialog.ui:285
-#: src/ui/pages/processes/mod.rs:2018 src/ui/pages/processes/mod.rs:2034
+#: data/resources/ui/dialogs/process_options_dialog.ui:86
+#: data/resources/ui/dialogs/settings_dialog.ui:275
+#: src/ui/pages/processes/mod.rs:730
 msgid "Priority"
 msgstr "Προτεραιότητα"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:91
+#: data/resources/ui/dialogs/process_options_dialog.ui:90
 msgctxt "process priority"
 msgid "Very High"
 msgstr "Πολύ Υψηλή"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:92
+#: data/resources/ui/dialogs/process_options_dialog.ui:91
 msgctxt "process priority"
 msgid "High"
 msgstr "Υψηλή"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:93
+#: data/resources/ui/dialogs/process_options_dialog.ui:92
 msgctxt "process priority"
 msgid "Normal"
 msgstr "Κανονική"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:94
+#: data/resources/ui/dialogs/process_options_dialog.ui:93
 msgctxt "process priority"
 msgid "Low"
 msgstr "Χαμηλή"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:95
+#: data/resources/ui/dialogs/process_options_dialog.ui:94
 msgctxt "process priority"
 msgid "Very Low"
 msgstr "Πολύ Χαμηλή"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:103
+#: data/resources/ui/dialogs/process_options_dialog.ui:104
 msgid "Processor Affinity"
 msgstr "Συσχέτιση Επεξεργαστή"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:108
+#: data/resources/ui/dialogs/process_options_dialog.ui:110
 msgid "Toggle All"
 msgstr "Εναλλαγή Όλων"
-
-#: data/resources/ui/dialogs/process_options_dialog.ui:111
-msgid "Select which processor cores the process is allowed to run on"
-msgstr ""
-"Επιλέξτε σε ποιους πυρήνες του επεξεργαστή επιτρέπεται να εκτελείται η "
-"διεργασία"
 
 #: data/resources/ui/dialogs/settings_dialog.ui:7
 msgid "General"
@@ -453,43 +444,23 @@ msgstr "Εμφάνιση Πλέγματος Γραφημάτων"
 msgid "Graph Data Points"
 msgstr "Σημεία Δεδομένων Γραφήματος"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:86
-msgid "Show Usage Details in Sidebar"
-msgstr "Εμφάνιση Λεπτομερειών Χρήσης στην Πλευρική Στήλη"
-
-#: data/resources/ui/dialogs/settings_dialog.ui:87
-msgid "If enabled, the usage along with other information will be displayed"
-msgstr "Εάν ενεργοποιηθεί, θα εμφανίζεται η χρήση μαζί με άλλες πληροφορίες"
-
-#: data/resources/ui/dialogs/settings_dialog.ui:92
-msgid "Show Device Descriptions in Sidebar"
-msgstr "Εμφάνιση Περιγραφών Συσκευών στην Πλευρική Στήλη"
-
-#: data/resources/ui/dialogs/settings_dialog.ui:93
-msgid ""
-"If enabled, a device identifier like its name or device type will be "
-"displayed"
-msgstr ""
-"Εάν ενεργοποιηθεί, θα εμφανίζεται ένα αναγνωριστικό της συσκευής, όπως το "
-"όνομά της ή ο τύπος της"
-
-#: data/resources/ui/dialogs/settings_dialog.ui:98
+#: data/resources/ui/dialogs/settings_dialog.ui:88
 msgid "Sidebar Meter Type"
 msgstr "Τύπος Μετρητή Πλευρικής Στήλης"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:102
+#: data/resources/ui/dialogs/settings_dialog.ui:92
 msgid "Bar"
 msgstr "Ράβδος"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:103
+#: data/resources/ui/dialogs/settings_dialog.ui:93
 msgid "Graph"
 msgstr "Γράφημα"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:111
+#: data/resources/ui/dialogs/settings_dialog.ui:101
 msgid "Normalize Processor Usage"
 msgstr "Κανονικοποίηση Χρήσης Επεξεργαστή"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:112
+#: data/resources/ui/dialogs/settings_dialog.ui:102
 msgid ""
 "If enabled, the total usage of all cores will be divided by the amount of "
 "cores"
@@ -497,94 +468,93 @@ msgstr ""
 "Εάν ενεργοποιηθεί, η συνολική χρήση όλων των πυρήνων θα διαιρείται με τον "
 "αριθμό των πυρήνων"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:122
-#: data/resources/ui/window.ui:65 data/resources/ui/window.ui:72
-#: src/ui/pages/applications/mod.rs:132
+#: data/resources/ui/dialogs/settings_dialog.ui:112
+#: data/resources/ui/window.ui:64 data/resources/ui/window.ui:71
+#: src/ui/pages/applications/mod.rs:140
 msgid "Apps"
 msgstr "Εφαρμογές"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:125
-#: data/resources/ui/dialogs/settings_dialog.ui:207
+#: data/resources/ui/dialogs/settings_dialog.ui:115
+#: data/resources/ui/dialogs/settings_dialog.ui:197
 msgid "Information Columns"
 msgstr "Στήλες Πληροφοριών"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:183
-#: data/resources/ui/dialogs/settings_dialog.ui:295
-#: src/ui/pages/applications/mod.rs:1570 src/ui/pages/applications/mod.rs:1589
-#: src/ui/pages/processes/mod.rs:2160 src/ui/pages/processes/mod.rs:2179
+#: data/resources/ui/dialogs/settings_dialog.ui:173
+#: data/resources/ui/dialogs/settings_dialog.ui:285
+#: src/ui/pages/applications/mod.rs:587 src/ui/pages/processes/mod.rs:771
 msgid "Combined Memory"
 msgstr "Συνδυασμένη Μνήμη"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:193
-#: data/resources/ui/window.ui:105 data/resources/ui/window.ui:112
-#: src/ui/pages/processes/mod.rs:176
+#: data/resources/ui/dialogs/settings_dialog.ui:183
+#: data/resources/ui/window.ui:104 data/resources/ui/window.ui:111
+#: src/ui/pages/processes/mod.rs:182
 msgid "Processes"
 msgstr "Διεργασίες"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:196
+#: data/resources/ui/dialogs/settings_dialog.ui:186
 #: data/resources/ui/pages/cpu.ui:22 data/resources/ui/pages/processes.ui:56
 msgid "Options"
 msgstr "Επιλογές"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:199
+#: data/resources/ui/dialogs/settings_dialog.ui:189
 msgid "Show Niceness Values"
 msgstr "Εμφάνιση Τιμών Niceness"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:200
+#: data/resources/ui/dialogs/settings_dialog.ui:190
 msgid ""
 "Display priorities as niceness to allow for more fine-grained adjustments"
 msgstr ""
 "Εμφάνιση προτεραιοτήτων ως «ευγένεια» (niceness) για να επιτρέπονται πιο "
 "λεπτομερείς ρυθμίσεις"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:310
+#: data/resources/ui/dialogs/settings_dialog.ui:300
 msgid "Devices"
 msgstr "Συσκευές"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:313
+#: data/resources/ui/dialogs/settings_dialog.ui:303
 msgid "Drives"
 msgstr "Δίσκοι"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:316
+#: data/resources/ui/dialogs/settings_dialog.ui:306
 msgid "Show Virtual Drives"
 msgstr "Εμφάνιση Εικονικών Δίσκων"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:317
+#: data/resources/ui/dialogs/settings_dialog.ui:307
 msgid "Virtual drives are for example ZFS volumes or mapped devices"
 msgstr ""
 "Οι εικονικοί δίσκοι είναι για παράδειγμα τόμοι ZFS ή αντιστοιχισμένες "
 "συσκευές"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:327
+#: data/resources/ui/dialogs/settings_dialog.ui:317
 msgid "Show Virtual Network Interfaces"
 msgstr "Εμφάνιση Εικονικών Διασυνδέσεων Δικτύου"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:328
+#: data/resources/ui/dialogs/settings_dialog.ui:318
 msgid "Virtual network interfaces are for example bridges or VPN tunnels"
 msgstr ""
 "Οι εικονικές διασυνδέσεις δικτύου είναι για παράδειγμα γέφυρες ή σήραγγες VPN"
 
 #: data/resources/ui/pages/applications.ui:6
 #: data/resources/ui/pages/applications.ui:26
-#: src/ui/pages/applications/mod.rs:1662
+#: src/ui/pages/applications/mod.rs:1014
 msgid "Kill App"
 msgstr "Βίαιος Τερματισμός Εφαρμογής"
 
 #: data/resources/ui/pages/applications.ui:10
 #: data/resources/ui/pages/applications.ui:30
-#: src/ui/pages/applications/mod.rs:1661
+#: src/ui/pages/applications/mod.rs:1013
 msgid "Halt App"
 msgstr "Παύση Εφαρμογής"
 
 #: data/resources/ui/pages/applications.ui:14
 #: data/resources/ui/pages/applications.ui:34
-#: src/ui/pages/applications/mod.rs:1663
+#: src/ui/pages/applications/mod.rs:1015
 msgid "Continue App"
 msgstr "Συνέχιση Εφαρμογής"
 
 #: data/resources/ui/pages/applications.ui:22
-#: data/resources/ui/pages/applications.ui:98
-#: src/ui/pages/applications/mod.rs:1660
+#: data/resources/ui/pages/applications.ui:101
+#: src/ui/pages/applications/mod.rs:1012
 msgid "End App"
 msgstr "Τερματισμός Εφαρμογής"
 
@@ -593,14 +563,9 @@ msgstr "Τερματισμός Εφαρμογής"
 msgid "Information"
 msgstr "Πληροφορίες"
 
-#: data/resources/ui/pages/applications.ui:57
+#: data/resources/ui/pages/applications.ui:59
 msgid "Search applications"
 msgstr "Αναζήτηση εφαρμογών"
-
-#: data/resources/ui/pages/applications.ui:87
-#: data/resources/ui/pages/applications.ui:89
-msgid "Show App Information"
-msgstr "Εμφάνιση Πληροφοριών Εφαρμογής"
 
 #: data/resources/ui/pages/battery.ui:36
 msgid "Battery Health"
@@ -619,7 +584,7 @@ msgid "Technology"
 msgstr "Τεχνολογία"
 
 #: data/resources/ui/pages/battery.ui:72 data/resources/ui/pages/gpu.ui:81
-#: data/resources/ui/pages/network.ui:58 data/resources/ui/pages/npu.ui:75
+#: data/resources/ui/pages/network.ui:58 data/resources/ui/pages/npu.ui:84
 msgid "Manufacturer"
 msgstr "Κατασκευαστής"
 
@@ -636,7 +601,7 @@ msgid "Show Usages of Logical CPUs"
 msgstr "Εμφάνιση Χρήσης Λογικών CPU"
 
 #: data/resources/ui/pages/cpu.ui:75 data/resources/ui/pages/gpu.ui:66
-#: data/resources/ui/pages/npu.ui:60
+#: data/resources/ui/pages/npu.ui:69
 msgid "Sensors"
 msgstr "Αισθητήρες"
 
@@ -694,7 +659,7 @@ msgstr "Αφαιρούμενος"
 
 #. Translators: "Link" refers to something like "PCIe 4.0 ×16"
 #: data/resources/ui/pages/drive.ui:102 data/resources/ui/pages/gpu.ui:113
-#: data/resources/ui/pages/network.ui:103 data/resources/ui/pages/npu.ui:107
+#: data/resources/ui/pages/network.ui:103 data/resources/ui/pages/npu.ui:116
 msgid "Link"
 msgstr "Σύνδεση"
 
@@ -706,21 +671,21 @@ msgstr "Συχνότητα GPU"
 msgid "Video Memory Frequency"
 msgstr "Συχνότητα Μνήμης Βίντεο"
 
-#: data/resources/ui/pages/gpu.ui:55 data/resources/ui/pages/npu.ui:49
-#: src/ui/pages/battery.rs:217
+#: data/resources/ui/pages/gpu.ui:55 data/resources/ui/pages/npu.ui:58
+#: src/ui/pages/battery.rs:220 src/ui/pages/battery.rs:279
 msgid "Power Usage"
 msgstr "Κατανάλωση Ενέργειας"
 
-#: data/resources/ui/pages/gpu.ui:90 data/resources/ui/pages/npu.ui:84
+#: data/resources/ui/pages/gpu.ui:90 data/resources/ui/pages/npu.ui:93
 msgid "PCI Slot"
 msgstr "Υποδοχή PCI"
 
 #: data/resources/ui/pages/gpu.ui:99 data/resources/ui/pages/network.ui:67
-#: data/resources/ui/pages/npu.ui:93
+#: data/resources/ui/pages/npu.ui:102
 msgid "Driver Used"
 msgstr "Χρησιμοποιούμενος Οδηγός"
 
-#: data/resources/ui/pages/gpu.ui:108 data/resources/ui/pages/npu.ui:102
+#: data/resources/ui/pages/gpu.ui:108 data/resources/ui/pages/npu.ui:111
 msgid "Max Power Cap"
 msgstr "Μέγιστο Όριο Ισχύος"
 
@@ -776,22 +741,26 @@ msgstr "Ταχύτητα Σύνδεσης"
 msgid "NPU Frequency"
 msgstr "Συχνότητα NPU"
 
-#: data/resources/ui/pages/npu.ui:44
+#: data/resources/ui/pages/npu.ui:40
+msgid "Performance"
+msgstr "Απόδοση"
+
+#: data/resources/ui/pages/npu.ui:53
 msgid "Memory Frequency"
 msgstr "Συχνότητα Μνήμης"
 
 #: data/resources/ui/pages/processes.ui:6
-#: data/resources/ui/pages/processes.ui:42 src/ui/pages/processes/mod.rs:2346
+#: data/resources/ui/pages/processes.ui:42 src/ui/pages/processes/mod.rs:1334
 msgid "Kill Process"
 msgstr "Βίαιος Τερματισμός Διεργασίας"
 
 #: data/resources/ui/pages/processes.ui:10
-#: data/resources/ui/pages/processes.ui:46 src/ui/pages/processes/mod.rs:2345
+#: data/resources/ui/pages/processes.ui:46 src/ui/pages/processes/mod.rs:1333
 msgid "Halt Process"
 msgstr "Παύση Διεργασίας"
 
 #: data/resources/ui/pages/processes.ui:14
-#: data/resources/ui/pages/processes.ui:50 src/ui/pages/processes/mod.rs:2347
+#: data/resources/ui/pages/processes.ui:50 src/ui/pages/processes/mod.rs:1335
 msgid "Continue Process"
 msgstr "Συνέχιση Διεργασίας"
 
@@ -811,28 +780,18 @@ msgid "Continue Processes"
 msgstr "Συνέχιση Διεργασιών"
 
 #: data/resources/ui/pages/processes.ui:38
-#: data/resources/ui/pages/processes.ui:157 src/ui/pages/processes/mod.rs:527
-#: src/ui/pages/processes/mod.rs:2344
+#: data/resources/ui/pages/processes.ui:162 src/ui/pages/processes/mod.rs:821
+#: src/ui/pages/processes/mod.rs:1332
 msgid "End Process"
 msgstr "Τερματισμός Διεργασίας"
 
-#: data/resources/ui/pages/processes.ui:70 src/ui/pages/processes/mod.rs:531
+#: data/resources/ui/pages/processes.ui:70 src/ui/pages/processes/mod.rs:825
 msgid "End Processes"
 msgstr "Τερματισμός Διεργασιών"
 
-#: data/resources/ui/pages/processes.ui:103
+#: data/resources/ui/pages/processes.ui:107
 msgid "Search processes"
 msgstr "Αναζήτηση διεργασιών"
-
-#: data/resources/ui/pages/processes.ui:133
-#: data/resources/ui/pages/processes.ui:135
-msgid "Show Process Options"
-msgstr "Εμφάνιση Επιλογών Διεργασίας"
-
-#: data/resources/ui/pages/processes.ui:146
-#: data/resources/ui/pages/processes.ui:148
-msgid "Show Process Information"
-msgstr "Εμφάνιση Πληροφοριών Διεργασίας"
 
 #: data/resources/ui/shortcuts.ui:6
 msgctxt "shortcut window"
@@ -854,128 +813,358 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: data/resources/ui/shortcuts.ui:29
+#: data/resources/ui/shortcuts.ui:27
+msgctxt "shortcut window"
+msgid "Toggle Sidebar"
+msgstr "Εναλλαγή Πλευρικής Στήλης"
+
+#: data/resources/ui/shortcuts.ui:35
 msgctxt "shortcut window"
 msgid "Apps/Processes"
 msgstr "Εφαρμογές/Διεργασίες"
 
-#: data/resources/ui/shortcuts.ui:32
+#: data/resources/ui/shortcuts.ui:38
 msgctxt "shortcut window"
 msgid "Toggle Search Field"
 msgstr "Εναλλαγή Πεδίου Αναζήτησης"
 
-#: data/resources/ui/shortcuts.ui:38
+#: data/resources/ui/shortcuts.ui:44
 msgctxt "shortcut window"
 msgid "End App/Process"
 msgstr "Τερματισμός Εφαρμογής/Διεργασίας"
 
-#: data/resources/ui/shortcuts.ui:44
+#: data/resources/ui/shortcuts.ui:50
 msgctxt "shortcut window"
 msgid "Kill App/Process"
 msgstr "Βίαιος Τερματισμός Εφαρμογής/Διεργασίας"
 
-#: data/resources/ui/shortcuts.ui:50
+#: data/resources/ui/shortcuts.ui:56
 msgctxt "shortcut window"
 msgid "Halt App/Process"
 msgstr "Παύση Εφαρμογής/Διεργασίας"
 
-#: data/resources/ui/shortcuts.ui:56
+#: data/resources/ui/shortcuts.ui:62
 msgctxt "shortcut window"
 msgid "Continue App/Process"
 msgstr "Συνέχιση Εφαρμογής/Διεργασίας"
 
-#: data/resources/ui/shortcuts.ui:62
+#: data/resources/ui/shortcuts.ui:68
 msgctxt "shortcut window"
 msgid "Show Information for App/Process"
 msgstr "Εμφάνιση Πληροφοριών για Εφαρμογή/Διεργασία"
 
-#: data/resources/ui/shortcuts.ui:68
+#: data/resources/ui/shortcuts.ui:74
 msgctxt "shortcut window"
 msgid "Show Process Options"
 msgstr "Εμφάνιση Επιλογών Διεργασίας"
 
 #: data/resources/ui/window.ui:6
-msgid "Preferences"
-msgstr "Προτιμήσεις"
+msgid "_Preferences"
+msgstr "_Προτιμήσεις"
 
 #: data/resources/ui/window.ui:10
-msgid "Keyboard Shortcuts"
-msgstr "Συντομεύσεις Πληκτρολογίου"
+msgid "_Keyboard Shortcuts"
+msgstr "Συντομεύσεις Πλη_κτρολογίου"
 
 #: data/resources/ui/window.ui:14
-msgid "About Resources"
-msgstr "Σχετικά με το «Πόροι»"
+msgid "_About Resources"
+msgstr "_Σχετικά με το «Πόροι»"
 
-#: data/resources/ui/window.ui:88 data/resources/ui/window.ui:128
+#: data/resources/ui/window.ui:44
+msgid "Main Menu"
+msgstr "Κύριο μενού"
+
+#: data/resources/ui/window.ui:87 data/resources/ui/window.ui:127
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: data/resources/ui/window.ui:90 data/resources/ui/window.ui:130
+#: data/resources/ui/window.ui:89 data/resources/ui/window.ui:129
 msgid "Toggle search field"
 msgstr "Εναλλαγή πεδίου αναζήτησης"
 
 #. Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
 #. One name per line, please do not remove previous names.
-#: src/application.rs:285
+#: src/application.rs:297
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
 " Ευστάθιος Ιωσηφίδης <iosifidis@opensuse.org>\n"
+" Φουντουκιά (Hazel) Λεβέντη <hazeltwink@gmail.com>\n"
 "\n"
 "Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
 "https://gr.gnome.org/"
 
+#: src/devices/app.rs:247
+msgid "System Processes"
+msgstr "Διεργασίες Συστήματος"
+
+#: src/devices/battery.rs:92
+msgid "Charging"
+msgstr "Φόρτιση"
+
+#: src/devices/battery.rs:93
+msgid "Discharging"
+msgstr "Εκφόρτιση"
+
+#: src/devices/battery.rs:94
+msgid "Empty"
+msgstr "Άδεια"
+
+#: src/devices/battery.rs:95
+msgid "Full"
+msgstr "Πλήρης"
+
+#: src/devices/battery.rs:96
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#: src/devices/battery.rs:142
+msgid "Nickel-Metal Hydride"
+msgstr "Νικελίου-Υδριδίου Μετάλλου"
+
+#: src/devices/battery.rs:143
+msgid "Nickel-Cadmium"
+msgstr "Νικελίου-Καδμίου"
+
+#: src/devices/battery.rs:144
+msgid "Nickel-Zinc"
+msgstr "Νικελίου-Ψευδαργύρου"
+
+#: src/devices/battery.rs:145
+msgid "Lead-Acid"
+msgstr "Μολύβδου-Οξέος"
+
+#: src/devices/battery.rs:146
+msgid "Lithium-Ion"
+msgstr "Ιόντων Λιθίου"
+
+#: src/devices/battery.rs:147
+msgid "Lithium Iron Phosphate"
+msgstr "Φωσφορικού Σιδήρου Λιθίου"
+
+#: src/devices/battery.rs:148
+msgid "Lithium Polymer"
+msgstr "Πολυμερών Λιθίου"
+
+#: src/devices/battery.rs:149
+msgid "Rechargeable Alkaline Managanese"
+msgstr "Επαναφορτιζόμενη Αλκαλική Μαγγανίου"
+
+#: src/devices/battery.rs:150 src/devices/drive.rs:136
+#: src/devices/gpu/mod.rs:279 src/devices/gpu/mod.rs:289
+#: src/devices/link/mod.rs:54 src/devices/link/wifi.rs:167
+#: src/devices/npu/mod.rs:260 src/devices/npu/mod.rs:266
 #: src/ui/dialogs/app_dialog.rs:155 src/ui/dialogs/process_dialog.rs:133
 #: src/ui/dialogs/process_dialog.rs:137 src/ui/dialogs/process_dialog.rs:146
 #: src/ui/dialogs/process_dialog.rs:148 src/ui/dialogs/process_dialog.rs:171
 #: src/ui/dialogs/process_dialog.rs:178 src/ui/dialogs/process_dialog.rs:185
-#: src/ui/dialogs/process_dialog.rs:192 src/ui/pages/applications/mod.rs:975
-#: src/ui/pages/applications/mod.rs:1117 src/ui/pages/battery.rs:205
-#: src/ui/pages/battery.rs:225 src/ui/pages/battery.rs:231
-#: src/ui/pages/battery.rs:234 src/ui/pages/battery.rs:265
-#: src/ui/pages/battery.rs:289 src/ui/pages/battery.rs:291
-#: src/ui/pages/battery.rs:301 src/ui/pages/cpu.rs:243 src/ui/pages/cpu.rs:258
-#: src/ui/pages/cpu.rs:278 src/ui/pages/cpu.rs:284 src/ui/pages/cpu.rs:290
-#: src/ui/pages/cpu.rs:296 src/ui/pages/cpu.rs:300 src/ui/pages/cpu.rs:303
-#: src/ui/pages/cpu.rs:341 src/ui/pages/cpu.rs:448 src/ui/pages/drive.rs:321
-#: src/ui/pages/drive.rs:352 src/ui/pages/drive.rs:354
-#: src/ui/pages/drive.rs:383 src/ui/pages/drive.rs:385
-#: src/ui/pages/drive.rs:401 src/ui/pages/drive.rs:402
-#: src/ui/pages/drive.rs:409 src/ui/pages/drive.rs:419
-#: src/ui/pages/drive.rs:429 src/ui/pages/drive.rs:435 src/ui/pages/gpu.rs:245
-#: src/ui/pages/gpu.rs:252 src/ui/pages/gpu.rs:297 src/ui/pages/gpu.rs:322
-#: src/ui/pages/gpu.rs:325 src/ui/pages/gpu.rs:336 src/ui/pages/gpu.rs:377
-#: src/ui/pages/gpu.rs:384 src/ui/pages/gpu.rs:396 src/ui/pages/gpu.rs:403
-#: src/ui/pages/gpu.rs:407 src/ui/pages/gpu.rs:437 src/ui/pages/gpu.rs:443
-#: src/ui/pages/memory.rs:227 src/ui/pages/memory.rs:228
-#: src/ui/pages/memory.rs:232 src/ui/pages/memory.rs:233
-#: src/ui/pages/memory.rs:237 src/ui/pages/memory.rs:238
-#: src/ui/pages/memory.rs:266 src/ui/pages/memory.rs:327
-#: src/ui/pages/network.rs:252 src/ui/pages/network.rs:259
-#: src/ui/pages/network.rs:266 src/ui/pages/network.rs:272
-#: src/ui/pages/network.rs:275 src/ui/pages/network.rs:285
-#: src/ui/pages/network.rs:292 src/ui/pages/network.rs:302
-#: src/ui/pages/network.rs:370 src/ui/pages/network.rs:373
-#: src/ui/pages/network.rs:375 src/ui/pages/network.rs:404
-#: src/ui/pages/network.rs:407 src/ui/pages/network.rs:409
-#: src/ui/pages/network.rs:417 src/ui/pages/network.rs:424
-#: src/ui/pages/network.rs:434 src/ui/pages/processes/mod.rs:1275
-#: src/ui/pages/processes/mod.rs:1350 src/ui/pages/processes/mod.rs:1425
-#: src/ui/pages/processes/mod.rs:1500 src/ui/pages/processes/mod.rs:2050
-#: src/ui/pages/processes/mod.rs:2052 src/utils/battery.rs:152
-#: src/utils/drive.rs:137 src/utils/gpu/mod.rs:279 src/utils/gpu/mod.rs:291
-#: src/utils/link/mod.rs:61 src/utils/npu/mod.rs:249 src/utils/npu/mod.rs:255
+#: src/ui/dialogs/process_dialog.rs:192 src/ui/pages/applications/mod.rs:466
+#: src/ui/pages/applications/mod.rs:494 src/ui/pages/battery.rs:208
+#: src/ui/pages/battery.rs:228 src/ui/pages/battery.rs:234
+#: src/ui/pages/battery.rs:237 src/ui/pages/battery.rs:272
+#: src/ui/pages/cpu.rs:246 src/ui/pages/cpu.rs:261 src/ui/pages/cpu.rs:281
+#: src/ui/pages/cpu.rs:287 src/ui/pages/cpu.rs:293 src/ui/pages/cpu.rs:299
+#: src/ui/pages/cpu.rs:303 src/ui/pages/cpu.rs:306 src/ui/pages/cpu.rs:344
+#: src/ui/pages/drive.rs:375 src/ui/pages/gpu.rs:250 src/ui/pages/gpu.rs:257
+#: src/ui/pages/gpu.rs:318 src/ui/pages/gpu.rs:321 src/ui/pages/gpu.rs:332
+#: src/ui/pages/gpu.rs:346 src/ui/pages/memory.rs:227
+#: src/ui/pages/memory.rs:228 src/ui/pages/memory.rs:232
+#: src/ui/pages/memory.rs:233 src/ui/pages/memory.rs:237
+#: src/ui/pages/memory.rs:238 src/ui/pages/memory.rs:266
+#: src/ui/pages/network.rs:253 src/ui/pages/network.rs:260
+#: src/ui/pages/network.rs:267 src/ui/pages/network.rs:273
+#: src/ui/pages/network.rs:276 src/ui/pages/network.rs:286
+#: src/ui/pages/network.rs:295 src/ui/pages/network.rs:304
+#: src/ui/pages/network.rs:383 src/ui/pages/network.rs:397
+#: src/ui/pages/processes/mod.rs:574 src/ui/pages/processes/mod.rs:589
+#: src/ui/pages/processes/mod.rs:604 src/ui/pages/processes/mod.rs:619
+#: src/ui/pages/processes/mod.rs:743 src/ui/pages/processes/mod.rs:745
+#: src/utils/units.rs:354
 msgid "N/A"
 msgstr "Δ/Υ"
 
-#: src/ui/dialogs/process_options_dialog.rs:147 src/ui/pages/cpu.rs:257
-#: src/ui/pages/cpu.rs:417 src/ui/pages/cpu.rs:421
+#: src/devices/battery.rs:252 src/ui/pages/battery.rs:105
+msgid "Battery"
+msgstr "Μπαταρία"
+
+#: src/devices/battery.rs:255
+#, rust-format
+msgid "{} Battery"
+msgstr "Μπαταρία {}"
+
+#: src/devices/drive.rs:128 src/devices/drive.rs:207
+msgid "CD/DVD/Blu-ray Drive"
+msgstr "Συσκευή CD/DVD/Blu-ray"
+
+#: src/devices/drive.rs:129
+msgid "eMMC Storage"
+msgstr "Αποθηκευτικός Χώρος eMMC"
+
+#: src/devices/drive.rs:130
+msgid "Flash Storage"
+msgstr "Αποθηκευτικός Χώρος Flash"
+
+#: src/devices/drive.rs:131 src/devices/drive.rs:208
+msgid "Floppy Drive"
+msgstr "Συσκευή Δισκέτας"
+
+#: src/devices/drive.rs:132
+msgid "Hard Disk Drive"
+msgstr "Σκληρός Δίσκος"
+
+#: src/devices/drive.rs:133
+msgid "Loop Device"
+msgstr "Συσκευή Loop"
+
+#: src/devices/drive.rs:134
+msgid "Mapped Device"
+msgstr "Αντιστοιχισμένη Συσκευή"
+
+#: src/devices/drive.rs:135
+msgid "NVMe Drive"
+msgstr "Συσκευή NVMe"
+
+#: src/devices/drive.rs:137
+msgid "Software Raid"
+msgstr "Λογισμικό Raid"
+
+#: src/devices/drive.rs:138
+msgid "RAM Disk"
+msgstr "Δίσκος RAM"
+
+#: src/devices/drive.rs:139
+msgid "Solid State Drive"
+msgstr "Συσκευή SSD"
+
+#: src/devices/drive.rs:140
+msgid "ZFS Volume"
+msgstr "Τόμος ZFS"
+
+#: src/devices/drive.rs:141
+msgid "Compressed RAM Disk (zram)"
+msgstr "Συμπιεσμένος Δίσκος RAM (zram)"
+
+#: src/devices/drive.rs:209
+#, rust-format
+msgid "{} Loop Device"
+msgstr "Συσκευή Loop {}"
+
+#: src/devices/drive.rs:210
+#, rust-format
+msgid "{} Mapped Device"
+msgstr "Αντιστοιχισμένη Συσκευή {}"
+
+#: src/devices/drive.rs:211
+#, rust-format
+msgid "{} RAID"
+msgstr "RAID {}"
+
+#: src/devices/drive.rs:212
+#, rust-format
+msgid "{} RAM Disk"
+msgstr "Δίσκος RAM {}"
+
+#: src/devices/drive.rs:213
+#, rust-format
+msgid "{} zram Device"
+msgstr "Συσκευή zram {}"
+
+#: src/devices/drive.rs:214
+#, rust-format
+msgid "{} ZFS Volume"
+msgstr "Τόμος ZFS {}"
+
+#: src/devices/drive.rs:215
+#, rust-format
+msgid "{} Drive"
+msgstr "Συσκευή {}"
+
+#: src/devices/link/wifi.rs:156
+#, rust-format
+msgid "Receive: {}"
+msgstr "Λήψη: {}"
+
+#: src/devices/link/wifi.rs:157
+#, rust-format
+msgid "Send: {}"
+msgstr "Αποστολή: {}"
+
+#: src/devices/network.rs:131
+msgid "Bluetooth Tether"
+msgstr "Σύνδεση Bluetooth"
+
+#: src/devices/network.rs:132
+msgid "Network Bridge"
+msgstr "Γέφυρα Δικτύου"
+
+#: src/devices/network.rs:133
+msgid "Ethernet Connection"
+msgstr "Σύνδεση Ethernet"
+
+#: src/devices/network.rs:134
+msgid "Docker Bridge"
+msgstr "Γέφυρα Docker"
+
+#: src/devices/network.rs:135
+msgid "InfiniBand Connection"
+msgstr "Σύνδεση InfiniBand"
+
+#: src/devices/network.rs:136
+msgid "Incus Bridge"
+msgstr "Γέφυρα Incus"
+
+#: src/devices/network.rs:137
+msgid "LXC Bridge"
+msgstr "Γέφυρα LXC"
+
+#: src/devices/network.rs:138
+msgid "LXD Bridge"
+msgstr "Γέφυρα LXD"
+
+#: src/devices/network.rs:139
+msgid "Serial Line IP Connection"
+msgstr "Σύνδεση IP σειριακής γραμμής"
+
+#: src/devices/network.rs:140
+msgid "VM Network Interface"
+msgstr "Διασύνδεση Δικτύου Εικονικής Μηχανής"
+
+#: src/devices/network.rs:141
+msgid "Virtual Ethernet Device"
+msgstr "Εικονική Συσκευή Ethernet"
+
+#: src/devices/network.rs:142
+msgid "VM Network Bridge"
+msgstr "Γέφυρα Δικτύου Εικονικής Μηχανής"
+
+#: src/devices/network.rs:143
+msgid "VPN Tunnel"
+msgstr "Σήραγγα VPN"
+
+#: src/devices/network.rs:144
+msgid "VPN Tunnel (WireGuard)"
+msgstr "Σήραγγα VPN (WireGuard)"
+
+#: src/devices/network.rs:145
+msgid "Wi-Fi Connection"
+msgstr "Σύνδεση Wi-Fi"
+
+#: src/devices/network.rs:146
+msgid "WWAN Connection"
+msgstr "Σύνδεση WWAN"
+
+#: src/devices/network.rs:147 src/ui/pages/network.rs:128
+msgid "Network Interface"
+msgstr "Διασύνδεση Δικτύου"
+
+#: src/ui/dialogs/process_options_dialog.rs:146 src/ui/pages/cpu.rs:260
+#: src/ui/pages/cpu.rs:421 src/ui/pages/cpu.rs:425
 #, rust-format
 msgid "CPU {}"
 msgstr "CPU {}"
 
-#: src/ui/pages/applications/application_entry.rs:188 src/ui/pages/drive.rs:416
-#: src/ui/pages/drive.rs:426 src/ui/pages/processes/process_entry.rs:211
+#: src/ui/pages/applications/application_entry.rs:188
+#: src/ui/pages/processes/process_entry.rs:211
 msgid "No"
 msgstr "Όχι"
 
@@ -1000,44 +1189,44 @@ msgstr "Ναι (Portable)"
 msgid "Yes (Snap)"
 msgstr "Ναι (Snap)"
 
-#: src/ui/pages/applications/mod.rs:663
+#: src/ui/pages/applications/mod.rs:848
 #, rust-format
 msgid "Running Apps: {}"
 msgstr "Εκτελούμενες Εφαρμογές: {}"
 
-#: src/ui/pages/applications/mod.rs:703 src/ui/pages/processes/mod.rs:873
+#: src/ui/pages/applications/mod.rs:888 src/ui/pages/processes/mod.rs:1172
 msgid "Cancel"
 msgstr "Άκυρο"
 
-#: src/ui/pages/applications/mod.rs:749
+#: src/ui/pages/applications/mod.rs:934
 msgid "App"
 msgstr "Εφαρμογή"
 
-#: src/ui/pages/applications/mod.rs:1638 src/ui/pages/processes/mod.rs:2293
+#: src/ui/pages/applications/mod.rs:990 src/ui/pages/processes/mod.rs:1281
 #, rust-format
 msgid "End {}?"
 msgstr "Τερματισμός του {} ;"
 
-#: src/ui/pages/applications/mod.rs:1639 src/ui/pages/processes/mod.rs:2294
+#: src/ui/pages/applications/mod.rs:991 src/ui/pages/processes/mod.rs:1282
 #, rust-format
 msgid "Halt {}?"
 msgstr "Παύση του {} ;"
 
-#: src/ui/pages/applications/mod.rs:1640 src/ui/pages/processes/mod.rs:2295
+#: src/ui/pages/applications/mod.rs:992 src/ui/pages/processes/mod.rs:1283
 #, rust-format
 msgid "Kill {}?"
 msgstr "Βίαιος τερματισμός του {} ;"
 
-#: src/ui/pages/applications/mod.rs:1641 src/ui/pages/processes/mod.rs:2296
+#: src/ui/pages/applications/mod.rs:993 src/ui/pages/processes/mod.rs:1284
 #, rust-format
 msgid "Continue {}?"
 msgstr "Συνέχιση του {} ;"
 
-#: src/ui/pages/applications/mod.rs:1647 src/ui/pages/processes/mod.rs:2331
-msgid "Unsaved work might be lost."
-msgstr "Μη αποθηκευμένη εργασία μπορεί να χαθεί."
+#: src/ui/pages/applications/mod.rs:999 src/ui/pages/processes/mod.rs:1319
+msgid "Unsaved work might be lost"
+msgstr "Μη αποθηκευμένη εργασία μπορεί να χαθεί"
 
-#: src/ui/pages/applications/mod.rs:1649
+#: src/ui/pages/applications/mod.rs:1001
 msgid ""
 "Halting an app can come with serious risks such as losing data and security "
 "implications. Use with caution."
@@ -1045,7 +1234,7 @@ msgstr ""
 "Η παύση μιας εφαρμογής μπορεί να ενέχει σοβαρούς κινδύνους, όπως απώλεια "
 "δεδομένων και επιπτώσεις στην ασφάλεια. Χρησιμοποιήστε με προσοχή."
 
-#: src/ui/pages/applications/mod.rs:1652
+#: src/ui/pages/applications/mod.rs:1004
 msgid ""
 "Killing an app can come with serious risks such as losing data and security "
 "implications. Use with caution."
@@ -1054,77 +1243,49 @@ msgstr ""
 "όπως απώλεια δεδομένων και επιπτώσεις στην ασφάλεια. Χρησιμοποιήστε με "
 "προσοχή."
 
-#: src/ui/pages/battery.rs:102 src/utils/battery.rs:258
-msgid "Battery"
-msgstr "Μπαταρία"
-
-#: src/ui/pages/battery.rs:210
+#: src/ui/pages/battery.rs:213 src/ui/pages/battery.rs:259
 msgid "Battery Charge"
 msgstr "Φόρτιση Μπαταρίας"
 
-#: src/ui/pages/battery.rs:279 src/ui/pages/cpu.rs:438
-#: src/ui/pages/drive.rs:346 src/ui/pages/drive.rs:377 src/ui/pages/gpu.rs:429
-#: src/ui/pages/network.rs:362 src/ui/pages/network.rs:396
-msgid "Highest:"
-msgstr "Υψηλότερο:"
-
-#: src/ui/pages/cpu.rs:242 src/ui/pages/gpu.rs:212
+#: src/ui/pages/cpu.rs:245 src/ui/pages/gpu.rs:217
 msgid "Total Usage"
 msgstr "Συνολική Χρήση"
 
-#: src/ui/pages/cpu.rs:271 src/ui/pages/gpu.rs:239
+#: src/ui/pages/cpu.rs:274 src/ui/pages/cpu.rs:440 src/ui/pages/gpu.rs:244
 msgid "Temperature"
 msgstr "Θερμοκρασία"
 
-#: src/ui/pages/drive.rs:126
+#: src/ui/pages/drive.rs:128
 msgid "Drive"
 msgstr "Δίσκος"
 
-#: src/ui/pages/drive.rs:236
+#: src/ui/pages/drive.rs:238
 msgid "Drive Activity"
 msgstr "Δραστηριότητα Δίσκου"
 
-#: src/ui/pages/drive.rs:243
+#: src/ui/pages/drive.rs:245 src/ui/pages/drive.rs:379
 msgid "Read Speed"
 msgstr "Ταχύτητα Ανάγνωσης"
 
-#: src/ui/pages/drive.rs:247
+#: src/ui/pages/drive.rs:249 src/ui/pages/drive.rs:380
 msgid "Write Speed"
 msgstr "Ταχύτητα Εγγραφής"
 
-#: src/ui/pages/drive.rs:414 src/ui/pages/drive.rs:424
-msgid "Yes"
-msgstr "Ναι"
-
-#. Translators: This is an abbreviation for "Read" and "Write". This is displayed in the sidebar so your
-#. translation should preferably be quite short or an abbreviation
-#: src/ui/pages/drive.rs:442
-#, rust-format
-msgid "R: {} · W: {}"
-msgstr "Α: {} · Ε: {}"
-
-#: src/ui/pages/gpu.rs:220
+#: src/ui/pages/gpu.rs:225
 msgid "Video Encoder/Decoder Usage"
 msgstr "Χρήση Κωδικοποιητή/Αποκωδικοποιητή Βίντεο"
 
-#: src/ui/pages/gpu.rs:226
+#: src/ui/pages/gpu.rs:231
 msgid "Video Encoder Usage"
 msgstr "Χρήση Κωδικοποιητή Βίντεο"
 
-#: src/ui/pages/gpu.rs:231
+#: src/ui/pages/gpu.rs:236
 msgid "Video Decoder Usage"
 msgstr "Χρήση Αποκωδικοποιητή Βίντεο"
 
-#: src/ui/pages/gpu.rs:236
+#: src/ui/pages/gpu.rs:241
 msgid "Video Memory Usage"
 msgstr "Χρήση Μνήμης Βίντεο"
-
-#. Translators: This will be displayed in the sidebar, please try to keep your translation as short as (or even
-#. shorter than) 'Memory'
-#: src/ui/pages/gpu.rs:415
-#, rust-format
-msgid "Memory: {}"
-msgstr "Μνήμη: {}"
 
 #: src/ui/pages/memory.rs:262
 #, rust-format
@@ -1136,63 +1297,53 @@ msgstr "{} από {}"
 msgid "{} MT/s"
 msgstr "{} MT/s"
 
-#. Translators: This will be displayed in the sidebar, so your translation for "Swap" should
-#. preferably be quite short or an abbreviation
-#: src/ui/pages/memory.rs:346
-#, rust-format
-msgid "{} / {} · Swap: {} %"
-msgstr "{} / {} · Swap: {} %"
+#: src/ui/pages/memory.rs:329
+msgid "Memory Usage"
+msgstr "Χρήση Μνήμης"
 
-#: src/ui/pages/network.rs:127 src/utils/network.rs:144
-msgid "Network Interface"
-msgstr "Διασύνδεση Δικτύου"
+#: src/ui/pages/memory.rs:336
+msgid "Swap Usage"
+msgstr "Χρήση Swap"
 
-#: src/ui/pages/network.rs:241
+#: src/ui/pages/network.rs:242 src/ui/pages/network.rs:407
 msgid "Receiving"
 msgstr "Λήψη"
 
-#: src/ui/pages/network.rs:245
+#: src/ui/pages/network.rs:246 src/ui/pages/network.rs:408
 msgid "Sending"
 msgstr "Αποστολή"
 
-#. Translators: This is an abbreviation for "Receive" and "Send". This is displayed in the sidebar so
-#. your translation should preferably be quite short or an abbreviation
-#: src/ui/pages/network.rs:445
-#, rust-format
-msgid "R: {} · S: {}"
-msgstr "Λ: {} · Α: {}"
-
-#: src/ui/pages/processes/mod.rs:824
+#: src/ui/pages/processes/mod.rs:1123
 #, rust-format
 msgid "Running Processes: {}"
 msgstr "Εκτελούμενες Διεργασίες: {}"
 
-#: src/ui/pages/processes/mod.rs:922
+#: src/ui/pages/processes/mod.rs:1221
 msgid "Process"
 msgstr "Διεργασία"
 
-#: src/ui/pages/processes/mod.rs:2303
+#: src/ui/pages/processes/mod.rs:1291
 #, rust-format
 msgid "End process?"
 msgid_plural "End {} processes?"
 msgstr[0] "Τερματισμός διεργασίας;"
 msgstr[1] "Τερματισμός {} διεργασιών;"
 
-#: src/ui/pages/processes/mod.rs:2309
+#: src/ui/pages/processes/mod.rs:1297
 #, rust-format
 msgid "Halt process?"
 msgid_plural "Halt {} processes?"
 msgstr[0] "Παύση διεργασίας;"
 msgstr[1] "Παύση {} διεργασιών;"
 
-#: src/ui/pages/processes/mod.rs:2315 src/ui/pages/processes/mod.rs:2321
+#: src/ui/pages/processes/mod.rs:1303 src/ui/pages/processes/mod.rs:1309
 #, rust-format
 msgid "Kill process?"
 msgid_plural "Kill {} processes?"
 msgstr[0] "Βίαιος τερματισμός διεργασίας;"
 msgstr[1] "Βίαιος τερματισμός {} διεργασιών;"
 
-#: src/ui/pages/processes/mod.rs:2333
+#: src/ui/pages/processes/mod.rs:1321
 msgid ""
 "Halting a process can come with serious risks such as losing data and "
 "security implications. Use with caution."
@@ -1200,7 +1351,7 @@ msgstr ""
 "Η παύση μιας διεργασίας μπορεί να ενέχει σοβαρούς κινδύνους, όπως απώλεια "
 "δεδομένων και επιπτώσεις στην ασφάλεια. Χρησιμοποιήστε με προσοχή."
 
-#: src/ui/pages/processes/mod.rs:2336
+#: src/ui/pages/processes/mod.rs:1324
 msgid ""
 "Killing a process can come with serious risks such as losing data and "
 "security implications. Use with caution."
@@ -1209,186 +1360,125 @@ msgstr ""
 "όπως απώλεια δεδομένων και επιπτώσεις στην ασφάλεια. Χρησιμοποιήστε με "
 "προσοχή."
 
-#: src/ui/window.rs:466
+#: src/ui/window.rs:471
 #, rust-format
 msgid "GPU {}"
 msgstr "GPU {}"
 
-#: src/ui/window.rs:496
+#: src/ui/window.rs:500
 #, rust-format
 msgid "NPU {}"
 msgstr "NPU {}"
 
-#: src/ui/window.rs:498
+#: src/ui/window.rs:502
 msgid "NPU"
 msgstr "NPU"
 
-#: src/ui/window.rs:1201
+#: src/ui/window.rs:1200
 #, rust-format
 msgid "Successfully adjusted {}"
 msgstr "Επιτυχής προσαρμογή του {}"
 
-#: src/ui/window.rs:1202
+#: src/ui/window.rs:1201
 #, rust-format
 msgid "There was a problem adjusting {}"
 msgstr "Παρουσιάστηκε πρόβλημα κατά την προσαρμογή του {}"
 
-#: src/ui/window.rs:1284
+#: src/ui/window.rs:1283
 #, rust-format
 msgid "Successfully ended {}"
 msgstr "Επιτυχής τερματισμός του {}"
 
-#: src/ui/window.rs:1285
+#: src/ui/window.rs:1284
 #, rust-format
 msgid "Successfully halted {}"
 msgstr "Επιτυχής παύση του {}"
 
-#: src/ui/window.rs:1286
+#: src/ui/window.rs:1285
 #, rust-format
 msgid "Successfully killed {}"
 msgstr "Επιτυχής βίαιος τερματισμός του {}"
 
-#: src/ui/window.rs:1287
+#: src/ui/window.rs:1286
 #, rust-format
 msgid "Successfully continued {}"
 msgstr "Επιτυχής συνέχιση του {}"
 
-#: src/ui/window.rs:1294
+#: src/ui/window.rs:1293
 #, rust-format
 msgid "Successfully ended the process"
 msgid_plural "Successfully ended {} processes"
 msgstr[0] "Επιτυχής τερματισμός της διεργασίας"
 msgstr[1] "Επιτυχής τερματισμός {} διεργασιών"
 
-#: src/ui/window.rs:1300
+#: src/ui/window.rs:1299
 #, rust-format
 msgid "Successfully halted the process"
 msgid_plural "Successfully halted {} processes"
 msgstr[0] "Επιτυχής παύση της διεργασίας"
 msgstr[1] "Επιτυχής παύση {} διεργασιών"
 
-#: src/ui/window.rs:1306
+#: src/ui/window.rs:1305
 #, rust-format
 msgid "Successfully killed the process"
 msgid_plural "Successfully killed {} processes"
 msgstr[0] "Επιτυχής βίαιος τερματισμός της διεργασίας"
 msgstr[1] "Επιτυχής βίαιος τερματισμός {} διεργασιών"
 
-#: src/ui/window.rs:1312
+#: src/ui/window.rs:1311
 #, rust-format
 msgid "Successfully continued the process"
 msgid_plural "Successfully continued {} processes"
 msgstr[0] "Επιτυχής συνέχιση της διεργασίας"
 msgstr[1] "Επιτυχής συνέχιση {} διεργασιών"
 
-#: src/ui/window.rs:1323
+#: src/ui/window.rs:1322
 #, rust-format
 msgid "There was a problem ending a process"
 msgid_plural "There were problems ending {} processes"
 msgstr[0] "Παρουσιάστηκε πρόβλημα κατά τον τερματισμό μιας διεργασίας"
 msgstr[1] "Παρουσιάστηκαν προβλήματα κατά τον τερματισμό {} διεργασιών"
 
-#: src/ui/window.rs:1329
+#: src/ui/window.rs:1328
 #, rust-format
 msgid "There was a problem halting a process"
 msgid_plural "There were problems halting {} processes"
 msgstr[0] "Παρουσιάστηκε πρόβλημα κατά την παύση μιας διεργασίας"
 msgstr[1] "Παρουσιάστηκαν προβλήματα κατά την παύση {} διεργασιών"
 
-#: src/ui/window.rs:1335
+#: src/ui/window.rs:1334
 #, rust-format
 msgid "There was a problem killing a process"
 msgid_plural "There were problems killing {} processes"
 msgstr[0] "Παρουσιάστηκε πρόβλημα κατά τον βίαιο τερματισμό μιας διεργασίας"
 msgstr[1] "Παρουσιάστηκαν προβλήματα κατά τον βίαιο τερματισμό {} διεργασιών"
 
-#: src/ui/window.rs:1341
+#: src/ui/window.rs:1340
 #, rust-format
 msgid "There was a problem continuing a process"
 msgid_plural "There were problems continuing {} processes"
 msgstr[0] "Παρουσιάστηκε πρόβλημα κατά τη συνέχιση μιας διεργασίας"
 msgstr[1] "Παρουσιάστηκαν προβλήματα κατά τη συνέχιση {} διεργασιών"
 
-#: src/ui/window.rs:1351
+#: src/ui/window.rs:1350
 #, rust-format
 msgid "There was a problem ending {}"
 msgstr "Παρουσιάστηκε πρόβλημα κατά τον τερματισμό του {}"
 
-#: src/ui/window.rs:1352
+#: src/ui/window.rs:1351
 #, rust-format
 msgid "There was a problem halting {}"
 msgstr "Παρουσιάστηκε πρόβλημα κατά την παύση του {}"
 
-#: src/ui/window.rs:1353
+#: src/ui/window.rs:1352
 #, rust-format
 msgid "There was a problem killing {}"
 msgstr "Παρουσιάστηκε πρόβλημα κατά τον βίαιο τερματισμό του {}"
 
-#: src/ui/window.rs:1354
+#: src/ui/window.rs:1353
 #, rust-format
 msgid "There was a problem continuing {}"
 msgstr "Παρουσιάστηκε πρόβλημα κατά τη συνέχιση του {}"
-
-#: src/utils/app.rs:224
-msgid "System Processes"
-msgstr "Διεργασίες Συστήματος"
-
-#: src/utils/battery.rs:93
-msgid "Charging"
-msgstr "Φόρτιση"
-
-#: src/utils/battery.rs:94
-msgid "Discharging"
-msgstr "Εκφόρτιση"
-
-#: src/utils/battery.rs:95
-msgid "Empty"
-msgstr "Άδεια"
-
-#: src/utils/battery.rs:96
-msgid "Full"
-msgstr "Πλήρης"
-
-#: src/utils/battery.rs:97
-msgid "Unknown"
-msgstr "Άγνωστο"
-
-#: src/utils/battery.rs:143
-msgid "Nickel-Metal Hydride"
-msgstr "Νικελίου-Υδριδίου Μετάλλου"
-
-#: src/utils/battery.rs:144
-msgid "Nickel-Cadmium"
-msgstr "Νικελίου-Καδμίου"
-
-#: src/utils/battery.rs:145
-msgid "Nickel-Zinc"
-msgstr "Νικελίου-Ψευδαργύρου"
-
-#: src/utils/battery.rs:146
-msgid "Lead-Acid"
-msgstr "Μολύβδου-Οξέος"
-
-#: src/utils/battery.rs:147
-msgid "Lithium-Ion"
-msgstr "Ιόντων Λιθίου"
-
-#: src/utils/battery.rs:148
-msgid "Lithium Iron Phosphate"
-msgstr "Φωσφορικού Σιδήρου Λιθίου"
-
-#: src/utils/battery.rs:149
-msgid "Lithium Polymer"
-msgstr "Πολυμερών Λιθίου"
-
-#: src/utils/battery.rs:151
-msgid "Rechargeable Alkaline Managanese"
-msgstr "Επαναφορτιζόμενη Αλκαλική Μαγγανίου"
-
-#: src/utils/battery.rs:256
-#, rust-format
-msgid "{} Battery"
-msgstr "Μπαταρία {}"
 
 #: src/utils/units.rs:91
 #, rust-format
@@ -1405,633 +1495,543 @@ msgstr "{} °C"
 msgid "{} °F"
 msgstr "{} °F"
 
-#: src/utils/units.rs:113 src/utils/units.rs:127 src/utils/units.rs:147
-#: src/utils/units.rs:161
+#: src/utils/units.rs:122 src/utils/units.rs:136 src/utils/units.rs:156
+#: src/utils/units.rs:170
 #, rust-format
 msgid "{} B"
 msgstr "{} B"
 
-#: src/utils/units.rs:114 src/utils/units.rs:128
+#: src/utils/units.rs:123 src/utils/units.rs:137
 #, rust-format
 msgid "{} kB"
 msgstr "{} kB"
 
-#: src/utils/units.rs:115 src/utils/units.rs:129
+#: src/utils/units.rs:124 src/utils/units.rs:138
 #, rust-format
 msgid "{} MB"
 msgstr "{} MB"
 
-#: src/utils/units.rs:116 src/utils/units.rs:130
+#: src/utils/units.rs:125 src/utils/units.rs:139
 #, rust-format
 msgid "{} GB"
 msgstr "{} GB"
 
-#: src/utils/units.rs:117 src/utils/units.rs:131
+#: src/utils/units.rs:126 src/utils/units.rs:140
 #, rust-format
 msgid "{} TB"
 msgstr "{} TB"
 
-#: src/utils/units.rs:118 src/utils/units.rs:132
+#: src/utils/units.rs:127 src/utils/units.rs:141
 #, rust-format
 msgid "{} PB"
 msgstr "{} PB"
 
-#: src/utils/units.rs:119 src/utils/units.rs:133
+#: src/utils/units.rs:128 src/utils/units.rs:142
 #, rust-format
 msgid "{} EB"
 msgstr "{} EB"
 
-#: src/utils/units.rs:120 src/utils/units.rs:134
+#: src/utils/units.rs:129 src/utils/units.rs:143
 #, rust-format
 msgid "{} ZB"
 msgstr "{} ZB"
 
-#: src/utils/units.rs:121 src/utils/units.rs:135
+#: src/utils/units.rs:130 src/utils/units.rs:144
 #, rust-format
 msgid "{} YB"
 msgstr "{} YB"
 
-#: src/utils/units.rs:122 src/utils/units.rs:136
+#: src/utils/units.rs:131 src/utils/units.rs:145
 #, rust-format
 msgid "{} RB"
 msgstr "{} RB"
 
-#: src/utils/units.rs:123 src/utils/units.rs:137
+#: src/utils/units.rs:132 src/utils/units.rs:146
 #, rust-format
 msgid "{} QB"
 msgstr "{} QB"
 
-#: src/utils/units.rs:148 src/utils/units.rs:162
+#: src/utils/units.rs:157 src/utils/units.rs:171
 #, rust-format
 msgid "{} KiB"
 msgstr "{} KiB"
 
-#: src/utils/units.rs:149 src/utils/units.rs:163
+#: src/utils/units.rs:158 src/utils/units.rs:172
 #, rust-format
 msgid "{} MiB"
 msgstr "{} MiB"
 
-#: src/utils/units.rs:150 src/utils/units.rs:164
+#: src/utils/units.rs:159 src/utils/units.rs:173
 #, rust-format
 msgid "{} GiB"
 msgstr "{} GiB"
 
-#: src/utils/units.rs:151 src/utils/units.rs:165
+#: src/utils/units.rs:160 src/utils/units.rs:174
 #, rust-format
 msgid "{} TiB"
 msgstr "{} TiB"
 
-#: src/utils/units.rs:152 src/utils/units.rs:166
+#: src/utils/units.rs:161 src/utils/units.rs:175
 #, rust-format
 msgid "{} PiB"
 msgstr "{} PiB"
 
-#: src/utils/units.rs:153 src/utils/units.rs:167
+#: src/utils/units.rs:162 src/utils/units.rs:176
 #, rust-format
 msgid "{} EiB"
 msgstr "{} EiB"
 
-#: src/utils/units.rs:154 src/utils/units.rs:168
+#: src/utils/units.rs:163 src/utils/units.rs:177
 #, rust-format
 msgid "{} ZiB"
 msgstr "{} ZiB"
 
-#: src/utils/units.rs:155 src/utils/units.rs:169
+#: src/utils/units.rs:164 src/utils/units.rs:178
 #, rust-format
 msgid "{} YiB"
 msgstr "{} YiB"
 
-#: src/utils/units.rs:156 src/utils/units.rs:170
+#: src/utils/units.rs:165 src/utils/units.rs:179
 #, rust-format
 msgid "{} RiB"
 msgstr "{} RiB"
 
-#: src/utils/units.rs:157 src/utils/units.rs:171
+#: src/utils/units.rs:166 src/utils/units.rs:180
 #, rust-format
 msgid "{} QiB"
 msgstr "{} QiB"
 
-#: src/utils/units.rs:197 src/utils/units.rs:214
+#: src/utils/units.rs:206 src/utils/units.rs:223
 #, rust-format
 msgid "{} B/s"
 msgstr "{} B/s"
 
-#: src/utils/units.rs:198
+#: src/utils/units.rs:207
 #, rust-format
 msgid "{} kB/s"
 msgstr "{} kB/s"
 
-#: src/utils/units.rs:199
+#: src/utils/units.rs:208
 #, rust-format
 msgid "{} MB/s"
 msgstr "{} MB/s"
 
-#: src/utils/units.rs:200
+#: src/utils/units.rs:209
 #, rust-format
 msgid "{} GB/s"
 msgstr "{} GB/s"
 
-#: src/utils/units.rs:201
+#: src/utils/units.rs:210
 #, rust-format
 msgid "{} TB/s"
 msgstr "{} TB/s"
 
-#: src/utils/units.rs:202
+#: src/utils/units.rs:211
 #, rust-format
 msgid "{} PB/s"
 msgstr "{} PB/s"
 
-#: src/utils/units.rs:203
+#: src/utils/units.rs:212
 #, rust-format
 msgid "{} EB/s"
 msgstr "{} EB/s"
 
-#: src/utils/units.rs:204
+#: src/utils/units.rs:213
 #, rust-format
 msgid "{} ZB/s"
 msgstr "{} ZB/s"
 
-#: src/utils/units.rs:205
+#: src/utils/units.rs:214
 #, rust-format
 msgid "{} YB/s"
 msgstr "{} YB/s"
 
-#: src/utils/units.rs:206
+#: src/utils/units.rs:215
 #, rust-format
 msgid "{} RB/s"
 msgstr "{} RB/s"
 
-#: src/utils/units.rs:207
+#: src/utils/units.rs:216
 #, rust-format
 msgid "{} QB/s"
 msgstr "{} QB/s"
 
-#: src/utils/units.rs:215
+#: src/utils/units.rs:224
 #, rust-format
 msgid "{} KiB/s"
 msgstr "{} KiB/s"
 
-#: src/utils/units.rs:216
+#: src/utils/units.rs:225
 #, rust-format
 msgid "{} MiB/s"
 msgstr "{} MiB/s"
 
-#: src/utils/units.rs:217
+#: src/utils/units.rs:226
 #, rust-format
 msgid "{} GiB/s"
 msgstr "{} GiB/s"
 
-#: src/utils/units.rs:218
+#: src/utils/units.rs:227
 #, rust-format
 msgid "{} TiB/s"
 msgstr "{} TiB/s"
 
-#: src/utils/units.rs:219
+#: src/utils/units.rs:228
 #, rust-format
 msgid "{} PiB/s"
 msgstr "{} PiB/s"
 
-#: src/utils/units.rs:220
+#: src/utils/units.rs:229
 #, rust-format
 msgid "{} EiB/s"
 msgstr "{} EiB/s"
 
-#: src/utils/units.rs:221
+#: src/utils/units.rs:230
 #, rust-format
 msgid "{} ZiB/s"
 msgstr "{} ZiB/s"
 
-#: src/utils/units.rs:222
+#: src/utils/units.rs:231
 #, rust-format
 msgid "{} YiB/s"
 msgstr "{} YiB/s"
 
-#: src/utils/units.rs:223
+#: src/utils/units.rs:232
 #, rust-format
 msgid "{} RiB/s"
 msgstr "{} RiB/s"
 
-#: src/utils/units.rs:224
+#: src/utils/units.rs:233
 #, rust-format
 msgid "{} QiB/s"
 msgstr "{} QiB/s"
 
-#: src/utils/units.rs:238 src/utils/units.rs:255
+#: src/utils/units.rs:247 src/utils/units.rs:264
 #, rust-format
 msgid "{} b/s"
 msgstr "{} b/s"
 
-#: src/utils/units.rs:239
+#: src/utils/units.rs:248
 #, rust-format
 msgid "{} kb/s"
 msgstr "{} kb/s"
 
-#: src/utils/units.rs:240
+#: src/utils/units.rs:249
 #, rust-format
 msgid "{} Mb/s"
 msgstr "{} Mb/s"
 
-#: src/utils/units.rs:241
+#: src/utils/units.rs:250
 #, rust-format
 msgid "{} Gb/s"
 msgstr "{} Gb/s"
 
-#: src/utils/units.rs:242
+#: src/utils/units.rs:251
 #, rust-format
 msgid "{} Tb/s"
 msgstr "{} Tb/s"
 
-#: src/utils/units.rs:243
+#: src/utils/units.rs:252
 #, rust-format
 msgid "{} Pb/s"
 msgstr "{} Pb/s"
 
-#: src/utils/units.rs:244
+#: src/utils/units.rs:253
 #, rust-format
 msgid "{} Eb/s"
 msgstr "{} Eb/s"
 
-#: src/utils/units.rs:245
+#: src/utils/units.rs:254
 #, rust-format
 msgid "{} Zb/s"
 msgstr "{} Zb/s"
 
-#: src/utils/units.rs:246
+#: src/utils/units.rs:255
 #, rust-format
 msgid "{} Yb/s"
 msgstr "{} Yb/s"
 
-#: src/utils/units.rs:247
+#: src/utils/units.rs:256
 #, rust-format
 msgid "{} Rb/s"
 msgstr "{} Rb/s"
 
-#: src/utils/units.rs:248
+#: src/utils/units.rs:257
 #, rust-format
 msgid "{} Qb/s"
 msgstr "{} Qb/s"
 
-#: src/utils/units.rs:256
+#: src/utils/units.rs:265
 #, rust-format
 msgid "{} Kib/s"
 msgstr "{} Kib/s"
 
-#: src/utils/units.rs:257
+#: src/utils/units.rs:266
 #, rust-format
 msgid "{} Mib/s"
 msgstr "{} Mib/s"
 
-#: src/utils/units.rs:258
+#: src/utils/units.rs:267
 #, rust-format
 msgid "{} Gib/s"
 msgstr "{} Gib/s"
 
-#: src/utils/units.rs:259
+#: src/utils/units.rs:268
 #, rust-format
 msgid "{} Tib/s"
 msgstr "{} Tib/s"
 
-#: src/utils/units.rs:260
+#: src/utils/units.rs:269
 #, rust-format
 msgid "{} Pib/s"
 msgstr "{} Pib/s"
 
-#: src/utils/units.rs:261
+#: src/utils/units.rs:270
 #, rust-format
 msgid "{} Eib/s"
 msgstr "{} Eib/s"
 
-#: src/utils/units.rs:262
+#: src/utils/units.rs:271
 #, rust-format
 msgid "{} Zib/s"
 msgstr "{} Zib/s"
 
-#: src/utils/units.rs:263
+#: src/utils/units.rs:272
 #, rust-format
 msgid "{} Yib/s"
 msgstr "{} Yib/s"
 
-#: src/utils/units.rs:264
+#: src/utils/units.rs:273
 #, rust-format
 msgid "{} Rib/s"
 msgstr "{} Rib/s"
 
-#: src/utils/units.rs:265
+#: src/utils/units.rs:274
 #, rust-format
 msgid "{} Qib/s"
 msgstr "{} Qib/s"
 
-#: src/utils/units.rs:272
+#: src/utils/units.rs:281
 #, rust-format
 msgid "{} Hz"
 msgstr "{} Hz"
 
-#: src/utils/units.rs:273
+#: src/utils/units.rs:282
 #, rust-format
 msgid "{} kHz"
 msgstr "{} kHz"
 
-#: src/utils/units.rs:274
+#: src/utils/units.rs:283
 #, rust-format
 msgid "{} MHz"
 msgstr "{} MHz"
 
-#: src/utils/units.rs:275
+#: src/utils/units.rs:284
 #, rust-format
 msgid "{} GHz"
 msgstr "{} GHz"
 
-#: src/utils/units.rs:276
+#: src/utils/units.rs:285
 #, rust-format
 msgid "{} THz"
 msgstr "{} THz"
 
-#: src/utils/units.rs:277
+#: src/utils/units.rs:286
 #, rust-format
 msgid "{} PHz"
 msgstr "{} PHz"
 
-#: src/utils/units.rs:278
+#: src/utils/units.rs:287
 #, rust-format
 msgid "{} EHz"
 msgstr "{} EHz"
 
-#: src/utils/units.rs:279
+#: src/utils/units.rs:288
 #, rust-format
 msgid "{} ZHz"
 msgstr "{} ZHz"
 
-#: src/utils/units.rs:280
+#: src/utils/units.rs:289
 #, rust-format
 msgid "{} YHz"
 msgstr "{} YHz"
 
-#: src/utils/units.rs:281
+#: src/utils/units.rs:290
 #, rust-format
 msgid "{} RHz"
 msgstr "{} RHz"
 
-#: src/utils/units.rs:282
+#: src/utils/units.rs:291
 #, rust-format
 msgid "{} QHz"
 msgstr "{} QHz"
 
-#: src/utils/units.rs:289
+#: src/utils/units.rs:298
 #, rust-format
 msgid "{} W"
 msgstr "{} W"
 
-#: src/utils/units.rs:290
+#: src/utils/units.rs:299
 #, rust-format
 msgid "{} kW"
 msgstr "{} kW"
 
-#: src/utils/units.rs:291
+#: src/utils/units.rs:300
 #, rust-format
 msgid "{} MW"
 msgstr "{} MW"
 
-#: src/utils/units.rs:292
+#: src/utils/units.rs:301
 #, rust-format
 msgid "{} GW"
 msgstr "{} GW"
 
-#: src/utils/units.rs:293
+#: src/utils/units.rs:302
 #, rust-format
 msgid "{} TW"
 msgstr "{} TW"
 
-#: src/utils/units.rs:294
+#: src/utils/units.rs:303
 #, rust-format
 msgid "{} PW"
 msgstr "{} PW"
 
-#: src/utils/units.rs:295
+#: src/utils/units.rs:304
 #, rust-format
 msgid "{} EW"
 msgstr "{} EW"
 
-#: src/utils/units.rs:296
+#: src/utils/units.rs:305
 #, rust-format
 msgid "{} ZW"
 msgstr "{} ZW"
 
-#: src/utils/units.rs:297
+#: src/utils/units.rs:306
 #, rust-format
 msgid "{} YW"
 msgstr "{} YW"
 
-#: src/utils/units.rs:298
+#: src/utils/units.rs:307
 #, rust-format
 msgid "{} RW"
 msgstr "{} RW"
 
-#: src/utils/units.rs:299
+#: src/utils/units.rs:308
 #, rust-format
 msgid "{} QW"
 msgstr "{} QW"
 
-#: src/utils/units.rs:308 src/utils/units.rs:322
+#: src/utils/units.rs:317 src/utils/units.rs:331
 #, rust-format
 msgid "{} Wh"
 msgstr "{} Wh"
 
-#: src/utils/units.rs:309 src/utils/units.rs:323
+#: src/utils/units.rs:318 src/utils/units.rs:332
 #, rust-format
 msgid "{} kWh"
 msgstr "{} kWh"
 
-#: src/utils/units.rs:310 src/utils/units.rs:324
+#: src/utils/units.rs:319 src/utils/units.rs:333
 #, rust-format
 msgid "{} MWh"
 msgstr "{} MWh"
 
-#: src/utils/units.rs:311 src/utils/units.rs:325
+#: src/utils/units.rs:320 src/utils/units.rs:334
 #, rust-format
 msgid "{} GWh"
 msgstr "{} GWh"
 
-#: src/utils/units.rs:312 src/utils/units.rs:326
+#: src/utils/units.rs:321 src/utils/units.rs:335
 #, rust-format
 msgid "{} TWh"
 msgstr "{} TWh"
 
-#: src/utils/units.rs:313 src/utils/units.rs:327
+#: src/utils/units.rs:322 src/utils/units.rs:336
 #, rust-format
 msgid "{} PWh"
 msgstr "{} PWh"
 
-#: src/utils/units.rs:314 src/utils/units.rs:328
+#: src/utils/units.rs:323 src/utils/units.rs:337
 #, rust-format
 msgid "{} EWh"
 msgstr "{} EWh"
 
-#: src/utils/units.rs:315 src/utils/units.rs:329
+#: src/utils/units.rs:324 src/utils/units.rs:338
 #, rust-format
 msgid "{} ZWh"
 msgstr "{} ZWh"
 
-#: src/utils/units.rs:316 src/utils/units.rs:330
+#: src/utils/units.rs:325 src/utils/units.rs:339
 #, rust-format
 msgid "{} YWh"
 msgstr "{} YWh"
 
-#: src/utils/units.rs:317 src/utils/units.rs:331
+#: src/utils/units.rs:326 src/utils/units.rs:340
 #, rust-format
 msgid "{} RWh"
 msgstr "{} RWh"
 
-#: src/utils/units.rs:318 src/utils/units.rs:332
+#: src/utils/units.rs:327 src/utils/units.rs:341
 #, rust-format
 msgid "{} QWh"
 msgstr "{} QWh"
 
-#: src/utils/drive.rs:129 src/utils/drive.rs:208
-msgid "CD/DVD/Blu-ray Drive"
-msgstr "Συσκευή CD/DVD/Blu-ray"
-
-#: src/utils/drive.rs:130
-msgid "eMMC Storage"
-msgstr "Αποθηκευτικός Χώρος eMMC"
-
-#: src/utils/drive.rs:131
-msgid "Flash Storage"
-msgstr "Αποθηκευτικός Χώρος Flash"
-
-#: src/utils/drive.rs:132 src/utils/drive.rs:209
-msgid "Floppy Drive"
-msgstr "Συσκευή Δισκέτας"
-
-#: src/utils/drive.rs:133
-msgid "Hard Disk Drive"
-msgstr "Σκληρός Δίσκος"
-
-#: src/utils/drive.rs:134
-msgid "Loop Device"
-msgstr "Συσκευή Loop"
-
-#: src/utils/drive.rs:135
-msgid "Mapped Device"
-msgstr "Αντιστοιχισμένη Συσκευή"
-
-#: src/utils/drive.rs:136
-msgid "NVMe Drive"
-msgstr "Συσκευή NVMe"
-
-#: src/utils/drive.rs:138
-msgid "Software Raid"
-msgstr "Λογισμικό Raid"
-
-#: src/utils/drive.rs:139
-msgid "RAM Disk"
-msgstr "Δίσκος RAM"
-
-#: src/utils/drive.rs:140
-msgid "Solid State Drive"
-msgstr "Συσκευή SSD"
-
-#: src/utils/drive.rs:141
-msgid "ZFS Volume"
-msgstr "Τόμος ZFS"
-
-#: src/utils/drive.rs:142
-msgid "Compressed RAM Disk (zram)"
-msgstr "Συμπιεσμένος Δίσκος RAM (zram)"
-
-#: src/utils/drive.rs:210
+#: src/utils/units.rs:347
 #, rust-format
-msgid "{} Loop Device"
-msgstr "Συσκευή Loop {}"
+msgid "{} TOPs"
+msgstr "{} TOPs"
 
-#: src/utils/drive.rs:211
+#~ msgid "Select which processor cores the process is allowed to run on"
+#~ msgstr ""
+#~ "Επιλέξτε σε ποιους πυρήνες του επεξεργαστή επιτρέπεται να εκτελείται η "
+#~ "διεργασία"
+
+#~ msgid "Show Usage Details in Sidebar"
+#~ msgstr "Εμφάνιση Λεπτομερειών Χρήσης στην Πλευρική Στήλη"
+
+#~ msgid "If enabled, the usage along with other information will be displayed"
+#~ msgstr "Εάν ενεργοποιηθεί, θα εμφανίζεται η χρήση μαζί με άλλες πληροφορίες"
+
+#~ msgid "Show Device Descriptions in Sidebar"
+#~ msgstr "Εμφάνιση Περιγραφών Συσκευών στην Πλευρική Στήλη"
+
+#~ msgid ""
+#~ "If enabled, a device identifier like its name or device type will be "
+#~ "displayed"
+#~ msgstr ""
+#~ "Εάν ενεργοποιηθεί, θα εμφανίζεται ένα αναγνωριστικό της συσκευής, όπως το "
+#~ "όνομά της ή ο τύπος της"
+
+#~ msgid "Show App Information"
+#~ msgstr "Εμφάνιση Πληροφοριών Εφαρμογής"
+
+#~ msgid "Show Process Options"
+#~ msgstr "Εμφάνιση Επιλογών Διεργασίας"
+
+#~ msgid "Show Process Information"
+#~ msgstr "Εμφάνιση Πληροφοριών Διεργασίας"
+
+#~ msgid "Highest:"
+#~ msgstr "Υψηλότερο:"
+
+#~ msgid "Yes"
+#~ msgstr "Ναι"
+
 #, rust-format
-msgid "{} Mapped Device"
-msgstr "Αντιστοιχισμένη Συσκευή {}"
+#~ msgid "R: {} · W: {}"
+#~ msgstr "Α: {} · Ε: {}"
 
-#: src/utils/drive.rs:212
 #, rust-format
-msgid "{} RAID"
-msgstr "RAID {}"
+#~ msgid "Memory: {}"
+#~ msgstr "Μνήμη: {}"
 
-#: src/utils/drive.rs:213
 #, rust-format
-msgid "{} RAM Disk"
-msgstr "Δίσκος RAM {}"
+#~ msgid "{} / {} · Swap: {} %"
+#~ msgstr "{} / {} · Swap: {} %"
 
-#: src/utils/drive.rs:214
 #, rust-format
-msgid "{} zram Device"
-msgstr "Συσκευή zram {}"
-
-#: src/utils/drive.rs:215
-#, rust-format
-msgid "{} ZFS Volume"
-msgstr "Τόμος ZFS {}"
-
-#: src/utils/drive.rs:216
-#, rust-format
-msgid "{} Drive"
-msgstr "Συσκευή {}"
-
-#: src/utils/network.rs:129
-msgid "Bluetooth Tether"
-msgstr "Σύνδεση Bluetooth"
-
-#: src/utils/network.rs:130
-msgid "Network Bridge"
-msgstr "Γέφυρα Δικτύου"
-
-#: src/utils/network.rs:131
-msgid "Ethernet Connection"
-msgstr "Σύνδεση Ethernet"
-
-#: src/utils/network.rs:132
-msgid "Docker Bridge"
-msgstr "Γέφυρα Docker"
-
-#: src/utils/network.rs:133
-msgid "InfiniBand Connection"
-msgstr "Σύνδεση InfiniBand"
-
-#: src/utils/network.rs:134
-msgid "Incus Bridge"
-msgstr "Γέφυρα Incus"
-
-#: src/utils/network.rs:135
-msgid "LXC Bridge"
-msgstr "Γέφυρα LXC"
-
-#: src/utils/network.rs:136
-msgid "LXD Bridge"
-msgstr "Γέφυρα LXD"
-
-#: src/utils/network.rs:137
-msgid "Serial Line IP Connection"
-msgstr "Σύνδεση IP σειριακής γραμμής"
-
-#: src/utils/network.rs:138
-msgid "Virtual Ethernet Device"
-msgstr "Εικονική Συσκευή Ethernet"
-
-#: src/utils/network.rs:139
-msgid "VM Network Bridge"
-msgstr "Γέφυρα Δικτύου Εικονικής Μηχανής"
-
-#: src/utils/network.rs:140
-msgid "VPN Tunnel"
-msgstr "Σήραγγα VPN"
-
-#: src/utils/network.rs:141
-msgid "VPN Tunnel (WireGuard)"
-msgstr "Σήραγγα VPN (WireGuard)"
-
-#: src/utils/network.rs:142
-msgid "Wi-Fi Connection"
-msgstr "Σύνδεση Wi-Fi"
-
-#: src/utils/network.rs:143
-msgid "WWAN Connection"
-msgstr "Σύνδεση WWAN"
+#~ msgid "R: {} · S: {}"
+#~ msgstr "Λ: {} · Α: {}"
 
 #~ msgid "The Nalux Team"
 #~ msgstr "The Nalux Team"

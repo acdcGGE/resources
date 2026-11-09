@@ -3,15 +3,15 @@
   <menu id="primary_menu">
     <section>
       <item>
-        <attribute name="label" translatable="yes">Preferences</attribute>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
         <attribute name="action">app.settings</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
         <attribute name="action">app.shortcuts</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">About Resources</attribute>
+        <attribute name="label" translatable="yes">_About Resources</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>
@@ -41,10 +41,9 @@
                     <child type="end">
                       <object class="GtkMenuButton">
                         <property name="menu-model">primary_menu</property>
+                        <property name="tooltip-text" translatable="yes">Main Menu</property>
                         <property name="icon-name">open-menu-symbolic</property>
-                        <accessibility>
-                          <property name="label">Open menu</property>
-                        </accessibility>
+                        <property name="primary">True</property>
                       </object>
                     </child>
                   </object>

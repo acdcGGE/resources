@@ -217,8 +217,7 @@ impl ResGraph {
             self.imp().obj().queue_draw();
         } else if Application::try_default()
             .and_then(|app| app.try_main_window())
-            .map(|main_window| main_window.is_suspended())
-            .unwrap_or_default()
+            .is_some_and(|main_window| main_window.is_suspended())
         {
             trace!("Graph refresh skipped due to app being suspended");
         } else {

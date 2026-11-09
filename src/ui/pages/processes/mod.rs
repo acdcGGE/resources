@@ -16,17 +16,18 @@ use gtk::{
 use process_data::Niceness;
 
 use crate::add_column;
-use crate::config::PROFILE;
-use crate::i18n::{i18n, i18n_f, ni18n_f};
+use crate::config::DEVLOPMENT_BUILD;
+use crate::devices::app::AppsContext;
+use crate::devices::process::ProcessAction;
 use crate::ui::dialogs::process_dialog::ResProcessDialog;
 use crate::ui::dialogs::process_options_dialog::ResProcessOptionsDialog;
 use crate::ui::pages::{
     MAX_PERCENTAGE_LENGTH, MAX_PID_LENGTH, MAX_SPEED_LENGTH, MAX_STORAGE_LENGTH, NICE_TO_LABEL,
 };
+use crate::ui::widgets::stack_sidebar_item::UsageLabels;
 use crate::ui::window::{Action, MainWindow};
 use crate::utils::NUM_CPUS;
-use crate::utils::app::AppsContext;
-use crate::utils::process::ProcessAction;
+use crate::utils::i18n::{i18n, i18n_f, ni18n_f};
 use crate::utils::settings::SETTINGS;
 use crate::utils::units::{convert_speed, convert_storage, format_time};
 
@@ -60,12 +61,9 @@ mod imp {
         sync::OnceLock,
     };
 
-    use crate::{
-        ui::{
-            dialogs::process_options_dialog::ResProcessOptionsDialog, pages::PROCESSES_PRIMARY_ORD,
-            window::Action,
-        },
-        utils::process::ProcessAction,
+    use crate::ui::{
+        dialogs::process_options_dialog::ResProcessOptionsDialog, pages::PROCESSES_PRIMARY_ORD,
+        widgets::stack_sidebar_item::UsageLabels, window::Action,
     };
 
     use super::*;
@@ -78,7 +76,7 @@ mod imp {
 
     #[derive(CompositeTemplate, Properties)]
     #[properties(wrapper_type = super::ResProcesses)]
-    #[template(resource = "/net/nokyan/Resources/ui/pages/processes.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/pages/processes.ui")]
     pub struct ResProcesses {
         #[template_child]
         pub toast_overlay: TemplateChild<adw::ToastOverlay>,
@@ -98,6 +96,8 @@ mod imp {
         pub information_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub end_process_button: TemplateChild<adw::SplitButton>,
+        #[template_child]
+        pub toolbar_view: TemplateChild<adw::ToolbarView>,
         #[template_child]
         pub end_process_menu: TemplateChild<gio::MenuModel>,
         #[template_child]
@@ -121,7 +121,7 @@ mod imp {
         pub columns: RefCell<Vec<ColumnViewColumn>>,
 
         #[property(get)]
-        uses_progress_bar: Cell<bool>,
+        uses_meter: Cell<bool>,
 
         #[property(get)]
         icon: RefCell<Icon>,
@@ -132,8 +132,8 @@ mod imp {
         #[property(get = Self::tab_detail_string, type = glib::GString)]
         tab_detail_string: Cell<glib::GString>,
 
-        #[property(get = Self::tab_usage_string, set = Self::set_tab_usage_string, type = glib::GString)]
-        tab_usage_string: Cell<glib::GString>,
+        #[property(get, set, type = UsageLabels)]
+        tab_usage_labels: RefCell<UsageLabels>,
 
         #[property(get = Self::tab_id, type = glib::GString)]
         tab_id: Cell<glib::GString>,
@@ -149,7 +149,7 @@ mod imp {
     }
 
     impl ResProcesses {
-        gstring_getter_setter!(tab_name, tab_detail_string, tab_usage_string, tab_id);
+        gstring_getter_setter!(tab_name, tab_detail_string, tab_id);
     }
 
     impl Default for ResProcesses {
@@ -164,6 +164,7 @@ mod imp {
                 options_button: Default::default(),
                 information_button: Default::default(),
                 end_process_button: Default::default(),
+                toolbar_view: Default::default(),
                 end_process_menu: Default::default(),
                 end_process_menu_multiple: Default::default(),
                 store: gio::ListStore::new::<ProcessEntry>().into(),
@@ -176,11 +177,11 @@ mod imp {
                 info_dialog_closed: Default::default(),
                 options_dialog_closed: Default::default(),
                 sender: Default::default(),
-                uses_progress_bar: Cell::new(false),
+                uses_meter: Cell::new(false),
                 icon: RefCell::new(ThemedIcon::new("generic-process-symbolic").into()),
                 tab_name: Cell::new(glib::GString::from(i18n("Processes"))),
                 tab_detail_string: Cell::new(glib::GString::new()),
-                tab_usage_string: Cell::new(glib::GString::new()),
+                tab_usage_labels: Default::default(),
                 tab_id: Cell::new(glib::GString::from(TAB_ID)),
                 popped_over_process: Default::default(),
                 columns: Default::default(),
@@ -337,7 +338,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -428,8 +429,8 @@ impl ResProcesses {
                     popover_menu.set_pointing_to(Some(&gtk::gdk::Rectangle::new(
                         position.x().round() as i32,
                         position.y().round() as i32,
-                        1,
-                        1,
+                        0,
+                        0,
                     )));
 
                     popover_menu.popup();
@@ -802,15 +803,19 @@ impl ResProcesses {
         imp.selection_model
             .borrow()
             .connect_selection_changed(clone!(
-                #[weak(rename_to = this)]
-                self,
+                #[weak]
+                imp,
                 move |model, _, _| {
-                    let imp = this.imp();
                     let bitset = model.selection();
 
-                    imp.information_button.set_sensitive(bitset.size() == 1);
-                    imp.options_button.set_sensitive(bitset.size() == 1);
-                    imp.end_process_button.set_sensitive(bitset.size() > 0);
+                    let one_selected = bitset.size() == 1;
+                    let multiple_selected = bitset.size() > 0;
+
+                    imp.toolbar_view.set_reveal_bottom_bars(multiple_selected);
+
+                    imp.information_button.set_sensitive(one_selected);
+                    imp.options_button.set_sensitive(one_selected);
+                    imp.end_process_button.set_sensitive(multiple_selected);
 
                     if bitset.size() <= 1 {
                         imp.end_process_button.set_label(&i18n("End Process"));
@@ -828,10 +833,9 @@ impl ResProcesses {
             .set_key_capture_widget(self.parent().as_ref());
 
         imp.search_entry.connect_search_changed(clone!(
-            #[strong(rename_to = this)]
-            self,
+            #[weak]
+            imp,
             move |_| {
-                let imp = this.imp();
                 if let Some(filter) = imp.filter_model.borrow().filter() {
                     filter.changed(FilterChange::Different);
                 }
@@ -897,8 +901,8 @@ impl ResProcesses {
 
         if let Some(column_view_sorter) = imp.column_view.borrow().sorter() {
             column_view_sorter.connect_changed(clone!(
-                #[weak(rename_to = this)]
-                self,
+                #[weak]
+                imp,
                 move |sorter, _| {
                     if let Some(sorter) = sorter.downcast_ref::<gtk::ColumnViewSorter>() {
                         let current_column = sorter
@@ -906,8 +910,7 @@ impl ResProcesses {
                             .map(|column| column.as_ptr() as usize)
                             .unwrap_or_default();
 
-                        let current_column_number = this
-                            .imp()
+                        let current_column_number = imp
                             .columns
                             .borrow()
                             .iter()
@@ -1060,25 +1063,25 @@ impl ResProcesses {
             let item_pid = object.pid();
             if let Some(process) = apps_context.get_process(item_pid) {
                 object.update(process);
-                if let Some((dialog_pid, dialog)) = &*info_dialog_opt {
-                    if *dialog_pid == item_pid {
-                        dialog.update(&object);
-                    }
+                if let Some((dialog_pid, dialog)) = &*info_dialog_opt
+                    && *dialog_pid == item_pid
+                {
+                    dialog.update(&object);
                 }
                 already_existing_pids.insert(item_pid);
             } else {
                 // filter out processes that have existed before but don't anymore
-                if let Some((dialog_pid, dialog)) = &*info_dialog_opt {
-                    if *dialog_pid == item_pid {
-                        AdwDialogExt::close(dialog);
-                        *info_dialog_opt = None;
-                    }
+                if let Some((dialog_pid, dialog)) = &*info_dialog_opt
+                    && *dialog_pid == item_pid
+                {
+                    AdwDialogExt::close(dialog);
+                    *info_dialog_opt = None;
                 }
-                if let Some((dialog_pid, dialog)) = &*options_dialog_opt {
-                    if *dialog_pid == item_pid {
-                        AdwDialogExt::close(dialog);
-                        *options_dialog_opt = None;
-                    }
+                if let Some((dialog_pid, dialog)) = &*options_dialog_opt
+                    && *dialog_pid == item_pid
+                {
+                    AdwDialogExt::close(dialog);
+                    *options_dialog_opt = None;
                 }
                 *imp.popped_over_process.borrow_mut() = None;
                 imp.popover_menu.set_visible(false);
@@ -1109,10 +1112,17 @@ impl ResProcesses {
             sorter.changed(gtk::SorterChange::Different);
         }
 
-        self.set_tab_usage_string(i18n_f(
+        if imp.selection_model.borrow().selection().size() == 0 {
+            imp.toolbar_view.set_reveal_bottom_bars(false);
+            imp.information_button.set_sensitive(false);
+            imp.options_button.set_sensitive(false);
+            imp.end_process_button.set_sensitive(false);
+        }
+
+        self.set_tab_usage_labels(UsageLabels::single_without_icon(i18n_f(
             "Running Processes: {}",
             &[&(store.n_items()).to_string()],
-        ));
+        )));
     }
 
     pub fn open_process_action_dialog(&self, processes: Vec<ProcessEntry>, action: ProcessAction) {
@@ -1306,7 +1316,7 @@ fn get_action_name_multiple(action: ProcessAction, count: usize) -> String {
 
 fn get_action_warning(action: ProcessAction) -> String {
     match action {
-        ProcessAction::TERM => i18n("Unsaved work might be lost."),
+        ProcessAction::TERM => i18n("Unsaved work might be lost"),
         ProcessAction::STOP => i18n(
             "Halting a process can come with serious risks such as losing data and security implications. Use with caution.",
         ),

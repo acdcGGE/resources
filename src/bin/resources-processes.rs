@@ -1,6 +1,6 @@
 use anyhow::Result;
 use log::{debug, info, trace};
-use process_data::ProcessData;
+use process_data::{ProcessData, PssMode};
 use ron::ser::PrettyConfig;
 use std::{
     collections::{HashMap, HashSet},
@@ -21,6 +21,10 @@ struct Args {
     /// Use Rusty Object Notation (use this only for debugging this binary on its own, Resources won't be able to decode RON)
     #[arg(short, long, default_value_t = false)]
     ron: bool,
+
+    /// How/If to read PSS memory statistics
+    #[arg(value_enum, short, long, default_value_t = PssMode::Disabled)]
+    pss: PssMode,
 }
 
 fn main() -> Result<()> {
@@ -39,6 +43,7 @@ fn main() -> Result<()> {
     if args.once {
         output(
             args.ron,
+            args.pss,
             &mut non_gpu_fdinfos,
             &mut non_npu_fdinfos,
             &mut symlink_cache,
@@ -56,6 +61,7 @@ fn main() -> Result<()> {
 
         output(
             args.ron,
+            args.pss,
             &mut non_gpu_fdinfos,
             &mut non_npu_fdinfos,
             &mut symlink_cache,
@@ -65,6 +71,7 @@ fn main() -> Result<()> {
 
 fn output(
     ron: bool,
+    pss: PssMode,
     non_gpu_fdinfos: &mut HashSet<(libc::pid_t, usize)>,
     non_npu_fdinfos: &mut HashSet<(libc::pid_t, usize)>,
     symlink_cache: &mut HashMap<(libc::pid_t, usize), PathBuf>,
@@ -72,7 +79,7 @@ fn output(
     let start = Instant::now();
 
     trace!("Gathering process data…");
-    let data = ProcessData::all_process_data(non_gpu_fdinfos, non_npu_fdinfos, symlink_cache)?;
+    let data = ProcessData::all_process_data(non_gpu_fdinfos, non_npu_fdinfos, symlink_cache, pss)?;
 
     let elapsed = start.elapsed();
     trace!(

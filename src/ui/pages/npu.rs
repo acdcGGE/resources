@@ -3,11 +3,11 @@ use gtk::glib::{self};
 use log::trace;
 use std::fmt::Write;
 
-use crate::config::PROFILE;
-use crate::i18n::i18n;
+use crate::config::DEVLOPMENT_BUILD;
+use crate::devices::link::Link;
+use crate::devices::npu::{Npu, NpuData};
 use crate::ui::{gpu_npu_usage_string, set_subtitle_converted_maybe};
-use crate::utils::link::Link;
-use crate::utils::npu::{Npu, NpuData};
+use crate::utils::i18n::i18n;
 use crate::utils::units::{convert_frequency, convert_power, convert_tops};
 
 pub const TAB_ID_PREFIX: &str = "npu";
@@ -15,7 +15,10 @@ pub const TAB_ID_PREFIX: &str = "npu";
 mod imp {
     use std::cell::{Cell, RefCell};
 
-    use crate::ui::{pages::NPU_PRIMARY_ORD, widgets::graph_box::ResGraphBox};
+    use crate::ui::{
+        pages::NPU_PRIMARY_ORD,
+        widgets::{graph_box::ResGraphBox, stack_sidebar_item::UsageLabels},
+    };
 
     use super::*;
 
@@ -26,7 +29,7 @@ mod imp {
     };
 
     #[derive(CompositeTemplate, Properties)]
-    #[template(resource = "/net/nokyan/Resources/ui/pages/npu.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/pages/npu.ui")]
     #[properties(wrapper_type = super::ResNPU)]
     pub struct ResNPU {
         #[template_child]
@@ -55,7 +58,7 @@ mod imp {
         pub link: TemplateChild<adw::ActionRow>,
 
         #[property(get)]
-        uses_progress_bar: Cell<bool>,
+        uses_meter: Cell<bool>,
 
         #[property(get)]
         main_graph_color: glib::Bytes,
@@ -72,8 +75,8 @@ mod imp {
         #[property(get = Self::tab_detail_string, set = Self::set_tab_detail_string, type = glib::GString)]
         tab_detail_string: Cell<glib::GString>,
 
-        #[property(get = Self::tab_usage_string, set = Self::set_tab_usage_string, type = glib::GString)]
-        tab_usage_string: Cell<glib::GString>,
+        #[property(get, set, type = UsageLabels)]
+        tab_usage_labels: RefCell<UsageLabels>,
 
         #[property(get = Self::tab_id, set = Self::set_tab_id, type = glib::GString)]
         tab_id: Cell<glib::GString>,
@@ -89,7 +92,7 @@ mod imp {
     }
 
     impl ResNPU {
-        gstring_getter_setter!(tab_name, tab_detail_string, tab_usage_string, tab_id);
+        gstring_getter_setter!(tab_name, tab_detail_string, tab_id);
     }
 
     impl Default for ResNPU {
@@ -107,13 +110,13 @@ mod imp {
                 driver_used: Default::default(),
                 max_power_cap: Default::default(),
                 link: Default::default(),
-                uses_progress_bar: Cell::new(true),
+                uses_meter: Cell::new(true),
                 main_graph_color: glib::Bytes::from_static(&super::ResNPU::MAIN_GRAPH_COLOR),
                 icon: RefCell::new(ThemedIcon::new("npu-symbolic").into()),
                 usage: Default::default(),
                 tab_name: Cell::new(glib::GString::from(i18n("NPU"))),
                 tab_detail_string: Cell::new(glib::GString::new()),
-                tab_usage_string: Cell::new(glib::GString::new()),
+                tab_usage_labels: Default::default(),
                 tab_id: Cell::new(glib::GString::new()),
                 graph_locked_max_y: Cell::new(true),
                 primary_ord: Cell::new(NPU_PRIMARY_ORD),
@@ -144,7 +147,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -201,7 +204,7 @@ impl ResNPU {
 
         let imp = self.imp();
 
-        let tab_id = format!("{}-{}", TAB_ID_PREFIX, &npu.pci_slot().to_string());
+        let tab_id = format!("{}-{}", TAB_ID_PREFIX, npu.pci_slot().to_string());
         imp.set_tab_id(&tab_id);
 
         imp.npu_usage.set_title_label(&i18n("Total Usage"));
@@ -294,9 +297,11 @@ impl ResNPU {
 
         set_subtitle_converted_maybe(link.as_ref(), Link::to_string, &imp.link);
 
-        self.set_property(
-            "tab_usage_string",
-            gpu_npu_usage_string(*usage_fraction, *used_memory, *total_memory, *temperature),
-        );
+        self.set_tab_usage_labels(gpu_npu_usage_string(
+            *usage_fraction,
+            *used_memory,
+            *total_memory,
+            *temperature,
+        ));
     }
 }

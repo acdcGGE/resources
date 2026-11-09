@@ -5,10 +5,10 @@ use gtk::glib;
 use log::trace;
 
 use crate::{
-    config::PROFILE,
-    i18n::i18n,
+    config::DEVLOPMENT_BUILD,
     utils::{
         FiniteOr,
+        i18n::i18n,
         units::{
             convert_fraction, convert_power, convert_speed, convert_storage, convert_temperature,
         },
@@ -25,7 +25,7 @@ mod imp {
     use gtk::CompositeTemplate;
 
     #[derive(Debug, CompositeTemplate, Default)]
-    #[template(resource = "/net/nokyan/Resources/ui/widgets/graph_box.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/widgets/graph_box.ui")]
     pub struct ResGraphBox {
         #[template_child]
         pub graph: TemplateChild<ResGraph>,
@@ -57,7 +57,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -157,7 +157,7 @@ impl ResGraphBox {
 
             let subtitle = format!(
                 "{} · {} {}",
-                &value_string,
+                value_string,
                 i18n("Highest:"),
                 highest_value_string
             );

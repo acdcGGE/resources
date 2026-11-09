@@ -27,3 +27,22 @@ progressbar.slim > trough, progressbar.slim > trough > progress {
 .graph {
   border-radius: 8px;
 }
+
+.dropshadow {
+  text-shadow: 0 0 3px black;
+}
+
+.dropshadow-light {
+  text-shadow: 0 0 3px white;
+}
+
+flowbox.unselectable-flowbox flowboxchild {
+    padding: 0;
+    margin: 0;
+}
+
+flowbox.unselectable-flowbox flowboxchild:hover,
+flowbox.unselectable-flowbox flowboxchild:selected {
+    background: none;
+    box-shadow: none;
+}

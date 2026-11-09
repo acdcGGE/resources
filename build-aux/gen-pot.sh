@@ -7,9 +7,9 @@ xtr src/lib.rs -k i18n -k i18n_f -k i18n_k -k ni18n_f:1,2 -k ni18n:1,2 -k ni18n_
 xgettext data/resources/ui/**/*.ui -o po/ui.tmp.pot
 xgettext data/resources/ui/*.ui -o po/ui_root.tmp.pot
 
-mv data/net.nokyan.Resources.gschema.xml.in data/net.nokyan.Resources.gschema.xml.in.bak
+mv data/org.gnome.Resources.gschema.xml.in data/org.gnome.Resources.gschema.xml.in.bak
 xgettext data/*.in -o po/in.tmp.pot
-mv data/net.nokyan.Resources.gschema.xml.in.bak data/net.nokyan.Resources.gschema.xml.in
+mv data/org.gnome.Resources.gschema.xml.in.bak data/org.gnome.Resources.gschema.xml.in
 
 sed -i 's/charset=CHARSET/charset=UTF-8/g' po/*.tmp.pot
 

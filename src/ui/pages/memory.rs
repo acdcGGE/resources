@@ -1,13 +1,59 @@
 use adw::{prelude::*, subclass::prelude::*};
 use gtk::glib::{self, clone};
 use log::trace;
+use std::num::NonZeroU64;
 
-use crate::config::PROFILE;
-use crate::i18n::{i18n, i18n_f};
-use crate::utils::memory::{MemoryData, MemoryDevice};
-use crate::utils::units::convert_storage;
+use crate::config::DEVLOPMENT_BUILD;
+use crate::devices::memory::{MemoryData, MemoryDevice, SwapDevice};
+use crate::ui::widgets::graph_box::ResGraphBox;
+use crate::ui::widgets::stack_sidebar_item::UsageLabels;
+use crate::utils::i18n::{i18n, i18n_f};
+use crate::utils::settings::SETTINGS;
+use crate::utils::units::{convert_fraction, convert_storage};
 
 pub const TAB_ID: &str = "memory";
+const INACTIVE_SWAP_GRAPH_RETENTION_TICKS: u64 = 600;
+
+struct SwapUiMode {
+    usage: Option<SwapUsage>,
+    show_options: bool,
+}
+
+#[derive(Clone, Copy)]
+struct SwapUsage {
+    used: u64,
+    total: NonZeroU64,
+}
+
+impl SwapUsage {
+    fn from_devices(swap_devices: &[SwapDevice]) -> Option<Self> {
+        let used = swap_devices.iter().map(|device| device.used as u64).sum();
+        let total = swap_devices
+            .iter()
+            .map(|device| device.size as u64)
+            .sum::<u64>();
+
+        NonZeroU64::new(total).map(|total| Self { used, total })
+    }
+
+    fn fraction(self) -> f64 {
+        self.used as f64 / self.total.get() as f64
+    }
+}
+
+pub struct SwapGraphEntry {
+    name: String,
+    graph_box: ResGraphBox,
+    size_bytes: u64,
+    last_seen_tick: u64,
+    active: bool,
+}
+
+enum SwapUiState {
+    Hidden,
+    Combined(SwapUiMode),
+    PerDevice(SwapUiMode),
+}
 
 mod imp {
     use std::cell::{Cell, RefCell};
@@ -23,13 +69,22 @@ mod imp {
     };
 
     #[derive(CompositeTemplate, Properties)]
-    #[template(resource = "/net/nokyan/Resources/ui/pages/memory.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/pages/memory.ui")]
     #[properties(wrapper_type = super::ResMemory)]
     pub struct ResMemory {
         #[template_child]
         pub memory: TemplateChild<ResGraphBox>,
         #[template_child]
         pub swap: TemplateChild<ResGraphBox>,
+        #[template_child]
+        pub options: TemplateChild<adw::PreferencesGroup>,
+        #[template_child]
+        pub separate_swap_graphs: TemplateChild<adw::SwitchRow>,
+        #[template_child]
+        pub swap_devices: TemplateChild<adw::PreferencesGroup>,
+
+        pub swap_graphs: RefCell<Vec<SwapGraphEntry>>,
+        pub swap_tick: Cell<u64>,
         #[template_child]
         pub authentication_banner: TemplateChild<adw::Banner>,
         #[template_child]
@@ -48,7 +103,7 @@ mod imp {
         pub memory_devices: RefCell<Vec<MemoryDevice>>,
 
         #[property(get)]
-        uses_progress_bar: Cell<bool>,
+        uses_meter: Cell<bool>,
 
         #[property(get)]
         main_graph_color: glib::Bytes,
@@ -62,11 +117,12 @@ mod imp {
         #[property(get = Self::tab_name, type = glib::GString)]
         tab_name: Cell<glib::GString>,
 
-        #[property(get = Self::tab_detail_string, set = Self::set_tab_detail_string, type = glib::GString)]
+        #[property(get = Self::tab_detail_string, set = Self::set_tab_detail_string, type = glib::GString
+        )]
         tab_detail_string: Cell<glib::GString>,
 
-        #[property(get = Self::tab_usage_string, set = Self::set_tab_usage_string, type = glib::GString)]
-        tab_usage_string: Cell<glib::GString>,
+        #[property(get, set, type = UsageLabels)]
+        tab_usage_labels: RefCell<UsageLabels>,
 
         #[property(get = Self::tab_id, type = glib::GString)]
         tab_id: Cell<glib::GString>,
@@ -82,7 +138,7 @@ mod imp {
     }
 
     impl ResMemory {
-        gstring_getter_setter!(tab_name, tab_detail_string, tab_usage_string, tab_id);
+        gstring_getter_setter!(tab_name, tab_detail_string, tab_id);
     }
 
     impl Default for ResMemory {
@@ -90,6 +146,11 @@ mod imp {
             Self {
                 memory: Default::default(),
                 swap: Default::default(),
+                options: Default::default(),
+                separate_swap_graphs: Default::default(),
+                swap_devices: Default::default(),
+                swap_graphs: Default::default(),
+                swap_tick: Default::default(),
                 authentication_banner: Default::default(),
                 properties: Default::default(),
                 slots_used: Default::default(),
@@ -98,13 +159,13 @@ mod imp {
                 memory_type: Default::default(),
                 type_detail: Default::default(),
                 memory_devices: Default::default(),
-                uses_progress_bar: Cell::new(true),
+                uses_meter: Cell::new(true),
                 main_graph_color: glib::Bytes::from_static(&super::ResMemory::MAIN_GRAPH_COLOR),
                 icon: RefCell::new(ThemedIcon::new("memory-symbolic").into()),
                 usage: Default::default(),
                 tab_name: Cell::new(glib::GString::from(i18n("Memory"))),
                 tab_detail_string: Cell::new(glib::GString::new()),
-                tab_usage_string: Cell::new(glib::GString::new()),
+                tab_usage_labels: Default::default(),
                 tab_id: Cell::new(glib::GString::from(TAB_ID)),
                 graph_locked_max_y: Cell::new(true),
                 primary_ord: Cell::new(MEMORY_PRIMARY_ORD),
@@ -135,7 +196,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -196,6 +257,8 @@ impl ResMemory {
         );
         imp.swap.set_title_label(&i18n("Swap"));
         imp.swap.graph().set_graph_color(0x94, 0x29, 0x7c);
+        imp.separate_swap_graphs
+            .set_active(SETTINGS.memory_show_swap_devices());
 
         if let Ok(memory_devices) = MemoryDevice::get() {
             self.setup_properties(memory_devices);
@@ -289,6 +352,31 @@ impl ResMemory {
                 imp.authentication_banner.set_revealed(false);
             }
         ));
+
+        imp.separate_swap_graphs.connect_active_notify(clone!(
+            #[weak(rename_to = this)]
+            self,
+            move |switch_row| {
+                let _ = SETTINGS.set_memory_show_swap_devices(switch_row.is_active());
+                this.refresh_swap_ui_from_latest_data();
+            }
+        ));
+    }
+
+    fn refresh_swap_ui_from_latest_data(&self) {
+        let imp = self.imp();
+        let active_swap_devices = imp
+            .swap_graphs
+            .borrow()
+            .iter()
+            .filter(|entry| entry.active)
+            .count();
+        let swap_state = Self::swap_ui_state(
+            imp.separate_swap_graphs.is_active(),
+            active_swap_devices,
+            None,
+        );
+        self.apply_swap_ui_state(&swap_state, None);
     }
 
     pub fn refresh_page(&self, memdata: MemoryData) {
@@ -299,20 +387,39 @@ impl ResMemory {
         let MemoryData {
             total_mem,
             available_mem,
-            total_swap,
-            free_swap,
+            swap_devices,
         } = memdata;
 
         let used_mem = total_mem.saturating_sub(available_mem);
-        let used_swap = total_swap.saturating_sub(free_swap);
 
         imp.memory
             .add_storage_point(Some(used_mem as u64), Some(total_mem as u64));
 
-        imp.swap
-            .add_storage_point(Some(used_swap as u64), Some(total_swap as u64));
+        let combined_usage = SwapUsage::from_devices(&swap_devices);
+        let swap_state = Self::swap_ui_state(
+            imp.separate_swap_graphs.is_active(),
+            swap_devices.len(),
+            combined_usage,
+        );
 
-        let memory_fraction = used_mem as f64 / total_mem as f64;
+        // Always advance both data series; visibility is controlled by swap_state below.
+        match combined_usage {
+            Some(usage) => imp
+                .swap
+                .add_storage_point(Some(usage.used), Some(usage.total.get())),
+            None => imp.swap.add_storage_point(None, None),
+        };
+        self.update_swap_device_graphs(&swap_devices);
+
+        let mut usage_labels = UsageLabels::default();
+        let memory_fraction = Self::fraction_or_zero(used_mem as u64, total_mem as u64);
+        usage_labels.add_with_icon(
+            "speedometer-symbolic",
+            i18n("Memory Usage"),
+            convert_fraction(memory_fraction, true),
+        );
+
+        self.apply_swap_ui_state(&swap_state, Some(&mut usage_labels));
 
         let memory_devices = imp.memory_devices.borrow();
 
@@ -321,31 +428,7 @@ impl ResMemory {
             .map(|md| md.size.unwrap_or(0))
             .sum::<u64>() as f64;
 
-        if total_swap == 0 {
-            self.set_property(
-                "tab_usage_string",
-                format!(
-                    "{} / {}",
-                    &convert_storage(used_mem as f64, false),
-                    &convert_storage(total_mem as f64, false)
-                ),
-            );
-        } else {
-            let swap_fraction = used_swap as f64 / total_swap as f64;
-            self.set_property(
-                "tab_usage_string",
-                i18n_f(
-                    // Translators: This will be displayed in the sidebar, so your translation for "Swap" should
-                    // preferably be quite short or an abbreviation
-                    "{} / {} · Swap: {} %",
-                    &[
-                        &convert_storage(used_mem as f64, false),
-                        &convert_storage(total_mem as f64, false),
-                        &(swap_fraction * 100.0).round().to_string(),
-                    ],
-                ),
-            );
-        }
+        self.set_tab_usage_labels(usage_labels);
 
         self.set_property(
             "tab_detail_string",
@@ -361,5 +444,200 @@ impl ResMemory {
         );
 
         self.set_property("usage", memory_fraction);
+    }
+
+    fn apply_swap_ui_state(
+        &self,
+        swap_state: &SwapUiState,
+        usage_labels: Option<&mut UsageLabels>,
+    ) {
+        let imp = self.imp();
+        let mut usage_labels = usage_labels;
+
+        match swap_state {
+            SwapUiState::Hidden => {
+                imp.swap.set_visible(false);
+                imp.swap_devices.set_visible(false);
+                imp.options.set_visible(false);
+            }
+            SwapUiState::Combined(combined) => {
+                imp.swap.set_visible(true);
+                imp.swap_devices.set_visible(false);
+                imp.options.set_visible(combined.show_options);
+                if let Some(labels) = usage_labels.as_deref_mut() {
+                    Self::add_swap_usage_label(labels, combined.usage);
+                }
+            }
+            SwapUiState::PerDevice(per_device) => {
+                imp.swap.set_visible(false);
+                imp.swap_devices.set_visible(true);
+                imp.options.set_visible(per_device.show_options);
+                if let Some(labels) = usage_labels.as_deref_mut() {
+                    Self::add_swap_usage_label(labels, per_device.usage);
+                }
+            }
+        }
+    }
+
+    fn update_swap_graph_labels(graph_box: &ResGraphBox, device: &SwapDevice) {
+        graph_box.set_title_label(&i18n_f(
+            "{} · {} · Priority: {}",
+            &[
+                &device.name,
+                &device.r#type.to_string(),
+                &device.priority.to_string(),
+            ],
+        ));
+        let fraction = Self::fraction_or_zero(device.used as u64, device.size as u64);
+        let subtitle = format!(
+            "{} / {} · {}",
+            convert_storage(device.used as f64, false),
+            convert_storage(device.size as f64, false),
+            convert_fraction(fraction, true),
+        );
+        graph_box.set_subtitle(&subtitle);
+    }
+
+    fn add_swap_usage_label(usage_labels: &mut UsageLabels, usage: Option<SwapUsage>) {
+        if let Some(swap_usage) = usage {
+            usage_labels.add_with_icon(
+                "swap-symbolic",
+                i18n("Swap Usage"),
+                convert_fraction(swap_usage.fraction(), true),
+            );
+        }
+    }
+
+    fn fraction_or_zero(used: u64, total: u64) -> f64 {
+        NonZeroU64::new(total)
+            .map(|total| used as f64 / total.get() as f64)
+            .unwrap_or(0.0)
+    }
+
+    fn update_swap_device_graphs(&self, swap_devices: &[SwapDevice]) {
+        let imp = self.imp();
+        let current_tick = imp.swap_tick.get().saturating_add(1);
+        imp.swap_tick.set(current_tick);
+
+        let mut swap_graphs = imp.swap_graphs.borrow_mut();
+
+        for entry in swap_graphs.iter_mut() {
+            entry.active = false;
+        }
+
+        for device in swap_devices {
+            if let Some(entry) = swap_graphs
+                .iter_mut()
+                .find(|entry| entry.name == device.name)
+            {
+                entry.active = true;
+                entry.last_seen_tick = current_tick;
+                entry.size_bytes = device.size as u64;
+                entry.graph_box.set_visible(true);
+                entry
+                    .graph_box
+                    .add_storage_point(Some(device.used as u64), Some(device.size as u64));
+                Self::update_swap_graph_labels(&entry.graph_box, device);
+                continue;
+            }
+
+            let graph_box = ResGraphBox::new();
+            graph_box.graph().set_graph_color(0x94, 0x29, 0x7c);
+            graph_box.add_storage_point(Some(device.used as u64), Some(device.size as u64));
+            Self::update_swap_graph_labels(&graph_box, device);
+
+            imp.swap_devices.add(&graph_box);
+            swap_graphs.push(SwapGraphEntry {
+                name: device.name.clone(),
+                graph_box,
+                size_bytes: device.size as u64,
+                last_seen_tick: current_tick,
+                active: true,
+            });
+        }
+
+        for entry in swap_graphs.iter_mut().filter(|entry| !entry.active) {
+            entry.graph_box.set_visible(false);
+            entry
+                .graph_box
+                .add_storage_point(Some(0), Some(entry.size_bytes));
+        }
+
+        let mut remove_indices = Vec::new();
+        for (index, entry) in swap_graphs.iter().enumerate() {
+            if !entry.active
+                && current_tick.saturating_sub(entry.last_seen_tick)
+                    > INACTIVE_SWAP_GRAPH_RETENTION_TICKS
+            {
+                remove_indices.push(index);
+            }
+        }
+
+        for index in remove_indices.into_iter().rev() {
+            if let Some(entry) = swap_graphs.get(index) {
+                imp.swap_devices.remove(&entry.graph_box);
+            }
+            swap_graphs.remove(index);
+        }
+    }
+
+    fn swap_ui_state(
+        is_separate: bool,
+        swap_device_count: usize,
+        usage: Option<SwapUsage>,
+    ) -> SwapUiState {
+        if swap_device_count == 0 {
+            return SwapUiState::Hidden;
+        }
+
+        let has_multiple_devices = swap_device_count > 1;
+
+        if !has_multiple_devices {
+            return SwapUiState::Combined(SwapUiMode {
+                usage,
+                show_options: false,
+            });
+        }
+
+        if is_separate {
+            SwapUiState::PerDevice(SwapUiMode {
+                usage,
+                show_options: has_multiple_devices,
+            })
+        } else {
+            SwapUiState::Combined(SwapUiMode {
+                usage,
+                show_options: has_multiple_devices,
+            })
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{ResMemory, SwapUiState};
+
+    #[test]
+    fn swap_ui_state_hides_when_no_devices_are_present() {
+        assert!(matches!(
+            ResMemory::swap_ui_state(false, 0, None),
+            SwapUiState::Hidden
+        ));
+    }
+
+    #[test]
+    fn swap_ui_state_uses_combined_mode_for_a_single_device_even_if_separate_is_enabled() {
+        assert!(matches!(
+            ResMemory::swap_ui_state(true, 1, None),
+            SwapUiState::Combined(_)
+        ));
+    }
+
+    #[test]
+    fn swap_ui_state_keeps_per_device_mode_for_multiple_devices_when_enabled() {
+        assert!(matches!(
+            ResMemory::swap_ui_state(true, 2, None),
+            SwapUiState::PerDevice(_)
+        ));
     }
 }

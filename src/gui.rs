@@ -4,8 +4,8 @@ use std::sync::LazyLock;
 use crate::application;
 #[rustfmt::skip]
 use crate::config;
+use crate::devices::app::DATA_DIRS;
 use crate::utils::IS_FLATPAK;
-use crate::utils::app::DATA_DIRS;
 
 use clap::Parser;
 use gettextrs::{LocaleCategory, gettext};
@@ -89,9 +89,13 @@ pub fn main() {
 
     // Prepare i18n
     gettextrs::setlocale(LocaleCategory::LcAll, "");
-    gettextrs::bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR).expect("Unable to bind the text domain");
-    gettextrs::textdomain(GETTEXT_PACKAGE).expect("Unable to switch to the text domain");
 
+    if let Err(err) = gettextrs::bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR) {
+        log::warn!("gettext: Unable to bind the text domain: {err}");
+    }
+    if let Err(err) = gettextrs::textdomain(GETTEXT_PACKAGE) {
+        log::warn!("gettext: Unable to switch to the text domain: {err}");
+    }
     glib::set_application_name(&gettext("Resources"));
 
     let res = gio::Resource::load(RESOURCES_FILE).expect("Could not load gresource file");

@@ -3,11 +3,12 @@ use gtk::glib;
 use log::trace;
 use std::fmt::Write;
 
-use crate::config::PROFILE;
-use crate::i18n::i18n;
+use crate::config::DEVLOPMENT_BUILD;
+use crate::devices::battery::BatteryData;
 use crate::ui::set_subtitle_converted_maybe;
-use crate::utils::battery::BatteryData;
-use crate::utils::units::{convert_energy, convert_fraction, convert_power};
+use crate::ui::widgets::stack_sidebar_item::UsageLabels;
+use crate::utils::i18n::i18n;
+use crate::utils::units::{convert_charge_cycles, convert_energy, convert_fraction, convert_power};
 
 pub const TAB_ID_PREFIX: &str = "battery";
 
@@ -25,7 +26,7 @@ mod imp {
     };
 
     #[derive(CompositeTemplate, Properties)]
-    #[template(resource = "/net/nokyan/Resources/ui/pages/battery.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/pages/battery.ui")]
     #[properties(wrapper_type = super::ResBattery)]
     pub struct ResBattery {
         #[template_child]
@@ -48,7 +49,7 @@ mod imp {
         pub device: TemplateChild<adw::ActionRow>,
 
         #[property(get)]
-        uses_progress_bar: Cell<bool>,
+        uses_meter: Cell<bool>,
 
         #[property(get)]
         main_graph_color: glib::Bytes,
@@ -65,8 +66,8 @@ mod imp {
         #[property(get = Self::tab_detail_string, set = Self::set_tab_detail_string, type = glib::GString)]
         tab_detail_string: Cell<glib::GString>,
 
-        #[property(get = Self::tab_usage_string, set = Self::set_tab_usage_string, type = glib::GString)]
-        tab_usage_string: Cell<glib::GString>,
+        #[property(get, set, type = UsageLabels)]
+        tab_usage_labels: RefCell<UsageLabels>,
 
         #[property(get = Self::tab_id, set = Self::set_tab_id, type = glib::GString)]
         tab_id: Cell<glib::GString>,
@@ -82,7 +83,7 @@ mod imp {
     }
 
     impl ResBattery {
-        gstring_getter_setter!(tab_name, tab_detail_string, tab_usage_string, tab_id);
+        gstring_getter_setter!(tab_name, tab_detail_string, tab_id);
     }
 
     impl Default for ResBattery {
@@ -97,14 +98,14 @@ mod imp {
                 manufacturer: Default::default(),
                 model_name: Default::default(),
                 device: Default::default(),
-                uses_progress_bar: Cell::new(true),
+                uses_meter: Cell::new(true),
                 main_graph_color: glib::Bytes::from_static(&super::ResBattery::MAIN_GRAPH_COLOR),
                 icon: RefCell::new(ThemedIcon::new("battery-symbolic").into()),
                 usage: Default::default(),
                 tab_name: Cell::new(glib::GString::from(i18n("Battery"))),
                 tab_detail_string: Cell::new(glib::GString::new()),
                 tab_id: Cell::new(glib::GString::new()),
-                tab_usage_string: Cell::new(glib::GString::new()),
+                tab_usage_labels: Default::default(),
                 graph_locked_max_y: Cell::new(true),
                 primary_ord: Cell::new(BATTERY_PRIMARY_ORD),
                 secondary_ord: Default::default(),
@@ -134,7 +135,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -224,7 +225,7 @@ impl ResBattery {
             &battery_data
                 .charge_cycles
                 .as_ref()
-                .map_or_else(|_| i18n("N/A"), std::string::ToString::to_string),
+                .map_or_else(|_| i18n("N/A"), |c| convert_charge_cycles(*c)),
         );
 
         imp.technology.set_subtitle(&battery.technology.to_string());
@@ -249,11 +250,15 @@ impl ResBattery {
 
         let imp = self.imp();
 
-        let mut usage_string = String::new();
+        let mut usage_labels = UsageLabels::default();
 
         if let Ok(charge) = battery_data.charge {
             let mut percentage_string = convert_fraction(charge, true);
-            usage_string.push_str(&percentage_string);
+            usage_labels.add_with_icon(
+                "speedometer-symbolic",
+                i18n("Battery Charge"),
+                &percentage_string,
+            );
 
             if let Ok(state) = battery_data.state {
                 let _ = write!(percentage_string, " ({state})");
@@ -269,17 +274,17 @@ impl ResBattery {
         self.set_property("usage", battery_data.charge.unwrap_or_default());
 
         if let Ok(power_usage) = battery_data.power_usage {
-            if !usage_string.is_empty() {
-                usage_string.push_str(" · ");
-            }
-
-            usage_string.push_str(&convert_power(power_usage));
+            usage_labels.add_with_icon(
+                "power-usage-symbolic",
+                i18n("Power Usage"),
+                &convert_power(power_usage),
+            );
         }
 
         imp.power_usage
             .add_power_point(battery_data.power_usage.ok(), None);
 
-        self.set_tab_usage_string(usage_string);
+        self.set_tab_usage_labels(usage_labels);
 
         set_subtitle_converted_maybe(
             battery_data.health.ok(),

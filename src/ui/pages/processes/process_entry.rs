@@ -6,8 +6,8 @@ use log::trace;
 use process_data::Containerization;
 
 use crate::{
-    i18n::i18n,
-    utils::{TICK_RATE, process::Process},
+    devices::process::Process,
+    utils::{TICK_RATE, i18n::i18n},
 };
 
 mod imp {
@@ -236,13 +236,10 @@ impl ProcessEntry {
         self.set_icon(&process.icon);
 
         self.set_cpu_usage(process.cpu_time_ratio());
-        self.set_memory_usage(process.data.memory_usage as u64);
+        self.set_memory_usage(process.mem_usage() as u64);
         self.set_swap_usage(process.data.swap_usage as u64);
         self.set_combined_memory_usage(
-            process
-                .data
-                .memory_usage
-                .saturating_add(process.data.swap_usage) as u64,
+            process.mem_usage().saturating_add(process.data.swap_usage) as u64
         );
         self.set_read_speed(process.read_speed().unwrap_or(-1.0));
         self.set_read_total(

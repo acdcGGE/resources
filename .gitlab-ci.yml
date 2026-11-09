@@ -1,0 +1,32 @@
+include:
+  - project: gnome/citemplates
+    file: flatpak/flatpak_ci_initiative.yml
+  - component: gitlab.gnome.org/GNOME/citemplates/release-service@master
+    inputs:
+      dist-job-name: flatpak@x86_64
+
+flatpak@x86_64:
+  extends: .flatpak@x86_64
+  variables:
+    MANIFEST_PATH: build-aux/org.gnome.Resources.Devel.json
+    RUNTIME_REPO: https://nightly.gnome.org/gnome-nightly.flatpakrepo
+    FLATPAK_MODULE: resources
+    APP_ID: org.gnome.Resources.Devel
+    BUNDLE: org.gnome.Resources.Devel.flatpak
+    CONFIG_OPTS: "-Ddevelopment_build=true"
+
+flatpak@aarch64:
+  extends: .flatpak@aarch64
+  variables:
+    MANIFEST_PATH: build-aux/org.gnome.Resources.Devel.json
+    RUNTIME_REPO: https://nightly.gnome.org/gnome-nightly.flatpakrepo
+    FLATPAK_MODULE: resources
+    APP_ID: org.gnome.Resources.Devel
+    BUNDLE: org.gnome.Resources.Devel.flatpak
+    CONFIG_OPTS: "-Ddevelopment_build=true"
+
+nightly:
+  extends: .publish_nightly
+  dependencies:
+    - flatpak@x86_64
+    - flatpak@aarch64

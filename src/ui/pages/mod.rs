@@ -2,7 +2,7 @@ use std::{collections::HashMap, sync::LazyLock};
 
 use process_data::Niceness;
 
-use crate::i18n::pi18n;
+use crate::utils::i18n::pi18n;
 
 pub mod applications;
 pub mod battery;

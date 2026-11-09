@@ -6,25 +6,15 @@ use ini::Ini;
 use log::{debug, trace};
 use process_data::unix_as_millis;
 
-pub mod app;
-pub mod battery;
-pub mod cpu;
-pub mod drive;
-pub mod gpu;
-pub mod link;
-pub mod memory;
-pub mod network;
-pub mod npu;
+pub mod i18n;
 pub mod os;
-pub mod pci;
-pub mod process;
 pub mod settings;
-mod snapd;
+pub mod snapd;
 pub mod units;
 
-const FLATPAK_SPAWN: &str = "/usr/bin/flatpak-spawn";
+pub const FLATPAK_SPAWN: &str = "/usr/bin/flatpak-spawn";
 
-static BOOT_TIMESTAMP: LazyLock<Option<i64>> = LazyLock::new(|| {
+pub static BOOT_TIMESTAMP: LazyLock<Option<i64>> = LazyLock::new(|| {
     let unix_timestamp = (unix_as_millis() / 1000) as i64;
     read_parsed::<String>("/proc/uptime")
         .context("unable to read /proc/uptime")
@@ -44,7 +34,7 @@ static BOOT_TIMESTAMP: LazyLock<Option<i64>> = LazyLock::new(|| {
         .ok()
 });
 
-static FLATPAK_APP_PATH: LazyLock<String> =
+pub static FLATPAK_APP_PATH: LazyLock<String> =
     LazyLock::new(|| flatpak_app_path().unwrap_or_else(|_| String::new()));
 
 pub static TICK_RATE: LazyLock<usize> =
@@ -65,6 +55,38 @@ pub static IS_FLATPAK: LazyLock<bool> = LazyLock::new(|| {
 
     is_flatpak
 });
+
+pub static FLATPAK_RUNTIME_PATH: LazyLock<Option<String>> = LazyLock::new(|| {
+    trace!("Determining Flatpak runtime path…");
+    let runtime_path = std::fs::read_to_string("/.flatpak-info")
+        .ok()
+        .and_then(|contents| {
+            contents
+                .lines()
+                .find_map(|line| line.strip_prefix("runtime-path="))
+                .map(str::to_owned)
+        });
+    match &runtime_path {
+        Some(path) => debug!("Flatpak runtime path: {path}"),
+        None => debug!("Could not determine Flatpak runtime path"),
+    }
+    runtime_path
+});
+
+#[cfg(target_arch = "x86_64")]
+pub const LD_LINUX_RELATIVE: &str = "lib/x86_64-linux-gnu/ld-linux-x86-64.so.2";
+#[cfg(target_arch = "x86_64")]
+pub const MULTIARCH_DIR: &str = "lib/x86_64-linux-gnu";
+
+#[cfg(target_arch = "aarch64")]
+pub const LD_LINUX_RELATIVE: &str = "lib/aarch64-linux-gnu/ld-linux-aarch64.so.1";
+#[cfg(target_arch = "aarch64")]
+pub const MULTIARCH_DIR: &str = "lib/aarch64-linux-gnu";
+
+#[cfg(target_arch = "loongarch64")]
+pub const LD_LINUX_RELATIVE: &str = "lib/loongarch64-linux-gnu/ld-linux-loongarch-lp64d.so.1";
+#[cfg(target_arch = "loongarch64")]
+pub const MULTIARCH_DIR: &str = "lib/loongarch64-linux-gnu";
 
 // Adapted from Mission Center: https://gitlab.com/mission-center-devs/mission-center/
 pub fn flatpak_app_path() -> Result<String> {

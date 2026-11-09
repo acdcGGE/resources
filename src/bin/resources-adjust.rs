@@ -6,30 +6,29 @@ use nix::{
 };
 
 fn main() {
-    if let Some(pid) = env::args().nth(1).and_then(|s| s.trim().parse().ok()) {
-        if let Some(nice) = env::args().nth(2).and_then(|s| s.trim().parse().ok()) {
-            if let Some(mask) = env::args().nth(3) {
-                let mut cpu_set = CpuSet::new();
+    if let Some(pid) = env::args().nth(1).and_then(|s| s.trim().parse().ok())
+        && let Some(nice) = env::args().nth(2).and_then(|s| s.trim().parse().ok())
+        && let Some(mask) = env::args().nth(3)
+    {
+        let mut cpu_set = CpuSet::new();
 
-                for (i, c) in mask.chars().enumerate() {
-                    if c == '1' {
-                        cpu_set.set(i).unwrap_or_default();
-                    }
-                }
-
-                adjust(pid, nice, &cpu_set);
-
-                // find tasks that belong to this process
-                let tasks_path = PathBuf::from("/proc/").join(pid.to_string()).join("task");
-                for entry in std::fs::read_dir(tasks_path).unwrap().flatten() {
-                    let thread_id = entry.file_name().to_string_lossy().parse().unwrap();
-
-                    adjust(thread_id, nice, &cpu_set);
-                }
-
-                std::process::exit(0)
+        for (i, c) in mask.chars().enumerate() {
+            if c == '1' {
+                cpu_set.set(i).unwrap_or_default();
             }
         }
+
+        adjust(pid, nice, &cpu_set);
+
+        // find tasks that belong to this process
+        let tasks_path = PathBuf::from("/proc/").join(pid.to_string()).join("task");
+        for entry in std::fs::read_dir(tasks_path).unwrap().flatten() {
+            let thread_id = entry.file_name().to_string_lossy().parse().unwrap();
+
+            adjust(thread_id, nice, &cpu_set);
+        }
+
+        std::process::exit(0)
     }
     std::process::exit(255);
 }

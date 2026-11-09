@@ -1,9 +1,9 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
 
-data/net.nokyan.Resources.desktop.in.in
-data/net.nokyan.Resources.metainfo.xml.in.in
-data/net.nokyan.Resources.policy.in.in
+data/org.gnome.Resources.desktop.in.in
+data/org.gnome.Resources.metainfo.xml.in.in
+data/org.gnome.Resources.policy.in.in
 
 data/resources/ui/dialogs/app_dialog.ui
 data/resources/ui/dialogs/process_dialog.ui
@@ -22,6 +22,14 @@ data/resources/ui/shortcuts.ui
 data/resources/ui/window.ui
 
 src/application.rs
+src/devices/app.rs
+src/devices/battery.rs
+src/devices/drive.rs
+src/devices/gpu/mod.rs
+src/devices/link/mod.rs
+src/devices/link/wifi.rs
+src/devices/network.rs
+src/devices/npu/mod.rs
 src/ui/dialogs/app_dialog.rs
 src/ui/dialogs/process_dialog.rs
 src/ui/dialogs/process_options_dialog.rs
@@ -37,13 +45,4 @@ src/ui/pages/network.rs
 src/ui/pages/processes/mod.rs
 src/ui/pages/processes/process_entry.rs
 src/ui/window.rs
-src/utils/app.rs
-src/utils/battery.rs
-src/utils/units.rs
-src/utils/drive.rs
-src/utils/gpu/mod.rs
-src/utils/link/mod.rs
-src/utils/link/wifi.rs
-src/utils/network.rs
-src/utils/npu/mod.rs
 src/utils/units.rs

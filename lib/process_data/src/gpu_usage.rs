@@ -1,39 +1,9 @@
 use std::fmt::Display;
 
-use nutype::nutype;
 use serde::{Deserialize, Serialize};
 
 use crate::pci_slot::PciSlot;
-
-#[nutype(
-    validate(less_or_equal = 100),
-    validate(greater_or_equal = 0),
-    derive(
-        Debug,
-        Default,
-        Clone,
-        Hash,
-        PartialEq,
-        Eq,
-        Serialize,
-        Deserialize,
-        Copy,
-        FromStr,
-        Deref,
-        TryFrom,
-        Display,
-        PartialOrd,
-        Ord,
-    ),
-    default = 0
-)]
-pub struct IntegerPercentage(u8);
-
-impl IntegerPercentage {
-    fn fraction(self) -> f32 {
-        self.into_inner() as f32 / 100.0
-    }
-}
+use crate::units::{IntegerPercentage, cycles_delta_to_usage_fraction, ns_delta_to_usage_fraction};
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, Serialize, Deserialize, Copy, PartialOrd, Ord)]
 pub enum GpuIdentifier {
@@ -89,129 +59,101 @@ pub enum GpuUsageStats {
     },
 }
 
+fn max_option(a: Option<f32>, b: Option<f32>) -> Option<f32> {
+    a.zip(b).map(|(x, y)| x.max(y)).or(a.or(b))
+}
+
 impl GpuUsageStats {
-    fn delta_ns(a: u64, b: u64, time_delta: u64) -> Option<f32> {
-        if time_delta == 0 {
-            None
-        } else {
-            Some(a.saturating_sub(b) as f32 / (time_delta * 1_000_000) as f32)
-        }
-    }
-
-    fn delta_ratio(
-        a_cycles: u64,
-        b_cycles: u64,
-        a_total_cycles: u64,
-        b_total_cycles: u64,
-    ) -> Option<f32> {
-        let cycles = a_cycles.saturating_sub(b_cycles) as f64;
-        let total_cycles = a_total_cycles.saturating_sub(b_total_cycles) as f64;
-        if total_cycles == 0.0 {
-            None
-        } else {
-            Some((cycles / total_cycles) as f32)
-        }
-    }
-
-    fn max_option(a: Option<f32>, b: Option<f32>) -> Option<f32> {
-        a.zip(b).map(|(x, y)| x.max(y)).or(a.or(b))
-    }
-
     #[must_use]
-    pub fn gfx_fraction(&self, old: &Self, time_delta: u64) -> Option<f32> {
+    pub fn gfx_fraction(&self, old: &Self, time_delta_ms: u64) -> Option<f32> {
         match (self, old) {
-            (Self::AmdgpuStats { gfx_ns: a_ns, .. }, Self::AmdgpuStats { gfx_ns: b_ns, .. })
-            | (Self::I915Stats { gfx_ns: a_ns, .. }, Self::I915Stats { gfx_ns: b_ns, .. })
-            | (Self::V3dStats { gfx_ns: a_ns, .. }, Self::V3dStats { gfx_ns: b_ns, .. }) => {
-                Self::delta_ns(*a_ns, *b_ns, time_delta)
+            (Self::AmdgpuStats { gfx_ns: a, .. }, Self::AmdgpuStats { gfx_ns: b, .. })
+            | (Self::I915Stats { gfx_ns: a, .. }, Self::I915Stats { gfx_ns: b, .. })
+            | (Self::V3dStats { gfx_ns: a, .. }, Self::V3dStats { gfx_ns: b, .. }) => {
+                ns_delta_to_usage_fraction(*a, *b, time_delta_ms)
             }
             (Self::NvidiaStats { gfx_percentage, .. }, Self::NvidiaStats { .. }) => {
                 Some(gfx_percentage.fraction())
             }
             (
                 Self::XeStats {
-                    gfx_cycles: a_gfx_cycles,
-                    gfx_total_cycles: a_gfx_total_cycles,
-                    compute_cycles: a_compute_cycles,
-                    compute_total_cycles: a_compute_total_cycles,
+                    gfx_cycles: a_gfx,
+                    gfx_total_cycles: a_gfx_total,
+                    compute_cycles: a_compute,
+                    compute_total_cycles: a_compute_total,
                     ..
                 },
                 Self::XeStats {
-                    gfx_cycles: b_gfx_cycles,
-                    gfx_total_cycles: b_gfx_total_cycles,
-                    compute_cycles: b_compute_cycles,
-                    compute_total_cycles: b_compute_total_cycles,
+                    gfx_cycles: b_gfx,
+                    gfx_total_cycles: b_gfx_total,
+                    compute_cycles: b_compute,
+                    compute_total_cycles: b_compute_total,
                     ..
                 },
-            ) => Self::max_option(
+            ) => {
                 // Right now, Resources doesn't differentiate between compute and gfx load, and since xe gives us cycles
                 // instead of ns for whatever reason, we need to do this hack :/
-                Self::delta_ratio(
-                    *a_gfx_cycles,
-                    *b_gfx_cycles,
-                    *a_gfx_total_cycles,
-                    *b_gfx_total_cycles,
-                ),
-                Self::delta_ratio(
-                    *a_compute_cycles,
-                    *b_compute_cycles,
-                    *a_compute_total_cycles,
-                    *b_compute_total_cycles,
-                ),
-            ),
+                max_option(
+                    cycles_delta_to_usage_fraction(*a_gfx, *b_gfx, *a_gfx_total, *b_gfx_total),
+                    cycles_delta_to_usage_fraction(
+                        *a_compute,
+                        *b_compute,
+                        *a_compute_total,
+                        *b_compute_total,
+                    ),
+                )
+            }
             _ => None,
         }
     }
 
     #[must_use]
-    pub fn enc_fraction(&self, old: &Self, time_delta: u64) -> Option<f32> {
+    pub fn enc_fraction(&self, old: &Self, time_delta_ms: u64) -> Option<f32> {
         match (self, old) {
-            (Self::AmdgpuStats { enc_ns: a_ns, .. }, Self::AmdgpuStats { enc_ns: b_ns, .. })
-            | (Self::I915Stats { video_ns: a_ns, .. }, Self::I915Stats { video_ns: b_ns, .. }) => {
-                Self::delta_ns(*a_ns, *b_ns, time_delta)
+            (Self::AmdgpuStats { enc_ns: a, .. }, Self::AmdgpuStats { enc_ns: b, .. })
+            | (Self::I915Stats { video_ns: a, .. }, Self::I915Stats { video_ns: b, .. }) => {
+                ns_delta_to_usage_fraction(*a, *b, time_delta_ms)
             }
             (Self::NvidiaStats { enc_percentage, .. }, Self::NvidiaStats { .. }) => {
                 Some(enc_percentage.fraction())
             }
             (
                 Self::XeStats {
-                    video_cycles: a_cycles,
-                    video_total_cycles: a_total_cycles,
+                    video_cycles: a,
+                    video_total_cycles: a_total,
                     ..
                 },
                 Self::XeStats {
-                    video_cycles: b_cycles,
-                    video_total_cycles: b_total_cycles,
+                    video_cycles: b,
+                    video_total_cycles: b_total,
                     ..
                 },
-            ) => Self::delta_ratio(*a_cycles, *b_cycles, *a_total_cycles, *b_total_cycles),
+            ) => cycles_delta_to_usage_fraction(*a, *b, *a_total, *b_total),
             _ => None,
         }
     }
 
-    /// For cards with a unified media engine (i.e. no separated encode/decode stats), this will either be 0 (in case of
-    /// some AMD GPUs) or the same as enc_fraction()
     #[must_use]
-    pub fn dec_fraction(&self, old: &Self, time_delta: u64) -> Option<f32> {
+    pub fn dec_fraction(&self, old: &Self, time_delta_ms: u64) -> Option<f32> {
         match (self, old) {
-            (Self::AmdgpuStats { dec_ns: a_ns, .. }, Self::AmdgpuStats { dec_ns: b_ns, .. }) => {
-                Self::delta_ns(*a_ns, *b_ns, time_delta)
+            (Self::AmdgpuStats { dec_ns: a, .. }, Self::AmdgpuStats { dec_ns: b, .. }) => {
+                ns_delta_to_usage_fraction(*a, *b, time_delta_ms)
             }
             (Self::NvidiaStats { dec_percentage, .. }, Self::NvidiaStats { .. }) => {
                 Some(dec_percentage.fraction())
             }
             (
                 Self::XeStats {
-                    video_cycles: a_cycles,
-                    video_total_cycles: a_total_cycles,
+                    video_cycles: a,
+                    video_total_cycles: a_total,
                     ..
                 },
                 Self::XeStats {
-                    video_cycles: b_cycles,
-                    video_total_cycles: b_total_cycles,
+                    video_cycles: b,
+                    video_total_cycles: b_total,
                     ..
                 },
-            ) => Self::delta_ratio(*a_cycles, *b_cycles, *a_total_cycles, *b_total_cycles),
+            ) => cycles_delta_to_usage_fraction(*a, *b, *a_total, *b_total),
             _ => None,
         }
     }
@@ -232,95 +174,95 @@ impl GpuUsageStats {
         match (self, other) {
             (
                 Self::AmdgpuStats {
-                    gfx_ns: a_gfx_ns,
-                    enc_ns: a_enc_ns,
-                    dec_ns: a_dec_ns,
-                    mem_bytes: a_mem_bytes,
+                    gfx_ns: a_gfx,
+                    enc_ns: a_enc,
+                    dec_ns: a_dec,
+                    mem_bytes: a_mem,
                 },
                 Self::AmdgpuStats {
-                    gfx_ns: b_gfx_ns,
-                    enc_ns: b_enc_ns,
-                    dec_ns: b_dec_ns,
-                    mem_bytes: b_mem_bytes,
+                    gfx_ns: b_gfx,
+                    enc_ns: b_enc,
+                    dec_ns: b_dec,
+                    mem_bytes: b_mem,
                 },
             ) => Self::AmdgpuStats {
-                gfx_ns: *a_gfx_ns.max(b_gfx_ns),
-                enc_ns: *a_enc_ns.max(b_enc_ns),
-                dec_ns: *a_dec_ns.max(b_dec_ns),
-                mem_bytes: *a_mem_bytes.max(b_mem_bytes),
+                gfx_ns: *a_gfx.max(b_gfx),
+                enc_ns: *a_enc.max(b_enc),
+                dec_ns: *a_dec.max(b_dec),
+                mem_bytes: *a_mem.max(b_mem),
             },
             (
                 Self::I915Stats {
-                    gfx_ns: a_gfx_ns,
-                    video_ns: a_video_ns,
+                    gfx_ns: a_gfx,
+                    video_ns: a_video,
                 },
                 Self::I915Stats {
-                    gfx_ns: b_gfx_ns,
-                    video_ns: b_video_ns,
+                    gfx_ns: b_gfx,
+                    video_ns: b_video,
                 },
             ) => Self::I915Stats {
-                gfx_ns: *a_gfx_ns.max(b_gfx_ns),
-                video_ns: *a_video_ns.max(b_video_ns),
+                gfx_ns: *a_gfx.max(b_gfx),
+                video_ns: *a_video.max(b_video),
             },
             (
                 Self::NvidiaStats {
-                    gfx_percentage: a_gfx_percentage,
-                    enc_percentage: a_enc_percentage,
-                    dec_percentage: a_dec_percentage,
-                    mem_bytes: a_mem_bytes,
+                    gfx_percentage: a_gfx,
+                    enc_percentage: a_enc,
+                    dec_percentage: a_dec,
+                    mem_bytes: a_mem,
                 },
                 Self::NvidiaStats {
-                    gfx_percentage: b_gfx_percentage,
-                    enc_percentage: b_enc_percentage,
-                    dec_percentage: b_dec_percentage,
-                    mem_bytes: b_mem_bytes,
+                    gfx_percentage: b_gfx,
+                    enc_percentage: b_enc,
+                    dec_percentage: b_dec,
+                    mem_bytes: b_mem,
                 },
             ) => Self::NvidiaStats {
-                gfx_percentage: *a_gfx_percentage.max(b_gfx_percentage),
-                enc_percentage: *a_enc_percentage.max(b_enc_percentage),
-                dec_percentage: *a_dec_percentage.max(b_dec_percentage),
-                mem_bytes: *a_mem_bytes.max(b_mem_bytes),
+                gfx_percentage: *a_gfx.max(b_gfx),
+                enc_percentage: *a_enc.max(b_enc),
+                dec_percentage: *a_dec.max(b_dec),
+                mem_bytes: *a_mem.max(b_mem),
             },
             (
                 Self::V3dStats {
-                    gfx_ns: a_gfx_ns,
-                    mem_bytes: a_mem_bytes,
+                    gfx_ns: a_gfx,
+                    mem_bytes: a_mem,
                 },
                 Self::V3dStats {
-                    gfx_ns: b_gfx_ns,
-                    mem_bytes: b_mem_bytes,
+                    gfx_ns: b_gfx,
+                    mem_bytes: b_mem,
                 },
             ) => Self::V3dStats {
-                gfx_ns: *a_gfx_ns.max(b_gfx_ns),
-                mem_bytes: *a_mem_bytes.max(b_mem_bytes),
+                gfx_ns: *a_gfx.max(b_gfx),
+                mem_bytes: *a_mem.max(b_mem),
             },
             (
                 Self::XeStats {
-                    gfx_cycles: a_gfx_cycles,
-                    gfx_total_cycles: a_gfx_total_cycles,
-                    compute_cycles: a_compute_cycles,
-                    compute_total_cycles: a_compute_total_cycles,
-                    video_cycles: a_video_cycles,
-                    video_total_cycles: a_video_total_cycles,
-                    mem_bytes: a_mem_bytes,
+                    gfx_cycles: a_gfx,
+                    gfx_total_cycles: a_gfx_total,
+                    compute_cycles: a_compute,
+                    compute_total_cycles: a_compute_total,
+                    video_cycles: a_video,
+                    video_total_cycles: a_video_total,
+                    mem_bytes: a_mem,
                 },
                 Self::XeStats {
-                    gfx_cycles: b_gfx_cycles,
-                    gfx_total_cycles: b_gfx_total_cycles,
-                    compute_cycles: b_compute_cycles,
-                    compute_total_cycles: b_compute_total_cycles,
-                    video_cycles: b_video_cycles,
-                    video_total_cycles: b_video_total_cycles,
-                    mem_bytes: b_mem_bytes,
+                    gfx_cycles: b_gfx,
+                    gfx_total_cycles: b_gfx_total,
+                    compute_cycles: b_compute,
+                    compute_total_cycles: b_compute_total,
+                    video_cycles: b_video,
+                    video_total_cycles: b_video_total,
+                    mem_bytes: b_mem,
                 },
             ) => Self::XeStats {
-                gfx_cycles: *a_gfx_cycles.max(b_gfx_cycles),
-                gfx_total_cycles: *a_gfx_total_cycles.max(b_gfx_total_cycles),
-                compute_cycles: *a_compute_cycles.max(b_compute_cycles),
-                compute_total_cycles: *a_compute_total_cycles.max(b_compute_total_cycles),
-                video_cycles: *a_video_cycles.max(b_video_cycles),
-                video_total_cycles: *a_video_total_cycles.max(b_video_total_cycles),
-                mem_bytes: *a_mem_bytes.max(b_mem_bytes),
+                gfx_cycles: *a_gfx.max(b_gfx),
+                gfx_total_cycles: *a_gfx_total.max(b_gfx_total),
+                compute_cycles: *a_compute.max(b_compute),
+                compute_total_cycles: *a_compute_total.max(b_compute_total),
+                video_cycles: *a_video.max(b_video),
+                video_total_cycles: *a_video_total.max(b_video_total),
+                mem_bytes: *a_mem.max(b_mem),
             },
             _ => *self,
         }

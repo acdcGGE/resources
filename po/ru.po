@@ -4,9 +4,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: resources\n"
-"Report-Msgid-Bugs-To: https://github.com/nokyan/resources/issues/\n"
-"POT-Creation-Date: 2026-04-02 08:44+0000\n"
-"PO-Revision-Date: 2026-04-03 19:32+0300\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/Incubator/resources/"
+"issues/\n"
+"POT-Creation-Date: 2026-10-16 17:39+0000\n"
+"PO-Revision-Date: 2026-10-16 20:47+0300\n"
 "Last-Translator: Artur So <arturios2005@mail.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -17,115 +18,110 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.9\n"
 
-#: data/net.nokyan.Resources.desktop.in.in:2
-#: data/net.nokyan.Resources.metainfo.xml.in.in:4
-#: data/resources/ui/window.ui:22 src/application.rs:272
+#: data/org.gnome.Resources.desktop.in.in:2
+#: data/org.gnome.Resources.metainfo.xml.in.in:4 data/resources/ui/window.ui:22
+#: src/application.rs:284
 msgid "Resources"
 msgstr "Ресурсы"
 
 #. Translators: The summary should be 35 characters or less according to Flathub appstream guidelines
-#: data/net.nokyan.Resources.desktop.in.in:3
-#: data/net.nokyan.Resources.metainfo.xml.in.in:5
+#: data/org.gnome.Resources.desktop.in.in:3
+#: data/org.gnome.Resources.metainfo.xml.in.in:5
 msgid "Keep an eye on system resources"
 msgstr "Отслеживайте системные ресурсы"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/net.nokyan.Resources.desktop.in.in:9
+#: data/org.gnome.Resources.desktop.in.in:9
 msgid "System;Resources;Monitor;Processes;Usage;Task;Manager;CPU;RAM;Memory;GPU;Performance;Power;Battery;"
 msgstr "System;Resources;Monitor;Processes;Usage;Task;Manager;CPU;RAM;Memory;GPU;Система;Ресурсы;Процессы;ЦП;ОЗУ;Память;Видеоадаптер;Монитор;Использование;Производительность;Питание;Батарея;"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:17
+#: data/org.gnome.Resources.metainfo.xml.in.in:17
 msgid ""
 "Resources allows you to check the utilization of your system resources and "
-"control your running processes and apps. It’s designed to be user-friendly "
-"and feel right at home on a modern desktop by using GNOME’s libadwaita."
+"control your running processes and apps."
 msgstr ""
 "Приложение позволяет вам проверять использование системных ресурсов и "
-"контролировать запущенные процессы и приложения. Оно разработано так, чтобы "
-"быть удобным для пользователя и чувствовать себя как дома на современном "
-"рабочем столе благодаря использованию библиотеки GNOME libadwaita."
+"контролировать запущенные процессы и приложения."
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:20
+#: data/org.gnome.Resources.metainfo.xml.in.in:20
 msgid "Resources supports monitoring the following components:"
 msgstr "Приложение поддерживает мониторинг следующих компонентов:"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:24
+#: data/org.gnome.Resources.metainfo.xml.in.in:24
 msgid "CPU"
 msgstr "ЦП"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:25
+#: data/org.gnome.Resources.metainfo.xml.in.in:25
 #: data/resources/ui/dialogs/app_dialog.ui:82
 #: data/resources/ui/dialogs/process_dialog.ui:64
-#: data/resources/ui/dialogs/settings_dialog.ui:128
-#: data/resources/ui/dialogs/settings_dialog.ui:220
-#: data/resources/ui/window.ui:176 data/resources/ui/window.ui:183
-#: src/ui/pages/applications/mod.rs:806 src/ui/pages/applications/mod.rs:823
-#: src/ui/pages/memory.rs:106 src/ui/pages/memory.rs:192
-#: src/ui/pages/processes/mod.rs:1106 src/ui/pages/processes/mod.rs:1123
+#: data/resources/ui/dialogs/settings_dialog.ui:118
+#: data/resources/ui/dialogs/settings_dialog.ui:210
+#: data/resources/ui/window.ui:175 data/resources/ui/window.ui:182
+#: src/ui/pages/applications/mod.rs:427 src/ui/pages/memory.rs:166
+#: src/ui/pages/memory.rs:252 src/ui/pages/processes/mod.rs:532
 msgid "Memory"
 msgstr "Память"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:26
+#: data/org.gnome.Resources.metainfo.xml.in.in:26
 #: data/resources/ui/dialogs/app_dialog.ui:140
 #: data/resources/ui/dialogs/process_dialog.ui:118
-#: data/resources/ui/dialogs/settings_dialog.ui:158
-#: data/resources/ui/dialogs/settings_dialog.ui:250
-#: src/ui/pages/applications/mod.rs:1232 src/ui/pages/applications/mod.rs:1249
-#: src/ui/pages/gpu.rs:120 src/ui/pages/processes/mod.rs:1544
-#: src/ui/pages/processes/mod.rs:1561 src/ui/window.rs:468
+#: data/resources/ui/dialogs/settings_dialog.ui:148
+#: data/resources/ui/dialogs/settings_dialog.ui:240
+#: src/ui/pages/applications/mod.rs:517 src/ui/pages/gpu.rs:124
+#: src/ui/pages/processes/mod.rs:628 src/ui/window.rs:473
 msgid "GPU"
 msgstr "Видеоадаптер"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:27
-#: data/resources/ui/dialogs/settings_dialog.ui:324
+#: data/org.gnome.Resources.metainfo.xml.in.in:27
+#: data/resources/ui/dialogs/settings_dialog.ui:314
 msgid "Network Interfaces"
 msgstr "Сетевые интерфейсы"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:28
+#: data/org.gnome.Resources.metainfo.xml.in.in:28
 msgid "Storage Devices"
 msgstr "Устройства хранения"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:29
+#: data/org.gnome.Resources.metainfo.xml.in.in:29
 msgid "Batteries"
 msgstr "Батареи"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:53
+#: data/org.gnome.Resources.metainfo.xml.in.in:53
 msgid "Apps page in light theme"
 msgstr "Страница приложений в светлой теме"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:57
+#: data/org.gnome.Resources.metainfo.xml.in.in:57
 msgid "Processes page in dark theme"
 msgstr "Страница процессов в темной теме"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:61
+#: data/org.gnome.Resources.metainfo.xml.in.in:61
 msgid "Processor page in light theme"
 msgstr "Страница процессора в светлой теме"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:65
+#: data/org.gnome.Resources.metainfo.xml.in.in:65
 msgid "Memory page in dark theme"
 msgstr "Страница памяти в темной теме"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:69
+#: data/org.gnome.Resources.metainfo.xml.in.in:69
 msgid "GPU page in light theme"
 msgstr "Страница графики в светлой теме"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:73
+#: data/org.gnome.Resources.metainfo.xml.in.in:73
 msgid "Drive page in dark theme"
 msgstr "Страница накопителя в темной теме"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:77
+#: data/org.gnome.Resources.metainfo.xml.in.in:77
 msgid "Network Interface page in light theme"
 msgstr "Страница сетевого интерфейса в светлой теме"
 
-#: data/net.nokyan.Resources.metainfo.xml.in.in:81
+#: data/org.gnome.Resources.metainfo.xml.in.in:81
 msgid "Battery page in dark theme"
 msgstr "Страница батареи в темной теме"
 
-#: data/net.nokyan.Resources.policy.in.in:9
+#: data/org.gnome.Resources.policy.in.in:9
 msgid "Control Process"
 msgstr "Управление процессом"
 
-#: data/net.nokyan.Resources.policy.in.in:10
+#: data/org.gnome.Resources.policy.in.in:10
 msgid ""
 "Authentication is required to control superuser’s or other users’ processes"
 msgstr ""
@@ -133,6 +129,8 @@ msgstr ""
 "других пользователей"
 
 #: data/resources/ui/dialogs/app_dialog.ui:7
+#: data/resources/ui/pages/applications.ui:90
+#: data/resources/ui/pages/applications.ui:92
 msgid "App Information"
 msgstr "Информация о приложении"
 
@@ -140,92 +138,83 @@ msgstr "Информация о приложении"
 #: data/resources/ui/dialogs/process_dialog.ui:48
 #: data/resources/ui/pages/battery.ui:22 data/resources/ui/pages/cpu.ui:37
 #: data/resources/ui/pages/cpu.ui:50 data/resources/ui/pages/drive.ui:22
-#: data/resources/ui/pages/gpu.ui:22 data/resources/ui/pages/memory.ui:31
+#: data/resources/ui/pages/gpu.ui:22 data/resources/ui/pages/memory.ui:43
 #: data/resources/ui/pages/network.ui:22 data/resources/ui/pages/npu.ui:22
 msgid "Usage"
 msgstr "Использование"
 
 #: data/resources/ui/dialogs/app_dialog.ui:73
 #: data/resources/ui/dialogs/process_dialog.ui:55
-#: data/resources/ui/dialogs/settings_dialog.ui:133
-#: data/resources/ui/dialogs/settings_dialog.ui:225
-#: data/resources/ui/window.ui:145 data/resources/ui/window.ui:152
-#: src/ui/pages/applications/mod.rs:873 src/ui/pages/applications/mod.rs:890
-#: src/ui/pages/cpu.rs:128 src/ui/pages/processes/mod.rs:1173
-#: src/ui/pages/processes/mod.rs:1190 src/ui/window.rs:290
+#: data/resources/ui/dialogs/settings_dialog.ui:123
+#: data/resources/ui/dialogs/settings_dialog.ui:215
+#: data/resources/ui/window.ui:144 data/resources/ui/window.ui:151
+#: src/ui/pages/applications/mod.rs:441 src/ui/pages/cpu.rs:131
+#: src/ui/pages/processes/mod.rs:547 src/ui/window.rs:286
 msgid "Processor"
 msgstr "Процессор"
 
 #: data/resources/ui/dialogs/app_dialog.ui:91
 #: data/resources/ui/dialogs/process_dialog.ui:73
-#: data/resources/ui/dialogs/settings_dialog.ui:178
-#: data/resources/ui/dialogs/settings_dialog.ui:290
-#: src/ui/pages/applications/mod.rs:1503 src/ui/pages/applications/mod.rs:1520
-#: src/ui/pages/memory.rs:198 src/ui/pages/processes/mod.rs:2093
-#: src/ui/pages/processes/mod.rs:2110
+#: data/resources/ui/dialogs/settings_dialog.ui:168
+#: data/resources/ui/dialogs/settings_dialog.ui:280
+#: src/ui/pages/applications/mod.rs:573 src/ui/pages/memory.rs:258
+#: src/ui/pages/processes/mod.rs:756
 msgid "Swap"
 msgstr "Подкачка"
 
 #: data/resources/ui/dialogs/app_dialog.ui:100
 #: data/resources/ui/dialogs/process_dialog.ui:78
-#: data/resources/ui/dialogs/settings_dialog.ui:138
-#: data/resources/ui/dialogs/settings_dialog.ui:230
-#: src/ui/pages/applications/mod.rs:945 src/ui/pages/applications/mod.rs:964
-#: src/ui/pages/processes/mod.rs:1245 src/ui/pages/processes/mod.rs:1264
+#: data/resources/ui/dialogs/settings_dialog.ui:128
+#: data/resources/ui/dialogs/settings_dialog.ui:220
+#: src/ui/pages/applications/mod.rs:461 src/ui/pages/processes/mod.rs:568
 msgid "Drive Read"
 msgstr "Чтение с диска"
 
 #: data/resources/ui/dialogs/app_dialog.ui:109
 #: data/resources/ui/dialogs/process_dialog.ui:87
-#: data/resources/ui/dialogs/settings_dialog.ui:143
-#: data/resources/ui/dialogs/settings_dialog.ui:235
-#: src/ui/pages/applications/mod.rs:1018 src/ui/pages/applications/mod.rs:1037
-#: src/ui/pages/processes/mod.rs:1320 src/ui/pages/processes/mod.rs:1339
+#: data/resources/ui/dialogs/settings_dialog.ui:133
+#: data/resources/ui/dialogs/settings_dialog.ui:225
+#: src/ui/pages/applications/mod.rs:475 src/ui/pages/processes/mod.rs:583
 msgid "Drive Read Total"
 msgstr "Общее чтение с диска"
 
 #: data/resources/ui/dialogs/app_dialog.ui:118
 #: data/resources/ui/dialogs/process_dialog.ui:96
-#: data/resources/ui/dialogs/settings_dialog.ui:148
-#: data/resources/ui/dialogs/settings_dialog.ui:240
-#: src/ui/pages/applications/mod.rs:1087 src/ui/pages/applications/mod.rs:1106
-#: src/ui/pages/processes/mod.rs:1395 src/ui/pages/processes/mod.rs:1414
+#: data/resources/ui/dialogs/settings_dialog.ui:138
+#: data/resources/ui/dialogs/settings_dialog.ui:230
+#: src/ui/pages/applications/mod.rs:489 src/ui/pages/processes/mod.rs:598
 msgid "Drive Write"
 msgstr "Запись на диск"
 
 #: data/resources/ui/dialogs/app_dialog.ui:127
 #: data/resources/ui/dialogs/process_dialog.ui:105
-#: data/resources/ui/dialogs/settings_dialog.ui:153
-#: data/resources/ui/dialogs/settings_dialog.ui:245
-#: src/ui/pages/applications/mod.rs:1162 src/ui/pages/applications/mod.rs:1181
-#: src/ui/pages/processes/mod.rs:1470 src/ui/pages/processes/mod.rs:1489
+#: data/resources/ui/dialogs/settings_dialog.ui:143
+#: data/resources/ui/dialogs/settings_dialog.ui:235
+#: src/ui/pages/applications/mod.rs:503 src/ui/pages/processes/mod.rs:613
 msgid "Drive Write Total"
 msgstr "Общая запись на диск"
 
 #: data/resources/ui/dialogs/app_dialog.ui:149
 #: data/resources/ui/dialogs/process_dialog.ui:127
-#: data/resources/ui/dialogs/settings_dialog.ui:163
-#: data/resources/ui/dialogs/settings_dialog.ui:255
-#: src/ui/pages/applications/mod.rs:1436 src/ui/pages/applications/mod.rs:1454
-#: src/ui/pages/processes/mod.rs:1749 src/ui/pages/processes/mod.rs:1768
+#: data/resources/ui/dialogs/settings_dialog.ui:153
+#: data/resources/ui/dialogs/settings_dialog.ui:245
+#: src/ui/pages/applications/mod.rs:531 src/ui/pages/processes/mod.rs:643
 msgid "Video Memory"
 msgstr "Видеопамять"
 
 #: data/resources/ui/dialogs/app_dialog.ui:158
 #: data/resources/ui/dialogs/process_dialog.ui:136
-#: data/resources/ui/dialogs/settings_dialog.ui:168
-#: data/resources/ui/dialogs/settings_dialog.ui:260
-#: src/ui/pages/applications/mod.rs:1299 src/ui/pages/applications/mod.rs:1318
-#: src/ui/pages/processes/mod.rs:1611 src/ui/pages/processes/mod.rs:1630
+#: data/resources/ui/dialogs/settings_dialog.ui:158
+#: data/resources/ui/dialogs/settings_dialog.ui:250
+#: src/ui/pages/applications/mod.rs:545 src/ui/pages/processes/mod.rs:658
 msgid "Video Encoder"
 msgstr "Видеокодер"
 
 #: data/resources/ui/dialogs/app_dialog.ui:167
 #: data/resources/ui/dialogs/process_dialog.ui:145
-#: data/resources/ui/dialogs/settings_dialog.ui:173
-#: data/resources/ui/dialogs/settings_dialog.ui:265
-#: src/ui/pages/applications/mod.rs:1368 src/ui/pages/applications/mod.rs:1387
-#: src/ui/pages/processes/mod.rs:1680 src/ui/pages/processes/mod.rs:1699
+#: data/resources/ui/dialogs/settings_dialog.ui:163
+#: data/resources/ui/dialogs/settings_dialog.ui:255
+#: src/ui/pages/applications/mod.rs:559 src/ui/pages/processes/mod.rs:673
 msgid "Video Decoder"
 msgstr "Видеодекодер"
 
@@ -233,7 +222,7 @@ msgstr "Видеодекодер"
 #: data/resources/ui/dialogs/process_dialog.ui:179
 #: data/resources/ui/pages/battery.ui:33 data/resources/ui/pages/cpu.ui:83
 #: data/resources/ui/pages/drive.ui:54 data/resources/ui/pages/gpu.ui:74
-#: data/resources/ui/pages/memory.ui:42 data/resources/ui/pages/network.ui:51
+#: data/resources/ui/pages/memory.ui:60 data/resources/ui/pages/network.ui:51
 #: data/resources/ui/pages/npu.ui:77
 msgid "Properties"
 msgstr "Свойства"
@@ -257,42 +246,44 @@ msgid "Containerized"
 msgstr "В контейнере"
 
 #: data/resources/ui/dialogs/process_dialog.ui:7
+#: data/resources/ui/pages/processes.ui:151
+#: data/resources/ui/pages/processes.ui:153
 msgid "Process Information"
 msgstr "Информация о процессе"
 
 #: data/resources/ui/dialogs/process_dialog.ui:154
-#: data/resources/ui/dialogs/settings_dialog.ui:270
-#: src/ui/pages/processes/mod.rs:1817 src/ui/pages/processes/mod.rs:1835
+#: data/resources/ui/dialogs/settings_dialog.ui:260
+#: src/ui/pages/processes/mod.rs:688
 msgid "Total CPU Time"
 msgstr "Общее время ЦП"
 
 #: data/resources/ui/dialogs/process_dialog.ui:163
-#: data/resources/ui/dialogs/settings_dialog.ui:275
-#: src/ui/pages/processes/mod.rs:1884 src/ui/pages/processes/mod.rs:1902
+#: data/resources/ui/dialogs/settings_dialog.ui:265
+#: src/ui/pages/processes/mod.rs:702
 msgid "User CPU Time"
 msgstr "Пользовательское время ЦП"
 
 #: data/resources/ui/dialogs/process_dialog.ui:172
-#: data/resources/ui/dialogs/settings_dialog.ui:280
-#: src/ui/pages/processes/mod.rs:1951 src/ui/pages/processes/mod.rs:1969
+#: data/resources/ui/dialogs/settings_dialog.ui:270
+#: src/ui/pages/processes/mod.rs:716
 msgid "System CPU Time"
 msgstr "Системное время ЦП"
 
 #: data/resources/ui/dialogs/process_dialog.ui:186
-#: data/resources/ui/dialogs/settings_dialog.ui:210
-#: src/ui/pages/processes/mod.rs:983 src/ui/pages/processes/mod.rs:998
+#: data/resources/ui/dialogs/settings_dialog.ui:200
+#: src/ui/pages/processes/mod.rs:504
 msgid "Process ID"
 msgstr "ИД процесса"
 
 #: data/resources/ui/dialogs/process_dialog.ui:204
-#: data/resources/ui/dialogs/settings_dialog.ui:300
-#: src/ui/pages/processes/mod.rs:2229 src/ui/pages/processes/mod.rs:2247
+#: data/resources/ui/dialogs/settings_dialog.ui:290
+#: src/ui/pages/processes/mod.rs:786
 msgid "Commandline"
 msgstr "Командная строка"
 
 #: data/resources/ui/dialogs/process_dialog.ui:213
-#: data/resources/ui/dialogs/settings_dialog.ui:215
-#: src/ui/pages/processes/mod.rs:1044 src/ui/pages/processes/mod.rs:1059
+#: data/resources/ui/dialogs/settings_dialog.ui:205
+#: src/ui/pages/processes/mod.rs:518
 msgid "User"
 msgstr "Пользователь"
 
@@ -301,7 +292,8 @@ msgid "Control Group"
 msgstr "Контрольная группа"
 
 #: data/resources/ui/dialogs/process_options_dialog.ui:7
-#: data/resources/ui/dialogs/process_options_dialog.ui:69
+#: data/resources/ui/pages/processes.ui:138
+#: data/resources/ui/pages/processes.ui:140
 msgid "Process Options"
 msgstr "Параметры процесса"
 
@@ -309,11 +301,11 @@ msgstr "Параметры процесса"
 msgid "Apply"
 msgstr "Применить"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:72
+#: data/resources/ui/dialogs/process_options_dialog.ui:71
 msgid "Niceness"
 msgstr "Уступчивость"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:73
+#: data/resources/ui/dialogs/process_options_dialog.ui:72
 msgid ""
 "The priority of a process is given by its niceness. A lower niceness value "
 "correspond to a higher priority."
@@ -321,48 +313,44 @@ msgstr ""
 "Приоритет процесса определяется его уступчивостью. Меньшее значение "
 "уступчивости соответствует более высокому приоритету."
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:87
-#: data/resources/ui/dialogs/settings_dialog.ui:285
-#: src/ui/pages/processes/mod.rs:2018 src/ui/pages/processes/mod.rs:2034
+#: data/resources/ui/dialogs/process_options_dialog.ui:86
+#: data/resources/ui/dialogs/settings_dialog.ui:275
+#: src/ui/pages/processes/mod.rs:730
 msgid "Priority"
 msgstr "Приоритет"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:91
+#: data/resources/ui/dialogs/process_options_dialog.ui:90
 msgctxt "process priority"
 msgid "Very High"
 msgstr "Очень высокий"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:92
+#: data/resources/ui/dialogs/process_options_dialog.ui:91
 msgctxt "process priority"
 msgid "High"
 msgstr "Высокий"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:93
+#: data/resources/ui/dialogs/process_options_dialog.ui:92
 msgctxt "process priority"
 msgid "Normal"
 msgstr "Нормальный"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:94
+#: data/resources/ui/dialogs/process_options_dialog.ui:93
 msgctxt "process priority"
 msgid "Low"
 msgstr "Низкий"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:95
+#: data/resources/ui/dialogs/process_options_dialog.ui:94
 msgctxt "process priority"
 msgid "Very Low"
 msgstr "Очень низкий"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:103
+#: data/resources/ui/dialogs/process_options_dialog.ui:104
 msgid "Processor Affinity"
 msgstr "Привязка к процессору"
 
-#: data/resources/ui/dialogs/process_options_dialog.ui:108
+#: data/resources/ui/dialogs/process_options_dialog.ui:110
 msgid "Toggle All"
 msgstr "Переключить все"
-
-#: data/resources/ui/dialogs/process_options_dialog.ui:111
-msgid "Select which processor cores the process is allowed to run on"
-msgstr "Выберите, на каких ядрах процессора может выполняться процесс"
 
 #: data/resources/ui/dialogs/settings_dialog.ui:7
 msgid "General"
@@ -451,45 +439,23 @@ msgstr "Показывать сетки графиков"
 msgid "Graph Data Points"
 msgstr "Точки данных на графике"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:86
-msgid "Show Usage Details in Sidebar"
-msgstr "Показывать подробную информацию об использовании в боковой панели"
-
-#: data/resources/ui/dialogs/settings_dialog.ui:87
-msgid "If enabled, the usage along with other information will be displayed"
-msgstr ""
-"Если включено, на экране будет отображаться информация об использовании и "
-"другие сведения"
-
-#: data/resources/ui/dialogs/settings_dialog.ui:92
-msgid "Show Device Descriptions in Sidebar"
-msgstr "Показывать описания устройств в боковой панели"
-
-#: data/resources/ui/dialogs/settings_dialog.ui:93
-msgid ""
-"If enabled, a device identifier like its name or device type will be "
-"displayed"
-msgstr ""
-"Если включено, будет отображаться идентификатор устройства, например его "
-"название или тип устройства"
-
-#: data/resources/ui/dialogs/settings_dialog.ui:98
+#: data/resources/ui/dialogs/settings_dialog.ui:88
 msgid "Sidebar Meter Type"
 msgstr "Тип счетчика боковой панели"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:102
+#: data/resources/ui/dialogs/settings_dialog.ui:92
 msgid "Bar"
 msgstr "Панель"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:103
+#: data/resources/ui/dialogs/settings_dialog.ui:93
 msgid "Graph"
 msgstr "График"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:111
+#: data/resources/ui/dialogs/settings_dialog.ui:101
 msgid "Normalize Processor Usage"
 msgstr "Нормализация использования процессора"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:112
+#: data/resources/ui/dialogs/settings_dialog.ui:102
 msgid ""
 "If enabled, the total usage of all cores will be divided by the amount of "
 "cores"
@@ -497,90 +463,90 @@ msgstr ""
 "Если включено, общее использование всех ядер будет делиться на количество "
 "ядер"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:122
-#: data/resources/ui/window.ui:65 data/resources/ui/window.ui:72
-#: src/ui/pages/applications/mod.rs:132
+#: data/resources/ui/dialogs/settings_dialog.ui:112
+#: data/resources/ui/window.ui:64 data/resources/ui/window.ui:71
+#: src/ui/pages/applications/mod.rs:140
 msgid "Apps"
 msgstr "Приложения"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:125
-#: data/resources/ui/dialogs/settings_dialog.ui:207
+#: data/resources/ui/dialogs/settings_dialog.ui:115
+#: data/resources/ui/dialogs/settings_dialog.ui:197
 msgid "Information Columns"
 msgstr "Информационные столбцы"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:183
-#: data/resources/ui/dialogs/settings_dialog.ui:295
-#: src/ui/pages/applications/mod.rs:1570 src/ui/pages/applications/mod.rs:1589
-#: src/ui/pages/processes/mod.rs:2160 src/ui/pages/processes/mod.rs:2179
+#: data/resources/ui/dialogs/settings_dialog.ui:173
+#: data/resources/ui/dialogs/settings_dialog.ui:285
+#: src/ui/pages/applications/mod.rs:587 src/ui/pages/processes/mod.rs:771
 msgid "Combined Memory"
 msgstr "Суммарная память"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:193
-#: data/resources/ui/window.ui:105 data/resources/ui/window.ui:112
-#: src/ui/pages/processes/mod.rs:176
+#: data/resources/ui/dialogs/settings_dialog.ui:183
+#: data/resources/ui/window.ui:104 data/resources/ui/window.ui:111
+#: src/ui/pages/processes/mod.rs:182
 msgid "Processes"
 msgstr "Процессы"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:196
-#: data/resources/ui/pages/cpu.ui:22 data/resources/ui/pages/processes.ui:56
+#: data/resources/ui/dialogs/settings_dialog.ui:186
+#: data/resources/ui/pages/cpu.ui:22 data/resources/ui/pages/memory.ui:31
+#: data/resources/ui/pages/processes.ui:56
 msgid "Options"
 msgstr "Параметры"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:199
+#: data/resources/ui/dialogs/settings_dialog.ui:189
 msgid "Show Niceness Values"
 msgstr "Показывать значения уступчивости"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:200
+#: data/resources/ui/dialogs/settings_dialog.ui:190
 msgid ""
 "Display priorities as niceness to allow for more fine-grained adjustments"
 msgstr "Отображать приоритеты в виде уступчивости для более тонкой настройки"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:310
+#: data/resources/ui/dialogs/settings_dialog.ui:300
 msgid "Devices"
 msgstr "Устройства"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:313
+#: data/resources/ui/dialogs/settings_dialog.ui:303
 msgid "Drives"
 msgstr "Диски"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:316
+#: data/resources/ui/dialogs/settings_dialog.ui:306
 msgid "Show Virtual Drives"
 msgstr "Показывать виртуальные диски"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:317
+#: data/resources/ui/dialogs/settings_dialog.ui:307
 msgid "Virtual drives are for example ZFS volumes or mapped devices"
 msgstr ""
 "Виртуальные диски - это, например, тома ZFS или сопоставленные устройства"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:327
+#: data/resources/ui/dialogs/settings_dialog.ui:317
 msgid "Show Virtual Network Interfaces"
 msgstr "Показывать виртуальные сетевые интерфейсы"
 
-#: data/resources/ui/dialogs/settings_dialog.ui:328
+#: data/resources/ui/dialogs/settings_dialog.ui:318
 msgid "Virtual network interfaces are for example bridges or VPN tunnels"
 msgstr "Виртуальные сетевые интерфейсы - это, например, мосты или VPN-туннели"
 
 #: data/resources/ui/pages/applications.ui:6
 #: data/resources/ui/pages/applications.ui:26
-#: src/ui/pages/applications/mod.rs:1662
+#: src/ui/pages/applications/mod.rs:1014
 msgid "Kill App"
 msgstr "Убить приложение"
 
 #: data/resources/ui/pages/applications.ui:10
 #: data/resources/ui/pages/applications.ui:30
-#: src/ui/pages/applications/mod.rs:1661
+#: src/ui/pages/applications/mod.rs:1013
 msgid "Halt App"
 msgstr "Остановить приложение"
 
 #: data/resources/ui/pages/applications.ui:14
 #: data/resources/ui/pages/applications.ui:34
-#: src/ui/pages/applications/mod.rs:1663
+#: src/ui/pages/applications/mod.rs:1015
 msgid "Continue App"
 msgstr "Продолжить приложение"
 
 #: data/resources/ui/pages/applications.ui:22
-#: data/resources/ui/pages/applications.ui:98
-#: src/ui/pages/applications/mod.rs:1660
+#: data/resources/ui/pages/applications.ui:101
+#: src/ui/pages/applications/mod.rs:1012
 msgid "End App"
 msgstr "Завершить приложение"
 
@@ -589,14 +555,9 @@ msgstr "Завершить приложение"
 msgid "Information"
 msgstr "Информация"
 
-#: data/resources/ui/pages/applications.ui:57
+#: data/resources/ui/pages/applications.ui:59
 msgid "Search applications"
 msgstr "Поиск приложений"
-
-#: data/resources/ui/pages/applications.ui:87
-#: data/resources/ui/pages/applications.ui:89
-msgid "Show App Information"
-msgstr "Показать информацию о приложении"
 
 #: data/resources/ui/pages/battery.ui:36
 msgid "Battery Health"
@@ -672,7 +633,7 @@ msgstr "Всего прочитано"
 msgid "Total Written"
 msgstr "Всего записано"
 
-#: data/resources/ui/pages/drive.ui:57 data/resources/ui/pages/memory.ui:72
+#: data/resources/ui/pages/drive.ui:57 data/resources/ui/pages/memory.ui:90
 msgid "Type"
 msgstr "Тип"
 
@@ -703,7 +664,7 @@ msgid "Video Memory Frequency"
 msgstr "Частота видеопамяти"
 
 #: data/resources/ui/pages/gpu.ui:55 data/resources/ui/pages/npu.ui:58
-#: src/ui/pages/battery.rs:218
+#: src/ui/pages/battery.rs:220 src/ui/pages/battery.rs:279
 msgid "Power Usage"
 msgstr "Потребление энергии"
 
@@ -728,19 +689,27 @@ msgstr "Вам необходимо пройти аутентификацию, �
 msgid "Authenticate"
 msgstr "Аутентификация"
 
-#: data/resources/ui/pages/memory.ui:45
+#: data/resources/ui/pages/memory.ui:35
+msgid "Show Swap Devices"
+msgstr "Показывать устройства подкачки"
+
+#: data/resources/ui/pages/memory.ui:54
+msgid "Swap Devices"
+msgstr "Устройства подкачки"
+
+#: data/resources/ui/pages/memory.ui:63
 msgid "Slots Used"
 msgstr "Использовано слотов"
 
-#: data/resources/ui/pages/memory.ui:54
+#: data/resources/ui/pages/memory.ui:72
 msgid "Speed"
 msgstr "Скорость"
 
-#: data/resources/ui/pages/memory.ui:63
+#: data/resources/ui/pages/memory.ui:81
 msgid "Form Factor"
 msgstr "Форм-фактор"
 
-#: data/resources/ui/pages/memory.ui:81
+#: data/resources/ui/pages/memory.ui:99
 msgid "Type Detail"
 msgstr "Подробный тип"
 
@@ -781,17 +750,17 @@ msgid "Memory Frequency"
 msgstr "Частота памяти"
 
 #: data/resources/ui/pages/processes.ui:6
-#: data/resources/ui/pages/processes.ui:42 src/ui/pages/processes/mod.rs:2346
+#: data/resources/ui/pages/processes.ui:42 src/ui/pages/processes/mod.rs:1334
 msgid "Kill Process"
 msgstr "Убить процесс"
 
 #: data/resources/ui/pages/processes.ui:10
-#: data/resources/ui/pages/processes.ui:46 src/ui/pages/processes/mod.rs:2345
+#: data/resources/ui/pages/processes.ui:46 src/ui/pages/processes/mod.rs:1333
 msgid "Halt Process"
 msgstr "Остановить процесс"
 
 #: data/resources/ui/pages/processes.ui:14
-#: data/resources/ui/pages/processes.ui:50 src/ui/pages/processes/mod.rs:2347
+#: data/resources/ui/pages/processes.ui:50 src/ui/pages/processes/mod.rs:1335
 msgid "Continue Process"
 msgstr "Продолжить процесс"
 
@@ -811,28 +780,18 @@ msgid "Continue Processes"
 msgstr "Продолжить процессы"
 
 #: data/resources/ui/pages/processes.ui:38
-#: data/resources/ui/pages/processes.ui:157 src/ui/pages/processes/mod.rs:527
-#: src/ui/pages/processes/mod.rs:2344
+#: data/resources/ui/pages/processes.ui:162 src/ui/pages/processes/mod.rs:821
+#: src/ui/pages/processes/mod.rs:1332
 msgid "End Process"
 msgstr "Завершить процесс"
 
-#: data/resources/ui/pages/processes.ui:70 src/ui/pages/processes/mod.rs:531
+#: data/resources/ui/pages/processes.ui:70 src/ui/pages/processes/mod.rs:825
 msgid "End Processes"
 msgstr "Завершить процессы"
 
-#: data/resources/ui/pages/processes.ui:103
+#: data/resources/ui/pages/processes.ui:107
 msgid "Search processes"
 msgstr "Поиск процессов"
-
-#: data/resources/ui/pages/processes.ui:133
-#: data/resources/ui/pages/processes.ui:135
-msgid "Show Process Options"
-msgstr "Показать параметры процесса"
-
-#: data/resources/ui/pages/processes.ui:146
-#: data/resources/ui/pages/processes.ui:148
-msgid "Show Process Information"
-msgstr "Показать информацию о процессе"
 
 #: data/resources/ui/shortcuts.ui:6
 msgctxt "shortcut window"
@@ -854,125 +813,354 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Выйти"
 
-#: data/resources/ui/shortcuts.ui:29
+#: data/resources/ui/shortcuts.ui:27
+msgctxt "shortcut window"
+msgid "Toggle Sidebar"
+msgstr "Переключить боковую панель"
+
+#: data/resources/ui/shortcuts.ui:35
 msgctxt "shortcut window"
 msgid "Apps/Processes"
 msgstr "Приложения/Процессы"
 
-#: data/resources/ui/shortcuts.ui:32
+#: data/resources/ui/shortcuts.ui:38
 msgctxt "shortcut window"
 msgid "Toggle Search Field"
 msgstr "Переключить поле поиска"
 
-#: data/resources/ui/shortcuts.ui:38
+#: data/resources/ui/shortcuts.ui:44
 msgctxt "shortcut window"
 msgid "End App/Process"
 msgstr "Завершить приложение/процесс"
 
-#: data/resources/ui/shortcuts.ui:44
+#: data/resources/ui/shortcuts.ui:50
 msgctxt "shortcut window"
 msgid "Kill App/Process"
 msgstr "Убить приложение/процесс"
 
-#: data/resources/ui/shortcuts.ui:50
+#: data/resources/ui/shortcuts.ui:56
 msgctxt "shortcut window"
 msgid "Halt App/Process"
 msgstr "Остановить приложение/процесс"
 
-#: data/resources/ui/shortcuts.ui:56
+#: data/resources/ui/shortcuts.ui:62
 msgctxt "shortcut window"
 msgid "Continue App/Process"
 msgstr "Продолжить приложение/процесс"
 
-#: data/resources/ui/shortcuts.ui:62
+#: data/resources/ui/shortcuts.ui:68
 msgctxt "shortcut window"
 msgid "Show Information for App/Process"
 msgstr "Показать информацию о приложении/процессе"
 
-#: data/resources/ui/shortcuts.ui:68
+#: data/resources/ui/shortcuts.ui:74
 msgctxt "shortcut window"
 msgid "Show Process Options"
 msgstr "Показать параметры процесса"
 
 #: data/resources/ui/window.ui:6
-msgid "Preferences"
-msgstr "Настройки"
+msgid "_Preferences"
+msgstr "_Настройки"
 
 #: data/resources/ui/window.ui:10
-msgid "Keyboard Shortcuts"
-msgstr "Комбинации клавиш"
+msgid "_Keyboard Shortcuts"
+msgstr "_Комбинации клавиш"
 
 #: data/resources/ui/window.ui:14
-msgid "About Resources"
-msgstr "О приложении"
+msgid "_About Resources"
+msgstr "_О приложении"
 
-#: data/resources/ui/window.ui:88 data/resources/ui/window.ui:128
+#: data/resources/ui/window.ui:44
+msgid "Main Menu"
+msgstr "Главное меню"
+
+#: data/resources/ui/window.ui:87 data/resources/ui/window.ui:127
 msgid "Search"
 msgstr "Поиск"
 
-#: data/resources/ui/window.ui:90 data/resources/ui/window.ui:130
+#: data/resources/ui/window.ui:89 data/resources/ui/window.ui:129
 msgid "Toggle search field"
 msgstr "Переключить поле поиска"
 
 #. Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
 #. One name per line, please do not remove previous names.
-#: src/application.rs:285
+#: src/application.rs:297
 msgid "translator-credits"
 msgstr ""
 "Сергей Ворон <voron@duck.com>\n"
 "Aleksandr Melman <Alexmelman88@gmail.com>"
 
+#: src/devices/app.rs:256
+msgid "System Processes"
+msgstr "Системные процессы"
+
+#: src/devices/battery.rs:92
+msgid "Charging"
+msgstr "Заряжается"
+
+#: src/devices/battery.rs:93
+msgid "Discharging"
+msgstr "Разряжается"
+
+#: src/devices/battery.rs:94
+msgid "Empty"
+msgstr "Пустая"
+
+#: src/devices/battery.rs:95
+msgid "Full"
+msgstr "Полная"
+
+#: src/devices/battery.rs:96
+msgid "Unknown"
+msgstr "Неизвестно"
+
+#: src/devices/battery.rs:142
+msgid "Nickel-Metal Hydride"
+msgstr "Никель-металлогидридная"
+
+#: src/devices/battery.rs:143
+msgid "Nickel-Cadmium"
+msgstr "Никель-кадмиевая"
+
+#: src/devices/battery.rs:144
+msgid "Nickel-Zinc"
+msgstr "Никель-цинковая"
+
+#: src/devices/battery.rs:145
+msgid "Lead-Acid"
+msgstr "Свинцово-кислотная"
+
+#: src/devices/battery.rs:146
+msgid "Lithium-Ion"
+msgstr "Литий-ионная"
+
+#: src/devices/battery.rs:147
+msgid "Lithium Iron Phosphate"
+msgstr "Литий-железо-фосфатная"
+
+#: src/devices/battery.rs:148
+msgid "Lithium Polymer"
+msgstr "Литий-полимерная"
+
+#: src/devices/battery.rs:149
+msgid "Rechargeable Alkaline Managanese"
+msgstr "Перезаряжаемая щелочно-марганцевая"
+
+#: src/devices/battery.rs:150 src/devices/drive.rs:136
+#: src/devices/gpu/mod.rs:279 src/devices/gpu/mod.rs:289
+#: src/devices/link/mod.rs:54 src/devices/link/wifi.rs:167
+#: src/devices/npu/mod.rs:260 src/devices/npu/mod.rs:266
 #: src/ui/dialogs/app_dialog.rs:155 src/ui/dialogs/process_dialog.rs:133
 #: src/ui/dialogs/process_dialog.rs:137 src/ui/dialogs/process_dialog.rs:146
 #: src/ui/dialogs/process_dialog.rs:148 src/ui/dialogs/process_dialog.rs:171
 #: src/ui/dialogs/process_dialog.rs:178 src/ui/dialogs/process_dialog.rs:185
-#: src/ui/dialogs/process_dialog.rs:192 src/ui/pages/applications/mod.rs:975
-#: src/ui/pages/applications/mod.rs:1117 src/ui/pages/battery.rs:206
-#: src/ui/pages/battery.rs:226 src/ui/pages/battery.rs:232
-#: src/ui/pages/battery.rs:235 src/ui/pages/battery.rs:266
-#: src/ui/pages/battery.rs:290 src/ui/pages/battery.rs:292
-#: src/ui/pages/battery.rs:302 src/ui/pages/cpu.rs:243 src/ui/pages/cpu.rs:258
-#: src/ui/pages/cpu.rs:278 src/ui/pages/cpu.rs:284 src/ui/pages/cpu.rs:290
-#: src/ui/pages/cpu.rs:296 src/ui/pages/cpu.rs:300 src/ui/pages/cpu.rs:303
-#: src/ui/pages/cpu.rs:341 src/ui/pages/cpu.rs:448 src/ui/pages/drive.rs:321
-#: src/ui/pages/drive.rs:352 src/ui/pages/drive.rs:354
-#: src/ui/pages/drive.rs:383 src/ui/pages/drive.rs:385
-#: src/ui/pages/drive.rs:401 src/ui/pages/drive.rs:402
-#: src/ui/pages/drive.rs:409 src/ui/pages/drive.rs:419
-#: src/ui/pages/drive.rs:429 src/ui/pages/drive.rs:435 src/ui/pages/gpu.rs:246
-#: src/ui/pages/gpu.rs:253 src/ui/pages/gpu.rs:298 src/ui/pages/gpu.rs:323
-#: src/ui/pages/gpu.rs:326 src/ui/pages/gpu.rs:337 src/ui/pages/gpu.rs:378
-#: src/ui/pages/gpu.rs:385 src/ui/pages/gpu.rs:397 src/ui/pages/gpu.rs:404
-#: src/ui/pages/gpu.rs:408 src/ui/pages/gpu.rs:438 src/ui/pages/gpu.rs:444
-#: src/ui/pages/memory.rs:227 src/ui/pages/memory.rs:228
-#: src/ui/pages/memory.rs:232 src/ui/pages/memory.rs:233
-#: src/ui/pages/memory.rs:237 src/ui/pages/memory.rs:238
-#: src/ui/pages/memory.rs:266 src/ui/pages/memory.rs:327
-#: src/ui/pages/network.rs:252 src/ui/pages/network.rs:259
-#: src/ui/pages/network.rs:266 src/ui/pages/network.rs:272
-#: src/ui/pages/network.rs:275 src/ui/pages/network.rs:285
-#: src/ui/pages/network.rs:294 src/ui/pages/network.rs:303
-#: src/ui/pages/network.rs:371 src/ui/pages/network.rs:374
-#: src/ui/pages/network.rs:376 src/ui/pages/network.rs:405
-#: src/ui/pages/network.rs:408 src/ui/pages/network.rs:410
-#: src/ui/pages/network.rs:418 src/ui/pages/network.rs:427
-#: src/ui/pages/network.rs:436 src/ui/pages/processes/mod.rs:1275
-#: src/ui/pages/processes/mod.rs:1350 src/ui/pages/processes/mod.rs:1425
-#: src/ui/pages/processes/mod.rs:1500 src/ui/pages/processes/mod.rs:2050
-#: src/ui/pages/processes/mod.rs:2052 src/utils/battery.rs:152
-#: src/utils/drive.rs:137 src/utils/gpu/mod.rs:279 src/utils/gpu/mod.rs:291
-#: src/utils/link/mod.rs:61 src/utils/npu/mod.rs:263 src/utils/npu/mod.rs:269
+#: src/ui/dialogs/process_dialog.rs:192 src/ui/pages/applications/mod.rs:466
+#: src/ui/pages/applications/mod.rs:494 src/ui/pages/battery.rs:208
+#: src/ui/pages/battery.rs:228 src/ui/pages/battery.rs:234
+#: src/ui/pages/battery.rs:237 src/ui/pages/battery.rs:272
+#: src/ui/pages/cpu.rs:246 src/ui/pages/cpu.rs:261 src/ui/pages/cpu.rs:281
+#: src/ui/pages/cpu.rs:287 src/ui/pages/cpu.rs:293 src/ui/pages/cpu.rs:299
+#: src/ui/pages/cpu.rs:303 src/ui/pages/cpu.rs:306 src/ui/pages/cpu.rs:344
+#: src/ui/pages/drive.rs:375 src/ui/pages/gpu.rs:250 src/ui/pages/gpu.rs:257
+#: src/ui/pages/gpu.rs:318 src/ui/pages/gpu.rs:321 src/ui/pages/gpu.rs:332
+#: src/ui/pages/gpu.rs:346 src/ui/pages/memory.rs:289
+#: src/ui/pages/memory.rs:290 src/ui/pages/memory.rs:294
+#: src/ui/pages/memory.rs:295 src/ui/pages/memory.rs:299
+#: src/ui/pages/memory.rs:300 src/ui/pages/memory.rs:328
+#: src/ui/pages/network.rs:253 src/ui/pages/network.rs:260
+#: src/ui/pages/network.rs:267 src/ui/pages/network.rs:273
+#: src/ui/pages/network.rs:276 src/ui/pages/network.rs:286
+#: src/ui/pages/network.rs:295 src/ui/pages/network.rs:304
+#: src/ui/pages/network.rs:383 src/ui/pages/network.rs:397
+#: src/ui/pages/processes/mod.rs:574 src/ui/pages/processes/mod.rs:589
+#: src/ui/pages/processes/mod.rs:604 src/ui/pages/processes/mod.rs:619
+#: src/ui/pages/processes/mod.rs:743 src/ui/pages/processes/mod.rs:745
+#: src/utils/units.rs:354
 msgid "N/A"
 msgstr "Н/Д"
 
-#: src/ui/dialogs/process_options_dialog.rs:147 src/ui/pages/cpu.rs:257
-#: src/ui/pages/cpu.rs:417 src/ui/pages/cpu.rs:421
+#: src/devices/battery.rs:252 src/ui/pages/battery.rs:105
+msgid "Battery"
+msgstr "Батарея"
+
+#: src/devices/battery.rs:255
+#, rust-format
+msgid "{} Battery"
+msgstr "Батарея {}"
+
+#: src/devices/drive.rs:128 src/devices/drive.rs:207
+msgid "CD/DVD/Blu-ray Drive"
+msgstr "Привод CD/DVD/Blu-ray"
+
+#: src/devices/drive.rs:129
+msgid "eMMC Storage"
+msgstr "eMMC накопитель"
+
+#: src/devices/drive.rs:130
+msgid "Flash Storage"
+msgstr "Флеш-накопитель"
+
+#: src/devices/drive.rs:131 src/devices/drive.rs:208
+msgid "Floppy Drive"
+msgstr "Дисковод"
+
+#: src/devices/drive.rs:132
+msgid "Hard Disk Drive"
+msgstr "Жесткий диск"
+
+#: src/devices/drive.rs:133
+msgid "Loop Device"
+msgstr "Петлевое устройство"
+
+#: src/devices/drive.rs:134
+msgid "Mapped Device"
+msgstr "Сопоставленное устройство"
+
+#: src/devices/drive.rs:135
+msgid "NVMe Drive"
+msgstr "NVMe накопитель"
+
+#: src/devices/drive.rs:137
+msgid "Software Raid"
+msgstr "Программный RAID"
+
+#: src/devices/drive.rs:138
+msgid "RAM Disk"
+msgstr "RAM-диск"
+
+#: src/devices/drive.rs:139
+msgid "Solid State Drive"
+msgstr "Твердотельный накопитель"
+
+#: src/devices/drive.rs:140
+msgid "ZFS Volume"
+msgstr "Том ZFS"
+
+#: src/devices/drive.rs:141
+msgid "Compressed RAM Disk (zram)"
+msgstr "Сжатый RAM-диск (zram)"
+
+#: src/devices/drive.rs:209
+#, rust-format
+msgid "{} Loop Device"
+msgstr "Петлевое устройство {}"
+
+#: src/devices/drive.rs:210
+#, rust-format
+msgid "{} Mapped Device"
+msgstr "Сопоставленное устройство {}"
+
+#: src/devices/drive.rs:211
+#, rust-format
+msgid "{} RAID"
+msgstr "RAID {}"
+
+#: src/devices/drive.rs:212
+#, rust-format
+msgid "{} RAM Disk"
+msgstr "RAM-диск {}"
+
+#: src/devices/drive.rs:213
+#, rust-format
+msgid "{} zram Device"
+msgstr "Устройство zram {}"
+
+#: src/devices/drive.rs:214
+#, rust-format
+msgid "{} ZFS Volume"
+msgstr "Том ZFS {}"
+
+#: src/devices/drive.rs:215
+#, rust-format
+msgid "{} Drive"
+msgstr "Диск {}"
+
+#: src/devices/link/wifi.rs:156
+#, rust-format
+msgid "Receive: {}"
+msgstr "Получение: {}"
+
+#: src/devices/link/wifi.rs:157
+#, rust-format
+msgid "Send: {}"
+msgstr "Отправка: {}"
+
+#: src/devices/network.rs:131
+msgid "Bluetooth Tether"
+msgstr "Bluetooth точка доступа"
+
+#: src/devices/network.rs:132
+msgid "Network Bridge"
+msgstr "Сетевой мост"
+
+#: src/devices/network.rs:133
+msgid "Ethernet Connection"
+msgstr "Ethernet подключение"
+
+#: src/devices/network.rs:134
+msgid "Docker Bridge"
+msgstr "Докерный мост"
+
+#: src/devices/network.rs:135
+msgid "InfiniBand Connection"
+msgstr "InfiniBand подключение"
+
+#: src/devices/network.rs:136
+msgid "Incus Bridge"
+msgstr "Мост Incus"
+
+#: src/devices/network.rs:137
+msgid "LXC Bridge"
+msgstr "Мост LXC"
+
+#: src/devices/network.rs:138
+msgid "LXD Bridge"
+msgstr "Мост LXD"
+
+#: src/devices/network.rs:139
+msgid "Serial Line IP Connection"
+msgstr "Последовательное IP подключение"
+
+#: src/devices/network.rs:140
+msgid "VM Network Interface"
+msgstr "Сетевой интерфейс вирт. машины"
+
+#: src/devices/network.rs:141
+msgid "Virtual Ethernet Device"
+msgstr "Виртуальное Ethernet-устройство"
+
+#: src/devices/network.rs:142
+msgid "VM Network Bridge"
+msgstr "Сетевой мост вирт. машины"
+
+#: src/devices/network.rs:143
+msgid "VPN Tunnel"
+msgstr "VPN-туннель"
+
+#: src/devices/network.rs:144
+msgid "VPN Tunnel (WireGuard)"
+msgstr "VPN-туннель (WireGuard)"
+
+#: src/devices/network.rs:145
+msgid "Wi-Fi Connection"
+msgstr "Wi-Fi подключение"
+
+#: src/devices/network.rs:146
+msgid "WWAN Connection"
+msgstr "WWAN подключение"
+
+#: src/devices/network.rs:147 src/ui/pages/network.rs:128
+msgid "Network Interface"
+msgstr "Сетевой интерфейс"
+
+#: src/ui/dialogs/process_options_dialog.rs:146 src/ui/pages/cpu.rs:260
+#: src/ui/pages/cpu.rs:421 src/ui/pages/cpu.rs:425
 #, rust-format
 msgid "CPU {}"
 msgstr "ЦП {}"
 
-#: src/ui/pages/applications/application_entry.rs:188 src/ui/pages/drive.rs:416
-#: src/ui/pages/drive.rs:426 src/ui/pages/processes/process_entry.rs:211
+#: src/ui/pages/applications/application_entry.rs:188
+#: src/ui/pages/processes/process_entry.rs:211
 msgid "No"
 msgstr "Нет"
 
@@ -997,44 +1185,44 @@ msgstr "Да (Portable)"
 msgid "Yes (Snap)"
 msgstr "Да (Snap)"
 
-#: src/ui/pages/applications/mod.rs:663
+#: src/ui/pages/applications/mod.rs:848
 #, rust-format
 msgid "Running Apps: {}"
 msgstr "Запущенные приложения: {}"
 
-#: src/ui/pages/applications/mod.rs:703 src/ui/pages/processes/mod.rs:873
+#: src/ui/pages/applications/mod.rs:888 src/ui/pages/processes/mod.rs:1172
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/ui/pages/applications/mod.rs:749
+#: src/ui/pages/applications/mod.rs:934
 msgid "App"
 msgstr "Приложение"
 
-#: src/ui/pages/applications/mod.rs:1638 src/ui/pages/processes/mod.rs:2293
+#: src/ui/pages/applications/mod.rs:990 src/ui/pages/processes/mod.rs:1281
 #, rust-format
 msgid "End {}?"
 msgstr "Завершить {}?"
 
-#: src/ui/pages/applications/mod.rs:1639 src/ui/pages/processes/mod.rs:2294
+#: src/ui/pages/applications/mod.rs:991 src/ui/pages/processes/mod.rs:1282
 #, rust-format
 msgid "Halt {}?"
 msgstr "Остановить {}?"
 
-#: src/ui/pages/applications/mod.rs:1640 src/ui/pages/processes/mod.rs:2295
+#: src/ui/pages/applications/mod.rs:992 src/ui/pages/processes/mod.rs:1283
 #, rust-format
 msgid "Kill {}?"
 msgstr "Убить {}?"
 
-#: src/ui/pages/applications/mod.rs:1641 src/ui/pages/processes/mod.rs:2296
+#: src/ui/pages/applications/mod.rs:993 src/ui/pages/processes/mod.rs:1284
 #, rust-format
 msgid "Continue {}?"
 msgstr "Продолжить {}?"
 
-#: src/ui/pages/applications/mod.rs:1647 src/ui/pages/processes/mod.rs:2331
-msgid "Unsaved work might be lost."
-msgstr "Несохраненная работа может быть потеряна."
+#: src/ui/pages/applications/mod.rs:999 src/ui/pages/processes/mod.rs:1319
+msgid "Unsaved work might be lost"
+msgstr "Несохраненная работа может быть потеряна"
 
-#: src/ui/pages/applications/mod.rs:1649
+#: src/ui/pages/applications/mod.rs:1001
 msgid ""
 "Halting an app can come with serious risks such as losing data and security "
 "implications. Use with caution."
@@ -1042,7 +1230,7 @@ msgstr ""
 "Остановка приложения может сопровождаться серьезными рисками, такими как "
 "потеря данных и последствия для безопасности. Используйте с осторожностью."
 
-#: src/ui/pages/applications/mod.rs:1652
+#: src/ui/pages/applications/mod.rs:1004
 msgid ""
 "Killing an app can come with serious risks such as losing data and security "
 "implications. Use with caution."
@@ -1050,124 +1238,91 @@ msgstr ""
 "Закрытие приложения может сопровождаться серьезными рисками, такими как "
 "потеря данных и последствия для безопасности. Используйте с осторожностью."
 
-#: src/ui/pages/battery.rs:103 src/utils/battery.rs:258
-msgid "Battery"
-msgstr "Батарея"
-
-#: src/ui/pages/battery.rs:211
+#: src/ui/pages/battery.rs:213 src/ui/pages/battery.rs:259
 msgid "Battery Charge"
 msgstr "Заряд батареи"
 
-#: src/ui/pages/battery.rs:280 src/ui/pages/cpu.rs:438
-#: src/ui/pages/drive.rs:346 src/ui/pages/drive.rs:377 src/ui/pages/gpu.rs:430
-#: src/ui/pages/network.rs:363 src/ui/pages/network.rs:397
-msgid "Highest:"
-msgstr "Наибольшее:"
-
-#: src/ui/pages/cpu.rs:242 src/ui/pages/gpu.rs:213
+#: src/ui/pages/cpu.rs:245 src/ui/pages/gpu.rs:217
 msgid "Total Usage"
 msgstr "Общее использование"
 
-#: src/ui/pages/cpu.rs:271 src/ui/pages/gpu.rs:240
+#: src/ui/pages/cpu.rs:274 src/ui/pages/cpu.rs:440 src/ui/pages/gpu.rs:244
 msgid "Temperature"
 msgstr "Температура"
 
-#: src/ui/pages/drive.rs:126
+#: src/ui/pages/drive.rs:128
 msgid "Drive"
 msgstr "Диск"
 
-#: src/ui/pages/drive.rs:236
+#: src/ui/pages/drive.rs:238
 msgid "Drive Activity"
 msgstr "Активность диска"
 
-#: src/ui/pages/drive.rs:243
+#: src/ui/pages/drive.rs:245 src/ui/pages/drive.rs:379
 msgid "Read Speed"
 msgstr "Скорость чтения"
 
-#: src/ui/pages/drive.rs:247
+#: src/ui/pages/drive.rs:249 src/ui/pages/drive.rs:380
 msgid "Write Speed"
 msgstr "Скорость записи"
 
-#: src/ui/pages/drive.rs:414 src/ui/pages/drive.rs:424
-msgid "Yes"
-msgstr "Да"
-
-#. Translators: This is an abbreviation for "Read" and "Write". This is displayed in the sidebar so your
-#. translation should preferably be quite short or an abbreviation
-#: src/ui/pages/drive.rs:442
-#, rust-format
-msgid "R: {} · W: {}"
-msgstr "Ч: {} · З: {}"
-
-#: src/ui/pages/gpu.rs:221
+#: src/ui/pages/gpu.rs:225
 msgid "Video Encoder/Decoder Usage"
 msgstr "Использование видеокодера/декодера"
 
-#: src/ui/pages/gpu.rs:227
+#: src/ui/pages/gpu.rs:231
 msgid "Video Encoder Usage"
 msgstr "Использование видеокодера"
 
-#: src/ui/pages/gpu.rs:232
+#: src/ui/pages/gpu.rs:236
 msgid "Video Decoder Usage"
 msgstr "Использование видеодекодера"
 
-#: src/ui/pages/gpu.rs:237
+#: src/ui/pages/gpu.rs:241
 msgid "Video Memory Usage"
 msgstr "Использование видеопамяти"
 
-#. Translators: This will be displayed in the sidebar, please try to keep your translation as short as (or even
-#. shorter than) 'Memory'
-#: src/ui/pages/gpu.rs:416
-#, rust-format
-msgid "Memory: {}"
-msgstr "Память: {}"
-
-#: src/ui/pages/memory.rs:262
+#: src/ui/pages/memory.rs:324
 #, rust-format
 msgid "{} of {}"
 msgstr "{} из {}"
 
-#: src/ui/pages/memory.rs:265
+#: src/ui/pages/memory.rs:327
 #, rust-format
 msgid "{} MT/s"
 msgstr "{} МТ/с"
 
-#. Translators: This will be displayed in the sidebar, so your translation for "Swap" should
-#. preferably be quite short or an abbreviation
-#: src/ui/pages/memory.rs:346
+#: src/ui/pages/memory.rs:418
+msgid "Memory Usage"
+msgstr "Использование памяти"
+
+#: src/ui/pages/memory.rs:484
 #, rust-format
-msgid "{} / {} · Swap: {} %"
-msgstr "{} / {} · Подкачка: {} %"
+msgid "{} · {} · Priority: {}"
+msgstr "{} · {} · Приоритет: {}"
 
-#: src/ui/pages/network.rs:127 src/utils/network.rs:147
-msgid "Network Interface"
-msgstr "Сетевой интерфейс"
+#: src/ui/pages/memory.rs:505
+msgid "Swap Usage"
+msgstr "Использование подкачки"
 
-#: src/ui/pages/network.rs:241
+#: src/ui/pages/network.rs:242 src/ui/pages/network.rs:407
 msgid "Receiving"
 msgstr "Получение"
 
-#: src/ui/pages/network.rs:245
+#: src/ui/pages/network.rs:246 src/ui/pages/network.rs:408
 msgid "Sending"
 msgstr "Отправка"
 
-#. Translators: This is an abbreviation for "Receive" and "Send". This is displayed in the sidebar so
-#. your translation should preferably be quite short or an abbreviation
-#: src/ui/pages/network.rs:447
-#, rust-format
-msgid "R: {} · S: {}"
-msgstr "П: {} · О: {}"
-
-#: src/ui/pages/processes/mod.rs:824
+#: src/ui/pages/processes/mod.rs:1123
 #, rust-format
 msgid "Running Processes: {}"
 msgstr "Запущенные процессы: {}"
 
-#: src/ui/pages/processes/mod.rs:922
+#: src/ui/pages/processes/mod.rs:1221
 msgid "Process"
 msgstr "Процесс"
 
-#: src/ui/pages/processes/mod.rs:2303
+#: src/ui/pages/processes/mod.rs:1291
 #, rust-format
 msgid "End process?"
 msgid_plural "End {} processes?"
@@ -1175,7 +1330,7 @@ msgstr[0] "Завершить {} процесс?"
 msgstr[1] "Завершить {} процесса?"
 msgstr[2] "Завершить {} процессов?"
 
-#: src/ui/pages/processes/mod.rs:2309
+#: src/ui/pages/processes/mod.rs:1297
 #, rust-format
 msgid "Halt process?"
 msgid_plural "Halt {} processes?"
@@ -1183,7 +1338,7 @@ msgstr[0] "Остановить {} процесс?"
 msgstr[1] "Остановить {} процесса?"
 msgstr[2] "Остановить {} процессов?"
 
-#: src/ui/pages/processes/mod.rs:2315 src/ui/pages/processes/mod.rs:2321
+#: src/ui/pages/processes/mod.rs:1303 src/ui/pages/processes/mod.rs:1309
 #, rust-format
 msgid "Kill process?"
 msgid_plural "Kill {} processes?"
@@ -1191,7 +1346,7 @@ msgstr[0] "Убить {} процесс?"
 msgstr[1] "Убить {} процесса?"
 msgstr[2] "Убить {} процессов?"
 
-#: src/ui/pages/processes/mod.rs:2333
+#: src/ui/pages/processes/mod.rs:1321
 msgid ""
 "Halting a process can come with serious risks such as losing data and "
 "security implications. Use with caution."
@@ -1199,7 +1354,7 @@ msgstr ""
 "Остановка процесса может сопровождаться серьезными рисками, такими как "
 "потеря данных и последствия для безопасности. Используйте с осторожностью."
 
-#: src/ui/pages/processes/mod.rs:2336
+#: src/ui/pages/processes/mod.rs:1324
 msgid ""
 "Killing a process can come with serious risks such as losing data and "
 "security implications. Use with caution."
@@ -1207,17 +1362,17 @@ msgstr ""
 "Убийство процесса может сопровождаться серьезными рисками, такими как потеря "
 "данных и последствия для безопасности. Используйте с осторожностью."
 
-#: src/ui/window.rs:466
+#: src/ui/window.rs:471
 #, rust-format
 msgid "GPU {}"
 msgstr "Видеоадаптер {}"
 
-#: src/ui/window.rs:496
+#: src/ui/window.rs:500
 #, rust-format
 msgid "NPU {}"
 msgstr "Нейропроцессор {}"
 
-#: src/ui/window.rs:498
+#: src/ui/window.rs:502
 msgid "NPU"
 msgstr "Нейропроцессор"
 
@@ -1335,67 +1490,6 @@ msgstr "Не удалось убить {}"
 msgid "There was a problem continuing {}"
 msgstr "Не удалось продолжить {}"
 
-#: src/utils/app.rs:238
-msgid "System Processes"
-msgstr "Системные процессы"
-
-#: src/utils/battery.rs:93
-msgid "Charging"
-msgstr "Заряжается"
-
-#: src/utils/battery.rs:94
-msgid "Discharging"
-msgstr "Разряжается"
-
-#: src/utils/battery.rs:95
-msgid "Empty"
-msgstr "Пустая"
-
-#: src/utils/battery.rs:96
-msgid "Full"
-msgstr "Полная"
-
-#: src/utils/battery.rs:97
-msgid "Unknown"
-msgstr "Неизвестно"
-
-#: src/utils/battery.rs:143
-msgid "Nickel-Metal Hydride"
-msgstr "Никель-металлогидридная"
-
-#: src/utils/battery.rs:144
-msgid "Nickel-Cadmium"
-msgstr "Никель-кадмиевая"
-
-#: src/utils/battery.rs:145
-msgid "Nickel-Zinc"
-msgstr "Никель-цинковая"
-
-#: src/utils/battery.rs:146
-msgid "Lead-Acid"
-msgstr "Свинцово-кислотная"
-
-#: src/utils/battery.rs:147
-msgid "Lithium-Ion"
-msgstr "Литий-ионная"
-
-#: src/utils/battery.rs:148
-msgid "Lithium Iron Phosphate"
-msgstr "Литий-железо-фосфатная"
-
-#: src/utils/battery.rs:149
-msgid "Lithium Polymer"
-msgstr "Литий-полимерная"
-
-#: src/utils/battery.rs:151
-msgid "Rechargeable Alkaline Managanese"
-msgstr "Перезаряжаемая щелочно-марганцевая"
-
-#: src/utils/battery.rs:256
-#, rust-format
-msgid "{} Battery"
-msgstr "Батарея {}"
-
 #: src/utils/units.rs:91
 #, rust-format
 msgid "{} K"
@@ -1411,642 +1505,543 @@ msgstr "{} °C"
 msgid "{} °F"
 msgstr "{} °F"
 
-#: src/utils/units.rs:113 src/utils/units.rs:127 src/utils/units.rs:147
-#: src/utils/units.rs:161
+#: src/utils/units.rs:122 src/utils/units.rs:136 src/utils/units.rs:156
+#: src/utils/units.rs:170
 #, rust-format
 msgid "{} B"
 msgstr "{} Б"
 
-#: src/utils/units.rs:114 src/utils/units.rs:128
+#: src/utils/units.rs:123 src/utils/units.rs:137
 #, rust-format
 msgid "{} kB"
 msgstr "{} КБ"
 
-#: src/utils/units.rs:115 src/utils/units.rs:129
+#: src/utils/units.rs:124 src/utils/units.rs:138
 #, rust-format
 msgid "{} MB"
 msgstr "{} МБ"
 
-#: src/utils/units.rs:116 src/utils/units.rs:130
+#: src/utils/units.rs:125 src/utils/units.rs:139
 #, rust-format
 msgid "{} GB"
 msgstr "{} ГБ"
 
-#: src/utils/units.rs:117 src/utils/units.rs:131
+#: src/utils/units.rs:126 src/utils/units.rs:140
 #, rust-format
 msgid "{} TB"
 msgstr "{} ТБ"
 
-#: src/utils/units.rs:118 src/utils/units.rs:132
+#: src/utils/units.rs:127 src/utils/units.rs:141
 #, rust-format
 msgid "{} PB"
 msgstr "{} ПБ"
 
-#: src/utils/units.rs:119 src/utils/units.rs:133
+#: src/utils/units.rs:128 src/utils/units.rs:142
 #, rust-format
 msgid "{} EB"
 msgstr "{} ЭБ"
 
-#: src/utils/units.rs:120 src/utils/units.rs:134
+#: src/utils/units.rs:129 src/utils/units.rs:143
 #, rust-format
 msgid "{} ZB"
 msgstr "{} ЗБ"
 
-#: src/utils/units.rs:121 src/utils/units.rs:135
+#: src/utils/units.rs:130 src/utils/units.rs:144
 #, rust-format
 msgid "{} YB"
 msgstr "{} ЙБ"
 
-#: src/utils/units.rs:122 src/utils/units.rs:136
+#: src/utils/units.rs:131 src/utils/units.rs:145
 #, rust-format
 msgid "{} RB"
 msgstr "{} РБ"
 
-#: src/utils/units.rs:123 src/utils/units.rs:137
+#: src/utils/units.rs:132 src/utils/units.rs:146
 #, rust-format
 msgid "{} QB"
 msgstr "{} КвБ"
 
-#: src/utils/units.rs:148 src/utils/units.rs:162
+#: src/utils/units.rs:157 src/utils/units.rs:171
 #, rust-format
 msgid "{} KiB"
 msgstr "{} КиБ"
 
-#: src/utils/units.rs:149 src/utils/units.rs:163
+#: src/utils/units.rs:158 src/utils/units.rs:172
 #, rust-format
 msgid "{} MiB"
 msgstr "{} МиБ"
 
-#: src/utils/units.rs:150 src/utils/units.rs:164
+#: src/utils/units.rs:159 src/utils/units.rs:173
 #, rust-format
 msgid "{} GiB"
 msgstr "{} ГиБ"
 
-#: src/utils/units.rs:151 src/utils/units.rs:165
+#: src/utils/units.rs:160 src/utils/units.rs:174
 #, rust-format
 msgid "{} TiB"
 msgstr "{} ТиБ"
 
-#: src/utils/units.rs:152 src/utils/units.rs:166
+#: src/utils/units.rs:161 src/utils/units.rs:175
 #, rust-format
 msgid "{} PiB"
 msgstr "{} ПиБ"
 
-#: src/utils/units.rs:153 src/utils/units.rs:167
+#: src/utils/units.rs:162 src/utils/units.rs:176
 #, rust-format
 msgid "{} EiB"
 msgstr "{} ЭиБ"
 
-#: src/utils/units.rs:154 src/utils/units.rs:168
+#: src/utils/units.rs:163 src/utils/units.rs:177
 #, rust-format
 msgid "{} ZiB"
 msgstr "{} ЗиБ"
 
-#: src/utils/units.rs:155 src/utils/units.rs:169
+#: src/utils/units.rs:164 src/utils/units.rs:178
 #, rust-format
 msgid "{} YiB"
 msgstr "{} ЙиБ"
 
-#: src/utils/units.rs:156 src/utils/units.rs:170
+#: src/utils/units.rs:165 src/utils/units.rs:179
 #, rust-format
 msgid "{} RiB"
 msgstr "{} РиБ"
 
-#: src/utils/units.rs:157 src/utils/units.rs:171
+#: src/utils/units.rs:166 src/utils/units.rs:180
 #, rust-format
 msgid "{} QiB"
 msgstr "{} КвиБ"
 
-#: src/utils/units.rs:197 src/utils/units.rs:214
+#: src/utils/units.rs:206 src/utils/units.rs:223
 #, rust-format
 msgid "{} B/s"
 msgstr "{} Б/с"
 
-#: src/utils/units.rs:198
+#: src/utils/units.rs:207
 #, rust-format
 msgid "{} kB/s"
 msgstr "{} кБ/с"
 
-#: src/utils/units.rs:199
+#: src/utils/units.rs:208
 #, rust-format
 msgid "{} MB/s"
 msgstr "{} МБ/с"
 
-#: src/utils/units.rs:200
+#: src/utils/units.rs:209
 #, rust-format
 msgid "{} GB/s"
 msgstr "{} ГБ/с"
 
-#: src/utils/units.rs:201
+#: src/utils/units.rs:210
 #, rust-format
 msgid "{} TB/s"
 msgstr "{} ТБ/с"
 
-#: src/utils/units.rs:202
+#: src/utils/units.rs:211
 #, rust-format
 msgid "{} PB/s"
 msgstr "{} ПБ/с"
 
-#: src/utils/units.rs:203
+#: src/utils/units.rs:212
 #, rust-format
 msgid "{} EB/s"
 msgstr "{} ЭБ/с"
 
-#: src/utils/units.rs:204
+#: src/utils/units.rs:213
 #, rust-format
 msgid "{} ZB/s"
 msgstr "{} ЗБ/с"
 
-#: src/utils/units.rs:205
+#: src/utils/units.rs:214
 #, rust-format
 msgid "{} YB/s"
 msgstr "{} ЙБ/с"
 
-#: src/utils/units.rs:206
+#: src/utils/units.rs:215
 #, rust-format
 msgid "{} RB/s"
 msgstr "{} РБ/с"
 
-#: src/utils/units.rs:207
+#: src/utils/units.rs:216
 #, rust-format
 msgid "{} QB/s"
 msgstr "{} КвБ/с"
 
-#: src/utils/units.rs:215
+#: src/utils/units.rs:224
 #, rust-format
 msgid "{} KiB/s"
 msgstr "{} КиБ/с"
 
-#: src/utils/units.rs:216
+#: src/utils/units.rs:225
 #, rust-format
 msgid "{} MiB/s"
 msgstr "{} МиБ/с"
 
-#: src/utils/units.rs:217
+#: src/utils/units.rs:226
 #, rust-format
 msgid "{} GiB/s"
 msgstr "{} ГиБ/с"
 
-#: src/utils/units.rs:218
+#: src/utils/units.rs:227
 #, rust-format
 msgid "{} TiB/s"
 msgstr "{} ТиБ/с"
 
-#: src/utils/units.rs:219
+#: src/utils/units.rs:228
 #, rust-format
 msgid "{} PiB/s"
 msgstr "{} ПиБ/с"
 
-#: src/utils/units.rs:220
+#: src/utils/units.rs:229
 #, rust-format
 msgid "{} EiB/s"
 msgstr "{} ЭиБ/с"
 
-#: src/utils/units.rs:221
+#: src/utils/units.rs:230
 #, rust-format
 msgid "{} ZiB/s"
 msgstr "{} ЗиБ/с"
 
-#: src/utils/units.rs:222
+#: src/utils/units.rs:231
 #, rust-format
 msgid "{} YiB/s"
 msgstr "{} ЙиБ/с"
 
-#: src/utils/units.rs:223
+#: src/utils/units.rs:232
 #, rust-format
 msgid "{} RiB/s"
 msgstr "{} РиБ/с"
 
-#: src/utils/units.rs:224
+#: src/utils/units.rs:233
 #, rust-format
 msgid "{} QiB/s"
 msgstr "{} КвиБ/с"
 
-#: src/utils/units.rs:238 src/utils/units.rs:255
+#: src/utils/units.rs:247 src/utils/units.rs:264
 #, rust-format
 msgid "{} b/s"
 msgstr "{} бит/с"
 
-#: src/utils/units.rs:239
+#: src/utils/units.rs:248
 #, rust-format
 msgid "{} kb/s"
 msgstr "{} кбит/с"
 
-#: src/utils/units.rs:240
+#: src/utils/units.rs:249
 #, rust-format
 msgid "{} Mb/s"
 msgstr "{} Мбит/с"
 
-#: src/utils/units.rs:241
+#: src/utils/units.rs:250
 #, rust-format
 msgid "{} Gb/s"
 msgstr "{} Гбит/с"
 
-#: src/utils/units.rs:242
+#: src/utils/units.rs:251
 #, rust-format
 msgid "{} Tb/s"
 msgstr "{} Тбит/с"
 
-#: src/utils/units.rs:243
+#: src/utils/units.rs:252
 #, rust-format
 msgid "{} Pb/s"
 msgstr "{} Пбит/с"
 
-#: src/utils/units.rs:244
+#: src/utils/units.rs:253
 #, rust-format
 msgid "{} Eb/s"
 msgstr "{} Эбит/с"
 
-#: src/utils/units.rs:245
+#: src/utils/units.rs:254
 #, rust-format
 msgid "{} Zb/s"
 msgstr "{} Збит/с"
 
-#: src/utils/units.rs:246
+#: src/utils/units.rs:255
 #, rust-format
 msgid "{} Yb/s"
 msgstr "{} Йбит/с"
 
-#: src/utils/units.rs:247
+#: src/utils/units.rs:256
 #, rust-format
 msgid "{} Rb/s"
 msgstr "{} Рбит/с"
 
-#: src/utils/units.rs:248
+#: src/utils/units.rs:257
 #, rust-format
 msgid "{} Qb/s"
 msgstr "{} Квбит/с"
 
-#: src/utils/units.rs:256
+#: src/utils/units.rs:265
 #, rust-format
 msgid "{} Kib/s"
 msgstr "{} Кибит/с"
 
-#: src/utils/units.rs:257
+#: src/utils/units.rs:266
 #, rust-format
 msgid "{} Mib/s"
 msgstr "{} Мибит/с"
 
-#: src/utils/units.rs:258
+#: src/utils/units.rs:267
 #, rust-format
 msgid "{} Gib/s"
 msgstr "{} Гибит/с"
 
-#: src/utils/units.rs:259
+#: src/utils/units.rs:268
 #, rust-format
 msgid "{} Tib/s"
 msgstr "{} Тибит/с"
 
-#: src/utils/units.rs:260
+#: src/utils/units.rs:269
 #, rust-format
 msgid "{} Pib/s"
 msgstr "{} Пибит/с"
 
-#: src/utils/units.rs:261
+#: src/utils/units.rs:270
 #, rust-format
 msgid "{} Eib/s"
 msgstr "{} Эибит/с"
 
-#: src/utils/units.rs:262
+#: src/utils/units.rs:271
 #, rust-format
 msgid "{} Zib/s"
 msgstr "{} Зибит/с"
 
-#: src/utils/units.rs:263
+#: src/utils/units.rs:272
 #, rust-format
 msgid "{} Yib/s"
 msgstr "{} Йибит/с"
 
-#: src/utils/units.rs:264
+#: src/utils/units.rs:273
 #, rust-format
 msgid "{} Rib/s"
 msgstr "{} Рибит/с"
 
-#: src/utils/units.rs:265
+#: src/utils/units.rs:274
 #, rust-format
 msgid "{} Qib/s"
 msgstr "{} Квибит/с"
 
-#: src/utils/units.rs:272
+#: src/utils/units.rs:281
 #, rust-format
 msgid "{} Hz"
 msgstr "{} Гц"
 
-#: src/utils/units.rs:273
+#: src/utils/units.rs:282
 #, rust-format
 msgid "{} kHz"
 msgstr "{} кГц"
 
-#: src/utils/units.rs:274
+#: src/utils/units.rs:283
 #, rust-format
 msgid "{} MHz"
 msgstr "{} МГц"
 
-#: src/utils/units.rs:275
+#: src/utils/units.rs:284
 #, rust-format
 msgid "{} GHz"
 msgstr "{} ГГц"
 
-#: src/utils/units.rs:276
+#: src/utils/units.rs:285
 #, rust-format
 msgid "{} THz"
 msgstr "{} ТГц"
 
-#: src/utils/units.rs:277
+#: src/utils/units.rs:286
 #, rust-format
 msgid "{} PHz"
 msgstr "{} ПГц"
 
-#: src/utils/units.rs:278
+#: src/utils/units.rs:287
 #, rust-format
 msgid "{} EHz"
 msgstr "{} ЭГц"
 
-#: src/utils/units.rs:279
+#: src/utils/units.rs:288
 #, rust-format
 msgid "{} ZHz"
 msgstr "{} ЗГц"
 
-#: src/utils/units.rs:280
+#: src/utils/units.rs:289
 #, rust-format
 msgid "{} YHz"
 msgstr "{} ЙГц"
 
-#: src/utils/units.rs:281
+#: src/utils/units.rs:290
 #, rust-format
 msgid "{} RHz"
 msgstr "{} РГц"
 
-#: src/utils/units.rs:282
+#: src/utils/units.rs:291
 #, rust-format
 msgid "{} QHz"
 msgstr "{} КвГц"
 
-#: src/utils/units.rs:289
+#: src/utils/units.rs:298
 #, rust-format
 msgid "{} W"
 msgstr "{} Вт"
 
-#: src/utils/units.rs:290
+#: src/utils/units.rs:299
 #, rust-format
 msgid "{} kW"
 msgstr "{} кВт"
 
-#: src/utils/units.rs:291
+#: src/utils/units.rs:300
 #, rust-format
 msgid "{} MW"
 msgstr "{} МВт"
 
-#: src/utils/units.rs:292
+#: src/utils/units.rs:301
 #, rust-format
 msgid "{} GW"
 msgstr "{} ГВт"
 
-#: src/utils/units.rs:293
+#: src/utils/units.rs:302
 #, rust-format
 msgid "{} TW"
 msgstr "{} ТВт"
 
-#: src/utils/units.rs:294
+#: src/utils/units.rs:303
 #, rust-format
 msgid "{} PW"
 msgstr "{} ПВт"
 
-#: src/utils/units.rs:295
+#: src/utils/units.rs:304
 #, rust-format
 msgid "{} EW"
 msgstr "{} ЭВт"
 
-#: src/utils/units.rs:296
+#: src/utils/units.rs:305
 #, rust-format
 msgid "{} ZW"
 msgstr "{} ЗВт"
 
-#: src/utils/units.rs:297
+#: src/utils/units.rs:306
 #, rust-format
 msgid "{} YW"
 msgstr "{} ЙВт"
 
-#: src/utils/units.rs:298
+#: src/utils/units.rs:307
 #, rust-format
 msgid "{} RW"
 msgstr "{} РВт"
 
-#: src/utils/units.rs:299
+#: src/utils/units.rs:308
 #, rust-format
 msgid "{} QW"
 msgstr "{} КвВт"
 
-#: src/utils/units.rs:308 src/utils/units.rs:322
+#: src/utils/units.rs:317 src/utils/units.rs:331
 #, rust-format
 msgid "{} Wh"
 msgstr "{} Вт⋅ч"
 
-#: src/utils/units.rs:309 src/utils/units.rs:323
+#: src/utils/units.rs:318 src/utils/units.rs:332
 #, rust-format
 msgid "{} kWh"
 msgstr "{} кВт⋅ч"
 
-#: src/utils/units.rs:310 src/utils/units.rs:324
+#: src/utils/units.rs:319 src/utils/units.rs:333
 #, rust-format
 msgid "{} MWh"
 msgstr "{} МВт⋅ч"
 
-#: src/utils/units.rs:311 src/utils/units.rs:325
+#: src/utils/units.rs:320 src/utils/units.rs:334
 #, rust-format
 msgid "{} GWh"
 msgstr "{} ГВт⋅ч"
 
-#: src/utils/units.rs:312 src/utils/units.rs:326
+#: src/utils/units.rs:321 src/utils/units.rs:335
 #, rust-format
 msgid "{} TWh"
 msgstr "{} ТВт⋅ч"
 
-#: src/utils/units.rs:313 src/utils/units.rs:327
+#: src/utils/units.rs:322 src/utils/units.rs:336
 #, rust-format
 msgid "{} PWh"
 msgstr "{} ПВт⋅ч"
 
-#: src/utils/units.rs:314 src/utils/units.rs:328
+#: src/utils/units.rs:323 src/utils/units.rs:337
 #, rust-format
 msgid "{} EWh"
 msgstr "{} ЭВт⋅ч"
 
-#: src/utils/units.rs:315 src/utils/units.rs:329
+#: src/utils/units.rs:324 src/utils/units.rs:338
 #, rust-format
 msgid "{} ZWh"
 msgstr "{} ЗВт⋅ч"
 
-#: src/utils/units.rs:316 src/utils/units.rs:330
+#: src/utils/units.rs:325 src/utils/units.rs:339
 #, rust-format
 msgid "{} YWh"
 msgstr "{} ЙВт⋅ч"
 
-#: src/utils/units.rs:317 src/utils/units.rs:331
+#: src/utils/units.rs:326 src/utils/units.rs:340
 #, rust-format
 msgid "{} RWh"
 msgstr "{} РВт⋅ч"
 
-#: src/utils/units.rs:318 src/utils/units.rs:332
+#: src/utils/units.rs:327 src/utils/units.rs:341
 #, rust-format
 msgid "{} QWh"
 msgstr "{} КвВт⋅ч"
 
-#: src/utils/units.rs:338
+#: src/utils/units.rs:347
 #, rust-format
 msgid "{} TOPs"
 msgstr "{} Тфлопс"
 
-#: src/utils/drive.rs:129 src/utils/drive.rs:208
-msgid "CD/DVD/Blu-ray Drive"
-msgstr "Привод CD/DVD/Blu-ray"
+#~ msgid "Show Usage Details in Sidebar"
+#~ msgstr "Показывать подробную информацию об использовании в боковой панели"
 
-#: src/utils/drive.rs:130
-msgid "eMMC Storage"
-msgstr "eMMC накопитель"
+#~ msgid "If enabled, the usage along with other information will be displayed"
+#~ msgstr ""
+#~ "Если включено, на экране будет отображаться информация об использовании и "
+#~ "другие сведения"
 
-#: src/utils/drive.rs:131
-msgid "Flash Storage"
-msgstr "Флеш-накопитель"
+#~ msgid "Show Device Descriptions in Sidebar"
+#~ msgstr "Показывать описания устройств в боковой панели"
 
-#: src/utils/drive.rs:132 src/utils/drive.rs:209
-msgid "Floppy Drive"
-msgstr "Дисковод"
+#~ msgid ""
+#~ "If enabled, a device identifier like its name or device type will be "
+#~ "displayed"
+#~ msgstr ""
+#~ "Если включено, будет отображаться идентификатор устройства, например его "
+#~ "название или тип устройства"
 
-#: src/utils/drive.rs:133
-msgid "Hard Disk Drive"
-msgstr "Жесткий диск"
-
-#: src/utils/drive.rs:134
-msgid "Loop Device"
-msgstr "Петлевое устройство"
-
-#: src/utils/drive.rs:135
-msgid "Mapped Device"
-msgstr "Сопоставленное устройство"
-
-#: src/utils/drive.rs:136
-msgid "NVMe Drive"
-msgstr "NVMe накопитель"
-
-#: src/utils/drive.rs:138
-msgid "Software Raid"
-msgstr "Программный RAID"
-
-#: src/utils/drive.rs:139
-msgid "RAM Disk"
-msgstr "RAM-диск"
-
-#: src/utils/drive.rs:140
-msgid "Solid State Drive"
-msgstr "Твердотельный накопитель"
-
-#: src/utils/drive.rs:141
-msgid "ZFS Volume"
-msgstr "Том ZFS"
-
-#: src/utils/drive.rs:142
-msgid "Compressed RAM Disk (zram)"
-msgstr "Сжатый RAM-диск (zram)"
-
-#: src/utils/drive.rs:210
 #, rust-format
-msgid "{} Loop Device"
-msgstr "Петлевое устройство {}"
+#~ msgid "R: {} · W: {}"
+#~ msgstr "Ч: {} · З: {}"
 
-#: src/utils/drive.rs:211
 #, rust-format
-msgid "{} Mapped Device"
-msgstr "Сопоставленное устройство {}"
+#~ msgid "{} / {} · Swap: {} %"
+#~ msgstr "{} / {} · Подкачка: {} %"
 
-#: src/utils/drive.rs:212
 #, rust-format
-msgid "{} RAID"
-msgstr "RAID {}"
+#~ msgid "R: {} · S: {}"
+#~ msgstr "П: {} · О: {}"
 
-#: src/utils/drive.rs:213
+#~ msgid "Select which processor cores the process is allowed to run on"
+#~ msgstr "Выберите, на каких ядрах процессора может выполняться процесс"
+
+#~ msgid "Show App Information"
+#~ msgstr "Показать информацию о приложении"
+
+#~ msgid "Show Process Options"
+#~ msgstr "Показать параметры процесса"
+
+#~ msgid "Show Process Information"
+#~ msgstr "Показать информацию о процессе"
+
+#~ msgid "Highest:"
+#~ msgstr "Наибольшее:"
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
 #, rust-format
-msgid "{} RAM Disk"
-msgstr "RAM-диск {}"
-
-#: src/utils/drive.rs:214
-#, rust-format
-msgid "{} zram Device"
-msgstr "Устройство zram {}"
-
-#: src/utils/drive.rs:215
-#, rust-format
-msgid "{} ZFS Volume"
-msgstr "Том ZFS {}"
-
-#: src/utils/drive.rs:216
-#, rust-format
-msgid "{} Drive"
-msgstr "Диск {}"
-
-#: src/utils/network.rs:131
-msgid "Bluetooth Tether"
-msgstr "Bluetooth точка доступа"
-
-#: src/utils/network.rs:132
-msgid "Network Bridge"
-msgstr "Сетевой мост"
-
-#: src/utils/network.rs:133
-msgid "Ethernet Connection"
-msgstr "Ethernet подключение"
-
-#: src/utils/network.rs:134
-msgid "Docker Bridge"
-msgstr "Докерный мост"
-
-#: src/utils/network.rs:135
-msgid "InfiniBand Connection"
-msgstr "InfiniBand подключение"
-
-#: src/utils/network.rs:136
-msgid "Incus Bridge"
-msgstr "Мост Incus"
-
-#: src/utils/network.rs:137
-msgid "LXC Bridge"
-msgstr "Мост LXC"
-
-#: src/utils/network.rs:138
-msgid "LXD Bridge"
-msgstr "Мост LXD"
-
-#: src/utils/network.rs:139
-msgid "Serial Line IP Connection"
-msgstr "Последовательное IP подключение"
-
-#: src/utils/network.rs:140
-msgid "VM Network Interface"
-msgstr "Сетевой интерфейс вирт. машины"
-
-#: src/utils/network.rs:141
-msgid "Virtual Ethernet Device"
-msgstr "Виртуальное Ethernet-устройство"
-
-#: src/utils/network.rs:142
-msgid "VM Network Bridge"
-msgstr "Сетевой мост вирт. машины"
-
-#: src/utils/network.rs:143
-msgid "VPN Tunnel"
-msgstr "VPN-туннель"
-
-#: src/utils/network.rs:144
-msgid "VPN Tunnel (WireGuard)"
-msgstr "VPN-туннель (WireGuard)"
-
-#: src/utils/network.rs:145
-msgid "Wi-Fi Connection"
-msgstr "Wi-Fi подключение"
-
-#: src/utils/network.rs:146
-msgid "WWAN Connection"
-msgstr "WWAN подключение"
+#~ msgid "Memory: {}"
+#~ msgstr "Память: {}"
 
 #~ msgid "Report Issues"
 #~ msgstr "Сообщить о проблемах"
@@ -2056,9 +2051,6 @@ msgstr "WWAN подключение"
 
 #~ msgid "The Nalux Team"
 #~ msgstr "The Nalux Team"
-
-#~ msgid "Memory Usage"
-#~ msgstr "Использование памяти"
 
 #~ msgid "Show Search Fields on Launch"
 #~ msgstr "Показывать поля поиска при запуске"

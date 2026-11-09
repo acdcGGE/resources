@@ -4,10 +4,11 @@ use adw::{glib::property::PropertySet, prelude::*, subclass::prelude::*};
 use gtk::glib;
 use log::trace;
 
-use crate::config::PROFILE;
-use crate::i18n::{i18n, i18n_f};
+use crate::config::DEVLOPMENT_BUILD;
+use crate::devices::drive::{Drive, DriveData};
+use crate::ui::widgets::stack_sidebar_item::UsageLabels;
 use crate::ui::{set_subtitle_boolean_maybe, set_subtitle_converted_maybe};
-use crate::utils::drive::{Drive, DriveData};
+use crate::utils::i18n::i18n;
 use crate::utils::units::convert_storage;
 
 pub const TAB_ID_PREFIX: &str = "drive";
@@ -29,7 +30,7 @@ mod imp {
     };
 
     #[derive(CompositeTemplate, Properties)]
-    #[template(resource = "/net/nokyan/Resources/ui/pages/drive.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/pages/drive.ui")]
     #[properties(wrapper_type = super::ResDrive)]
     pub struct ResDrive {
         #[template_child]
@@ -58,7 +59,7 @@ mod imp {
         pub last_timestamp: Cell<SystemTime>,
 
         #[property(get)]
-        uses_progress_bar: Cell<bool>,
+        uses_meter: Cell<bool>,
 
         #[property(get)]
         main_graph_color: glib::Bytes,
@@ -75,8 +76,8 @@ mod imp {
         #[property(get = Self::tab_detail_string, set = Self::set_tab_detail_string, type = glib::GString)]
         tab_detail_string: Cell<glib::GString>,
 
-        #[property(get = Self::tab_usage_string, set = Self::set_tab_usage_string, type = glib::GString)]
-        tab_usage_string: Cell<glib::GString>,
+        #[property(get, set, type = UsageLabels)]
+        tab_usage_labels: RefCell<UsageLabels>,
 
         #[property(get = Self::tab_id, set = Self::set_tab_id, type = glib::GString)]
         tab_id: Cell<glib::GString>,
@@ -92,7 +93,7 @@ mod imp {
     }
 
     impl ResDrive {
-        gstring_getter_setter!(tab_name, tab_detail_string, tab_usage_string, tab_id);
+        gstring_getter_setter!(tab_name, tab_detail_string, tab_id);
 
         pub fn icon(&self) -> Icon {
             let icon = self.icon.replace_with(|_| Drive::default_icon());
@@ -120,7 +121,7 @@ mod imp {
                 writable: Default::default(),
                 removable: Default::default(),
                 link: Default::default(),
-                uses_progress_bar: Cell::new(true),
+                uses_meter: Cell::new(true),
                 main_graph_color: glib::Bytes::from_static(&super::ResDrive::MAIN_GRAPH_COLOR),
                 icon: RefCell::new(Drive::default_icon()),
                 usage: Default::default(),
@@ -133,7 +134,7 @@ mod imp {
                         .checked_sub(Duration::from_secs(1))
                         .unwrap(),
                 ),
-                tab_usage_string: Cell::new(glib::GString::new()),
+                tab_usage_labels: Default::default(),
                 graph_locked_max_y: Cell::new(true),
                 primary_ord: Cell::new(DRIVE_PRIMARY_ORD),
                 secondary_ord: Default::default(),
@@ -163,7 +164,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -260,10 +261,7 @@ impl ResDrive {
         );
 
         if let Some(model_name) = &drive_data.inner.model {
-            imp.set_tab_detail_string(&format!(
-                "{model_name} ({})",
-                &drive_data.inner.block_device
-            ));
+            imp.set_tab_detail_string(&format!("{model_name} ({})", drive_data.inner.block_device));
         } else {
             imp.set_tab_detail_string(&drive_data.inner.block_device);
         }
@@ -377,12 +375,10 @@ impl ResDrive {
             imp.link.set_subtitle(&i18n("N/A"));
         }
 
-        self.set_property(
-            "tab_usage_string",
-            // Translators: This is an abbreviation for "Read" and "Write". This is displayed in the sidebar so your
-            // translation should preferably be quite short or an abbreviation
-            i18n_f("R: {} · W: {}", &[&read_speed_string, &write_speed_string]),
-        );
+        let mut usage_labels = UsageLabels::default();
+        usage_labels.add_with_icon("read-symbolic", i18n("Read Speed"), read_speed_string);
+        usage_labels.add_with_icon("write-symbolic", i18n("Write Speed"), write_speed_string);
+        self.set_tab_usage_labels(usage_labels);
 
         *imp.old_stats.borrow_mut() = disk_stats;
         imp.last_timestamp.set(SystemTime::now());

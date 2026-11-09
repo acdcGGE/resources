@@ -4,12 +4,12 @@ use adw::{prelude::*, subclass::prelude::*};
 use glib::clone;
 use gtk::{gdk, gio, glib};
 
-use crate::config::{self, APP_ID, PKGDATADIR, PROFILE, VERSION};
-use crate::i18n::i18n;
+use crate::config::{self, APP_ID, DEVLOPMENT_BUILD, VERSION};
+use crate::devices::process::ProcessAction;
 use crate::ui::dialogs::settings_dialog::ResSettingsDialog;
 use crate::ui::window::MainWindow;
+use crate::utils::i18n::i18n;
 use crate::utils::os::OsInfo;
-use crate::utils::process::ProcessAction;
 
 mod imp {
     use std::{cell::Cell, sync::OnceLock};
@@ -83,7 +83,7 @@ impl Application {
         glib::Object::builder::<Self>()
             .property("application-id", Some(APP_ID))
             .property("flags", gio::ApplicationFlags::empty())
-            .property("resource-base-path", Some("/net/nokyan/Resources/"))
+            .property("resource-base-path", Some("/org/gnome/Resources/"))
             .build()
     }
 
@@ -215,6 +215,17 @@ impl Application {
             }
         ));
         self.add_action(&action_process_options);
+
+        // Toggle Sidebar
+        let action_toggle_sidebar = gio::SimpleAction::new("toggle-sidebar", None);
+        action_toggle_sidebar.connect_activate(clone!(
+            #[weak(rename_to = this)]
+            self,
+            move |_, _| {
+                this.main_window().toggle_sidebar();
+            }
+        ));
+        self.add_action(&action_toggle_sidebar);
     }
 
     // Sets up keyboard shortcuts
@@ -228,11 +239,12 @@ impl Application {
         self.set_accels_for_action("app.continue-app-process", &["<Control>N"]);
         self.set_accels_for_action("app.information-app-process", &["<Control>I"]);
         self.set_accels_for_action("app.process-options", &["<Control>O"]);
+        self.set_accels_for_action("app.toggle-sidebar", &["F9"]);
     }
 
     fn setup_css(&self) {
         let provider = gtk::CssProvider::new();
-        provider.load_from_resource("/net/nokyan/Resources/style.css");
+        provider.load_from_resource("/org/gnome/Resources/style.css");
         if let Some(display) = gdk::Display::default() {
             gtk::style_context_add_provider_for_display(
                 &display,
@@ -271,13 +283,13 @@ impl Application {
         let about = adw::AboutDialog::builder()
             .application_name(i18n("Resources"))
             .application_icon(config::APP_ID)
-            .issue_url("https://github.com/nokyan/resources/issues")
-            .developer_name("nokyan")
+            .issue_url("https://gitlab.gnome.org/GNOME/Incubator/resources/issues")
+            .developer_name("The GNOME Project")
             .developers(vec!["nokyan <hello@nokyan.net>"])
             .artists(["Avhiren"])
             .license_type(gtk::License::Gpl30)
             .version(config::VERSION)
-            .website("https://apps.gnome.org/app/net.nokyan.Resources/")
+            .website("https://apps.gnome.org/app/org.gnome.Resources/")
             .build();
 
         // Translator credits. Replace "translator-credits" with your name/username, and optionally an email or URL.
@@ -290,8 +302,7 @@ impl Application {
     pub fn run(&self) {
         trace!("Starting the application");
         info!("Resources ({APP_ID})");
-        info!("Version: {VERSION} ({PROFILE})");
-        info!("Datadir: `{PKGDATADIR}`");
+        info!("Version: {VERSION} ({DEVLOPMENT_BUILD})");
 
         if log::log_enabled!(log::Level::Debug) {
             let os_info = OsInfo::get();
@@ -305,7 +316,7 @@ impl Application {
             );
         }
 
-        if PROFILE == "Devel" {
+        if DEVLOPMENT_BUILD {
             info!(
                 "You are running a development version of Resources, things may be slow or break!"
             );

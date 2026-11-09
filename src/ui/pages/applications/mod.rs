@@ -14,14 +14,15 @@ use gtk::{
 };
 
 use crate::add_column;
-use crate::config::PROFILE;
-use crate::i18n::{i18n, i18n_f};
+use crate::config::DEVLOPMENT_BUILD;
+use crate::devices::app::AppsContext;
+use crate::devices::process::ProcessAction;
 use crate::ui::dialogs::app_dialog::ResAppDialog;
 use crate::ui::pages::{MAX_PERCENTAGE_LENGTH, MAX_SPEED_LENGTH, MAX_STORAGE_LENGTH};
+use crate::ui::widgets::stack_sidebar_item::UsageLabels;
 use crate::ui::window::{Action, MainWindow};
 use crate::utils::NUM_CPUS;
-use crate::utils::app::AppsContext;
-use crate::utils::process::ProcessAction;
+use crate::utils::i18n::{i18n, i18n_f};
 use crate::utils::settings::SETTINGS;
 use crate::utils::units::{convert_fraction, convert_speed, convert_storage};
 
@@ -36,7 +37,9 @@ mod imp {
         sync::OnceLock,
     };
 
-    use crate::ui::{pages::APPLICATIONS_PRIMARY_ORD, window::Action};
+    use crate::ui::{
+        pages::APPLICATIONS_PRIMARY_ORD, widgets::stack_sidebar_item::UsageLabels, window::Action,
+    };
 
     use super::*;
 
@@ -47,7 +50,7 @@ mod imp {
     };
 
     #[derive(CompositeTemplate, Properties)]
-    #[template(resource = "/net/nokyan/Resources/ui/pages/applications.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/pages/applications.ui")]
     #[properties(wrapper_type = super::ResApplications)]
     pub struct ResApplications {
         #[template_child]
@@ -64,6 +67,8 @@ mod imp {
         pub information_button: TemplateChild<gtk::Button>,
         #[template_child]
         pub end_application_button: TemplateChild<adw::SplitButton>,
+        #[template_child]
+        pub toolbar_view: TemplateChild<adw::ToolbarView>,
 
         pub store: RefCell<gio::ListStore>,
         pub selection_model: RefCell<gtk::SingleSelection>,
@@ -80,7 +85,7 @@ mod imp {
         pub columns: RefCell<Vec<ColumnViewColumn>>,
 
         #[property(get)]
-        uses_progress_bar: Cell<bool>,
+        uses_meter: Cell<bool>,
 
         #[property(get)]
         icon: RefCell<Icon>,
@@ -91,8 +96,8 @@ mod imp {
         #[property(get = Self::tab_detail_string, type = glib::GString)]
         tab_detail_string: Cell<glib::GString>,
 
-        #[property(get = Self::tab_usage_string, set = Self::set_tab_usage_string, type = glib::GString)]
-        tab_usage_string: Cell<glib::GString>,
+        #[property(get, set, type = UsageLabels)]
+        tab_usage_labels: RefCell<UsageLabels>,
 
         #[property(get = Self::tab_id, type = glib::GString)]
         tab_id: Cell<glib::GString>,
@@ -108,7 +113,7 @@ mod imp {
     }
 
     impl ResApplications {
-        gstring_getter_setter!(tab_name, tab_detail_string, tab_usage_string, tab_id);
+        gstring_getter_setter!(tab_name, tab_detail_string, tab_id);
     }
 
     impl Default for ResApplications {
@@ -129,11 +134,12 @@ mod imp {
                 sender: Default::default(),
                 applications_scrolled_window: Default::default(),
                 end_application_button: Default::default(),
-                uses_progress_bar: Cell::new(false),
+                toolbar_view: Default::default(),
+                uses_meter: Cell::new(false),
                 icon: RefCell::new(ThemedIcon::new("app-symbolic").into()),
                 tab_name: Cell::from(glib::GString::from(i18n("Apps"))),
                 tab_detail_string: Cell::new(glib::GString::new()),
-                tab_usage_string: Cell::new(glib::GString::new()),
+                tab_usage_labels: Default::default(),
                 tab_id: Cell::new(glib::GString::from(TAB_ID)),
                 popped_over_app: Default::default(),
                 columns: Default::default(),
@@ -260,7 +266,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
@@ -344,8 +350,8 @@ impl ResApplications {
                     popover_menu.set_pointing_to(Some(&gtk::gdk::Rectangle::new(
                         position.x().round() as i32,
                         position.y().round() as i32,
-                        1,
-                        1,
+                        0,
+                        0,
                     )));
 
                     popover_menu.popup();
@@ -595,10 +601,12 @@ impl ResApplications {
         imp.selection_model
             .borrow()
             .connect_selection_changed(clone!(
-                #[weak(rename_to = this)]
-                self,
+                #[weak]
+                imp,
                 move |model, _, _| {
-                    let imp = this.imp();
+                    imp.toolbar_view
+                        .set_reveal_bottom_bars(model.selected_item().is_some());
+
                     let is_system_processes = model.selected_item().is_some_and(|object| {
                         object
                             .downcast::<ApplicationEntry>()
@@ -606,6 +614,7 @@ impl ResApplications {
                             .id()
                             .is_none()
                     });
+
                     imp.information_button
                         .set_sensitive(model.selected() != u32::MAX);
                     imp.end_application_button
@@ -617,10 +626,9 @@ impl ResApplications {
             .set_key_capture_widget(self.parent().as_ref());
 
         imp.search_entry.connect_search_changed(clone!(
-            #[strong(rename_to = this)]
-            self,
+            #[weak]
+            imp,
             move |_| {
-                let imp = this.imp();
                 if let Some(filter) = imp.filter_model.borrow().filter() {
                     filter.changed(FilterChange::Different);
                 }
@@ -667,8 +675,8 @@ impl ResApplications {
 
         if let Some(column_view_sorter) = imp.column_view.borrow().sorter() {
             column_view_sorter.connect_changed(clone!(
-                #[weak(rename_to = this)]
-                self,
+                #[weak]
+                imp,
                 move |sorter, _| {
                     if let Some(sorter) = sorter.downcast_ref::<gtk::ColumnViewSorter>() {
                         let current_column = sorter
@@ -676,8 +684,7 @@ impl ResApplications {
                             .map(|column| column.as_ptr() as usize)
                             .unwrap_or_default();
 
-                        let current_column_number = this
-                            .imp()
+                        let current_column_number = imp
                             .columns
                             .borrow()
                             .iter()
@@ -783,11 +790,11 @@ impl ResApplications {
                         .unwrap()
                         .is_running()
                 {
-                    if let Some((dialog_id, dialog)) = dialog_opt {
-                        if dialog_id.as_deref() == app_id.as_deref() {
-                            AdwDialogExt::close(dialog);
-                            dialog_opt = &None;
-                        }
+                    if let Some((dialog_id, dialog)) = dialog_opt
+                        && dialog_id.as_deref() == app_id.as_deref()
+                    {
+                        AdwDialogExt::close(dialog);
+                        dialog_opt = &None;
                     }
                     *imp.popped_over_app.borrow_mut() = None;
                     ids_to_remove.insert(app_id.clone());
@@ -795,10 +802,10 @@ impl ResApplications {
 
                 if let Some(app) = apps_context.get_app(&app_id) {
                     object.update(app, apps_context);
-                    if let Some((dialog_id, dialog)) = dialog_opt {
-                        if *dialog_id == app_id {
-                            dialog.update(&object);
-                        }
+                    if let Some((dialog_id, dialog)) = dialog_opt
+                        && *dialog_id == app_id
+                    {
+                        dialog.update(&object);
                     }
                     already_existing_ids.insert(app_id);
                 }
@@ -830,11 +837,17 @@ impl ResApplications {
             sorter.changed(gtk::SorterChange::Different);
         }
 
+        if imp.selection_model.borrow().selection().size() == 0 {
+            imp.toolbar_view.set_reveal_bottom_bars(false);
+            imp.information_button.set_sensitive(false);
+            imp.end_application_button.set_sensitive(false);
+        }
+
         // -1 because we don't want to count System Processes
-        self.set_tab_usage_string(i18n_f(
+        self.set_tab_usage_labels(UsageLabels::single_without_icon(i18n_f(
             "Running Apps: {}",
             &[&(store.n_items().saturating_sub(1)).to_string()],
-        ));
+        )));
     }
 
     pub fn open_app_action_dialog(&self, app: &ApplicationEntry, action: ProcessAction) {
@@ -983,7 +996,7 @@ fn get_action_name(action: ProcessAction, name: &str) -> String {
 
 fn get_action_warning(action: ProcessAction) -> String {
     match action {
-        ProcessAction::TERM => i18n("Unsaved work might be lost."),
+        ProcessAction::TERM => i18n("Unsaved work might be lost"),
         ProcessAction::STOP => i18n(
             "Halting an app can come with serious risks such as losing data and security implications. Use with caution.",
         ),

@@ -33,7 +33,7 @@ impl OsInfo {
 
         let kernel_version = read_parsed(PATH_KERNEL_VERSION).ok();
 
-        OsInfo {
+        Self {
             name,
             kernel_version,
         }

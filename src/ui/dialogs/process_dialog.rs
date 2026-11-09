@@ -2,9 +2,9 @@ use adw::{prelude::*, subclass::prelude::*};
 use gtk::glib::{self, GString};
 use log::trace;
 
-use crate::config::PROFILE;
-use crate::i18n::i18n;
+use crate::config::DEVLOPMENT_BUILD;
 use crate::ui::pages::processes::process_entry::ProcessEntry;
+use crate::utils::i18n::i18n;
 use crate::utils::units::{convert_fraction, convert_speed, convert_storage, format_time};
 
 mod imp {
@@ -14,7 +14,7 @@ mod imp {
     use gtk::CompositeTemplate;
 
     #[derive(Debug, CompositeTemplate, Default)]
-    #[template(resource = "/net/nokyan/Resources/ui/dialogs/process_dialog.ui")]
+    #[template(resource = "/org/gnome/Resources/ui/dialogs/process_dialog.ui")]
     pub struct ResProcessDialog {
         #[template_child]
         pub name: TemplateChild<gtk::Label>,
@@ -82,7 +82,7 @@ mod imp {
             let obj = self.obj();
 
             // Devel Profile
-            if PROFILE == "Devel" {
+            if DEVLOPMENT_BUILD {
                 obj.add_css_class("devel");
             }
         }
